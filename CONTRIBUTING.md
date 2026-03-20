@@ -13,7 +13,7 @@ TC's <a href="https://www.oasis-open.org/committees/comments/index.php?wg_abbrev
 
 <p><b>Use of Contributions</b>.  As with all OASIS Technical Committee assets (TC <a href="https://wiki.oasis-open.org/">Wiki</a>, TC <a href="https://issues.oasis-open.org/secure/Dashboard.jspa">Issues Tracker</a>, TC <a href="https://lists.oasis-open.org/archives/">General Discussion List archives</a>, TC <a href="http://docs.oasis-open.org/">OASIS Library</a> assets), content placed into this GitHub repository is visible and publicly accessible.  Subject to applicable <a href="https://github.com/oasis-tcs/xliff-xliff-22/blob/master/LICENSE.md">licensing</a> rules, the repository content may be re-used freely, including the creation and publication of derivative works.</p>
 
-<p><b>Cloning and forking</b>. May users clone and fork this repository?  Yes. Just as versioned content maintained in any OASIS TC's <a href="https://tools.oasis-open.org/version-control/browse/">SVN/Subversion repository</a> may be checked out to a remote SVN repository and used by anyone, this GitHub repository may be forked or cloned for use by any party.
+<p><b>Cloning and forking</b>. May users clone and fork this repository?  Yes, this GitHub repository may be forked or cloned for use by any party.
 
 <p>Please see the <a href="https://github.com/oasis-tcs/xliff-xliff-22/blob/master/README.md">README</a> for general description of this repository, and the <a href="https://github.com/oasis-tcs/xliff-xliff-22/blob/master/LICENSE.md">LICENSE</a> file for licensing.</p>
 </div>
