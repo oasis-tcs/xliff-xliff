@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+                         "http://www.docbook.org/xml/4.5/docbookx.dtd" [
+                         <!ENTITY % xinclude SYSTEM "../../docbook/xinclude.mod" >
+                         %xinclude;
+                         <!ENTITY % local.common.attrib "xml:base CDATA #IMPLIED" >
+                         ]>
+<section id="itsm_annotatorsRef">
+    <title>annotatorsRef</title>
+
+    <para>Annotators Reference - the <code>annotatorsRef</code> attribute holds provenance
+        information about tools that produced <olink targetdoc="../xliff22.xml" targetptr="ITS20"
+            >[ITS]</olink> metadata. See <olink targetdoc="../xliff22.xml" targetptr="ITS20"
+            >[ITS]</olink>
+        <ulink url="http://www.w3.org/TR/2013/REC-its20-20131029/#its-tool-annotation
+                ">Tools Annotation</ulink> mechanism.</para>
+
+
+    <para><emphasis>Value description:</emphasis> Text. </para>
+
+    <para><emphasis>Default value:</emphasis> default values for this attribute depend on the
+        element in which it is used:</para>
+
+    <itemizedlist>
+        <listitem>
+            <para>When used in <olink targetdoc="../../elements/structural/file.xml"
+                    targetptr="file"><code>&lt;file&gt;</code></olink>:</para>
+
+            <para>The value is undefined.</para>
+        </listitem>
+        <listitem>
+            <para>When used in any other admissible structural element (<olink
+                    targetdoc="../../elements/structural/group.xml" targetptr="group"
+                        ><code>&lt;group></code></olink> or <olink
+                    targetdoc="../../elements/structural/unit.xml" targetptr="unit"
+                        ><code>&lt;unit></code></olink>) or any of the elements defined in the
+                    <olink targetdoc="../../modules/itsm/specification" targetptr="ITS-module">ITS
+                    Module</olink>:</para>
+            <para>The value of the <link linkend="itsm_annotatorsRef"
+                    ><code>annotatorsRef</code></link> attribute of its parent element (which can be
+                undefined).</para>
+        </listitem>
+        <listitem>
+            <para>When used in annotations markers <olink targetdoc="../../elements/inline/mrk.xml"
+                    targetptr="mrk"><code>&lt;mrk></code></olink> or <olink
+                    targetdoc="../../elements/inline/sm.xml" targetptr="sm"
+                    ><code>&lt;sm></code></olink>:</para>
+
+
+            <para>The value of the <link linkend="itsm_annotatorsRef"
+                    ><code>annotatorsRef</code></link> attribute of the innermost <olink
+                    targetdoc="../../elements/inline/mrk.xml" targetptr="mrk"
+                    ><code>&lt;mrk></code></olink>, <olink
+                    targetdoc="../../elements/structural/unit.xml" targetptr="unit"
+                        ><code>&lt;unit&gt;</code></olink>, or <olink
+                    targetdoc="../../elements/candidates/match.xml" targetptr="match"
+                        ><code>&lt;mtc:match></code></olink> element, element, in which the marker
+                in question is located (which can be undefined). </para>
+
+        </listitem>
+        <listitem>
+            <para> When used in top level module elements (<olink
+                    targetdoc="../../elements/candidates/match.xml" targetptr="match"
+                        ><code>&lt;mtc:match></code></olink>) :</para>
+            <para>The value is undefined.</para>
+
+        </listitem>
+
+
+    </itemizedlist>
+
+    <itemizedlist>
+        <title>Constraints</title>
+        <listitem>
+            <para>All Constraints that follow from <olink targetdoc="../../xliff22.xml"
+                    targetptr="ITS20">[ITS]</olink>
+                <ulink url="https://www.w3.org/TR/its20/#its-tool-annotation">Tools
+                    Annotation</ulink>.</para>
+        </listitem>
+
+    </itemizedlist>
+
+    <note>
+        <para>The IRI part of the value string is used as the annotator identifier. The semantics of
+            how the IRI identifies the ITS producing tool is not prescribed. Possible mechanisms are
+            for instance: to encode information directly in the IRI, as parameters or similar; to
+            reference an external resource that provides such information, an XML file, an RDF
+            declaration and so on; or to reference another part of the document that provides such
+            information.</para>
+    </note>
+
+    <para><emphasis>Used in:</emphasis>
+        <olink targetdoc="../../elements/structural/file.xml" targetptr="file"
+                ><code>&lt;file></code></olink>
+        <olink targetdoc="../../elements/structural/group.xml" targetptr="group"
+                ><code>&lt;group></code></olink>
+        <olink targetdoc="../../elements/structural/unit.xml" targetptr="unit"
+                ><code>&lt;unit></code></olink>, <olink targetdoc="../../elements/inline/mrk.xml"
+            targetptr="mrk"><code>&lt;mrk></code></olink>, <olink
+            targetdoc="../../elements/inline/sm.xml" targetptr="sm"><code>&lt;sm></code></olink>,
+            <olink targetdoc="../../elements/modules/match.xml" targetptr="match"
+                ><code>&lt;mtc:match></code></olink>, <olink
+            targetdoc="../../elements/modules/revisions.xml" targetptr="revisions"
+                ><code>&lt;ctr:revisions></code></olink>, or <olink
+            targetdoc="../../elements/modules/revision.xml" targetptr="revision"
+                ><code>&lt;ctr:revision></code></olink>.</para>
+
+    <itemizedlist>
+        <title>Processing Requirements</title>
+        <listitem>
+            <para>All Processing Requirements that follow from <olink targetdoc="../../xliff22.xml"
+                    targetptr="ITS20">[ITS]</olink>
+                <ulink url="https://www.w3.org/TR/its20/#its-tool-annotation">Tools
+                    Annotation</ulink>.</para>
+        </listitem>
+    </itemizedlist>
+    <para>See the <olink targetdoc="../../modules/itsm/specifcation.xml" targetptr="toolsAnnotation"
+            >ITS Tools Annotation</olink> for the normative usage description of this attribute
+        inline.</para>
+
+</section>

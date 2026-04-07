@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE appendix PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.docbook.org/xml/4.5/docbookx.dtd" [
+                         
+<!ENTITY % base SYSTEM "../docbook/dbgenent.mod">
+%base;
+
+<!ENTITY % xinclude SYSTEM "../docbook/xinclude.mod">
+%xinclude;
+]>
+<appendix id="coreValidation">
+    <title>XLIFF Grammar Files</title>
+    <para>The basic grammar and structure of XLIFF &version; is defined using several XML Schemas
+        and one XML catalog. The module schemas are specifically referenced from their
+        respective modules.</para>
+
+    <orderedlist>
+        <listitem id="CoreSchema">
+            <para>XLIFF Core <olink targetdoc="../introduction/introduction.xml"
+                    targetptr="XMLSchema">[XML Schema]</olink>,</para>
+            <para><ulink url="&this-loc;/schemas/xliff_core_2.2.xsd"
+                    >&this-loc;/schemas/xliff_core_2.2.xsd</ulink></para>
+
+        </listitem>
+        <listitem id="XLIFFCatalog">
+            <para><olink targetdoc="../introduction/introduction.xml" targetptr="XMLCatalogs">[XML
+                    Catalog]</olink> of XLIFF Defined XML Schemas,</para>
+            <para><ulink url="&this-loc;/schemas/catalog.xml"
+                >&this-loc;/schemas/catalog.xml</ulink></para>
+        </listitem>
+
+        <listitem>
+            <para>XML Schemas of XLIFF Modules are referenced from those modules.</para>
+        </listitem>
+    </orderedlist>
+
+
+    <section id="schema_tree">
+        <title>XML Schemas Tree</title>
+        
+        <programlisting>
+    
+<ulink url="&this-loc;/schemas/xliff_core_2.2.xsd"><code>Core XML Schema</code></ulink>
+    |
+    +---<ulink url="&this-loc;/schemas/matches.xsd"><code>Candidates Module XML Schema</code></ulink>
+    |
+    +---<ulink url="&this-loc;/schemas/glossary.xsd"><code>Glossary Module XML Schema</code></ulink>
+    |
+    +---<ulink url="&this-loc;/schemas/fs.xsd"><code>Format Style Module XML Schema</code></ulink>
+    |
+    +---<ulink url="&this-loc;/schemas/metadata.xsd"><code>Metadata Module XML Schema</code></ulink>
+    |
+    +---<ulink url="&this-loc;/schemas/resource_data.xsd"><code>Resource Data Module XML Schema</code></ulink>
+    |
+    +---<ulink url="&this-loc;/schemas/size_restriction.xsd"><code>Size and Length Restriction Module XML Schema</code></ulink>
+    |
+    +---<ulink url="&this-loc;/schemas/validation.xsd"><code>Validation Module XML Schema</code></ulink>
+    |
+    +---<ulink url="&this-loc;/schemas/its.xsd"><code>ITS Module XML Schema (W3C namespace subset)</code></ulink>
+    |
+    +---<ulink url="&this-loc;/schemas/itsm.xsd"><code>ITS Module XML Schema (additional attributes)</code></ulink>
+    |
+    +---<ulink url="&this-loc;/schemas/plural_gender_select.xsd">Plural, Gender, and Select Module</ulink>
+  
+ 
+</programlisting>
+        
+    </section>
+
+</appendix>

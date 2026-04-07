@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.docbook.org/xml/4.5/docbookx.dtd" [
+                         
+<!ENTITY % base SYSTEM "../docbook/dbgenent.mod">
+%base;
+
+<!ENTITY % xinclude SYSTEM "../docbook/xinclude.mod">
+%xinclude;
+
+]>
+<section>
+  <title>Introduction</title>
+
+  <para>XLIFF is the <emphasis>XML Localization Interchange File Format</emphasis> designed by a
+    group of multilingual content publishers, software providers, localization service providers,
+    localization tools providers, and researchers. It is intended to give any multilingual content
+    owner a single interchange file format that can be understood by any localization provider,
+    using any conformant localization tool. While the primary focus is on being a lossless
+    interchange format, usage of XLIFF as a processing format is neither encouraged nor discouraged
+    or prohibited.</para>
+
+  <para><emphasis>All text is normative unless otherwise labeled.</emphasis>
+  </para>
+
+  <section id="newSinceLast">
+    <title>Changes from earlier Versions</title>
+    <para>XLIFF 2.2 has two main significant differences from the previous version published (XLIFF
+      2.1):</para>
+
+    <orderedlist>
+      <listitem>
+        <para> XLIFF 2.2 is presented in two separate documents:</para>
+        <itemizedlist>
+          <listitem>
+            <para><emphasis>XLIFF Version 2.2. Part 1: Core</emphasis> presents the XLIFF core,
+              which is the minimum set of XML elements and attributes required to create a valid
+              XLIFF file.</para>
+          </listitem>
+          <listitem>
+            <para><emphasis>XLIFF Version 2.2. Part 2: Extended</emphasis> presents the XLIFF core as
+              well as the optional modules that were created to store information about specific
+              processes. For example, the <olink targetdoc="../modules/candidates/specification.xml"
+                targetptr="candidates">Translation Candidates Module</olink> was designed to store
+              translation suggestions and their associated metadata.</para>
+          </listitem>
+        </itemizedlist>
+
+        <para>In previous versions of XLIFF, the specification was always presented in a single
+          document. This change in the presentation mode was introduced to produce a simplified
+          version (<emphasis>Part 1: Core</emphasis>) of the specification that would be easier to
+          use, especially for those agents who are not interested in implementing the optional
+          modules.</para>
+      </listitem>
+      <listitem>
+        <para>XLIFF 2.2 includes the new <olink
+            targetdoc="../modules/plural_gender_select/specification.xml"
+            targetptr="plural_gender_select_module">Plural, Gender, and Select Module</olink>, which
+          was designed to store information needed to represent and process messages with variants.
+          The new module description can be found in the document XLIFF Version 2.2. Part 2:
+          Extended.</para>
+      </listitem>
+    </orderedlist>
+    <para>For a detailed list of changes made between version 2.1 and the current version (2.2)
+      please see the <olink targetdoc="../appendices/changeTracking.xml"
+        targetptr="specChangeTracking">Specification Change Tracking</olink> section in Appendix
+      D.</para>
+    <para>Note that all changes introduced in version 2.2 were designed to maintain compatibility
+      with versions 2.0 and 2.1.</para>
+  </section>
+
+  <section id="definitions">
+    <title>Definition of terms</title>
+
+    <variablelist>
+
+      <varlistentry>
+        <term>Agent</term>
+
+        <listitem>
+          <para>any application or tool that generates (creates), reads, edits, writes, processes,
+            stores, renders or otherwise handles XLIFF documents.</para>
+          <para>Agent is the most general application conformance target that subsumes all other
+            specialized user agents disregarding whether they are defined in this specification or
+            not.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Enrich</term>
+        <term>Enriching</term>
+        <listitem>
+          <para> the process of associating module and extension based metadata and resources with
+            the Extracted XLIFF payload </para>
+          <itemizedlist>
+            <title>Processing Requirements</title>
+            <listitem>
+              <para>Enriching MAY happen at the time of Extraction. </para>
+            </listitem>
+          </itemizedlist>
+          <note>
+            <para>Extractor knowledge of the native format is not assumed while Enriching.</para>
+          </note>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Enricher</term>
+        <term>Enricher Agent</term>
+        <listitem>
+          <para>any Agent that performs the Enriching process </para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Extract</term>
+        <term>Extraction</term>
+        <listitem>
+          <para>the process of encoding localizable content from a native content or User Interface
+            format as XLIFF payload, so that localizable parts of the content in the source language
+            are available for translation into the target language along with the necessary context
+            information </para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Extractor</term>
+        <term>Extractor Agent</term>
+
+        <listitem>
+          <para>any Agent that performs the Extraction process </para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Merge</term>
+        <term>Merging</term>
+
+        <listitem>
+          <para>the process of importing XLIFF payload back to the originating native format, based
+            on the <emphasis>full knowledge</emphasis> of the Extraction mechanism, so that the
+            localized content or User Interface strings replace the source language in the native
+            format </para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Merger</term>
+        <term>Merger Agent</term>
+
+        <listitem>
+          <para>an Agent that performs the Merge process </para>
+
+          <warning>
+            <para> Unless specified otherwise, any Merger is deemed to have the same knowledge of
+              the native format as the Extractor throughout the specification. </para>
+            <para>Mergers independent of Extractors can succeed, but it is out of scope of this
+              specification to specify interoperability for merging back without the full Extractor
+              knowledge of the native format. </para>
+          </warning>
+        </listitem>
+
+      </varlistentry>
+
+      <varlistentry>
+        <term>Modify</term>
+        <term>Modification</term>
+        <listitem>
+          <para> the process of changing core and module XLIFF structural and inline elements that
+            were previously created by other Writers </para>
+          <itemizedlist>
+            <title>Processing Requirements</title>
+            <listitem>
+              <para> XLIFF elements MAY be Modified and Enriched at the same time. </para>
+            </listitem>
+          </itemizedlist>
+          <note>
+            <para>Extractor or Enricher knowledge of the native format is not assumed while
+              modifying.</para>
+          </note>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Modifier</term>
+        <term>Modifier Agent</term>
+
+        <listitem>
+          <para>an Agent that performs the Modification process </para>
+
+        </listitem>
+
+      </varlistentry>
+
+      <varlistentry>
+        <term>Translation</term>
+        <term>Translate</term>
+
+        <listitem>
+          <para>a rendering of the meaning of the source text, expressed in the target
+            language</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Writer</term>
+        <term>Writer Agent</term>
+
+        <listitem>
+          <para>an Agent that creates, generates, or otherwise writes an XLIFF document for whatever
+            purpose, including but not limited to Extractor, Modifier, and Enricher Agents. </para>
+
+          <note>
+            <para> Since XLIFF is intended as an exchange format rather than a processing format,
+              many applications will need to generate XLIFF documents from their internal processing
+              formats, even in cases when they are processing XLIFF documents created by another
+              Extractor. </para>
+          </note>
+        </listitem>
+
+
+      </varlistentry>
+    </variablelist>
+  </section>
+
+  <section id="keyconcepts">
+    <title>Key concepts</title>
+
+    <variablelist>
+      <varlistentry>
+        <term>XLIFF Core</term>
+
+        <listitem>
+          <para>The core of XLIFF &version; consists of the minimum set of XML elements and
+            attributes required to (a) prepare a document that contains text extracted from one or
+            more files for localization, (b) allow it to be completed with the translation of the
+            extracted text, and (c) allow the generation of translated versions of the original
+            document.</para>
+
+          <para>The XML namespace that corresponds to the core subset of XLIFF &version; is
+              <code>"urn:oasis:names:tc:xliff:document:&version;"</code>.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>XLIFF-defined (elements and attributes)</term>
+        <listitem>
+          <para>The following is the list of allowed schema URI prefixes for XLIFF-defined elements
+            and attributes:</para>
+          <simplelist>
+            <member><code>urn:oasis:names:tc:xliff:</code></member>
+            <member><code>http://www.w3.org/2005/11/its</code></member>
+          </simplelist>
+
+          <para>However, the following namespaces are NOT considered XLIFF-defined for the purposes
+            of the XLIFF &version; specification:</para>
+          <simplelist>
+            <member><code>urn:oasis:names:tc:xliff:document:1.0</code></member>
+            <member><code>urn:oasis:names:tc:xliff:document:1.1</code></member>
+            <member><code>urn:oasis:names:tc:xliff:document:1.2</code></member>
+          </simplelist>
+          <para>Elements and attributes from other namespaces are not XLIFF-defined.</para>
+        </listitem>
+
+
+      </varlistentry>
+
+      <varlistentry>
+        <term>XLIFF Document</term>
+
+        <listitem>
+          <para>Any XML document that declares the namespace
+              <code>"urn:oasis:names:tc:xliff:document:&version;"</code> as its main namespace, has
+              <olink targetdoc="elements/structural/xliff.xml" targetptr="xliff"
+                ><code>&lt;xliff></code></olink> as the root element and complies with the XML
+            Schemas and the declared Constraints that are part of this specification.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>XLIFF Module</term>
+
+        <listitem>
+          <para>A module is an OPTIONAL set of XML elements and attributes that stores information
+            about a process applied to an XLIFF Document and the data incorporated into the document
+            as result of that process.</para>
+
+          <para>Each official module defined for XLIFF &version; has its grammar defined in an
+            independent XML Schema with a separate namespace.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
+
+
+</section>

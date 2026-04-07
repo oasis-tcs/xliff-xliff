@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="stylesheets/oasis-specification-html-offline.xsl"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "docbook/docbookx.dtd"[
+
+<!ENTITY % base SYSTEM "docbook/dbgenent.mod">
+%base;
+
+<!ENTITY % xinclude SYSTEM "docbook/xinclude.mod">
+%xinclude;
+
+]>
+
+
+<article status="&standard;" lang="en-US">
+  <articleinfo>
+    <title>XLIFF Version &version;. Part 1: Core</title>
+
+    <releaseinfo role="track">Standards Track Work Product</releaseinfo>
+
+    <productname>&name;</productname>
+
+    <productnumber>&stage;</productnumber>
+
+    <releaseinfo role="OASIS-specification-this-authoritative"
+      >https://docs.oasis-open.org/xliff/xliff-core/v2.2/cs01/xliff-core-v2.2-cs01-part1.html</releaseinfo>
+    <releaseinfo role="OASIS-specification-this"
+      >https://docs.oasis-open.org/xliff/xliff-core/v2.2/cs01/xliff-core-v2.2-cs01-part1.pdf</releaseinfo>
+    <releaseinfo role="OASIS-specification-this"
+      >https://docs.oasis-open.org/xliff/xliff-core/v2.2/cs01/xliff-core-v2.2-cs01-part1.xml</releaseinfo>
+
+    <releaseinfo role="OASIS-specification-previous-authoritative"
+      >https://docs.oasis-open.org/xliff/xliff-core/v2.2/&pstage;/xliff-core-v2.2-&pstage;-part1.html</releaseinfo>
+    <releaseinfo role="OASIS-specification-previous"
+      >https://docs.oasis-open.org/xliff/xliff-core/v2.2/&pstage;/xliff-core-v2.2-&pstage;-part1.pdf</releaseinfo>
+    <releaseinfo role="OASIS-specification-previous"
+      >https://docs.oasis-open.org/xliff/xliff-core/v2.2/&pstage;/xliff-core-v2.2-&pstage;-part1.xml</releaseinfo>
+    
+    <releaseinfo role="OASIS-specification-latest-authoritative"
+      >https://docs.oasis-open.org/xliff/xliff-core/v2.2/xliff-core-v2.2-part1.html</releaseinfo>
+    <releaseinfo role="OASIS-specification-latest"
+      >https://docs.oasis-open.org/xliff/xliff-core/v2.2/xliff-core-v2.2-part1.pdf</releaseinfo>
+    <releaseinfo role="OASIS-specification-latest"
+      >https://docs.oasis-open.org/xliff/xliff-core/v2.2/xliff-core-v2.2-part1.xml</releaseinfo>
+
+    <releaseinfo role="committee"><ulink url="https://www.oasis-open.org/committees/xliff/">OASIS
+        XLIFF TC</ulink></releaseinfo>
+
+    <authorgroup>
+      <othercredit role="chair">
+        <honorific>Dr</honorific>
+        <firstname>Lucía</firstname>
+        <surname>Morado Vázquez</surname>
+        <affiliation>
+          <orgname><ulink url="https://www.unige.ch/en/">University of Geneva</ulink></orgname>
+          <address format="linespecific"><email>lucia.morado@unige.ch</email></address>
+        </affiliation>
+        <email>lucia.morado@unige.ch</email>
+      </othercredit>
+      <editor>
+        <firstname>Rodolfo M.</firstname>
+        <surname>Raya</surname>
+        <affiliation>
+          <orgname><ulink url="https://maxprograms.com">Maxprograms</ulink></orgname>
+          <address format="linespecific"><email>rmraya@maxprograms.com</email></address>
+        </affiliation>
+        <email>rmraya@maxprograms.com</email>
+      </editor>
+      <editor>
+        <honorific>Dr</honorific>
+        <firstname>Lucía</firstname>
+        <surname>Morado Vázquez</surname>
+        <affiliation>
+          <orgname><ulink url="https://www.unige.ch/en/">University of Geneva</ulink></orgname>
+          <address format="linespecific"><email>lucia.morado@unige.ch</email></address>
+        </affiliation>
+        <email>lucia.morado@unige.ch</email>
+      </editor>
+    </authorgroup>
+
+    <pubdate>&pubdate;</pubdate>
+
+    <copyright>
+      <year>&pubyear;</year>
+      <holder>OASIS Open, Inc. All Rights Reserved.</holder>
+    </copyright>
+
+    <legalnotice role="additional">
+      <title>Additional artifacts</title>
+
+      <para>This prose specification is one component of a Work Product that also includes:</para>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para>XLIFF Version 2.2. Part 1: Core. (this document) <ulink
+              url="https://docs.oasis-open.org/xliff/xliff-core/v2.2/xliff-core-v2.2-part1.html"
+              >https://docs.oasis-open.org/xliff/xliff-core/v2.2/xliff-core-v2.2-part1.html</ulink></para>
+        </listitem>
+        <listitem>
+          <para>XLIFF Version 2.2. Part 2: Extended. <ulink
+              url="https://docs.oasis-open.org/xliff/xliff-core/v2.2/xliff-extended-v2.2-part2.html"
+              >https://docs.oasis-open.org/xliff/xliff-core/v2.2/xliff-extended-v2.2-part2.html</ulink></para>
+        </listitem>
+        <listitem>
+          <para>XML schemas: <ulink
+              url="https://docs.oasis-open.org/xliff/xliff-core/v2.2/schemas/"
+              >https://docs.oasis-open.org/xliff/xliff-core/v2.2/schemas/</ulink>
+          </para>
+        </listitem>
+      </itemizedlist>
+    </legalnotice>
+
+    <legalnotice role="related">
+      <title>Related Work</title>
+
+      <para>This specification replaces or supersedes:</para>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para><emphasis>XLIFF Version 2.1.</emphasis> 13 February 2018. OASIS Standard. Latest
+            Stage: <ulink
+              url="https://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html"
+              >https://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html</ulink></para>
+        </listitem>
+      </itemizedlist>
+
+    </legalnotice>
+
+    <legalnotice role="namespaces">
+      <title>Declared XML Namespaces</title>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para>urn:oasis:names:tc:xliff:document:2.2</para>
+        </listitem>
+        <listitem>
+          <para>urn:oasis:names:tc:xliff:matches:2.0</para>
+        </listitem>
+        <listitem>
+          <para>urn:oasis:names:tc:xliff:glossary:2.0</para>
+        </listitem>
+        <listitem>
+          <para>urn:oasis:names:tc:xliff:fs:2.0</para>
+        </listitem>
+        <listitem>
+          <para>urn:oasis:names:tc:xliff:metadata:2.0</para>
+        </listitem>
+        <listitem>
+          <para>urn:oasis:names:tc:xliff:resourcedata:2.0</para>
+        </listitem>
+        <listitem>
+          <para>urn:oasis:names:tc:xliff:sizerestriction:2.0</para>
+        </listitem>
+        <listitem>
+          <para>urn:oasis:names:tc:xliff:validation:2.0</para>
+        </listitem>
+        <listitem>
+          <para>http://www.w3.org/2005/11/its</para>
+        </listitem>
+        <listitem>
+          <para>urn:oasis:names:tc:xliff:itsm:2.0</para>
+        </listitem>
+        <listitem>
+          <para>urn:oasis:names:tc:xliff:pgs:1.0</para>
+        </listitem>
+      </itemizedlist>
+    </legalnotice>
+
+    <abstract>
+      <para>This document is Part 1 of a multi-part specification which defines Version &version; of
+        the XML Localisation Interchange File Format (XLIFF). The purpose of this vocabulary is to
+        store localizable data and carry it from one step of the localization process to the other,
+        while allowing interoperability between and among tools.</para>
+    </abstract>
+
+    <legalnotice role="status">
+      <title>Status</title>
+
+      <para>This document was last revised or approved by the XLIFF TC on the above date. The level
+        of approval is also listed above. Check the "Latest stage" location noted above for possible
+        later revisions of this document. Any other numbered Versions and other technical work
+        produced by the Technical Committee (TC) are listed at <ulink
+          url="https://groups.oasis-open.org/communities/tc-community-home2?CommunityKey=3d0f1f56-8477-4b53-9b14-018dc7d3eecf"
+          >https://groups.oasis-open.org/communities/tc-community-home2?CommunityKey=3d0f1f56-8477-4b53-9b14-018dc7d3eecf</ulink>.</para>
+
+      <para>TC members should send comments on this document to the TC's email list. Others should
+        send comments to the TC's public comment list, after subscribing to it by following the
+        instructions at <ulink
+          url="https://groups.oasis-open.org/communities/tc-community-home2?CommunityKey=3d0f1f56-8477-4b53-9b14-018dc7d3eecf"
+          >https://groups.oasis-open.org/communities/tc-community-home2?CommunityKey=3d0f1f56-8477-4b53-9b14-018dc7d3eecf</ulink></para>
+
+      <para>This document is provided under the <ulink
+          url="https:https://www.oasis-open.org/policies-guidelines/ipr/#RF-Rand">RF on RAND
+          Terms</ulink> Mode of the <ulink url="https://www.oasis-open.org/policies-guidelines/ipr/"
+          >OASIS IPR Policy</ulink>, the mode chosen when the Technical Committee was established.
+        For information on whether any patents have been disclosed that may be essential to
+        implementing this document, and any offers of patent licensing terms, please refer to the
+        Intellectual Property Rights section of the TC's web page (<ulink
+          url="https://www.oasis-open.org/committees/xliff/ipr.php"
+          >https://www.oasis-open.org/committees/xliff/ipr.php</ulink>). </para>
+
+      <para>Note that any machine-readable content (<ulink
+          url="https://www.oasis-open.org/policies-guidelines/tc-process-2017-05-26/#wpComponentsCompLang"
+          >Computer Language Definitions</ulink>) declared Normative for this Work Product is
+        provided in separate plain text files. In the event of a discrepancy between any such plain
+        text file and display content in the Work Product's prose narrative document(s), the content
+        in the separate plain text file prevails. Key words: </para>
+    </legalnotice>
+
+    <legalnotice role="keywords">
+      <title>Key words</title>
+      <para>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD
+        NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be
+        interpreted as described in BCP 14 <olink targetdoc="appendices/references.xml"
+          targetptr="rfc2119">[RFC2119]</olink> and <olink targetdoc="appendices/references.xml"
+          targetptr="rfc8174">[RFC8174]</olink> when, and only when, they appear in all capitals, as
+        shown here.</para>
+    </legalnotice>
+
+    <legalnotice role="citation">
+      <title>Citation format</title>
+      <para>When referencing this document, the following citation format should be used:</para>
+      <para><emphasis role="strong">[XLIFF-2.2-part1]</emphasis></para>
+      <para>XLIFF Version 2.2 Part 1:Core. Edited by Rodolfo M. Raya and Lucía Morado Vázquez
+        &pubdate;. OASIS &standard;. <ulink
+          url="https://docs.oasis-open.org/xliff/xliff-core/v2.2/xliff-v2.2-part1-core.htmls"
+          >https://docs.oasis-open.org/xliff/xliff-core/v2.2/xliff-v2.2-part1-core.html</ulink>.
+        Latest stage <ulink
+          url="https://docs.oasis-open.org/xliff/xliff-core/v2.2/xliff-v2.2-part1-core.html"
+          >https://docs.oasis-open.org/xliff/xliff-core/v2.2/xliff-v2.2-part1-core.html</ulink>.
+      </para>
+    </legalnotice>
+
+
+    <legalnotice role="notices">
+      <title>Notices</title>
+
+      <para>Copyright © OASIS Open &pubyear;. All Rights Reserved.</para>
+
+      <para>Distributed under the terms of the OASIS IPR Policy, [<ulink
+          url="https://www.oasis-open.org/policies-guidelines/ipr/"
+          >https://www.oasis-open.org/policies-guidelines/ipr/</ulink>]. For complete copyright
+        information please see the full Notices section in an Appendix below.</para>
+    </legalnotice>
+  </articleinfo>
+
+  <xi:include href="introduction/introduction.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+  <xi:include href="fragments/fragments.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  <xi:include href="core/core.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  <xi:include href="conformance/conformance.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  <!-- Appendices -->
+  <xi:include href="appendices/references.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+  <xi:include href="appendices/mediaType.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+  <xi:include href="appendices/grammars.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+  <xi:include href="appendices/changeTracking.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+  <xi:include href="appendices/acknowledgements.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+  <xi:include href="appendices/revisionHistory.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+  <xi:include href="appendices/notices.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+</article>

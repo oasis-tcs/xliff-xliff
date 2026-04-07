@@ -1,0 +1,1 @@
+java -cp lib\merger.jar com.maxprograms.xml.Merger xliff23.xml xliff-extended-v2.3-part2.xml

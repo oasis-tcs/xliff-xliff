@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.docbook.org/xml/4.5/docbookx.dtd" [
+<!ENTITY % xinclude SYSTEM "../docbook/xinclude.mod">
+%xinclude;
+<!ENTITY % local.common.attrib "xml:base CDATA #IMPLIED">
+]>
+<section id="state">
+    <title>state</title>
+
+    <para>State - indicates the state of the translation of a segment.</para>
+
+    <para><emphasis>Value description:</emphasis> The value MUST be set to one of the following
+        values:</para>
+
+    <simplelist>
+        <member><code>initial</code> - indicates the segment is in its initial state.</member>
+        <member><code>translated</code> - indicates the segment has been translated.</member>
+        <member><code>reviewed</code> - indicates the segment has been reviewed.</member>
+        <member><code>final</code> - indicates the segment is finalized and ready to be
+            used.</member>
+    </simplelist>
+    <para>The 4 defined states constitute a simple linear state machine that advances in the above
+        given order. No particular workflow or process is prescribed, except that the three states
+        more advanced than the default <code>initial</code> assume the existence of a translation
+        within the segment. One can further specify the state of the translation using the <olink
+            targetdoc="substate.xml" targetptr="substate"><code>subState</code></olink>
+        attribute.</para>
+
+    <para><emphasis>Default value:</emphasis>
+        <code>initial</code></para>
+
+    <para><emphasis>Used in:</emphasis>
+        <olink targetdoc="../elements/structural/segment.xml" targetptr="segment"
+                ><code>&lt;segment&gt;</code></olink></para>
+
+    <itemizedlist>
+        <title>Processing Requirements</title>
+        <listitem>
+            <para>When the optional <link linkend="state"><code>state</code></link> attribute is
+                added to a <olink targetdoc="../elements/structural/segment.xml" targetptr="segment"
+                        ><code>&lt;segment></code></olink> element, its value MUST be set to
+                    <code>initial</code> if the element doesn't have a <olink
+                    targetdoc="../elements/structural/target.xml" targetptr="target"
+                        ><code>&lt;target></code></olink> child. All valid values MAY be used when a
+                    <olink targetdoc="../elements/structural/target.xml" targetptr="target"
+                        ><code>&lt;target></code></olink> child is present. </para>
+        </listitem>
+        <listitem>
+            <para>Writers updating the attribute <link linkend="state"><code>state</code></link>
+                MUST also update or delete <olink targetdoc="subState.xml" targetptr="substate"
+                        ><code>subState</code></olink>.</para>
+        </listitem>
+    </itemizedlist>
+
+    <note>
+        <para><link linkend="state"><code>state</code></link> is an OPTIONAL attribute of segments
+            with a default value and segmentation can change as the XLIFF roundtrip progresses,
+            hence implementers don't have to make explicit use of the attribute. However setting of
+            the attribute is advantageous if a workflow needs to make use of Advanced Validation
+            methods.</para>
+    </note>
+</section>

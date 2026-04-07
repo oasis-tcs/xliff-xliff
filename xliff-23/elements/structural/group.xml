@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+                         "http://www.docbook.org/xml/4.5/docbookx.dtd" [
+                         <!ENTITY % xinclude SYSTEM "../../docbook/xinclude.mod" >
+                         %xinclude;
+                         <!ENTITY % local.common.attrib "xml:base CDATA #IMPLIED" >
+                         ]>
+<section id="group">
+    <title>group</title>
+    <para>Provides a way to organize units into a structured hierarchy.</para>
+    <para>Note that this is especially useful for mirroring a source format's hierarchical
+        structure.</para>
+
+    <para><emphasis>Contains:</emphasis></para>
+    <simplelist>
+        <member>- elements from other namespaces, OPTIONAL</member>
+        <member>- Zero or one <olink targetdoc="notes.xml" targetptr="notes"
+                ><code>&lt;notes></code></olink> element followed by</member>
+        <member>- Zero, one or more <olink targetdoc="unit.xml" targetptr="unit"
+                    ><code>&lt;unit></code></olink> or <link linkend="group"
+                ><code>&lt;group></code></link> elements in any order.</member>
+
+
+
+
+
+    </simplelist>
+
+    <para><emphasis>Attributes:</emphasis></para>
+    <simplelist>
+        <member>- <olink targetdoc="../../attributes/id.xml" targetptr="id"><code>id</code></olink>,
+            REQUIRED</member>
+        <member>- <olink targetdoc="../../attributes/name.xml" targetptr="name"
+                ><code>name</code></olink>, OPTIONAL</member>
+        <member>- <olink targetdoc="../../attributes/canResegment.xml" targetptr="canResegment"
+                    ><code>canResegment</code></olink>, OPTIONAL</member>
+        <member>- <olink targetdoc="../../attributes/translate.xml" targetptr="translate"
+                    ><code>translate</code></olink>, OPTIONAL</member>
+        <member>- <olink targetdoc="../../attributes/srcdir.xml" targetptr="srcdir"
+                    ><code>srcDir</code></olink>, OPTIONAL</member>
+        <member>- <olink targetdoc="../../attributes/trgdir.xml" targetptr="trgdir"
+                    ><code>trgDir</code></olink>, OPTIONAL</member>
+        <member>- <olink targetdoc="../../attributes/type.xml" targetptr="type"
+                ><code>type</code></olink>, OPTIONAL</member>
+        <member>- <olink targetdoc="../../attributes/xml_space.xml" targetptr="xml_space"
+                    ><code>xml:space</code></olink>, OPTIONAL</member>
+
+        <member>- attributes from other namespaces, OPTIONAL</member>
+    </simplelist>
+
+    <itemizedlist>
+        <title>Constraints</title>
+        <listitem>
+            <para>The following XLIFF Module elements are explicitly allowed by the wildcard
+                    <code>other</code>:</para>
+            <simplelist>
+                <member>- Zero or one <olink targetdoc="../metadata/metadata.xml"
+                        targetptr="metadata"><code>&lt;mda:metadata></code></olink>
+                    elements</member>
+                <member>- Zero or one <olink targetdoc="../size_restriction/data.xml"
+                        targetptr="slr_data"><code>&lt;slr:data></code></olink> elements</member>
+                <member>- Zero or one <olink targetdoc="../validation/validation.xml"
+                        targetptr="validation"><code>&lt;val:validation></code></olink>
+                    elements</member>
+                <member>- Zero, one, or more <olink targetdoc="../itsm/itsm_provenanceRecords.xml"
+                        targetptr="itsm_provenanceRecords"
+                        ><code>&lt;its:provenanceRecords></code></olink> elements</member>
+
+            </simplelist>
+        </listitem>
+        <listitem>
+            <para>Module and Extension elements MAY be used in any order.</para>
+        </listitem>
+    </itemizedlist>
+    <note>
+        <para>The use of attributes from XLIFF modules MUST be in accordance with the constraints
+            specified in the corresponding modules.</para>
+    </note>
+</section>

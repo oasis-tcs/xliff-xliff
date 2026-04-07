@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+                         "http://www.docbook.org/xml/4.5/docbookx.dtd" [
+                         <!ENTITY % xinclude SYSTEM "../docbook/xinclude.mod" >
+                         %xinclude;
+                         <!ENTITY % local.common.attrib "xml:base CDATA #IMPLIED" >
+                         ]>
+<section id="version">
+    <title>version</title>
+
+    <para>XLIFF Version - is used to specify the version of the XLIFF Document. This corresponds to
+        the version number of the XLIFF specification that the XLIFF document adheres to. For this
+        specification, the version is <emphasis>2.2</emphasis>.</para>
+
+    <para><emphasis>Value description:</emphasis> 2.0, 2.1 or 2.2</para>
+
+    <para><emphasis>Used in:</emphasis>
+        <olink targetdoc="../elements/structural/xliff.xml" targetptr="xliff"
+                ><code>&lt;xliff></code></olink>.</para>
+
+</section>

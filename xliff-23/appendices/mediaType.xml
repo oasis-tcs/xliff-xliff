@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE appendix PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.docbook.org/xml/4.5/docbookx.dtd" [
+                         
+<!ENTITY % base SYSTEM "../docbook/dbgenent.mod">
+%base;
+
+<!ENTITY % xinclude SYSTEM "../docbook/xinclude.mod">
+%xinclude;
+]>
+<appendix role="normative" id="mediaType">
+    <title>MIME Type for XLIFF Version 2.0 and Later Releases</title>
+
+    <para>A MIME type (Multipurpose Internet Mail Extensions type) is a two-part identifier for file
+        formats and format content transmitted on the Internet. The MIME type is the mechanism used
+        to tell a client application the type of document being transferred from a server. It is
+        important that servers are set up correctly so that the correct MIME type is transferred
+        with each document.</para>
+
+    <para>XLIFF is registered in the <ulink
+            url="https://www.iana.org/assignments/media-types/media-types.xhtml">IANA Media Types
+            Registry</ulink> as <code>application/xliff+xml</code>.</para>
+
+</appendix>
