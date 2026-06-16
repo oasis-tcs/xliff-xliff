@@ -154,13 +154,10 @@
           <para>urn:oasis:names:tc:xliff:validation:2.0</para>
         </listitem>
         <listitem>
-          <para>http://www.w3.org/2005/11/its</para>
-        </listitem>
-        <listitem>
-          <para>urn:oasis:names:tc:xliff:itsm:2.0</para>
-        </listitem>
-        <listitem>
           <para>urn:oasis:names:tc:xliff:pgs:1.0</para>
+        </listitem>
+        <listitem>
+          <para>urn:oasis:names:tc:xliff:pvn:2.3</para>
         </listitem>
       </itemizedlist>
     </legalnotice>
@@ -270,10 +267,15 @@
     <xi:include href="modules/validation/specification.xml"
       xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <!-- 2.1 modules -->
+    <!-- ITS modeule has been deprecated 
     <xi:include href="modules/itsm/specification.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    -->
     <!-- 2.2 and 2.n+1 modules -->
     <xi:include href="modules/plural_gender_select/specification.xml"
+     xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="modules/provenance/specification.xml"
       xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    
   </section>
 
   <xi:include href="conformance/conformance.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
