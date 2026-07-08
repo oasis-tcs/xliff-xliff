@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.docbook.org/xml/4.5/docbookx.dtd" [
+
+<!ENTITY % base SYSTEM "../docbook/dbgenent.mod">
+%base;
+
+<!ENTITY % xinclude SYSTEM "../docbook/xinclude.mod">
+%xinclude;
+
+]>
+<section id="safetySecurity">
+  <title>Safety, Security, and Data Protection Considerations</title>
+
+  <para><emphasis>&lt; Placeholder: this section is REQUIRED and MUST be the second to last
+    numbered section in the document, right before Conformance. It contains information about
+    safety, security, data protection, and privacy considerations. These can be divided up into
+    separate subsections as desired. This document SHOULD have at least a security and data
+    protection considerations section, and otherwise MUST have a blank section indicating
+    "None." &gt;</emphasis></para>
+</section>

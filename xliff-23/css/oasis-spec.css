@@ -12,7 +12,7 @@
      Yellow: A09A4F
      Purple: 3B006F
      Aqua:   7DCAD6
-     Navy:   446CAA
+     Navy:   0B5394
 
   $Id: oasis-spec.css,v 1.4 2019/01/04 19:29:26 admin Exp $
 */
@@ -26,106 +26,106 @@ body     {
 h1       {
 	   font-size: 250%;
            padding-top: 0in;
-           color: #446CAA;
+           color: #0B5394;
          }
 
 h2       {
 	   font-size: 170%;
-           color: #446CAA;
+           color: #0B5394;
          }
 
 h3       {
 	   font-size: 120%;
-           color: #446CAA;
+           color: #0B5394;
          }
 
 h4       {
-           color: #446CAA;
+           color: #0B5394;
          }
 
 h5       {
 	   font-style: italic;
-           color: #446CAA;
+           color: #0B5394;
          }
 
 h6       {
 	   font-variant: small-caps;
-           color: #446CAA;
+           color: #0B5394;
          }
 
 .docid-heading {
            font-size: 10pt;
            font-weight: bold;
-           color: #446CAA;
+           color: #0B5394;
          }
 
 .uri-heading {
            font-size: 12pt;
            font-weight: bold;
-           color: #446CAA;
+           color: #0B5394;
          }
 
 .loc-heading {
            font-size: 10pt;
            font-weight: bold;
-           color: #446CAA;
+           color: #0B5394;
          }
 
 .abstract-heading {
            font-size: 10pt;
            font-weight: bold;
-           color: #446CAA;
+           color: #0B5394;
          }
 
 .status-heading {
            font-size: 10pt;
            font-weight: bold;
-           color: #446CAA;
+           color: #0B5394;
          }
 
 .thisver-heading {
            font-size: 10pt;
            font-weight: bold;
-           color: #446CAA;
+           color: #0B5394;
          }
 
 .prevver-heading {
            font-size: 10pt;
            font-weight: bold;
-           color: #446CAA;
+           color: #0B5394;
          }
 
 .editor-heading {
            font-size: 10pt;
            font-weight: bold;
-           color: #446CAA;
+           color: #0B5394;
          }
 
 .author-heading {
            font-size: 10pt;
            font-weight: bold;
-           color: #446CAA;
+           color: #0B5394;
          }
 
 .contrib-heading {
            font-size: 10pt;
            font-weight: bold;
-           color: #446CAA;
+           color: #0B5394;
          }
 
 .notices-heading {
   font-size: 18pt;
   font-weight: bold;
-  color: #446CAA;
+  color: #0B5394;
 }
 
 div.section h1.title {
            padding-top: 0in;
-           color: #446CAA;
+           color: #0B5394;
          }
 
 div.article h1.title { 
-           color: #446CAA;
+           color: #0B5394;
          }
 
 pre.programlisting {

@@ -10,17 +10,17 @@
 
     <productnumber>cs</productnumber>
 
-    <releaseinfo role="OASIS-specification-this-authoritative">https://docs.oasis-open.org/xliff/xliff-core/v2.2/cs01/xliff-core-v2.2-cs01-part1.html</releaseinfo>
-    <releaseinfo role="OASIS-specification-this">https://docs.oasis-open.org/xliff/xliff-core/v2.2/cs01/xliff-core-v2.2-cs01-part1.pdf</releaseinfo>
-    <releaseinfo role="OASIS-specification-this">https://docs.oasis-open.org/xliff/xliff-core/v2.2/cs01/xliff-core-v2.2-cs01-part1.xml</releaseinfo>
+    <releaseinfo role="OASIS-specification-this-authoritative">https://docs.oasis-open.org/xliff/xliff-core/v2.3/cs01/xliff-core-v2.3-cs01-part1.html</releaseinfo>
+    <releaseinfo role="OASIS-specification-this">https://docs.oasis-open.org/xliff/xliff-core/v2.3/cs01/xliff-core-v2.3-cs01-part1.pdf</releaseinfo>
+    <releaseinfo role="OASIS-specification-this">https://docs.oasis-open.org/xliff/xliff-core/v2.3/cs01/xliff-core-v2.3-cs01-part1.xml</releaseinfo>
 
-    <releaseinfo role="OASIS-specification-previous-authoritative">https://docs.oasis-open.org/xliff/xliff-core/v2.2/csd01/xliff-core-v2.2-csd01-part1.html</releaseinfo>
-    <releaseinfo role="OASIS-specification-previous">https://docs.oasis-open.org/xliff/xliff-core/v2.2/csd01/xliff-core-v2.2-csd01-part1.pdf</releaseinfo>
-    <releaseinfo role="OASIS-specification-previous">https://docs.oasis-open.org/xliff/xliff-core/v2.2/csd01/xliff-core-v2.2-csd01-part1.xml</releaseinfo>
-    
-    <releaseinfo role="OASIS-specification-latest-authoritative">https://docs.oasis-open.org/xliff/xliff-core/v2.2/xliff-core-v2.2-part1.html</releaseinfo>
-    <releaseinfo role="OASIS-specification-latest">https://docs.oasis-open.org/xliff/xliff-core/v2.2/xliff-core-v2.2-part1.pdf</releaseinfo>
-    <releaseinfo role="OASIS-specification-latest">https://docs.oasis-open.org/xliff/xliff-core/v2.2/xliff-core-v2.2-part1.xml</releaseinfo>
+    <releaseinfo role="OASIS-specification-previous-authoritative">https://docs.oasis-open.org/xliff/xliff-core/v2.2/xliff-core-v2.2-part1.html</releaseinfo>
+    <releaseinfo role="OASIS-specification-previous">https://docs.oasis-open.org/xliff/xliff-core/v2.2/xliff-core-v2.2-part1.pdf</releaseinfo>
+    <releaseinfo role="OASIS-specification-previous">https://docs.oasis-open.org/xliff/xliff-core/v2.2/xliff-core-v2.2-part1.xml</releaseinfo>
+
+    <releaseinfo role="OASIS-specification-latest-authoritative">https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-core-v2.3-part1.html</releaseinfo>
+    <releaseinfo role="OASIS-specification-latest">https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-core-v2.3-part1.pdf</releaseinfo>
+    <releaseinfo role="OASIS-specification-latest">https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-core-v2.3-part1.xml</releaseinfo>
 
     <releaseinfo role="committee"><ulink url="https://www.oasis-open.org/committees/xliff/">OASIS
         XLIFF TC</ulink></releaseinfo>
@@ -57,31 +57,12 @@
       </editor>
     </authorgroup>
 
-    <pubdate>20 January 2026</pubdate>
+    <pubdate>16 May 2026</pubdate>
 
     <copyright>
       <year>2026</year>
       <holder>OASIS Open, Inc. All Rights Reserved.</holder>
     </copyright>
-
-    <legalnotice role="additional">
-      <title>Additional artifacts</title>
-
-      <para>This prose specification is one component of a Work Product that also includes:</para>
-
-      <itemizedlist spacing="compact">
-        <listitem>
-          <para>XLIFF Version 2.2. Part 1: Core. (this document) <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.2/xliff-core-v2.2-part1.html">https://docs.oasis-open.org/xliff/xliff-core/v2.2/xliff-core-v2.2-part1.html</ulink></para>
-        </listitem>
-        <listitem>
-          <para>XLIFF Version 2.2. Part 2: Extended. <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.2/xliff-extended-v2.2-part2.html">https://docs.oasis-open.org/xliff/xliff-core/v2.2/xliff-extended-v2.2-part2.html</ulink></para>
-        </listitem>
-        <listitem>
-          <para>XML schemas: <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.2/schemas/">https://docs.oasis-open.org/xliff/xliff-core/v2.2/schemas/</ulink>
-          </para>
-        </listitem>
-      </itemizedlist>
-    </legalnotice>
 
     <legalnotice role="related">
       <title>Related Work</title>
@@ -90,51 +71,11 @@
 
       <itemizedlist spacing="compact">
         <listitem>
-          <para><emphasis>XLIFF Version 2.1.</emphasis> 13 February 2018. OASIS Standard. Latest
-            Stage: <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html">https://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html</ulink></para>
+          <para><emphasis>XLIFF Version 2.2. Part 1: Core.</emphasis> 13 March 2025. OASIS
+            Committee Specification. Latest Stage: <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.2/xliff-core-v2.2-part1.html">https://docs.oasis-open.org/xliff/xliff-core/v2.2/xliff-core-v2.2-part1.html</ulink></para>
         </listitem>
       </itemizedlist>
 
-    </legalnotice>
-
-    <legalnotice role="namespaces">
-      <title>Declared XML Namespaces</title>
-
-      <itemizedlist spacing="compact">
-        <listitem>
-          <para>urn:oasis:names:tc:xliff:document:2.2</para>
-        </listitem>
-        <listitem>
-          <para>urn:oasis:names:tc:xliff:matches:2.0</para>
-        </listitem>
-        <listitem>
-          <para>urn:oasis:names:tc:xliff:glossary:2.0</para>
-        </listitem>
-        <listitem>
-          <para>urn:oasis:names:tc:xliff:fs:2.0</para>
-        </listitem>
-        <listitem>
-          <para>urn:oasis:names:tc:xliff:metadata:2.0</para>
-        </listitem>
-        <listitem>
-          <para>urn:oasis:names:tc:xliff:resourcedata:2.0</para>
-        </listitem>
-        <listitem>
-          <para>urn:oasis:names:tc:xliff:sizerestriction:2.0</para>
-        </listitem>
-        <listitem>
-          <para>urn:oasis:names:tc:xliff:validation:2.0</para>
-        </listitem>
-        <listitem>
-          <para>http://www.w3.org/2005/11/its</para>
-        </listitem>
-        <listitem>
-          <para>urn:oasis:names:tc:xliff:itsm:2.0</para>
-        </listitem>
-        <listitem>
-          <para>urn:oasis:names:tc:xliff:pgs:1.0</para>
-        </listitem>
-      </itemizedlist>
     </legalnotice>
 
     <abstract>
@@ -144,61 +85,28 @@
         while allowing interoperability between and among tools.</para>
     </abstract>
 
-    <legalnotice role="status">
-      <title>Status</title>
-
-      <para>This document was last revised or approved by the XLIFF TC on the above date. The level
-        of approval is also listed above. Check the "Latest stage" location noted above for possible
-        later revisions of this document. Any other numbered Versions and other technical work
-        produced by the Technical Committee (TC) are listed at <ulink url="https://groups.oasis-open.org/communities/tc-community-home2?CommunityKey=3d0f1f56-8477-4b53-9b14-018dc7d3eecf">https://groups.oasis-open.org/communities/tc-community-home2?CommunityKey=3d0f1f56-8477-4b53-9b14-018dc7d3eecf</ulink>.</para>
-
-      <para>TC members should send comments on this document to the TC's email list. Others should
-        send comments to the TC's public comment list, after subscribing to it by following the
-        instructions at <ulink url="https://groups.oasis-open.org/communities/tc-community-home2?CommunityKey=3d0f1f56-8477-4b53-9b14-018dc7d3eecf">https://groups.oasis-open.org/communities/tc-community-home2?CommunityKey=3d0f1f56-8477-4b53-9b14-018dc7d3eecf</ulink></para>
-
-      <para>This document is provided under the <ulink url="https:https://www.oasis-open.org/policies-guidelines/ipr/#RF-Rand">RF on RAND
-          Terms</ulink> Mode of the <ulink url="https://www.oasis-open.org/policies-guidelines/ipr/">OASIS IPR Policy</ulink>, the mode chosen when the Technical Committee was established.
-        For information on whether any patents have been disclosed that may be essential to
-        implementing this document, and any offers of patent licensing terms, please refer to the
-        Intellectual Property Rights section of the TC's web page (<ulink url="https://www.oasis-open.org/committees/xliff/ipr.php">https://www.oasis-open.org/committees/xliff/ipr.php</ulink>). </para>
-
-      <para>Note that any machine-readable content (<ulink url="https://www.oasis-open.org/policies-guidelines/tc-process-2017-05-26/#wpComponentsCompLang">Computer Language Definitions</ulink>) declared Normative for this Work Product is
-        provided in separate plain text files. In the event of a discrepancy between any such plain
-        text file and display content in the Work Product's prose narrative document(s), the content
-        in the separate plain text file prevails. Key words: </para>
-    </legalnotice>
-
-    <legalnotice role="keywords">
-      <title>Key words</title>
-      <para>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD
-        NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be
-        interpreted as described in BCP 14 <link linkend="rfc2119">[RFC2119]</link> and <link linkend="rfc8174">[RFC8174]</link> when, and only when, they appear in all capitals, as
-        shown here.</para>
-    </legalnotice>
-
     <legalnotice role="citation">
       <title>Citation format</title>
       <para>When referencing this document, the following citation format should be used:</para>
-      <para><emphasis role="strong">[XLIFF-2.2-part1]</emphasis></para>
-      <para>XLIFF Version 2.2 Part 1:Core. Edited by Rodolfo M. Raya and Lucía Morado Vázquez
-        20 January 2026. OASIS Committee Specification Draft 01. <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.2/xliff-v2.2-part1-core.htmls">https://docs.oasis-open.org/xliff/xliff-core/v2.2/xliff-v2.2-part1-core.html</ulink>.
-        Latest stage <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.2/xliff-v2.2-part1-core.html">https://docs.oasis-open.org/xliff/xliff-core/v2.2/xliff-v2.2-part1-core.html</ulink>.
+      <para><emphasis role="strong">[XLIFF-2.3-part1]</emphasis></para>
+      <para>XLIFF Version 2.3 Part 1:Core. Edited by Rodolfo M. Raya and Lucía Morado Vázquez
+        16 May 2026. OASIS Committee Specification Draft 01. <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-v2.3-part1-core.html">https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-v2.3-part1-core.html</ulink>.
+        Latest stage <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-v2.3-part1-core.html">https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-v2.3-part1-core.html</ulink>.
       </para>
     </legalnotice>
 
 
     <legalnotice role="notices">
-      <title>Notices</title>
+      <title>License, Document Status, and Notices</title>
 
-      <para>Copyright © OASIS Open 2026. All Rights Reserved.</para>
-
-      <para>Distributed under the terms of the OASIS IPR Policy, [<ulink url="https://www.oasis-open.org/policies-guidelines/ipr/">https://www.oasis-open.org/policies-guidelines/ipr/</ulink>]. For complete copyright
-        information please see the full Notices section in an Appendix below.</para>
+      <para>Copyright © OASIS Open 2026. All Rights Reserved. For license and copyright
+        information, and complete status, please see Annex A which contains the License,
+        Document Status and Notices.</para>
     </legalnotice>
   </articleinfo>
 
-  <section>
-  <title>Introduction</title>
+  <section id="scope">
+  <title>Scope</title>
 
   <para>XLIFF is the <emphasis>XML Localization Interchange File Format</emphasis> designed by a
     group of multilingual content publishers, software providers, localization service providers,
@@ -208,204 +116,221 @@
     interchange format, usage of XLIFF as a processing format is neither encouraged nor discouraged
     or prohibited.</para>
 
-  <para><emphasis>All text is normative unless otherwise labeled.</emphasis>
-  </para>
+  <para>This document is Part 1 of a multi-part Work Product that defines Version 2.3 of
+    XLIFF. It presents the XLIFF core, which is the minimum set of XML elements and attributes
+    required to create a valid XLIFF file. The optional Modules that MAY be used along with the
+    core for advanced functionality are presented in <emphasis>XLIFF Version 2.3. Part 2:
+      Extended</emphasis>.</para>
 
-  <section id="newSinceLast">
-    <title>Changes from earlier Versions</title>
-    <para>XLIFF 2.2 has two main significant differences from the previous version published (XLIFF
-      2.1):</para>
-
-    <orderedlist continuation="restarts" inheritnum="ignore">
-      <listitem>
-        <para> XLIFF 2.2 is presented in two separate documents:</para>
-        <itemizedlist>
-          <listitem>
-            <para><emphasis>XLIFF Version 2.2. Part 1: Core</emphasis> presents the XLIFF core,
-              which is the minimum set of XML elements and attributes required to create a valid
-              XLIFF file.</para>
-          </listitem>
-          <listitem>
-            <para><emphasis>XLIFF Version 2.2. Part 2: Extended</emphasis> presents the XLIFF core as
-              well as the optional modules that were created to store information about specific
-              processes. For example, the <remark>Translation Candidates Module</remark> was designed to store
-              translation suggestions and their associated metadata.</para>
-          </listitem>
-        </itemizedlist>
-
-        <para>In previous versions of XLIFF, the specification was always presented in a single
-          document. This change in the presentation mode was introduced to produce a simplified
-          version (<emphasis>Part 1: Core</emphasis>) of the specification that would be easier to
-          use, especially for those agents who are not interested in implementing the optional
-          modules.</para>
-      </listitem>
-      <listitem>
-        <para>XLIFF 2.2 includes the new <remark>Plural, Gender, and Select Module</remark>, which
-          was designed to store information needed to represent and process messages with variants.
-          The new module description can be found in the document XLIFF Version 2.2. Part 2:
-          Extended.</para>
-      </listitem>
-    </orderedlist>
-    <para>For a detailed list of changes made between version 2.1 and the current version (2.2)
-      please see the <link linkend="specChangeTracking">Specification Change Tracking</link> section in Appendix
-      D.</para>
-    <para>Note that all changes introduced in version 2.2 were designed to maintain compatibility
-      with versions 2.0 and 2.1.</para>
-  </section>
+  <para><emphasis>All text is normative unless otherwise labeled.</emphasis></para>
+</section>
+  <section id="definitionsAndAcronyms">
+  <title>Definitions and Acronyms</title>
 
   <section id="definitions">
-    <title>Definition of terms</title>
+    <title>Definitions</title>
 
-    <variablelist>
+    <section id="termsDefinedElsewhere">
+      <title>Terms Defined Elsewhere</title>
 
-      <varlistentry>
-        <term>Agent</term>
+      <para>This document uses the following terms defined elsewhere:</para>
 
-        <listitem>
-          <para>any application or tool that generates (creates), reads, edits, writes, processes,
-            stores, renders or otherwise handles XLIFF documents.</para>
-          <para>Agent is the most general application conformance target that subsumes all other
-            specialized user agents disregarding whether they are defined in this specification or
-            not.</para>
-        </listitem>
-      </varlistentry>
+      <para><emphasis>&lt; Placeholder: terms used in this document that are defined in other
+        standards or reference documents should be listed here, with a link to the specific
+        version of the defining document. ></emphasis></para>
+    </section>
 
-      <varlistentry>
-        <term>Enrich</term>
-        <term>Enriching</term>
-        <listitem>
-          <para> the process of associating module and extension based metadata and resources with
-            the Extracted XLIFF payload </para>
-          <itemizedlist>
-            <title>Processing Requirements</title>
-            <listitem>
-              <para>Enriching MAY happen at the time of Extraction. </para>
-            </listitem>
-          </itemizedlist>
-          <note>
-            <para>Extractor knowledge of the native format is not assumed while Enriching.</para>
-          </note>
-        </listitem>
-      </varlistentry>
+    <section id="termsDefinedInThisDocument">
+      <title>Terms Defined in this Document</title>
 
-      <varlistentry>
-        <term>Enricher</term>
-        <term>Enricher Agent</term>
-        <listitem>
-          <para>any Agent that performs the Enriching process </para>
-        </listitem>
-      </varlistentry>
+      <para>This document defines the following terms:</para>
 
-      <varlistentry>
-        <term>Extract</term>
-        <term>Extraction</term>
-        <listitem>
-          <para>the process of encoding localizable content from a native content or User Interface
-            format as XLIFF payload, so that localizable parts of the content in the source language
-            are available for translation into the target language along with the necessary context
-            information </para>
-        </listitem>
-      </varlistentry>
+      <variablelist>
 
-      <varlistentry>
-        <term>Extractor</term>
-        <term>Extractor Agent</term>
+        <varlistentry>
+          <term>Agent</term>
 
-        <listitem>
-          <para>any Agent that performs the Extraction process </para>
-        </listitem>
-      </varlistentry>
+          <listitem>
+            <para>any application or tool that generates (creates), reads, edits, writes, processes,
+              stores, renders or otherwise handles XLIFF documents.</para>
+            <para>Agent is the most general application conformance target that subsumes all other
+              specialized user agents disregarding whether they are defined in this specification or
+              not.</para>
+          </listitem>
+        </varlistentry>
 
-      <varlistentry>
-        <term>Merge</term>
-        <term>Merging</term>
+        <varlistentry>
+          <term>Enrich</term>
+          <term>Enriching</term>
+          <listitem>
+            <para> the process of associating module and extension based metadata and resources with
+              the Extracted XLIFF payload </para>
+            <itemizedlist>
+              <title>Processing Requirements</title>
+              <listitem>
+                <para>Enriching MAY happen at the time of Extraction. </para>
+              </listitem>
+            </itemizedlist>
+            <note>
+              <para>Extractor knowledge of the native format is not assumed while Enriching.</para>
+            </note>
+          </listitem>
+        </varlistentry>
 
-        <listitem>
-          <para>the process of importing XLIFF payload back to the originating native format, based
-            on the <emphasis>full knowledge</emphasis> of the Extraction mechanism, so that the
-            localized content or User Interface strings replace the source language in the native
-            format </para>
-        </listitem>
-      </varlistentry>
+        <varlistentry>
+          <term>Enricher</term>
+          <term>Enricher Agent</term>
+          <listitem>
+            <para>any Agent that performs the Enriching process </para>
+          </listitem>
+        </varlistentry>
 
-      <varlistentry>
-        <term>Merger</term>
-        <term>Merger Agent</term>
+        <varlistentry>
+          <term>Extract</term>
+          <term>Extraction</term>
+          <listitem>
+            <para>the process of encoding localizable content from a native content or User Interface
+              format as XLIFF payload, so that localizable parts of the content in the source language
+              are available for translation into the target language along with the necessary context
+              information </para>
+          </listitem>
+        </varlistentry>
 
-        <listitem>
-          <para>an Agent that performs the Merge process </para>
+        <varlistentry>
+          <term>Extractor</term>
+          <term>Extractor Agent</term>
 
-          <warning>
-            <para> Unless specified otherwise, any Merger is deemed to have the same knowledge of
-              the native format as the Extractor throughout the specification. </para>
-            <para>Mergers independent of Extractors can succeed, but it is out of scope of this
-              specification to specify interoperability for merging back without the full Extractor
-              knowledge of the native format. </para>
-          </warning>
-        </listitem>
+          <listitem>
+            <para>any Agent that performs the Extraction process </para>
+          </listitem>
+        </varlistentry>
 
-      </varlistentry>
+        <varlistentry>
+          <term>Merge</term>
+          <term>Merging</term>
 
-      <varlistentry>
-        <term>Modify</term>
-        <term>Modification</term>
-        <listitem>
-          <para> the process of changing core and module XLIFF structural and inline elements that
-            were previously created by other Writers </para>
-          <itemizedlist>
-            <title>Processing Requirements</title>
-            <listitem>
-              <para> XLIFF elements MAY be Modified and Enriched at the same time. </para>
-            </listitem>
-          </itemizedlist>
-          <note>
-            <para>Extractor or Enricher knowledge of the native format is not assumed while
-              modifying.</para>
-          </note>
-        </listitem>
-      </varlistentry>
+          <listitem>
+            <para>the process of importing XLIFF payload back to the originating native format, based
+              on the <emphasis>full knowledge</emphasis> of the Extraction mechanism, so that the
+              localized content or User Interface strings replace the source language in the native
+              format </para>
+          </listitem>
+        </varlistentry>
 
-      <varlistentry>
-        <term>Modifier</term>
-        <term>Modifier Agent</term>
+        <varlistentry>
+          <term>Merger</term>
+          <term>Merger Agent</term>
 
-        <listitem>
-          <para>an Agent that performs the Modification process </para>
+          <listitem>
+            <para>an Agent that performs the Merge process </para>
 
-        </listitem>
+            <warning>
+              <para> Unless specified otherwise, any Merger is deemed to have the same knowledge of
+                the native format as the Extractor throughout the specification. </para>
+              <para>Mergers independent of Extractors can succeed, but it is out of scope of this
+                specification to specify interoperability for merging back without the full Extractor
+                knowledge of the native format. </para>
+            </warning>
+          </listitem>
 
-      </varlistentry>
+        </varlistentry>
 
-      <varlistentry>
-        <term>Translation</term>
-        <term>Translate</term>
+        <varlistentry>
+          <term>Modify</term>
+          <term>Modification</term>
+          <listitem>
+            <para> the process of changing core and module XLIFF structural and inline elements that
+              were previously created by other Writers </para>
+            <itemizedlist>
+              <title>Processing Requirements</title>
+              <listitem>
+                <para> XLIFF elements MAY be Modified and Enriched at the same time. </para>
+              </listitem>
+            </itemizedlist>
+            <note>
+              <para>Extractor or Enricher knowledge of the native format is not assumed while
+                modifying.</para>
+            </note>
+          </listitem>
+        </varlistentry>
 
-        <listitem>
-          <para>a rendering of the meaning of the source text, expressed in the target
-            language</para>
-        </listitem>
-      </varlistentry>
+        <varlistentry>
+          <term>Modifier</term>
+          <term>Modifier Agent</term>
 
-      <varlistentry>
-        <term>Writer</term>
-        <term>Writer Agent</term>
+          <listitem>
+            <para>an Agent that performs the Modification process </para>
 
-        <listitem>
-          <para>an Agent that creates, generates, or otherwise writes an XLIFF document for whatever
-            purpose, including but not limited to Extractor, Modifier, and Enricher Agents. </para>
+          </listitem>
 
-          <note>
-            <para> Since XLIFF is intended as an exchange format rather than a processing format,
-              many applications will need to generate XLIFF documents from their internal processing
-              formats, even in cases when they are processing XLIFF documents created by another
-              Extractor. </para>
-          </note>
-        </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>Translation</term>
+          <term>Translate</term>
+
+          <listitem>
+            <para>a rendering of the meaning of the source text, expressed in the target
+              language</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>Writer</term>
+          <term>Writer Agent</term>
+
+          <listitem>
+            <para>an Agent that creates, generates, or otherwise writes an XLIFF document for whatever
+              purpose, including but not limited to Extractor, Modifier, and Enricher Agents. </para>
+
+            <note>
+              <para> Since XLIFF is intended as an exchange format rather than a processing format,
+                many applications will need to generate XLIFF documents from their internal processing
+                formats, even in cases when they are processing XLIFF documents created by another
+                Extractor. </para>
+            </note>
+          </listitem>
 
 
-      </varlistentry>
-    </variablelist>
+        </varlistentry>
+      </variablelist>
+    </section>
   </section>
+
+  <section id="abbreviationsAndAcronyms">
+    <title>Abbreviations and Acronyms</title>
+
+    <para>This document uses the following abbreviations and acronyms:</para>
+
+    <para><emphasis>&lt; Placeholder: abbreviations and acronyms used in this document (e.g. IRI,
+      URI, MIME, BCP, IANA) should be listed here with their expanded form. ></emphasis></para>
+  </section>
+</section>
+  <section id="documentConventions">
+  <title>Document Conventions</title>
+
+  <section id="keyWords">
+    <title>Key Words</title>
+
+    <para>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD
+      NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be
+      interpreted as described in BCP 14 <link linkend="rfc2119">[RFC2119]</link> and <link linkend="rfc8174">[RFC8174]</link> when, and only when, they appear in all capitals, as
+      shown here.</para>
+  </section>
+
+  <section id="typographicalConventions">
+    <title>Typographical Conventions</title>
+
+    <para><emphasis>&lt; Placeholder: describe any standards or typographical conventions that
+      were followed when writing this document, such as fonts or highlighting that have special
+      significance. If there are no typographical conventions then put "None". ></emphasis></para>
+  </section>
+</section>
+  <section>
+  <title>Introduction</title>
+
+  <para><emphasis>All text is normative unless otherwise labeled.</emphasis>
+  </para>
 
   <section id="keyconcepts">
     <title>Key concepts</title>
@@ -475,6 +400,30 @@
     </variablelist>
   </section>
 
+  <section id="newSinceLast">
+    <title>Changes From the Previous Version</title>
+
+    <para><emphasis>&lt; Work in progress: XLIFF 2.3 is still under development by the
+      OASIS XLIFF TC. The list below reflects known differences from XLIFF 2.2 so far and
+      is not yet final. ></emphasis></para>
+
+    <para>XLIFF 2.3 introduces the following differences from the previous version published
+      (XLIFF 2.2):</para>
+
+    <itemizedlist>
+      <listitem>
+        <para>Added the new <remark>Provenance Module</remark>, which was designed to store
+          information about the nature and origin of localization data or process, such as the
+          agent, tool, or process that produced or modified a given piece of content.</para>
+      </listitem>
+    </itemizedlist>
+
+    <para>For a detailed list of changes made between version 2.2 and the current version
+      (2.3) please see the <link linkend="specChangeTracking">Specification Change Tracking</link> section in Appendix
+      2.</para>
+    <para>Note that all changes introduced in version 2.3 are designed to maintain
+      compatibility with versions 2.0, 2.1, and 2.2.</para>
+  </section>
 
 </section>
   <section id="fragid">
@@ -5481,6 +5430,17 @@ Palouse horses&lt;fn>A Palouse horse is the same as
 
 </section>
 
+  <section id="safetySecurity">
+  <title>Safety, Security, and Data Protection Considerations</title>
+
+  <para><emphasis>&lt; Placeholder: this section is REQUIRED and MUST be the second to last
+    numbered section in the document, right before Conformance. It contains information about
+    safety, security, data protection, and privacy considerations. These can be divided up into
+    separate subsections as desired. This document SHOULD have at least a security and data
+    protection considerations section, and otherwise MUST have a blank section indicating
+    "None." ></emphasis></para>
+</section>
+
   <section id="Conformance">
     <title>Conformance</title>
 
@@ -5581,8 +5541,109 @@ Palouse horses&lt;fn>A Palouse horse is the same as
 </section>
 
   
+  <appendix id="annexA">
+    <title>License, Document Status and Notices</title>
+
+    <para>(This annex forms an integral part of this Specification.)</para>
+
+    <section id="documentStatus">
+        <title>Document Status</title>
+
+        <para>This document was last revised or approved by the XLIFF TC on the above date. The
+            level of approval is also listed above. Check the "Latest stage" location noted above
+            for possible later revisions of this document. Any other numbered Versions and other
+            technical work produced by the Technical Committee (TC) are listed at <ulink url="https://groups.oasis-open.org/communities/tc-community-home2?CommunityKey=3d0f1f56-8477-4b53-9b14-018dc7d3eecf">https://groups.oasis-open.org/communities/tc-community-home2?CommunityKey=3d0f1f56-8477-4b53-9b14-018dc7d3eecf</ulink>.</para>
+
+        <para>TC members should send comments on this document to the TC's email list. Others
+            should send comments to the TC's public comment list, after subscribing to it by
+            following the instructions at <ulink url="https://groups.oasis-open.org/communities/tc-community-home2?CommunityKey=3d0f1f56-8477-4b53-9b14-018dc7d3eecf">https://groups.oasis-open.org/communities/tc-community-home2?CommunityKey=3d0f1f56-8477-4b53-9b14-018dc7d3eecf</ulink>.</para>
+
+        <para>This document is provided under the <ulink url="https:https://www.oasis-open.org/policies-guidelines/ipr/#RF-Rand">RF on RAND Terms</ulink> Mode of the <ulink url="https://www.oasis-open.org/policies-guidelines/ipr/">OASIS IPR
+                Policy</ulink>, the mode chosen when the Technical Committee was established. For
+            information on whether any patents have been disclosed that may be essential to
+            implementing this document, and any offers of patent licensing terms, please refer to
+            the Intellectual Property Rights section of the TC's web page (<ulink url="https://www.oasis-open.org/committees/xliff/ipr.php">https://www.oasis-open.org/committees/xliff/ipr.php</ulink>).</para>
+
+        <para>NOTE: any machine-readable content (<ulink url="https://www.oasis-open.org/policies-guidelines/tc-process-2017-05-26/#wpComponentsCompLang">Computer Language Definitions</ulink>) declared Normative for this
+            Work Product is provided in separate plain text files. In the event of a discrepancy
+            between any such plain text file and display content in the Work Product's prose
+            narrative document(s), the content in the separate plain text file prevails.</para>
+    </section>
+
+    <section id="licenseAndNotices">
+        <title>License and Notices</title>
+
+        <para>Copyright © OASIS Open 2026. All Rights Reserved.</para>
+
+        <para>All capitalized terms in the following text have the meanings assigned to them in
+            the OASIS Intellectual Property Rights Policy (the "OASIS IPR Policy"). The full <ulink url="https://www.oasis-open.org/policies-guidelines/ipr/">Policy</ulink> may be
+            found at the OASIS website: [<ulink url="https://www.oasis-open.org/policies-guidelines/ipr/">https://www.oasis-open.org/policies-guidelines/ipr/</ulink>].</para>
+
+        <para>This document and translations of it may be copied and furnished to others, and
+            derivative works that comment on or otherwise explain it or assist in its
+            implementation may be prepared, copied, published, and distributed, in whole or in
+            part, without restriction of any kind, provided that the above copyright notice and
+            this section are included on all such copies and derivative works. However, this
+            document itself may not be modified in any way, including by removing the copyright
+            notice or references to OASIS, except as needed for the purpose of developing any
+            document or deliverable produced by an OASIS Technical Committee (in which case the
+            rules applicable to copyrights, as set forth in the OASIS IPR Policy, must be
+            followed) or as required to translate it into languages other than English.</para>
+
+        <para>The limited permissions granted above are perpetual and will not be revoked by
+            OASIS or its successors or assigns.</para>
+
+        <para>This document and the information contained herein is provided on an "AS IS" basis
+            and OASIS DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+            ANY WARRANTY THAT THE USE OF THE INFORMATION HEREIN WILL NOT INFRINGE ANY OWNERSHIP
+            RIGHTS OR ANY IMPLIED WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR
+            PURPOSE. OASIS AND ITS MEMBERS WILL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, SPECIAL OR
+            CONSEQUENTIAL DAMAGES ARISING OUT OF ANY USE OF THIS DOCUMENT OR ANY PART THEREOF.</para>
+
+        <para>As stated in the OASIS IPR Policy, the following three paragraphs in brackets apply
+            to OASIS Standards Final Deliverable documents (Committee Specifications, OASIS
+            Standards, or Approved Errata).</para>
+
+        <para>[OASIS requests that any OASIS Party or any other party that believes it has patent
+            claims that would necessarily be infringed by implementations of this OASIS Standards
+            Final Deliverable, to notify OASIS TC Administrator and provide an indication of its
+            willingness to grant patent licenses to such patent claims in a manner consistent with
+            the IPR Mode of the OASIS Technical Committee that produced this deliverable.]</para>
+
+        <para>[OASIS invites any party to contact the OASIS TC Administrator if it is aware of a
+            claim of ownership of any patent claims that would necessarily be infringed by
+            implementations of this OASIS Standards Final Deliverable by a patent holder that is
+            not willing to provide a license to such patent claims in a manner consistent with the
+            IPR Mode of the OASIS Technical Committee that produced this OASIS Standards Final
+            Deliverable. OASIS may include such claims on its website, but disclaims any
+            obligation to do so.]</para>
+
+        <para>[OASIS takes no position regarding the validity or scope of any intellectual
+            property or other rights that might be claimed to pertain to the implementation or
+            use of the technology described in this OASIS Standards Final Deliverable or the
+            extent to which any license under such rights might or might not be available;
+            neither does it represent that it has made any effort to identify any such rights.
+            Information on OASIS' procedures with respect to rights in any document or deliverable
+            produced by an OASIS Technical Committee can be found on the OASIS website. Copies of
+            claims of rights made available for publication and any assurances of licenses to be
+            made available, or the result of an attempt made to obtain a general license or
+            permission for the use of such proprietary rights by implementers or users of this
+            OASIS Standards Final Deliverable, can be obtained from the OASIS TC Administrator.
+            OASIS makes no representation that any information or list of intellectual property
+            rights will at any time be complete, or that any claims in such list are, in fact,
+            Essential Claims.]</para>
+
+        <para>The name "OASIS" is a trademark of <ulink url="https://www.oasis-open.org/">OASIS</ulink>, the owner and developer of this document, and should be used only
+            to refer to the organization and its official outputs. OASIS welcomes reference to,
+            and implementation and use of, documents, while reserving the right to enforce its
+            marks against misleading uses. Please see <ulink url="https://www.oasis-open.org/policies-guidelines/trademark/">https://www.oasis-open.org/policies-guidelines/trademark/</ulink> for above
+            guidance.</para>
+    </section>
+</appendix>
   <appendix id="references">
     <title>References</title>
+
+    <para>(This annex forms an integral part of this Specification.)</para>
 
     <para>This appendix contains the normative and informative references that are used in this
         document. While any hyperlinks included in this appendix were valid at the time of
@@ -5778,6 +5839,8 @@ Palouse horses&lt;fn>A Palouse horse is the same as
   <appendix id="mediaType" role="normative">
     <title>MIME Type for XLIFF Version 2.0 and Later Releases</title>
 
+    <para>(This annex forms an integral part of this Specification.)</para>
+
     <para>A MIME type (Multipurpose Internet Mail Extensions type) is a two-part identifier for file
         formats and format content transmitted on the Internet. The MIME type is the mechanism used
         to tell a client application the type of document being transferred from a server. It is
@@ -5788,8 +5851,10 @@ Palouse horses&lt;fn>A Palouse horse is the same as
             Registry</ulink> as <code>application/xliff+xml</code>.</para>
 
 </appendix>
-  <appendix id="coreValidation">
+  <appendix id="coreValidation" role="normative">
     <title>XLIFF Grammar Files</title>
+
+    <para>(This annex forms an integral part of this Specification.)</para>
     <para>The basic grammar and structure of XLIFF 2.3 is defined using several XML Schemas
         and one XML catalog. The module schemas are specifically referenced from their
         respective modules.</para>
@@ -5844,240 +5909,97 @@ Palouse horses&lt;fn>A Palouse horse is the same as
     </section>
 
 </appendix>
+
+  
+  <appendix id="acknowledgements">
+    <title>Acknowledgments</title>
+
+    <para>(This appendix does not form an integral part of this Specification and is
+        informational.)</para>
+
+    <section id="ackLeadership">
+        <title>Leadership</title>
+
+        <para>The following individuals have had significant leadership positions during the
+            development of this document, not just this version of the document, and they are
+            gratefully acknowledged:</para>
+
+        <itemizedlist spacing="compact">
+            <listitem>
+                <para>Chair</para>
+                <itemizedlist spacing="compact">
+                    <listitem>
+                        <para>Dr. Lucía Morado Vázquez, University of Geneva</para>
+                    </listitem>
+                </itemizedlist>
+            </listitem>
+            <listitem>
+                <para>Editors</para>
+                <itemizedlist spacing="compact">
+                    <listitem>
+                        <para>Rodolfo M. Raya, Maxprograms</para>
+                    </listitem>
+                    <listitem>
+                        <para>Dr. Lucía Morado Vázquez, University of Geneva</para>
+                    </listitem>
+                    <listitem>
+                        <para>Umaoka, Yoshito - Individual </para>
+                    </listitem>
+                </itemizedlist>
+            </listitem>
+        </itemizedlist>
+    </section>
+
+    <section id="ackSpecialThanks">
+        <title>Special Thanks</title>
+
+        <para>The following individuals have made substantial contributions to this document, not
+            just this version of the document, and their contributions are gratefully
+            acknowledged:</para>
+
+        <itemizedlist spacing="compact">
+            <listitem>
+                <para>Nita, Mihai - Google Inc.</para>
+            </listitem>
+            <listitem>
+                <para>Sonnemans, Mathijs - Individual </para>
+            </listitem>
+            
+        </itemizedlist>
+    </section>
+
+</appendix>
   <appendix id="specChangeTracking" role="informative">
-    <title>Specification Change Tracking</title>
+    <title>Changes From Previous Version</title>
+
+    <para>(This appendix does not form an integral part of this Specification and is
+        informational.)</para>
 
     <para>This is to facilitate human tracking of changes between XLIFF Versions 2.3 and
         2.2. </para>
 
+    <para><emphasis>&lt; Work in progress: XLIFF 2.3 is still under development by the
+        OASIS XLIFF TC. The list below reflects known changes so far and is not yet
+        final. ></emphasis></para>
 
     <orderedlist continuation="restarts" inheritnum="ignore">
         
         <listitem>
-            <para>Produced two versions of the specification: </para>
-            <simplelist type="vert">
-                <member><emphasis>Part 1: Core</emphasis> - simplified version that does not include
-                    optional modules.</member>
-                <member><emphasis>Part 2: Extended</emphasis> - complete version, including all
-                    modules.</member>
-            </simplelist>
-        </listitem>
-        <listitem>
-            <para>Changed namespace for the core module to
-                    <code>urn:oasis:names:tc:xliff:document:2.2</code>.</para>
-        </listitem>
-        <listitem>
-            <para>Added an optional <link linkend="ref"><code>ref</code></link> attribute to <link linkend="note"><code>&lt;note></code></link> element.</para>
-        </listitem>
-        <listitem>
-            <para>Changed the type of <link linkend="version"><code>version</code></link> attribute to an enumeration
-                containing 2.0, 2.1 and 2.2 as valid values.</para>
-        </listitem>
-        <listitem>
-            <para>Allowed an optional <link linkend="notes"><code>&lt;notes></code></link> element at the start of <link linkend="xliff"><code>&lt;xliff></code></link>.</para>
-        </listitem>
-        <listitem>
-            <para>Allowed an optional <remark><code>&lt;mda:metadata></code></remark> element at the start
-                of <link linkend="xliff"><code>&lt;xliff></code></link>.</para>
-        </listitem>
-        <listitem>
-            <para>Removed references to Schematron, NVDL and Test Suite from this
-                specification.</para>
-
-        </listitem>
-        <listitem>
-            <para>Updated import references to XLIFF Core Schema in <code>matches.xsd</code>,
-                    <code>resource_data.xsd</code> and <code>validation.xsd</code>.</para>
-        </listitem>
-        <listitem>
-            <para>Removed the informative Change Tracking Extension. This module had been already
-                demoted in the previous XLIFF version (2.1) but left in the specification for
-                informative purposes. During the development of XLIFF 2.2, the TC did not work on
-                this item. Therefore a decision was taken to remove it completely from the current
-                specification to reduce its volume.</para>
-        </listitem>
-        <listitem>
-            <para>Added new <remark>Plural, Gender, and Select                    Module</remark>. </para>
-        </listitem>
-        <listitem>
-            <para>Updated <link linkend="mediaType">Appendix B</link>
-                with the official MIME type listed in IANA Media Type Registry.</para>
-        </listitem>
-        <listitem>
-            <para>Allowed an optional <link linkend="notes"><code>&lt;notes></code></link> element in <remark><code>&lt;res:resourceItem></code></remark>.</para>
-        </listitem>
-        <listitem>
-            <para>Removed references to third-party XML Schemas from <link linkend="coreValidation">XLIFF Grammar                    Files</link>.</para>
+            <para>Added new <remark>Provenance Module</remark>. </para>
         </listitem>
     </orderedlist>
     <para>In spite of the above mentioned changes, fixes, clarifications, and additions, the
         practical workings of the previous versions of the XLIFF Core have not been affected.</para>
-    <para>All valid XLIFF 2.0 and 2.1 files are valid XLIFF 2.2 files. The changes introduced in
-        version 2.2 are designed to maintain compatibility with versions 2.0 and 2.1.</para>
-    <note>
-        <para>NVDL and Schematron files used in previous versions of XLIFF are available at <ulink url="https://github.com/oasis-tcs/xliff-xliff-22/tree/master/xliff-21">https://github.com/oasis-tcs/xliff-xliff-22/tree/master/xliff-21</ulink>.</para>
-    </note>
-</appendix>
-  <appendix id="acknowledgements">
-    <title>Acknowledgements</title>
-    <para>The following individuals have participated in the creation of this specification and are
-        gratefully acknowledged:</para>
-    
-    <itemizedlist spacing="compact">
-        <listitem>
-            <para>Filip, David - Huawei Technologies Co., Ltd. </para>
-        </listitem>
-        <listitem>
-            <para>Morado Vázquez, Lucía - University of Geneva </para>
-        </listitem>
-        <listitem>
-            <para>Nita, Mihai - Google Inc.</para>
-        </listitem>
-        <listitem>
-            <para>Raya, Rodolfo M. - Individual </para>
-        </listitem>
-        <listitem>
-            <para>Schnabel, Bryan - Individual </para>
-        </listitem>
-        <listitem>
-            <para>Souto Pico, Manuel - cApStAn SA</para>
-        </listitem>
-        <listitem>
-            <para>Umaoka, Yoshito - IBM </para>
-        </listitem>
-    </itemizedlist>
-    
-</appendix>
-  <appendix id="revisionHistory">
+    <para>All valid XLIFF 2.0, 2.1, and 2.2 files are valid XLIFF 2.3 files. The changes
+        introduced in version 2.3 are designed to maintain compatibility with versions 2.0,
+        2.1, and 2.2.</para>
+
+    <section id="revisionHistory">
     <title>Revision History</title>
-    <table>
-        <title>Tracking of changes in response to the 1<superscript>st</superscript> Public
-            Review</title>
-        <tgroup cols="4">
-            <thead>
-                <row>
-                    <entry>Revision</entry>
-                    <entry>Date</entry>
-                    <entry>Editor</entry>
-                    <entry>Changes Made</entry>
-                </row>
-            </thead>
-            <tbody>
-                <row>
-                    <entry>CSD02</entry>
-                    <entry>12 November, 2024</entry>
-                    <entry>Rodolfo M. Raya</entry>
-                    <entry>
-                        <itemizedlist>
-                            <listitem>
-                                <para>Updated <link linkend="specChangeTracking">Specification Change                                        Tracking</link> appendix with additional information about
-                                    the removal of the informative Change Tracking Extension.</para>
-                            </listitem>
-                            <listitem>
-                                <para>Removed compact form (non-XLIFF) examples from <remark>Plural, Gender, and                                        Select Module</remark> module to avoid potential
-                                    confusions.</para>
-                            </listitem>
-                            <listitem>
-                                <para>Corrected link to grammar file in <remark>Plural, Gender, and                                        Select Module</remark>.</para>
-                            </listitem>
-                        </itemizedlist>
-                    </entry>
-                </row>
-            </tbody>
-        </tgroup>
-    </table>
-    <table>
-        <title>Tracking of changes in response to the 2<superscript>nd</superscript> Public
-            Review</title>
-        <tgroup cols="4">
-            <thead>
-                <row>
-                    <entry>Revision</entry>
-                    <entry>Date</entry>
-                    <entry>Editor</entry>
-                    <entry>Changes Made</entry>
-                </row>
-            </thead>
-            <tbody>
-                <row>
-                    <entry>CSD03</entry>
-                    <entry>17 February, 2025</entry>
-                    <entry>Rodolfo M. Raya</entry>
-                    <entry>
-                        <itemizedlist>
-                            <listitem>
-                                <para>Updated <link linkend="specChangeTracking">Specification Change                                        Tracking</link> to add the removal of third-party XML
-                                    Schemas from this specification.</para>
-                            </listitem>
-                            <listitem>
-                                <para>Corrected links to third-party XML Schemas in the grammar
-                                    files listed in <link linkend="coreValidation">XLIFF Grammar                                    Files</link>.</para>
-                            </listitem>
-                        </itemizedlist>
-                    </entry>
-                </row>
-            </tbody>
-        </tgroup>
-    </table>
-</appendix>
-  <appendix id="notices">
-    <title>Notices</title>
-    <para>Copyright © OASIS Open 2026. All Rights Reserved.</para>
-    <para>All capitalized terms in the following text have the meanings assigned to them in the
-        OASIS Intellectual Property Rights Policy (the "OASIS IPR Policy"). The full <ulink url="https://www.oasis-open.org/policies-guidelines/ipr/">Policy</ulink> may be found at
-        the OASIS website: [<ulink url="https://www.oasis-open.org/policies-guidelines/ipr/">https://www.oasis-open.org/policies-guidelines/ipr/</ulink>].</para>
-    <para>This document and translations of it may be copied and furnished to others, and derivative
-        works that comment on or otherwise explain it or assist in its implementation may be
-        prepared, copied, published, and distributed, in whole or in part, without restriction of
-        any kind, provided that the above copyright notice and this section are included on all such
-        copies and derivative works. However, this document itself may not be modified in any way,
-        including by removing the copyright notice or references to OASIS, except as needed for the
-        purpose of developing any document or deliverable produced by an OASIS Technical Committee
-        (in which case the rules applicable to copyrights, as set forth in the OASIS IPR Policy,
-        must be followed) or as required to translate it into languages other than English.</para>
-    <para>The limited permissions granted above are perpetual and will not be revoked by OASIS or
-        its successors or assigns.</para>
-    <para>This document and the information contained herein is provided on an "AS IS" basis and
-        OASIS DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY
-        WARRANTY THAT THE USE OF THE INFORMATION HEREIN WILL NOT INFRINGE ANY OWNERSHIP RIGHTS OR
-        ANY IMPLIED WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE. OASIS AND ITS
-        MEMBERS WILL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, SPECIAL OR CONSEQUENTIAL DAMAGES
-        ARISING OUT OF ANY USE OF THIS DOCUMENT OR ANY PART THEREOF.</para>
-    <para>As stated in the OASIS IPR Policy, the following three paragraphs in brackets apply to
-        OASIS Standards Final Deliverable documents (Committee Specifications, OASIS Standards, or
-        Approved Errata).</para>
-    <para>[OASIS requests that any OASIS Party or any other party that believes it has patent claims
-        that would necessarily be infringed by implementations of this OASIS Standards Final
-        Deliverable, to notify OASIS TC Administrator and provide an indication of its willingness
-        to grant patent licenses to such patent claims in a manner consistent with the IPR Mode of
-        the OASIS Technical Committee that produced this deliverable.]</para>
-    <para>[OASIS invites any party to contact the OASIS TC Administrator if it is aware of a claim
-        of ownership of any patent claims that would necessarily be infringed by implementations of
-        this OASIS Standards Final Deliverable by a patent holder that is not willing to provide a
-        license to such patent claims in a manner consistent with the IPR Mode of the OASIS
-        Technical Committee that produced this OASIS Standards Final Deliverable. OASIS may include
-        such claims on its website, but disclaims any obligation to do so.]</para>
-    <para>[OASIS takes no position regarding the validity or scope of any intellectual property or
-        other rights that might be claimed to pertain to the implementation or use of the technology
-        described in this OASIS Standards Final Deliverable or the extent to which any license under
-        such rights might or might not be available; neither does it represent that it has made any
-        effort to identify any such rights. Information on OASIS' procedures with respect to rights
-        in any document or deliverable produced by an OASIS Technical Committee can be found on the
-        OASIS website. Copies of claims of rights made available for publication and any assurances
-        of licenses to be made available, or the result of an attempt made to obtain a general
-        license or permission for the use of such proprietary rights by implementers or users of
-        this OASIS Standards Final Deliverable, can be obtained from the OASIS TC Administrator.
-        OASIS makes no representation that any information or list of intellectual property rights
-        will at any time be complete, or that any claims in such list are, in fact, Essential
-        Claims.]</para>
-    <para>The name "OASIS" is a trademark of <ulink url="https://www.oasis-open.org/">OASIS</ulink>,
-        the owner and developer of this document, and should be used only to refer to the
-        organization and its official outputs. OASIS welcomes reference to, and implementation and
-        use of, documents, while reserving the right to enforce its marks against misleading uses.
-        Please see <ulink url="https://www.oasis-open.org/policies-guidelines/trademark/">https://www.oasis-open.org/policies-guidelines/trademark/</ulink> for above
-        guidance.</para>
 
-
+    <para>None. This document has not yet been published for public review, and no review
+        comments have been received.</para>
+</section>
 </appendix>
 
 </article>

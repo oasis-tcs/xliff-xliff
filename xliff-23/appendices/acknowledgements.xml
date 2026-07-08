@@ -8,26 +8,60 @@
 %xinclude;
 ]>
 <appendix id="acknowledgements">
-    <title>Acknowledgements</title>
-    <para>The following individuals have participated in the creation of this specification and are
-        gratefully acknowledged:</para>
-    
-    <itemizedlist spacing="compact">
-        <listitem>
-            <para>Morado Vázquez, Lucía - University of Geneva </para>
-        </listitem>
-        <listitem>
-            <para>Nita, Mihai - Google Inc.</para>
-        </listitem>
-        <listitem>
-            <para>Raya, Rodolfo M. - Individual </para>
-        </listitem>
-        <listitem>
-            <para>Sonnemans, Mathijs - Individual </para>
-        </listitem>
-        <listitem>
-            <para>Umaoka, Yoshito - Individual </para>
-        </listitem>
-    </itemizedlist>
-    
+    <title>Acknowledgments</title>
+
+    <para>(This appendix does not form an integral part of this Specification and is
+        informational.)</para>
+
+    <section id="ackLeadership">
+        <title>Leadership</title>
+
+        <para>The following individuals have had significant leadership positions during the
+            development of this document, not just this version of the document, and they are
+            gratefully acknowledged:</para>
+
+        <itemizedlist spacing="compact">
+            <listitem>
+                <para>Chair</para>
+                <itemizedlist spacing="compact">
+                    <listitem>
+                        <para>Dr. Lucía Morado Vázquez, University of Geneva</para>
+                    </listitem>
+                </itemizedlist>
+            </listitem>
+            <listitem>
+                <para>Editors</para>
+                <itemizedlist spacing="compact">
+                    <listitem>
+                        <para>Rodolfo M. Raya, Maxprograms</para>
+                    </listitem>
+                    <listitem>
+                        <para>Dr. Lucía Morado Vázquez, University of Geneva</para>
+                    </listitem>
+                    <listitem>
+                        <para>Umaoka, Yoshito - Individual </para>
+                    </listitem>
+                </itemizedlist>
+            </listitem>
+        </itemizedlist>
+    </section>
+
+    <section id="ackSpecialThanks">
+        <title>Special Thanks</title>
+
+        <para>The following individuals have made substantial contributions to this document, not
+            just this version of the document, and their contributions are gratefully
+            acknowledged:</para>
+
+        <itemizedlist spacing="compact">
+            <listitem>
+                <para>Nita, Mihai - Google Inc.</para>
+            </listitem>
+            <listitem>
+                <para>Sonnemans, Mathijs - Individual </para>
+            </listitem>
+            
+        </itemizedlist>
+    </section>
+
 </appendix>

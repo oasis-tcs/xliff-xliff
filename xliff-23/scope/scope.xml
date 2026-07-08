@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.docbook.org/xml/4.5/docbookx.dtd" [
+
+<!ENTITY % base SYSTEM "../docbook/dbgenent.mod">
+%base;
+
+<!ENTITY % xinclude SYSTEM "../docbook/xinclude.mod">
+%xinclude;
+
+]>
+<section id="scope">
+  <title>Scope</title>
+
+  <para>XLIFF is the <emphasis>XML Localization Interchange File Format</emphasis> designed by a
+    group of multilingual content publishers, software providers, localization service providers,
+    localization tools providers, and researchers. It is intended to give any multilingual content
+    owner a single interchange file format that can be understood by any localization provider,
+    using any conformant localization tool. While the primary focus is on being a lossless
+    interchange format, usage of XLIFF as a processing format is neither encouraged nor discouraged
+    or prohibited.</para>
+
+  <para>This document is one part of a multi-part Work Product that defines Version &version; of
+    XLIFF. <emphasis>XLIFF Version &version;. Part 1: Core</emphasis> presents the XLIFF core,
+    which is the minimum set of XML elements and attributes required to create a valid XLIFF
+    file. <emphasis>XLIFF Version &version;. Part 2: Extended</emphasis> presents the XLIFF core
+    as well as the optional Modules that MAY be used along with the core for advanced
+    functionality.</para>
+
+  <para><emphasis>All text is normative unless otherwise labeled.</emphasis></para>
+</section>

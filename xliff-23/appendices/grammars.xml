@@ -7,8 +7,10 @@
 <!ENTITY % xinclude SYSTEM "../docbook/xinclude.mod">
 %xinclude;
 ]>
-<appendix id="coreValidation">
+<appendix role="normative" id="coreValidation">
     <title>XLIFF Grammar Files</title>
+
+    <para>(This annex forms an integral part of this Specification.)</para>
     <para>The basic grammar and structure of XLIFF &version; is defined using several XML Schemas
         and one XML catalog. The module schemas are specifically referenced from their
         respective modules.</para>

@@ -29,7 +29,7 @@
      Yellow: A09A4F
      Purple: 3B006F
      Aqua:   7DCAD6
-     Navy:   446CAA
+     Navy:   0B5394
      Gray:   7F7F7F
   -->
 <!-- See http://sourceforge.net/projects/docbook/ -->
@@ -125,12 +125,12 @@
 <xsl:param name="automatic-output-filename" select="'no'"/>
 
 <xsl:attribute-set name="section.title.properties">
-  <xsl:attribute name="color">#446CAA</xsl:attribute>
+  <xsl:attribute name="color">#0B5394</xsl:attribute>
   <xsl:attribute name="text-align">start</xsl:attribute>
 </xsl:attribute-set>
 
 <xsl:attribute-set name="component.title.properties">
-  <xsl:attribute name="color">#446CAA</xsl:attribute>
+  <xsl:attribute name="color">#0B5394</xsl:attribute>
   <xsl:attribute name="text-align">start</xsl:attribute>
 </xsl:attribute-set>
   
@@ -150,7 +150,7 @@
   
 <xsl:attribute-set name="table.of.contents.titlepage.recto.style">
   <xsl:attribute name="break-before">page</xsl:attribute>
-  <xsl:attribute name="color">#446CAA</xsl:attribute>
+  <xsl:attribute name="color">#0B5394</xsl:attribute>
   <xsl:attribute name="border-before-color">black</xsl:attribute>
   <xsl:attribute name="border-before-width">1pt</xsl:attribute>
   <xsl:attribute name="border-before-style">solid</xsl:attribute>

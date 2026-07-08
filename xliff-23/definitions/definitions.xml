@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.docbook.org/xml/4.5/docbookx.dtd" [
+
+<!ENTITY % base SYSTEM "../docbook/dbgenent.mod">
+%base;
+
+<!ENTITY % xinclude SYSTEM "../docbook/xinclude.mod">
+%xinclude;
+
+]>
+<section id="definitionsAndAcronyms">
+  <title>Definitions and Acronyms</title>
+
+  <section id="definitions">
+    <title>Definitions</title>
+
+    <section id="termsDefinedElsewhere">
+      <title>Terms Defined Elsewhere</title>
+
+      <para>This document uses the following terms defined elsewhere:</para>
+
+      <para><emphasis>&lt; Placeholder: terms used in this document that are defined in other
+        standards or reference documents should be listed here, with a link to the specific
+        version of the defining document. &gt;</emphasis></para>
+    </section>
+
+    <section id="termsDefinedInThisDocument">
+      <title>Terms Defined in this Document</title>
+
+      <para>This document defines the following terms:</para>
+
+      <variablelist>
+
+        <varlistentry>
+          <term>Agent</term>
+
+          <listitem>
+            <para>any application or tool that generates (creates), reads, edits, writes, processes,
+              stores, renders or otherwise handles XLIFF documents.</para>
+            <para>Agent is the most general application conformance target that subsumes all other
+              specialized user agents disregarding whether they are defined in this specification or
+              not.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>Enrich</term>
+          <term>Enriching</term>
+          <listitem>
+            <para> the process of associating module and extension based metadata and resources with
+              the Extracted XLIFF payload </para>
+            <itemizedlist>
+              <title>Processing Requirements</title>
+              <listitem>
+                <para>Enriching MAY happen at the time of Extraction. </para>
+              </listitem>
+            </itemizedlist>
+            <note>
+              <para>Extractor knowledge of the native format is not assumed while Enriching.</para>
+            </note>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>Enricher</term>
+          <term>Enricher Agent</term>
+          <listitem>
+            <para>any Agent that performs the Enriching process </para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>Extract</term>
+          <term>Extraction</term>
+          <listitem>
+            <para>the process of encoding localizable content from a native content or User Interface
+              format as XLIFF payload, so that localizable parts of the content in the source language
+              are available for translation into the target language along with the necessary context
+              information </para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>Extractor</term>
+          <term>Extractor Agent</term>
+
+          <listitem>
+            <para>any Agent that performs the Extraction process </para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>Merge</term>
+          <term>Merging</term>
+
+          <listitem>
+            <para>the process of importing XLIFF payload back to the originating native format, based
+              on the <emphasis>full knowledge</emphasis> of the Extraction mechanism, so that the
+              localized content or User Interface strings replace the source language in the native
+              format </para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>Merger</term>
+          <term>Merger Agent</term>
+
+          <listitem>
+            <para>an Agent that performs the Merge process </para>
+
+            <warning>
+              <para> Unless specified otherwise, any Merger is deemed to have the same knowledge of
+                the native format as the Extractor throughout the specification. </para>
+              <para>Mergers independent of Extractors can succeed, but it is out of scope of this
+                specification to specify interoperability for merging back without the full Extractor
+                knowledge of the native format. </para>
+            </warning>
+          </listitem>
+
+        </varlistentry>
+
+        <varlistentry>
+          <term>Modify</term>
+          <term>Modification</term>
+          <listitem>
+            <para> the process of changing core and module XLIFF structural and inline elements that
+              were previously created by other Writers </para>
+            <itemizedlist>
+              <title>Processing Requirements</title>
+              <listitem>
+                <para> XLIFF elements MAY be Modified and Enriched at the same time. </para>
+              </listitem>
+            </itemizedlist>
+            <note>
+              <para>Extractor or Enricher knowledge of the native format is not assumed while
+                modifying.</para>
+            </note>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>Modifier</term>
+          <term>Modifier Agent</term>
+
+          <listitem>
+            <para>an Agent that performs the Modification process </para>
+
+          </listitem>
+
+        </varlistentry>
+
+        <varlistentry>
+          <term>Translation</term>
+          <term>Translate</term>
+
+          <listitem>
+            <para>a rendering of the meaning of the source text, expressed in the target
+              language</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>Writer</term>
+          <term>Writer Agent</term>
+
+          <listitem>
+            <para>an Agent that creates, generates, or otherwise writes an XLIFF document for whatever
+              purpose, including but not limited to Extractor, Modifier, and Enricher Agents. </para>
+
+            <note>
+              <para> Since XLIFF is intended as an exchange format rather than a processing format,
+                many applications will need to generate XLIFF documents from their internal processing
+                formats, even in cases when they are processing XLIFF documents created by another
+                Extractor. </para>
+            </note>
+          </listitem>
+
+
+        </varlistentry>
+      </variablelist>
+    </section>
+  </section>
+
+  <section id="abbreviationsAndAcronyms">
+    <title>Abbreviations and Acronyms</title>
+
+    <para>This document uses the following abbreviations and acronyms:</para>
+
+    <para><emphasis>&lt; Placeholder: abbreviations and acronyms used in this document (e.g. IRI,
+      URI, MIME, BCP, IANA) should be listed here with their expanded form. &gt;</emphasis></para>
+  </section>
+</section>

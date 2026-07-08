@@ -10,6 +10,8 @@
 <appendix role="normative" id="mediaType">
     <title>MIME Type for XLIFF Version 2.0 and Later Releases</title>
 
+    <para>(This annex forms an integral part of this Specification.)</para>
+
     <para>A MIME type (Multipurpose Internet Mail Extensions type) is a two-part identifier for file
         formats and format content transmitted on the Internet. The MIME type is the mechanism used
         to tell a client application the type of document being transferred from a server. It is
