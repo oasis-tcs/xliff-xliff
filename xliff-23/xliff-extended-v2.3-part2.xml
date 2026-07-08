@@ -36,6 +36,24 @@
         </affiliation>
         <email>lucia.morado@unige.ch</email>
       </othercredit>
+      <othercredit role="chair">
+        <firstname>Yoshito</firstname>
+        <surname>Umaoka</surname>
+        <affiliation>
+          <orgname>Individual</orgname>
+          <address format="linespecific"><email>y.umaoka@gmail.com</email></address>
+        </affiliation>
+        <email>y.umaoka@gmail.com</email>
+      </othercredit>
+      <othercredit role="secretary">
+        <firstname>Rodolfo M.</firstname>
+        <surname>Raya</surname>
+        <affiliation>
+          <orgname><ulink url="https://maxprograms.com">Maxprograms</ulink></orgname>
+          <address format="linespecific"><email>rmraya@maxprograms.com</email></address>
+        </affiliation>
+        <email>rmraya@maxprograms.com</email>
+      </othercredit>
       <editor>
         <firstname>Rodolfo M.</firstname>
         <surname>Raya</surname>
@@ -57,7 +75,7 @@
       </editor>
     </authorgroup>
 
-    <pubdate>16 May 2026</pubdate>
+    <pubdate>8 July 2026</pubdate>
 
     <copyright>
       <year>2026</year>
@@ -90,7 +108,7 @@
       <para>When referencing this document, the following citation format should be used:</para>
       <para><emphasis role="strong">[XLIFF-2.3-part2]</emphasis></para>
       <para>XLIFF Version 2.3 Part 2: Extended. Edited by Rodolfo M. Raya and Lucía Morado
-        Vázquez 16 May 2026. OASIS Committee Specification Draft 01. <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-v2.3-part2-extended.html">https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-v2.3-part2-extended.html</ulink>.
+        Vázquez 8 July 2026. OASIS Committee Specification Draft 01. <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-v2.3-part2-extended.html">https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-v2.3-part2-extended.html</ulink>.
         Latest stage <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-v2.3-part2-extended.html">https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-v2.3-part2-extended.html</ulink>.
       </para>
     </legalnotice>

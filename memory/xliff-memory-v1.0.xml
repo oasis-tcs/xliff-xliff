@@ -1,0 +1,816 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "docbook/docbookx.dtd">
+<article lang="en-US" status="Committee Note Draft 01">
+  <articleinfo>
+    <title>XLIFF Translation Memory Version 1.0</title>
+
+    <productname class="trade">xliff-tm</productname>
+
+    <productnumber>cnd01</productnumber>
+
+    <releaseinfo role="OASIS-specification-this-authoritative">[ link to authoritative version of the published document ]</releaseinfo>
+
+    <releaseinfo role="OASIS-specification-previous-authoritative">[ link to authoritative version of the published document ]</releaseinfo>
+
+    <releaseinfo role="OASIS-specification-latest-authoritative">[ link to authoritative version of the published document ]</releaseinfo>
+
+    <releaseinfo role="committee"><ulink url="https://groups.oasis-open.org/communities/tc-community-home2?CommunityKey=3d0f1f56-8477-4b53-9b14-018dc7d3eecf">OASIS
+        XLIFF TC</ulink></releaseinfo>
+
+    <authorgroup>
+      <othercredit role="chair">
+        <honorific>Dr</honorific>
+        <firstname>Lucía</firstname>
+        <surname>Morado Vázquez</surname>
+        <affiliation>
+          <orgname><ulink url="https://www.unige.ch/en/">University of Geneva</ulink></orgname>
+          <address format="linespecific"><email>lucia.morado@unige.ch</email></address>
+        </affiliation>
+        <email>lucia.morado@unige.ch</email>
+      </othercredit>
+      <othercredit role="chair">
+        <firstname>Yoshito</firstname>
+        <surname>Umaoka</surname>
+        <affiliation>
+          <orgname>Individual</orgname>
+          <address format="linespecific"><email>y.umaoka@gmail.com</email></address>
+        </affiliation>
+        <email>y.umaoka@gmail.com</email>
+      </othercredit>
+      <othercredit role="secretary">
+        <firstname>Rodolfo M.</firstname>
+        <surname>Raya</surname>
+        <affiliation>
+          <orgname><ulink url="https://maxprograms.com">Maxprograms</ulink></orgname>
+          <address format="linespecific"><email>rmraya@maxprograms.com</email></address>
+        </affiliation>
+        <email>rmraya@maxprograms.com</email>
+      </othercredit>
+      <editor>
+        <firstname>Rodolfo M.</firstname>
+        <surname>Raya</surname>
+        <affiliation>
+          <orgname><ulink url="https://maxprograms.com">Maxprograms</ulink></orgname>
+          <address format="linespecific"><email>rmraya@maxprograms.com</email></address>
+        </affiliation>
+        <email>rmraya@maxprograms.com</email>
+      </editor>
+    </authorgroup>
+
+    <pubdate>8 July 2025</pubdate>
+
+    <copyright>
+      <year>2025</year>
+      <holder>OASIS Open, Inc. All Rights Reserved.</holder>
+    </copyright>
+
+    <legalnotice role="related">
+      <title>Related Work</title>
+
+      <para>This document replaces or supersedes:</para>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para>[ The full reference to the related document in IEEE reference format ]</para>
+        </listitem>
+      </itemizedlist>
+
+      <para>This document is related to:</para>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para><emphasis role="strong">[XLIFF-2.2-part2]</emphasis> XLIFF Version 2.2 Part 2:
+            Extended. Edited by Rodolfo M. Raya and Lucía Morado Vázquez 13 March 2025. OASIS
+            Committee Specification. <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.2/xliff-v2.2-part2-extended.html">https://docs.oasis-open.org/xliff/xliff-core/v2.2/xliff-v2.2-part2-extended.html</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para><emphasis role="strong">[TMX 1.4b]</emphasis> Translation Memory eXchange (TMX)
+            Version 1.4b. Edited by Yves Savourel. OSCAR Recommendation, 26 April 2005. <ulink url="https://web.archive.org/web/20060528180452/http://www.lisa.org/standards/tmx/tmx.html">https://web.archive.org/web/20060528180452/http://www.lisa.org/standards/tmx/tmx.html</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </legalnotice>
+
+    <abstract>
+      <para>This Committee Note describes an XLIFF-native approach for the representation and
+        exchange of translation memory data, using plain XLIFF <code>&lt;file></code>,
+        <code>&lt;unit></code>, and <code>&lt;segment></code> elements as the translation
+        memory store itself, in place of the Translation Memory eXchange (TMX) format. The
+        approach preserves the structure and semantics of XLIFF content, including bilingual
+        text, inline elements, segmentation, and associated metadata, without the information
+        loss that results from converting content to and from TMX's inline tag model. It also
+        preserves the document order and structural relationship between translation units,
+        file, unit, and segment, that TMX's flat, unordered list of translation units does not
+        represent, and it allows richer metadata, such as provenance information, to be attached
+        directly using existing XLIFF modules.</para>
+
+      <para>This Committee Note also addresses the exchange of translation memory data for
+        multilingual use. Because XLIFF documents are fundamentally bilingual, the Note
+        recommends a packaging approach in which multiple related bilingual XLIFF files are
+        distributed together in a single ZIP package with a manifest that identifies the
+        relationships among them.</para>
+    </abstract>
+
+    <legalnotice role="citation">
+      <title>Citation format</title>
+      <para>When referencing this document, the following citation format should be used:</para>
+      <para>[ The full reference for this document in IEEE reference format ]</para>
+    </legalnotice>
+
+    <legalnotice role="notices">
+      <title>License, Document Status, and Notices</title>
+
+      <para>Copyright © OASIS Open 2025. All Rights Reserved. For license and copyright
+        information, and complete status, please see Annex A which contains the License,
+        Document Status and Notices.</para>
+    </legalnotice>
+  </articleinfo>
+
+  <section id="scope">
+  <title>Scope</title>
+
+  <para>This Committee Note describes an XLIFF-native approach for storing and exchanging
+    translation memory (TM) data, using plain XLIFF 2.x documents in place of the Translation
+    Memory eXchange (TMX) format.</para>
+
+  <para>Rather than defining a new container or converting bilingual content into a separate
+    TM-specific format, this document recommends that XLIFF <code>&lt;file></code>,
+    <code>&lt;unit></code>, and <code>&lt;segment></code> elements be used directly to hold
+    translation units for later reuse. This preserves the full XLIFF inline element model,
+    avoiding the loss of information that results from converting XLIFF inline markup to and
+    from the TMX inline tag model, and preserves the structural order of content, which TMX's
+    flat, unordered list of <code>&lt;tu></code> elements does not represent.</para>
+
+  <para>This document also describes how the XLIFF Provenance module, under development for
+    XLIFF 2.3, can be used to record and later query information about the origin of stored
+    translation units, such as the agent, tool, or process that produced or modified them.</para>
+
+  <para>Because a single XLIFF document is inherently bilingual, this document further describes
+    a packaging convention for exchanging translation memory data across more than two
+    languages, based on a set of related bilingual XLIFF files distributed together with a
+    manifest.</para>
+</section>
+  <section id="definitionsAndAcronyms">
+  <title>Definitions and Acronyms</title>
+
+  <section id="definitions">
+    <title>Definitions</title>
+
+    <section id="termsDefinedElsewhere">
+      <title>Terms Defined Elsewhere</title>
+
+      <para>This document uses the following terms defined elsewhere:</para>
+
+      <variablelist>
+        <varlistentry>
+          <term>Unit [XLIFF-2.2-part2]</term>
+          <listitem>
+            <para>"A <code>&lt;unit></code> MAY contain both source and target content,
+              allowing bilingual data to be stored."</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Segment [XLIFF-2.2-part2]</term>
+          <listitem>
+            <para>The <code>&lt;segment></code> element, used to represent the smallest unit
+              of translatable content addressed for translation, review, or other
+              processing.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Provenance information [Provenance module, XLIFF 2.3, informative]</term>
+          <listitem>
+            <para>Information about the nature and origin of the localization data or
+              process.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+    </section>
+
+    <section id="termsDefinedInThisDocument">
+      <title>Terms Defined in this Document</title>
+
+      <para>This document defines the following terms:</para>
+
+      <variablelist>
+        <varlistentry>
+          <term>Translation memory (TM)</term>
+          <listitem>
+            <para>A collection of previously translated source and target content, organized
+              for retrieval and reuse when equal or similar source content is encountered
+              again.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Translation memory entry</term>
+          <listitem>
+            <para>A single stored source/target pair available for reuse, represented in this
+              document as an XLIFF <code>&lt;unit></code> (or, where segmented,
+              <code>&lt;segment></code>).</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Translation memory exchange package</term>
+          <listitem>
+            <para>A ZIP archive containing one or more bilingual XLIFF files together with a
+              manifest, used to exchange translation memory data across more than two
+              languages, as described in <link linkend="exchange">Exchange of Multilingual Translation Memory Data</link>.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+    </section>
+  </section>
+
+  <section id="abbreviationsAndAcronyms">
+    <title>Abbreviations and Acronyms</title>
+
+    <para>This document uses the following abbreviations and acronyms:</para>
+
+    <itemizedlist>
+      <listitem><para>TC: Technical Committee</para></listitem>
+      <listitem><para>TM: Translation Memory</para></listitem>
+      <listitem><para>TMX: Translation Memory eXchange</para></listitem>
+      <listitem><para>TU: Translation Unit</para></listitem>
+      <listitem><para>TUV: Translation Unit Variant (TMX)</para></listitem>
+      <listitem><para>XML: Extensible Markup Language</para></listitem>
+      <listitem><para>ZIP: A common archive file format</para></listitem>
+    </itemizedlist>
+  </section>
+</section>
+  <section id="documentConventions">
+  <title>Document Conventions</title>
+
+  <section id="keyWords">
+    <title>Key Words</title>
+
+    <para>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD
+      NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as
+      described in <link linkend="rfc2119">[RFC2119]</link>.</para>
+  </section>
+
+  <section id="typographicalConventions">
+    <title>Typographical Conventions</title>
+
+    <para>XML element names are shown enclosed in angle brackets, for example
+      <code>&lt;unit></code>. XML attribute names are shown in fixed-width type without
+      brackets, for example <code>id</code>. XML namespace prefixes used in examples
+      (<code>xlf:</code>, <code>mtc:</code>, <code>pvn:</code>) follow the conventions
+      established in [XLIFF-2.2-part2] and the XLIFF 2.3 Provenance module. Example XML is shown
+      in fenced code blocks and is illustrative; it is not necessarily complete or
+      schema-valid.</para>
+  </section>
+</section>
+  <section id="introduction">
+  <title>Introduction</title>
+
+  <para>Translation memory (TM) is a core technology of the localization industry. A TM stores
+    previously translated content so that it can be retrieved and reused when equal or similar
+    source content is encountered again, improving consistency and reducing translation effort
+    and cost.</para>
+
+  <para>Since 2005, the de facto standard for exchanging TM data between tools has been the
+    Translation Memory eXchange (TMX) format [TMX 1.4b]. TMX was designed as a vendor-neutral
+    interchange format, independent of any single authoring or extraction format. XLIFF, by
+    contrast, is designed to carry bilingual (and, through packaging, multilingual) content
+    through the localization process itself, from extraction through translation, review, and
+    reintegration into the original format.</para>
+
+  <para>As XLIFF adoption has grown, and as the XLIFF inline content model, segmentation model,
+    and metadata modules have become richer, the gap between what an XLIFF document can
+    represent and what TMX can represent has widened. Producing a TMX export of translated
+    content, or importing TMX leverage into an XLIFF-based workflow, requires a conversion step.
+    That conversion step is where information is put at risk.</para>
+
+  <section id="tmxLimitations">
+    <title>Limitations of TMX-Based Exchange</title>
+
+    <para>TMX and XLIFF do not share an inline content model. TMX represents inline markup with
+      a small, generic set of placeholder elements (<code>&lt;bpt></code>,
+      <code>&lt;ept></code>, <code>&lt;it></code>, <code>&lt;ph></code>,
+      <code>&lt;hi></code>) that carry no structural relationship to the original markup
+      beyond matched pairing and free-form type/i attributes. XLIFF represents inline content
+      with a richer, self-describing model (<code>&lt;pc></code>, <code>&lt;sc></code>,
+      <code>&lt;ec></code>, <code>&lt;ph></code>, <code>&lt;mrk></code>,
+      <code>&lt;sm></code>/<code>&lt;em></code>, backed by
+      <code>&lt;originalData></code>). Converting XLIFF inline content into TMX inline
+      content, and back again, is a lossy, implementation-specific mapping. There is no
+      guarantee that a round trip through TMX preserves the original XLIFF markup, and in
+      practice it frequently does not.</para>
+
+    <para>TMX is defined by a Document Type Definition (DTD), not an XML Schema, and a TMX
+      document is a self-contained top-level document with its own DOCTYPE. A TMX
+      <code>&lt;tu></code> cannot be embedded inside an XLIFF document, and an XLIFF
+      <code>&lt;unit></code> cannot be embedded inside a TMX document. The two formats can
+      only be related to each other through external conversion, never through direct inclusion.
+      This also means TMX content cannot participate in XLIFF's own extension and modularization
+      mechanisms, such as the Translation Candidates module (<code>mtc:matches</code>, see
+      [XLIFF-2.2-part2]), which is designed to hold XLIFF-native
+      <code>&lt;source></code>/<code>&lt;target></code> pairs as leveraging matches inside
+      a unit.</para>
+
+    <para>Finally, a TMX file is a flat, unordered collection of <code>&lt;tu></code>
+      elements. TMX defines no relationship between one translation unit and the next; any
+      notion of document order, or of which segments originally appeared near each other, is
+      lost once content is exported to TMX (short of ad hoc use of <code>&lt;prop></code> or
+      <code>&lt;note></code> elements to reconstruct it). XLIFF does not have this
+      limitation: an XLIFF document is structured as <code>&lt;file></code> containing one or
+      more <code>&lt;unit></code> elements, each containing one or more
+      <code>&lt;segment></code> elements, and that hierarchy is preserved in document order.
+      Two segments that are adjacent in an XLIFF file are known to be adjacent in the source
+      content, which is valuable context for TM leveraging, concordance search, and quality
+      review that a flat TMX export cannot provide.</para>
+
+    <para>For these reasons, this document recommends that plain XLIFF documents be used
+      directly as the storage and interchange format for translation memory data, rather than
+      converting content to and from TMX.</para>
+  </section>
+
+  <section id="changesFromPreviousVersion">
+    <title>Changes From the Previous Version</title>
+
+    <para>The list of changes from the previous version and any revision history can be found in
+      Appendix 2.</para>
+  </section>
+</section>
+  <section id="tmFormat">
+  <title>XLIFF as a Translation Memory Format</title>
+
+  <para>This section describes the recommended approach for storing translation memory data as
+    plain XLIFF documents, using XLIFF Core elements as they are already defined, without
+    introducing a new TM-specific vocabulary.</para>
+
+  <section id="designPrinciples">
+    <title>Design Principles</title>
+
+    <itemizedlist>
+      <listitem>
+        <para><emphasis role="bold">No conversion.</emphasis> A TM entry is an XLIFF
+          <code>&lt;unit></code> containing one or more <code>&lt;segment></code>
+          elements with <code>&lt;source></code> and <code>&lt;target></code> content,
+          exactly as produced by any XLIFF-conformant extraction, translation, or review tool.
+          Storing that content as translation memory requires no transformation of inline
+          markup, and retrieving it for reuse in another XLIFF document requires no
+          transformation back.</para>
+      </listitem>
+      <listitem>
+        <para><emphasis role="bold">Full inline fidelity.</emphasis> Because TM entries remain
+          XLIFF <code>&lt;unit></code> elements, they retain the full XLIFF inline element
+          model (<code>&lt;pc></code>, <code>&lt;sc></code>/<code>&lt;ec></code>,
+          <code>&lt;ph></code>, <code>&lt;mrk></code>,
+          <code>&lt;sm></code>/<code>&lt;em></code>) together with any associated
+          <code>&lt;originalData></code>, instead of being reduced to the smaller TMX inline
+          tag set.</para>
+      </listitem>
+      <listitem>
+        <para><emphasis role="bold">Preserved order.</emphasis> Units and segments remain in
+          the document order in which they were extracted, inside their originating
+          <code>&lt;file></code> (and, where used, <code>&lt;group></code>). See <link linkend="structuralOrder">Structural Order and Segment            Context</link>.</para>
+      </listitem>
+      <listitem>
+        <para><emphasis role="bold">Extensibility through existing modules.</emphasis> Any
+          XLIFF module that can annotate a <code>&lt;file></code>, <code>&lt;unit></code>,
+          or <code>&lt;segment></code> in a normal XLIFF document, such as metadata, notes,
+          size and length restriction, or the Provenance module described in <link linkend="provenanceMetadata">Provenance Metadata for            Translation Memory Entries</link>, applies equally when that document is used as a
+          TM store. No parallel metadata model is required.</para>
+      </listitem>
+    </itemizedlist>
+  </section>
+
+  <section id="structuralOrder">
+    <title>Structural Order and Segment Context</title>
+
+    <para>TMX represents a translation memory as a flat, unordered collection of
+      <code>&lt;tu></code> elements. TMX defines no relationship between one translation
+      unit and any other; the position of a <code>&lt;tu></code> in a TMX file carries no
+      meaning.</para>
+
+    <para>An XLIFF document used as a TM store retains the <code>&lt;file></code> >
+      <code>&lt;unit></code> > <code>&lt;segment></code> hierarchy defined by XLIFF
+      Core. This hierarchy carries information that a flat TU list cannot:</para>
+
+    <itemizedlist>
+      <listitem>
+        <para><emphasis role="bold">Document order</emphasis> is preserved. Segments that were
+          adjacent in the original content remain adjacent, which supports context-aware
+          leveraging (for example, preferring a match whose neighboring segments also match)
+          and concordance search that shows a hit in its original surrounding context.</para>
+      </listitem>
+      <listitem>
+        <para><emphasis role="bold">Provenance of the source document</emphasis> is preserved.
+          The enclosing <code>&lt;file></code> retains attributes such as
+          <code>original</code>, and can carry <code>&lt;file></code>-level metadata, so
+          that every stored <code>&lt;unit></code> remains traceable to the document it came
+          from.</para>
+      </listitem>
+      <listitem>
+        <para><emphasis role="bold">Grouping</emphasis> is preserved. Where the source content
+          used <code>&lt;group></code> to represent structural divisions (chapters, UI
+          screens, table rows, and so on), those divisions remain available to a TM consumer,
+          instead of being discarded at export time.</para>
+      </listitem>
+    </itemizedlist>
+
+    <para>A translation memory consumer that only needs unordered TU-style lookup can still
+      treat every <code>&lt;segment></code> in every <code>&lt;unit></code> of every
+      <code>&lt;file></code> as an independent entry, exactly as it would treat entries in a
+      TMX file. The XLIFF-based representation is a strict superset of that capability: it does
+      not require order and context to be used, but it does not discard them either.</para>
+  </section>
+
+  <section id="provenanceMetadata">
+    <title>Provenance Metadata for Translation Memory Entries</title>
+
+    <para>Reuse decisions in a translation memory workflow are often qualified by information
+      about the origin of a given entry: who or what produced or last modified it, when, using
+      what tool, and why. TMX addresses this only partially, through the
+      <code>creationid</code>, <code>creationdate</code>, <code>changeid</code>,
+      <code>changedate</code>, and <code>&lt;prop></code>/<code>&lt;note></code>
+      mechanisms defined for <code>&lt;tu></code> and <code>&lt;tuv></code>.</para>
+
+    <para>The XLIFF 2.3 Provenance module (<code>pvn:</code>, under development by the OASIS
+      XLIFF TC, see the <code>xliff-23</code> provenance module in this repository) is designed
+      to record equivalent, and richer, information directly on XLIFF Core elements, using the
+      <code>&lt;pvn:provenance></code> and <code>&lt;pvn:change></code> elements and
+      attributes such as <code>agent</code>, <code>person</code>, <code>organization</code>,
+      <code>tool</code>, <code>timestamp</code>, <code>appliesTo</code>, and
+      <code>intent</code>. Because a TM entry stored as described in this document is an
+      ordinary XLIFF <code>&lt;unit></code>, it can carry <code>&lt;pvn:provenance></code>
+      metadata exactly as any other XLIFF unit can.</para>
+
+    <para>This gives a translation memory consumer the ability to query stored entries by their
+      provenance, for example to prefer entries produced by a specific translator or reviewed
+      by a specific organization, to exclude machine-translated entries that were never
+      reviewed by a person, or to filter by the date a translation was performed. Since
+      provenance metadata is expressed using XLIFF elements and attributes rather than
+      free-text <code>&lt;prop></code> values, as TMX requires, it can be validated and
+      queried using standard XML tooling.</para>
+  </section>
+
+  <section id="tmFormatExample">
+    <title>Example</title>
+
+    <para>A single translated document only ever has one <code>&lt;file></code>, so nothing
+      about it shows translation memory <emphasis>reuse</emphasis>. The following example
+      instead shows a TM store: an XLIFF document aggregating entries extracted from two
+      unrelated projects, translated five months apart. The second project reuses a sentence
+      already translated for the first, which is exactly the situation a translation memory
+      exists to detect and exploit. Because both projects remain inside a single XLIFF
+      document, each entry stays traceable to the <code>&lt;file></code> (and therefore the
+      project) it came from, in the order it was added to the store, which a flat TMX
+      <code>&lt;tu></code> list cannot represent.</para>
+
+    <programlisting format="linespecific"></programlisting>
+
+    <para>Because <code>tm-1001</code> and <code>tm-0002</code> share the same
+      <code>&lt;source></code> text, a TM consumer can find the reuse with a plain text
+      comparison across the store, exactly as it would across a flat TMX file, then attribute
+      that reuse using the Provenance module's <code>intent</code> attribute instead of a
+      free-text TMX <code>&lt;prop></code>. And because both entries remain inside
+      <code>&lt;file></code> elements that retain their own <code>original</code> attribute,
+      the store also records which project each translation came from and in what order it was
+      added, something a TMX export of the same two projects would have discarded.</para>
+  </section>
+</section>
+  <section id="exchange">
+  <title>Exchange of Multilingual Translation Memory Data</title>
+
+  <para>An XLIFF document is bilingual: it declares a single <code>srcLang</code> and a single
+    <code>trgLang</code>. A translation memory, however, is often required to hold or exchange
+    content across more than two languages. TMX addresses this within a single file, because a
+    <code>&lt;tu></code> can hold any number of <code>&lt;tuv></code> elements, one per
+    language.</para>
+
+  <para>This document recommends addressing the same requirement not by making an individual
+    XLIFF document multilingual, which would be a departure from the XLIFF Core data model, but
+    by packaging multiple bilingual XLIFF files together, one per source/target language pair,
+    along with a manifest that identifies the relationship among them. This keeps every
+    individual file fully conformant with, and processable by, any existing XLIFF 2.x tool,
+    while still allowing a translation memory covering many languages to be exchanged as a
+    single unit.</para>
+
+  <section id="packageStructure">
+    <title>Package Structure</title>
+
+    <para>A translation memory exchange package is a ZIP archive (as defined in [ZIP APPNOTE])
+      with the following content:</para>
+
+    <itemizedlist>
+      <listitem>
+        <para>One or more bilingual XLIFF files, each conforming to [XLIFF-2.2-part2] or later,
+          sharing a common <code>srcLang</code> and each declaring its own
+          <code>trgLang</code>.</para>
+      </listitem>
+      <listitem>
+        <para>A single manifest file, described in <link linkend="manifestFile">Manifest File</link>, that lists the XLIFF files in the
+          package and the language pair each one represents.</para>
+      </listitem>
+    </itemizedlist>
+
+    <para>Corresponding translation units across the language-pair files in a package SHOULD
+      use the same <code>&lt;unit></code> <code>id</code> value (and, where segmented, the
+      same <code>&lt;segment></code> <code>id</code> value) so that a consumer can align
+      entries for the same source content across target languages. This mirrors, at the
+      package level, the alignment that a multilingual <code>&lt;tu></code> provides in a
+      single TMX file.</para>
+  </section>
+
+  <section id="manifestFile">
+    <title>Manifest File</title>
+
+    <para>The manifest is an XML file, named <code>manifest.xml</code>, placed at the root of
+      the package. It lists each XLIFF file contained in the package together with its source
+      and target language.</para>
+
+    <programlisting format="linespecific"></programlisting>
+
+    <para><emphasis>The manifest namespace, element and attribute names, and XML Schema shown
+      above are provisional and subject to review by the OASIS XLIFF TC before this Note
+      advances beyond Committee Note Draft.</emphasis></para>
+  </section>
+
+  <section id="exchangeExample">
+    <title>Example</title>
+
+    <para>A translation memory covering English source content with Spanish, French, and
+      German target content would be packaged as:</para>
+
+    <programlisting format="linespecific">tm-package.zip
+├── manifest.xml
+├── en-es.xlf
+├── en-fr.xlf
+└── en-de.xlf</programlisting>
+
+    <para>Each of <code>en-es.xlf</code>, <code>en-fr.xlf</code>, and <code>en-de.xlf</code> is
+      an ordinary bilingual XLIFF document as described in <link linkend="tmFormat">XLIFF as a Translation Memory Format</link>, and each can be
+      consumed independently by a tool that only needs one language pair, or together by a tool
+      that reads <code>manifest.xml</code> to reconstruct the full multilingual set.</para>
+  </section>
+</section>
+  <section id="safetySecurity">
+  <title>Safety, Security, and Data Protection Considerations</title>
+
+  <para>Translation memory content frequently originates from source documents that were never
+    intended for public redistribution, and may contain personal data or confidential business
+    information carried over from the original text. Storing that content as plain XLIFF,
+    rather than as an opaque TM database, does not change its sensitivity; implementers SHOULD
+    apply the same access controls, storage protections, and redistribution policies to
+    XLIFF-based TM files and packages as they would to any other document containing the same
+    source content.</para>
+
+  <para>The Provenance module attributes described in <link linkend="provenanceMetadata">Provenance Metadata for Translation Memory Entries</link>,
+    in particular <code>person</code>, can themselves constitute personal data about the
+    translators and reviewers who worked on the content. Implementers SHOULD consider
+    applicable data protection requirements (such as consent and retention limits) before
+    populating, storing, or exchanging <code>person</code> values in translation memory data,
+    and MAY omit <code>person</code> in favor of <code>agent</code>, <code>organization</code>,
+    or <code>tool</code> where individual identification is not required.</para>
+
+  <para>Translation memory exchange packages, as described in <link linkend="exchange">Exchange of Multilingual Translation Memory Data</link>, are
+    ordinary ZIP archives. Implementations that unpack them SHOULD apply the same precautions
+    recommended for processing any untrusted ZIP archive, including validating that archive
+    entries do not escape the intended extraction directory (path traversal) and guarding
+    against archives crafted to consume excessive disk space or memory when decompressed.</para>
+</section>
+  <section id="conformance">
+  <title>Conformance</title>
+
+  <section id="tmStoreConformance">
+    <title>Translation Memory Store</title>
+
+    <para>An XLIFF document <emphasis role="bold">conforms</emphasis> to this document as a
+      <emphasis>Translation Memory Store</emphasis> if:</para>
+
+    <orderedlist continuation="restarts" inheritnum="ignore">
+      <listitem>
+        <para>It is a conformant [XLIFF-2.2-part2] (or later) document.</para>
+      </listitem>
+      <listitem>
+        <para>Every stored translation memory entry is represented as an XLIFF
+          <code>&lt;unit></code> containing one <code>&lt;segment></code> per entry, with
+          <code>&lt;source></code> and, where a translation is available,
+          <code>&lt;target></code> content, and no lossy conversion of inline content has
+          been applied to represent that entry.</para>
+      </listitem>
+      <listitem>
+        <para>Where provenance information is recorded for an entry, it is expressed using the
+          XLIFF 2.3 Provenance module rather than free-text notes or properties.</para>
+      </listitem>
+    </orderedlist>
+  </section>
+
+  <section id="tmPackageConformance">
+    <title>Translation Memory Exchange Package</title>
+
+    <para>A ZIP archive <emphasis role="bold">conforms</emphasis> to this document as a
+      <emphasis>Translation Memory Exchange Package</emphasis> if:</para>
+
+    <orderedlist continuation="restarts" inheritnum="ignore">
+      <listitem>
+        <para>It contains a <code>manifest.xml</code> file at its root, as described in <link linkend="manifestFile">Manifest File</link>.</para>
+      </listitem>
+      <listitem>
+        <para>Every XLIFF file listed in the manifest is present in the archive and conforms to
+          this document as a Translation Memory Store.</para>
+      </listitem>
+      <listitem>
+        <para>Every XLIFF file listed in the manifest declares a single <code>srcLang</code>
+          and a single <code>trgLang</code>, matching the language pair recorded for that file
+          in the manifest.</para>
+      </listitem>
+    </orderedlist>
+  </section>
+</section>
+
+  
+  <appendix id="annexA">
+  <title>License, Document Status and Notices</title>
+
+  <para>(This annex forms an integral part of this document.)</para>
+
+  <section id="documentStatus">
+    <title>Document Status</title>
+
+    <para>This document was last revised or approved by the OASIS XLIFF TC on the above date.
+      The level of approval is also listed above. Check the "Latest version" location noted
+      above for possible later revisions of this document. Any other numbered Versions and
+      other technical work produced by the Technical Committee (TC) are listed at <ulink url="https://groups.oasis-open.org/communities/tc-community-home2?CommunityKey=3d0f1f56-8477-4b53-9b14-018dc7d3eecf#technical">https://groups.oasis-open.org/communities/tc-community-home2?CommunityKey=3d0f1f56-8477-4b53-9b14-018dc7d3eecf#technical</ulink>.</para>
+
+    <para>TC members should send comments on this document to the TC's email list. Others
+      should send comments to the TC's public comment list, after subscribing to it by
+      following the comment instructions at the TC's comments list web page at <ulink url="https://www.oasis-open.org/committees/comments/index.php?wg_abbrev=xliff">https://www.oasis-open.org/committees/comments/index.php?wg_abbrev=xliff</ulink>.</para>
+  </section>
+
+  <section id="licenseAndNotices">
+    <title>License and Notices</title>
+
+    <para>Copyright © OASIS Open 2026. All Rights Reserved.</para>
+
+    <para>All capitalized terms in the following text have the meanings assigned to them in the
+      OASIS Intellectual Property Rights Policy (the "OASIS IPR Policy"). The full Policy, which
+      governs the licensure of this document, may be found at the OASIS website: [<ulink url="https://www.oasis-open.org/policies-guidelines/ipr/">https://www.oasis-open.org/policies-guidelines/ipr/</ulink>]</para>
+
+    <para>This document and translations of it may be copied and furnished to others, and
+      derivative works that comment on or otherwise explain it or assist in its implementation
+      may be prepared, copied, published, and distributed, in whole or in part, without
+      restriction of any kind, provided that the above copyright notice and this section are
+      included on all such copies and derivative works. However, this document itself may not
+      be modified in any way, including by removing the copyright notice or references to
+      OASIS, except as needed for the purpose of developing any document or deliverable
+      produced by an OASIS Technical Committee (in which case the rules applicable to
+      copyrights, as set forth in the OASIS IPR Policy, must be followed) or as required to
+      translate it into languages other than English.</para>
+
+    <para>The limited permissions granted above are perpetual and will not be revoked by OASIS
+      or its successors or assigns, as provided in the OASIS IPR Policy.</para>
+
+    <para>This document and the information contained herein is provided on an "AS IS" basis
+      and OASIS DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY
+      WARRANTY THAT THE USE OF THE INFORMATION HEREIN WILL NOT INFRINGE ANY OWNERSHIP RIGHTS OR
+      ANY IMPLIED WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE. OASIS AND
+      ITS MEMBERS WILL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, SPECIAL OR CONSEQUENTIAL DAMAGES
+      ARISING OUT OF ANY USE OF THIS DOCUMENT OR ANY PART THEREOF.</para>
+
+    <para>The name "OASIS" is a trademark of OASIS, the owner and developer of this document,
+      and should be used only to refer to the organization and its official outputs. OASIS
+      welcomes reference to, and implementation and use of, its documents, while reserving the
+      right to enforce its marks against misleading uses. Please see <ulink url="https://www.oasis-open.org/policies-guidelines/trademark/">https://www.oasis-open.org/policies-guidelines/trademark/</ulink> for guidance.</para>
+  </section>
+</appendix>
+  <appendix id="annexB">
+  <title>References</title>
+
+  <para>(This annex forms an integral part of this document.)</para>
+
+  <para>This section contains the informative references that are used in this document.</para>
+
+  <para>Informative references are either specific or non-specific. For specific references,
+    only the cited version applies. For non-specific references, the latest version of the
+    reference document (including any amendments) applies. While any hyperlinks included in
+    this section were valid at the time of publication, OASIS cannot guarantee their long term
+    validity.</para>
+
+  <section id="normativeReferences">
+    <title>Normative References</title>
+
+    <bibliography>
+      <title/>
+      <bibliomixed id="xliff22part2"><abbrev>XLIFF-2.2-part2</abbrev> XLIFF Version 2.2 Part 2:
+        Extended. Edited by Rodolfo M. Raya and Lucía Morado Vázquez. 13 March 2025. OASIS
+        Committee Specification. <citetitle><ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.2/xliff-v2.2-part2-extended.html">https://docs.oasis-open.org/xliff/xliff-core/v2.2/xliff-v2.2-part2-extended.html</ulink></citetitle>.</bibliomixed>
+
+      <bibliomixed id="rfc2119"><abbrev>RFC2119</abbrev> S. Bradner. <title>Key words for use
+          in RFCs to Indicate Requirement Levels</title>. March 1997. <citetitle><ulink url="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</ulink></citetitle>.</bibliomixed>
+
+      <bibliomixed id="zipAppnote"><abbrev>ZIP APPNOTE</abbrev> PKWARE, Inc. <title>.ZIP File
+          Format Specification</title>. <citetitle><ulink url="https://pkware.cachefly.net/webdocs/casestudies/APPNOTE.TXT">https://pkware.cachefly.net/webdocs/casestudies/APPNOTE.TXT</ulink></citetitle>.</bibliomixed>
+    </bibliography>
+  </section>
+
+  <section id="informativeReferences">
+    <title>Informative References</title>
+
+    <para>The following referenced documents are not required for the application of this
+      document but may assist the reader with regard to a particular subject area.</para>
+
+    <bibliography>
+      <title/>
+      <bibliomixed id="tmx14b"><abbrev>TMX 1.4b</abbrev> Translation Memory eXchange (TMX)
+        Version 1.4b. Edited by Yves Savourel. OSCAR Recommendation, 26 April 2005.
+        <citetitle><ulink url="https://web.archive.org/web/20060528180452/http://www.lisa.org/standards/tmx/tmx.html">https://web.archive.org/web/20060528180452/http://www.lisa.org/standards/tmx/tmx.html</ulink></citetitle>.</bibliomixed>
+
+      <bibliomixed id="xliff23provenance"><abbrev>XLIFF-2.3-provenance</abbrev> XLIFF Version
+        2.3 Provenance Module (Work in Progress). OASIS XLIFF Technical Committee. Not yet
+        published; referenced here for context while under development in the same working
+        repository as this document.</bibliomixed>
+    </bibliography>
+  </section>
+</appendix>
+
+  
+  <appendix id="acknowledgements">
+  <title>Acknowledgments</title>
+
+  <para>(This appendix does not form an integral part of this document and is
+    informational.)</para>
+
+  <section id="ackLeadership">
+    <title>Leadership</title>
+
+    <para>The following individuals have had significant leadership positions during the
+      development of this document, not just this version of the document, and they are
+      gratefully acknowledged:</para>
+
+    <itemizedlist spacing="compact">
+      <listitem>
+        <para>Chairs</para>
+        <itemizedlist spacing="compact">
+          <listitem>
+            <para>Dr. Lucía Morado Vázquez, University of Geneva</para>
+          </listitem>
+          <listitem>
+            <para>Yoshito Umaoka, Individual</para>
+          </listitem>
+        </itemizedlist>
+      </listitem>
+      <listitem>
+        <para>Secretaries</para>
+        <itemizedlist spacing="compact">
+          <listitem>
+            <para>Rodolfo M. Raya, Maxprograms</para>
+          </listitem>
+        </itemizedlist>
+      </listitem>
+      <listitem>
+        <para>Editors</para>
+        <itemizedlist spacing="compact">
+          <listitem>
+            <para>Rodolfo M. Raya, Maxprograms</para>
+          </listitem>
+        </itemizedlist>
+      </listitem>
+    </itemizedlist>
+  </section>
+
+  <section id="ackSpecialThanks">
+    <title>Special Thanks</title>
+
+    <para>The following individuals have made substantial contributions to this document, not
+      just this version of the document, and their contributions are gratefully
+      acknowledged:</para>
+
+    <itemizedlist spacing="compact">
+      <listitem>
+        <para>Mihai Niță, Google LLC</para>
+      </listitem>
+      <listitem>
+        <para>Mathijs Sonnemans, Individual</para>
+      </listitem>
+    </itemizedlist>
+  </section>
+
+  <section id="ackParticipants">
+    <title>Participants</title>
+
+    <para>The following individuals were members of this committee during the creation of this
+      document, not just this version of the document, and their contributions are gratefully
+      acknowledged:</para>
+
+    <para><emphasis>&lt; Placeholder: full list of individuals who were members of the OASIS
+      XLIFF TC during the creation of this document. ></emphasis></para>
+  </section>
+</appendix>
+  <appendix id="changeTracking">
+  <title>Changes From Previous Version</title>
+
+  <para>(This appendix does not form an integral part of this document and is
+    informational.)</para>
+
+  <para>None. This is the first published draft of this document.</para>
+
+  <section id="revisionHistory">
+    <title>Revision History</title>
+
+    <para>None.</para>
+  </section>
+</appendix>
+
+</article>

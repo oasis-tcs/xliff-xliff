@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "docbook/docbookx.dtd"[
+
+<!ENTITY % xinclude SYSTEM "docbook/xinclude.mod">
+%xinclude;
+
+]>
+<section id="tmFormat">
+  <title>XLIFF as a Translation Memory Format</title>
+
+  <para>This section describes the recommended approach for storing translation memory data as
+    plain XLIFF documents, using XLIFF Core elements as they are already defined, without
+    introducing a new TM-specific vocabulary.</para>
+
+  <section id="designPrinciples">
+    <title>Design Principles</title>
+
+    <itemizedlist>
+      <listitem>
+        <para><emphasis role="bold">No conversion.</emphasis> A TM entry is an XLIFF
+          <code>&lt;unit&gt;</code> containing one or more <code>&lt;segment&gt;</code>
+          elements with <code>&lt;source&gt;</code> and <code>&lt;target&gt;</code> content,
+          exactly as produced by any XLIFF-conformant extraction, translation, or review tool.
+          Storing that content as translation memory requires no transformation of inline
+          markup, and retrieving it for reuse in another XLIFF document requires no
+          transformation back.</para>
+      </listitem>
+      <listitem>
+        <para><emphasis role="bold">Full inline fidelity.</emphasis> Because TM entries remain
+          XLIFF <code>&lt;unit&gt;</code> elements, they retain the full XLIFF inline element
+          model (<code>&lt;pc&gt;</code>, <code>&lt;sc&gt;</code>/<code>&lt;ec&gt;</code>,
+          <code>&lt;ph&gt;</code>, <code>&lt;mrk&gt;</code>,
+          <code>&lt;sm&gt;</code>/<code>&lt;em&gt;</code>) together with any associated
+          <code>&lt;originalData&gt;</code>, instead of being reduced to the smaller TMX inline
+          tag set.</para>
+      </listitem>
+      <listitem>
+        <para><emphasis role="bold">Preserved order.</emphasis> Units and segments remain in
+          the document order in which they were extracted, inside their originating
+          <code>&lt;file&gt;</code> (and, where used, <code>&lt;group&gt;</code>). See <olink
+            targetdoc="tmFormat.xml" targetptr="structuralOrder">Structural Order and Segment
+            Context</olink>.</para>
+      </listitem>
+      <listitem>
+        <para><emphasis role="bold">Extensibility through existing modules.</emphasis> Any
+          XLIFF module that can annotate a <code>&lt;file&gt;</code>, <code>&lt;unit&gt;</code>,
+          or <code>&lt;segment&gt;</code> in a normal XLIFF document, such as metadata, notes,
+          size and length restriction, or the Provenance module described in <olink
+            targetdoc="tmFormat.xml" targetptr="provenanceMetadata">Provenance Metadata for
+            Translation Memory Entries</olink>, applies equally when that document is used as a
+          TM store. No parallel metadata model is required.</para>
+      </listitem>
+    </itemizedlist>
+  </section>
+
+  <section id="structuralOrder">
+    <title>Structural Order and Segment Context</title>
+
+    <para>TMX represents a translation memory as a flat, unordered collection of
+      <code>&lt;tu&gt;</code> elements. TMX defines no relationship between one translation
+      unit and any other; the position of a <code>&lt;tu&gt;</code> in a TMX file carries no
+      meaning.</para>
+
+    <para>An XLIFF document used as a TM store retains the <code>&lt;file&gt;</code> &gt;
+      <code>&lt;unit&gt;</code> &gt; <code>&lt;segment&gt;</code> hierarchy defined by XLIFF
+      Core. This hierarchy carries information that a flat TU list cannot:</para>
+
+    <itemizedlist>
+      <listitem>
+        <para><emphasis role="bold">Document order</emphasis> is preserved. Segments that were
+          adjacent in the original content remain adjacent, which supports context-aware
+          leveraging (for example, preferring a match whose neighboring segments also match)
+          and concordance search that shows a hit in its original surrounding context.</para>
+      </listitem>
+      <listitem>
+        <para><emphasis role="bold">Provenance of the source document</emphasis> is preserved.
+          The enclosing <code>&lt;file&gt;</code> retains attributes such as
+          <code>original</code>, and can carry <code>&lt;file&gt;</code>-level metadata, so
+          that every stored <code>&lt;unit&gt;</code> remains traceable to the document it came
+          from.</para>
+      </listitem>
+      <listitem>
+        <para><emphasis role="bold">Grouping</emphasis> is preserved. Where the source content
+          used <code>&lt;group&gt;</code> to represent structural divisions (chapters, UI
+          screens, table rows, and so on), those divisions remain available to a TM consumer,
+          instead of being discarded at export time.</para>
+      </listitem>
+    </itemizedlist>
+
+    <para>A translation memory consumer that only needs unordered TU-style lookup can still
+      treat every <code>&lt;segment&gt;</code> in every <code>&lt;unit&gt;</code> of every
+      <code>&lt;file&gt;</code> as an independent entry, exactly as it would treat entries in a
+      TMX file. The XLIFF-based representation is a strict superset of that capability: it does
+      not require order and context to be used, but it does not discard them either.</para>
+  </section>
+
+  <section id="provenanceMetadata">
+    <title>Provenance Metadata for Translation Memory Entries</title>
+
+    <para>Reuse decisions in a translation memory workflow are often qualified by information
+      about the origin of a given entry: who or what produced or last modified it, when, using
+      what tool, and why. TMX addresses this only partially, through the
+      <code>creationid</code>, <code>creationdate</code>, <code>changeid</code>,
+      <code>changedate</code>, and <code>&lt;prop&gt;</code>/<code>&lt;note&gt;</code>
+      mechanisms defined for <code>&lt;tu&gt;</code> and <code>&lt;tuv&gt;</code>.</para>
+
+    <para>The XLIFF 2.3 Provenance module (<code>pvn:</code>, under development by the OASIS
+      XLIFF TC, see the <code>xliff-23</code> provenance module in this repository) is designed
+      to record equivalent, and richer, information directly on XLIFF Core elements, using the
+      <code>&lt;pvn:provenance&gt;</code> and <code>&lt;pvn:change&gt;</code> elements and
+      attributes such as <code>agent</code>, <code>person</code>, <code>organization</code>,
+      <code>tool</code>, <code>timestamp</code>, <code>appliesTo</code>, and
+      <code>intent</code>. Because a TM entry stored as described in this document is an
+      ordinary XLIFF <code>&lt;unit&gt;</code>, it can carry <code>&lt;pvn:provenance&gt;</code>
+      metadata exactly as any other XLIFF unit can.</para>
+
+    <para>This gives a translation memory consumer the ability to query stored entries by their
+      provenance, for example to prefer entries produced by a specific translator or reviewed
+      by a specific organization, to exclude machine-translated entries that were never
+      reviewed by a person, or to filter by the date a translation was performed. Since
+      provenance metadata is expressed using XLIFF elements and attributes rather than
+      free-text <code>&lt;prop&gt;</code> values, as TMX requires, it can be validated and
+      queried using standard XML tooling.</para>
+  </section>
+
+  <section id="tmFormatExample">
+    <title>Example</title>
+
+    <para>A single translated document only ever has one <code>&lt;file&gt;</code>, so nothing
+      about it shows translation memory <emphasis>reuse</emphasis>. The following example
+      instead shows a TM store: an XLIFF document aggregating entries extracted from two
+      unrelated projects, translated five months apart. The second project reuses a sentence
+      already translated for the first, which is exactly the situation a translation memory
+      exists to detect and exploit. Because both projects remain inside a single XLIFF
+      document, each entry stays traceable to the <code>&lt;file&gt;</code> (and therefore the
+      project) it came from, in the order it was added to the store, which a flat TMX
+      <code>&lt;tu&gt;</code> list cannot represent.</para>
+
+    <programlisting><![CDATA[<xliff version="2.3" srcLang="en" trgLang="es"
+       xmlns="urn:oasis:names:tc:xliff:document:2.3"
+       xmlns:pvn="urn:oasis:names:tc:xliff:pvn:2.3">
+  <file id="f1" original="manual/chapter3.html">
+    <unit id="tm-0001">
+      <segment>
+        <source>Your annual tax certificate is now available for download.</source>
+        <target>Su certificado fiscal anual ya está disponible para descarga.</target>
+      </segment>
+    </unit>
+    <unit id="tm-0002">
+      <pvn:provenance>
+        <pvn:change agent="Acme MT" appliesTo="target" timestamp="2026-01-15T10:15:00.000Z"/>
+      </pvn:provenance>
+      <segment>
+        <source>Download your certificate before the end of the fiscal year.</source>
+        <target>Descargue su certificado antes de que finalice el año fiscal.</target>
+      </segment>
+    </unit>
+  </file>
+  <file id="f2" original="app/ui-strings.json">
+    <unit id="tm-1001">
+      <pvn:provenance>
+        <pvn:change agent="TM Reuse" appliesTo="target" timestamp="2026-06-30T09:02:00.000Z"
+          intent="100% match reused from tm-0002 (manual/chapter3.html)."/>
+      </pvn:provenance>
+      <segment>
+        <source>Download your certificate before the end of the fiscal year.</source>
+        <target>Descargue su certificado antes de que finalice el año fiscal.</target>
+      </segment>
+    </unit>
+    <unit id="tm-1002">
+      <segment>
+        <source>Your session will expire in five minutes.</source>
+        <target>Su sesión caducará en cinco minutos.</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>]]></programlisting>
+
+    <para>Because <code>tm-1001</code> and <code>tm-0002</code> share the same
+      <code>&lt;source&gt;</code> text, a TM consumer can find the reuse with a plain text
+      comparison across the store, exactly as it would across a flat TMX file, then attribute
+      that reuse using the Provenance module's <code>intent</code> attribute instead of a
+      free-text TMX <code>&lt;prop&gt;</code>. And because both entries remain inside
+      <code>&lt;file&gt;</code> elements that retain their own <code>original</code> attribute,
+      the store also records which project each translation came from and in what order it was
+      added, something a TMX export of the same two projects would have discarded.</para>
+  </section>
+</section>

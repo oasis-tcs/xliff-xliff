@@ -36,6 +36,24 @@
         </affiliation>
         <email>lucia.morado@unige.ch</email>
       </othercredit>
+      <othercredit role="chair">
+        <firstname>Yoshito</firstname>
+        <surname>Umaoka</surname>
+        <affiliation>
+          <orgname>Individual</orgname>
+          <address format="linespecific"><email>y.umaoka@gmail.com</email></address>
+        </affiliation>
+        <email>y.umaoka@gmail.com</email>
+      </othercredit>
+      <othercredit role="secretary">
+        <firstname>Rodolfo M.</firstname>
+        <surname>Raya</surname>
+        <affiliation>
+          <orgname><ulink url="https://maxprograms.com">Maxprograms</ulink></orgname>
+          <address format="linespecific"><email>rmraya@maxprograms.com</email></address>
+        </affiliation>
+        <email>rmraya@maxprograms.com</email>
+      </othercredit>
       <editor>
         <firstname>Rodolfo M.</firstname>
         <surname>Raya</surname>
@@ -57,7 +75,7 @@
       </editor>
     </authorgroup>
 
-    <pubdate>16 May 2026</pubdate>
+    <pubdate>8 July 2026</pubdate>
 
     <copyright>
       <year>2026</year>
@@ -90,7 +108,7 @@
       <para>When referencing this document, the following citation format should be used:</para>
       <para><emphasis role="strong">[XLIFF-2.3-part1]</emphasis></para>
       <para>XLIFF Version 2.3 Part 1:Core. Edited by Rodolfo M. Raya and Lucía Morado Vázquez
-        16 May 2026. OASIS Committee Specification Draft 01. <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-v2.3-part1-core.html">https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-v2.3-part1-core.html</ulink>.
+        8 July 2026. OASIS Committee Specification Draft 01. <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-v2.3-part1-core.html">https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-v2.3-part1-core.html</ulink>.
         Latest stage <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-v2.3-part1-core.html">https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-v2.3-part1-core.html</ulink>.
       </para>
     </legalnotice>
@@ -116,11 +134,12 @@
     interchange format, usage of XLIFF as a processing format is neither encouraged nor discouraged
     or prohibited.</para>
 
-  <para>This document is Part 1 of a multi-part Work Product that defines Version 2.3 of
-    XLIFF. It presents the XLIFF core, which is the minimum set of XML elements and attributes
-    required to create a valid XLIFF file. The optional Modules that MAY be used along with the
-    core for advanced functionality are presented in <emphasis>XLIFF Version 2.3. Part 2:
-      Extended</emphasis>.</para>
+  <para>This document is one part of a multi-part Work Product that defines Version 2.3 of
+    XLIFF. <emphasis>XLIFF Version 2.3. Part 1: Core</emphasis> presents the XLIFF core,
+    which is the minimum set of XML elements and attributes required to create a valid XLIFF
+    file. <emphasis>XLIFF Version 2.3. Part 2: Extended</emphasis> presents the XLIFF core
+    as well as the optional Modules that MAY be used along with the core for advanced
+    functionality.</para>
 
   <para><emphasis>All text is normative unless otherwise labeled.</emphasis></para>
 </section>

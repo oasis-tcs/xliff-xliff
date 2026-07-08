@@ -445,7 +445,8 @@
 <xsl:template match="authorgroup" mode="titlepage.mode">
   <xsl:variable name="editors" select="editor"/>
   <xsl:variable name="authors" select="author"/>
-  <xsl:variable name="chair" select="othercredit"/>
+  <xsl:variable name="chair" select="othercredit[@role='chair']"/>
+  <xsl:variable name="secretaries" select="othercredit[@role='secretary']"/>
 
   <xsl:if test="$chair">
     <fo:block>
@@ -456,6 +457,22 @@
       </fo:block>
       <fo:block margin-left="2em">
         <xsl:apply-templates select="$chair" mode="titlepage.mode"/>
+      </fo:block>
+    </fo:block>
+  </xsl:if>
+
+  <xsl:if test="$secretaries">
+    <fo:block>
+      <fo:block xsl:use-attribute-sets="oasis-metadata-title">
+        <xsl:text>Secretar</xsl:text>
+        <xsl:choose>
+          <xsl:when test="count($secretaries) &gt; 1">ies</xsl:when>
+          <xsl:otherwise>y</xsl:otherwise>
+        </xsl:choose>
+        <xsl:text>:</xsl:text>
+      </fo:block>
+      <fo:block margin-left="2em">
+        <xsl:apply-templates select="$secretaries" mode="titlepage.mode"/>
       </fo:block>
     </fo:block>
   </xsl:if>

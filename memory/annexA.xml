@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE appendix PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "docbook/docbookx.dtd"[
+
+<!ENTITY % xinclude SYSTEM "docbook/xinclude.mod">
+%xinclude;
+
+]>
+<appendix id="annexA">
+  <title>License, Document Status and Notices</title>
+
+  <para>(This annex forms an integral part of this document.)</para>
+
+  <section id="documentStatus">
+    <title>Document Status</title>
+
+    <para>This document was last revised or approved by the OASIS XLIFF TC on the above date.
+      The level of approval is also listed above. Check the "Latest version" location noted
+      above for possible later revisions of this document. Any other numbered Versions and
+      other technical work produced by the Technical Committee (TC) are listed at <ulink
+        url="https://groups.oasis-open.org/communities/tc-community-home2?CommunityKey=3d0f1f56-8477-4b53-9b14-018dc7d3eecf#technical"
+        >https://groups.oasis-open.org/communities/tc-community-home2?CommunityKey=3d0f1f56-8477-4b53-9b14-018dc7d3eecf#technical</ulink>.</para>
+
+    <para>TC members should send comments on this document to the TC's email list. Others
+      should send comments to the TC's public comment list, after subscribing to it by
+      following the comment instructions at the TC's comments list web page at <ulink
+        url="https://www.oasis-open.org/committees/comments/index.php?wg_abbrev=xliff"
+        >https://www.oasis-open.org/committees/comments/index.php?wg_abbrev=xliff</ulink>.</para>
+  </section>
+
+  <section id="licenseAndNotices">
+    <title>License and Notices</title>
+
+    <para>Copyright © OASIS Open &pubyear;. All Rights Reserved.</para>
+
+    <para>All capitalized terms in the following text have the meanings assigned to them in the
+      OASIS Intellectual Property Rights Policy (the "OASIS IPR Policy"). The full Policy, which
+      governs the licensure of this document, may be found at the OASIS website: [<ulink
+        url="https://www.oasis-open.org/policies-guidelines/ipr/"
+        >https://www.oasis-open.org/policies-guidelines/ipr/</ulink>]</para>
+
+    <para>This document and translations of it may be copied and furnished to others, and
+      derivative works that comment on or otherwise explain it or assist in its implementation
+      may be prepared, copied, published, and distributed, in whole or in part, without
+      restriction of any kind, provided that the above copyright notice and this section are
+      included on all such copies and derivative works. However, this document itself may not
+      be modified in any way, including by removing the copyright notice or references to
+      OASIS, except as needed for the purpose of developing any document or deliverable
+      produced by an OASIS Technical Committee (in which case the rules applicable to
+      copyrights, as set forth in the OASIS IPR Policy, must be followed) or as required to
+      translate it into languages other than English.</para>
+
+    <para>The limited permissions granted above are perpetual and will not be revoked by OASIS
+      or its successors or assigns, as provided in the OASIS IPR Policy.</para>
+
+    <para>This document and the information contained herein is provided on an "AS IS" basis
+      and OASIS DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY
+      WARRANTY THAT THE USE OF THE INFORMATION HEREIN WILL NOT INFRINGE ANY OWNERSHIP RIGHTS OR
+      ANY IMPLIED WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE. OASIS AND
+      ITS MEMBERS WILL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, SPECIAL OR CONSEQUENTIAL DAMAGES
+      ARISING OUT OF ANY USE OF THIS DOCUMENT OR ANY PART THEREOF.</para>
+
+    <para>The name "OASIS" is a trademark of OASIS, the owner and developer of this document,
+      and should be used only to refer to the organization and its official outputs. OASIS
+      welcomes reference to, and implementation and use of, its documents, while reserving the
+      right to enforce its marks against misleading uses. Please see <ulink
+        url="https://www.oasis-open.org/policies-guidelines/trademark/"
+        >https://www.oasis-open.org/policies-guidelines/trademark/</ulink> for guidance.</para>
+  </section>
+</appendix>

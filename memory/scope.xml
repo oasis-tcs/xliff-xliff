@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "docbook/docbookx.dtd"[
+
+<!ENTITY % xinclude SYSTEM "docbook/xinclude.mod">
+%xinclude;
+
+]>
+<section id="scope">
+  <title>Scope</title>
+
+  <para>This Committee Note describes an XLIFF-native approach for storing and exchanging
+    translation memory (TM) data, using plain XLIFF 2.x documents in place of the Translation
+    Memory eXchange (TMX) format.</para>
+
+  <para>Rather than defining a new container or converting bilingual content into a separate
+    TM-specific format, this document recommends that XLIFF <code>&lt;file&gt;</code>,
+    <code>&lt;unit&gt;</code>, and <code>&lt;segment&gt;</code> elements be used directly to hold
+    translation units for later reuse. This preserves the full XLIFF inline element model,
+    avoiding the loss of information that results from converting XLIFF inline markup to and
+    from the TMX inline tag model, and preserves the structural order of content, which TMX's
+    flat, unordered list of <code>&lt;tu&gt;</code> elements does not represent.</para>
+
+  <para>This document also describes how the XLIFF Provenance module, under development for
+    XLIFF 2.3, can be used to record and later query information about the origin of stored
+    translation units, such as the agent, tool, or process that produced or modified them.</para>
+
+  <para>Because a single XLIFF document is inherently bilingual, this document further describes
+    a packaging convention for exchanging translation memory data across more than two
+    languages, based on a set of related bilingual XLIFF files distributed together with a
+    manifest.</para>
+</section>

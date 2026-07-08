@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "docbook/docbookx.dtd"[
+
+<!ENTITY % xinclude SYSTEM "docbook/xinclude.mod">
+%xinclude;
+
+]>
+<section id="introduction">
+  <title>Introduction</title>
+
+  <para>Translation memory (TM) is a core technology of the localization industry. A TM stores
+    previously translated content so that it can be retrieved and reused when equal or similar
+    source content is encountered again, improving consistency and reducing translation effort
+    and cost.</para>
+
+  <para>Since 2005, the de facto standard for exchanging TM data between tools has been the
+    Translation Memory eXchange (TMX) format [TMX 1.4b]. TMX was designed as a vendor-neutral
+    interchange format, independent of any single authoring or extraction format. XLIFF, by
+    contrast, is designed to carry bilingual (and, through packaging, multilingual) content
+    through the localization process itself, from extraction through translation, review, and
+    reintegration into the original format.</para>
+
+  <para>As XLIFF adoption has grown, and as the XLIFF inline content model, segmentation model,
+    and metadata modules have become richer, the gap between what an XLIFF document can
+    represent and what TMX can represent has widened. Producing a TMX export of translated
+    content, or importing TMX leverage into an XLIFF-based workflow, requires a conversion step.
+    That conversion step is where information is put at risk.</para>
+
+  <section id="tmxLimitations">
+    <title>Limitations of TMX-Based Exchange</title>
+
+    <para>TMX and XLIFF do not share an inline content model. TMX represents inline markup with
+      a small, generic set of placeholder elements (<code>&lt;bpt&gt;</code>,
+      <code>&lt;ept&gt;</code>, <code>&lt;it&gt;</code>, <code>&lt;ph&gt;</code>,
+      <code>&lt;hi&gt;</code>) that carry no structural relationship to the original markup
+      beyond matched pairing and free-form type/i attributes. XLIFF represents inline content
+      with a richer, self-describing model (<code>&lt;pc&gt;</code>, <code>&lt;sc&gt;</code>,
+      <code>&lt;ec&gt;</code>, <code>&lt;ph&gt;</code>, <code>&lt;mrk&gt;</code>,
+      <code>&lt;sm&gt;</code>/<code>&lt;em&gt;</code>, backed by
+      <code>&lt;originalData&gt;</code>). Converting XLIFF inline content into TMX inline
+      content, and back again, is a lossy, implementation-specific mapping. There is no
+      guarantee that a round trip through TMX preserves the original XLIFF markup, and in
+      practice it frequently does not.</para>
+
+    <para>TMX is defined by a Document Type Definition (DTD), not an XML Schema, and a TMX
+      document is a self-contained top-level document with its own DOCTYPE. A TMX
+      <code>&lt;tu&gt;</code> cannot be embedded inside an XLIFF document, and an XLIFF
+      <code>&lt;unit&gt;</code> cannot be embedded inside a TMX document. The two formats can
+      only be related to each other through external conversion, never through direct inclusion.
+      This also means TMX content cannot participate in XLIFF's own extension and modularization
+      mechanisms, such as the Translation Candidates module (<code>mtc:matches</code>, see
+      [XLIFF-2.2-part2]), which is designed to hold XLIFF-native
+      <code>&lt;source&gt;</code>/<code>&lt;target&gt;</code> pairs as leveraging matches inside
+      a unit.</para>
+
+    <para>Finally, a TMX file is a flat, unordered collection of <code>&lt;tu&gt;</code>
+      elements. TMX defines no relationship between one translation unit and the next; any
+      notion of document order, or of which segments originally appeared near each other, is
+      lost once content is exported to TMX (short of ad hoc use of <code>&lt;prop&gt;</code> or
+      <code>&lt;note&gt;</code> elements to reconstruct it). XLIFF does not have this
+      limitation: an XLIFF document is structured as <code>&lt;file&gt;</code> containing one or
+      more <code>&lt;unit&gt;</code> elements, each containing one or more
+      <code>&lt;segment&gt;</code> elements, and that hierarchy is preserved in document order.
+      Two segments that are adjacent in an XLIFF file are known to be adjacent in the source
+      content, which is valuable context for TM leveraging, concordance search, and quality
+      review that a flat TMX export cannot provide.</para>
+
+    <para>For these reasons, this document recommends that plain XLIFF documents be used
+      directly as the storage and interchange format for translation memory data, rather than
+      converting content to and from TMX.</para>
+  </section>
+
+  <section id="changesFromPreviousVersion">
+    <title>Changes From the Previous Version</title>
+
+    <para>The list of changes from the previous version and any revision history can be found in
+      Appendix 2.</para>
+  </section>
+</section>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE appendix PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "docbook/docbookx.dtd"[
+
+<!ENTITY % xinclude SYSTEM "docbook/xinclude.mod">
+%xinclude;
+
+]>
+<appendix id="annexB">
+  <title>References</title>
+
+  <para>(This annex forms an integral part of this document.)</para>
+
+  <para>This section contains the informative references that are used in this document.</para>
+
+  <para>Informative references are either specific or non-specific. For specific references,
+    only the cited version applies. For non-specific references, the latest version of the
+    reference document (including any amendments) applies. While any hyperlinks included in
+    this section were valid at the time of publication, OASIS cannot guarantee their long term
+    validity.</para>
+
+  <section id="normativeReferences">
+    <title>Normative References</title>
+
+    <bibliography>
+      <title/>
+      <bibliomixed id="xliff22part2"><abbrev>XLIFF-2.2-part2</abbrev> XLIFF Version 2.2 Part 2:
+        Extended. Edited by Rodolfo M. Raya and Lucía Morado Vázquez. 13 March 2025. OASIS
+        Committee Specification. <citetitle><ulink
+            url="https://docs.oasis-open.org/xliff/xliff-core/v2.2/xliff-v2.2-part2-extended.html"
+            >https://docs.oasis-open.org/xliff/xliff-core/v2.2/xliff-v2.2-part2-extended.html</ulink></citetitle>.</bibliomixed>
+
+      <bibliomixed id="rfc2119"><abbrev>RFC2119</abbrev> S. Bradner. <title>Key words for use
+          in RFCs to Indicate Requirement Levels</title>. March 1997. <citetitle><ulink
+            url="https://www.rfc-editor.org/rfc/rfc2119"
+            >https://www.rfc-editor.org/rfc/rfc2119</ulink></citetitle>.</bibliomixed>
+
+      <bibliomixed id="zipAppnote"><abbrev>ZIP APPNOTE</abbrev> PKWARE, Inc. <title>.ZIP File
+          Format Specification</title>. <citetitle><ulink
+            url="https://pkware.cachefly.net/webdocs/casestudies/APPNOTE.TXT"
+            >https://pkware.cachefly.net/webdocs/casestudies/APPNOTE.TXT</ulink></citetitle>.</bibliomixed>
+    </bibliography>
+  </section>
+
+  <section id="informativeReferences">
+    <title>Informative References</title>
+
+    <para>The following referenced documents are not required for the application of this
+      document but may assist the reader with regard to a particular subject area.</para>
+
+    <bibliography>
+      <title/>
+      <bibliomixed id="tmx14b"><abbrev>TMX 1.4b</abbrev> Translation Memory eXchange (TMX)
+        Version 1.4b. Edited by Yves Savourel. OSCAR Recommendation, 26 April 2005.
+        <citetitle><ulink
+            url="https://web.archive.org/web/20060528180452/http://www.lisa.org/standards/tmx/tmx.html"
+            >https://web.archive.org/web/20060528180452/http://www.lisa.org/standards/tmx/tmx.html</ulink></citetitle>.</bibliomixed>
+
+      <bibliomixed id="xliff23provenance"><abbrev>XLIFF-2.3-provenance</abbrev> XLIFF Version
+        2.3 Provenance Module (Work in Progress). OASIS XLIFF Technical Committee. Not yet
+        published; referenced here for context while under development in the same working
+        repository as this document.</bibliomixed>
+    </bibliography>
+  </section>
+</appendix>

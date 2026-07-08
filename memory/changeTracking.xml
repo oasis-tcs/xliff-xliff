@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE appendix PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "docbook/docbookx.dtd"[
+
+<!ENTITY % xinclude SYSTEM "docbook/xinclude.mod">
+%xinclude;
+
+]>
+<appendix id="changeTracking">
+  <title>Changes From Previous Version</title>
+
+  <para>(This appendix does not form an integral part of this document and is
+    informational.)</para>
+
+  <para>None. This is the first published draft of this document.</para>
+
+  <section id="revisionHistory">
+    <title>Revision History</title>
+
+    <para>None.</para>
+  </section>
+</appendix>

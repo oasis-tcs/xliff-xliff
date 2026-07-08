@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "docbook/docbookx.dtd"[
+
+<!ENTITY % xinclude SYSTEM "docbook/xinclude.mod">
+%xinclude;
+
+]>
+<section id="exchange">
+  <title>Exchange of Multilingual Translation Memory Data</title>
+
+  <para>An XLIFF document is bilingual: it declares a single <code>srcLang</code> and a single
+    <code>trgLang</code>. A translation memory, however, is often required to hold or exchange
+    content across more than two languages. TMX addresses this within a single file, because a
+    <code>&lt;tu&gt;</code> can hold any number of <code>&lt;tuv&gt;</code> elements, one per
+    language.</para>
+
+  <para>This document recommends addressing the same requirement not by making an individual
+    XLIFF document multilingual, which would be a departure from the XLIFF Core data model, but
+    by packaging multiple bilingual XLIFF files together, one per source/target language pair,
+    along with a manifest that identifies the relationship among them. This keeps every
+    individual file fully conformant with, and processable by, any existing XLIFF 2.x tool,
+    while still allowing a translation memory covering many languages to be exchanged as a
+    single unit.</para>
+
+  <section id="packageStructure">
+    <title>Package Structure</title>
+
+    <para>A translation memory exchange package is a ZIP archive (as defined in [ZIP APPNOTE])
+      with the following content:</para>
+
+    <itemizedlist>
+      <listitem>
+        <para>One or more bilingual XLIFF files, each conforming to [XLIFF-2.2-part2] or later,
+          sharing a common <code>srcLang</code> and each declaring its own
+          <code>trgLang</code>.</para>
+      </listitem>
+      <listitem>
+        <para>A single manifest file, described in <olink targetdoc="exchange.xml"
+            targetptr="manifestFile">Manifest File</olink>, that lists the XLIFF files in the
+          package and the language pair each one represents.</para>
+      </listitem>
+    </itemizedlist>
+
+    <para>Corresponding translation units across the language-pair files in a package SHOULD
+      use the same <code>&lt;unit&gt;</code> <code>id</code> value (and, where segmented, the
+      same <code>&lt;segment&gt;</code> <code>id</code> value) so that a consumer can align
+      entries for the same source content across target languages. This mirrors, at the
+      package level, the alignment that a multilingual <code>&lt;tu&gt;</code> provides in a
+      single TMX file.</para>
+  </section>
+
+  <section id="manifestFile">
+    <title>Manifest File</title>
+
+    <para>The manifest is an XML file, named <code>manifest.xml</code>, placed at the root of
+      the package. It lists each XLIFF file contained in the package together with its source
+      and target language.</para>
+
+    <programlisting><![CDATA[<tmPackage xmlns="urn:oasis:names:tc:xliff:tm-manifest:1.0" version="1.0">
+  <file href="en-es.xlf" srcLang="en" trgLang="es"/>
+  <file href="en-fr.xlf" srcLang="en" trgLang="fr"/>
+  <file href="en-de.xlf" srcLang="en" trgLang="de"/>
+</tmPackage>]]></programlisting>
+
+    <para><emphasis>The manifest namespace, element and attribute names, and XML Schema shown
+      above are provisional and subject to review by the OASIS XLIFF TC before this Note
+      advances beyond Committee Note Draft.</emphasis></para>
+  </section>
+
+  <section id="exchangeExample">
+    <title>Example</title>
+
+    <para>A translation memory covering English source content with Spanish, French, and
+      German target content would be packaged as:</para>
+
+    <programlisting>tm-package.zip
+├── manifest.xml
+├── en-es.xlf
+├── en-fr.xlf
+└── en-de.xlf</programlisting>
+
+    <para>Each of <code>en-es.xlf</code>, <code>en-fr.xlf</code>, and <code>en-de.xlf</code> is
+      an ordinary bilingual XLIFF document as described in <olink targetdoc="tmFormat.xml"
+        targetptr="tmFormat">XLIFF as a Translation Memory Format</olink>, and each can be
+      consumed independently by a tool that only needs one language pair, or together by a tool
+      that reads <code>manifest.xml</code> to reconstruct the full multilingual set.</para>
+  </section>
+</section>

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="stylesheets/oasis-note-html-offline.xsl"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "docbook/docbookx.dtd"[
+
+<!ENTITY % xinclude SYSTEM "docbook/xinclude.mod">
+%xinclude;
+
+<!ENTITY version "1.0">
+<!ENTITY name "xliff-tm">
+<!ENTITY stage "cnd01">
+<!ENTITY standard "Committee Note Draft 01">
+<!ENTITY pubdate "8 July 2025">
+<!ENTITY pubyear "2025">
+
+]>
+
+<article status="&standard;" lang="en-US">
+  <articleinfo>
+    <title>XLIFF Translation Memory Version &version;</title>
+
+    <productname>&name;</productname>
+
+    <productnumber>&stage;</productnumber>
+
+    <releaseinfo role="OASIS-specification-this-authoritative"
+      >[ link to authoritative version of the published document ]</releaseinfo>
+
+    <releaseinfo role="OASIS-specification-previous-authoritative"
+      >[ link to authoritative version of the published document ]</releaseinfo>
+
+    <releaseinfo role="OASIS-specification-latest-authoritative"
+      >[ link to authoritative version of the published document ]</releaseinfo>
+
+    <releaseinfo role="committee"><ulink url="https://groups.oasis-open.org/communities/tc-community-home2?CommunityKey=3d0f1f56-8477-4b53-9b14-018dc7d3eecf">OASIS
+        XLIFF TC</ulink></releaseinfo>
+
+    <authorgroup>
+      <othercredit role="chair">
+        <honorific>Dr</honorific>
+        <firstname>Lucía</firstname>
+        <surname>Morado Vázquez</surname>
+        <affiliation>
+          <orgname><ulink url="https://www.unige.ch/en/">University of Geneva</ulink></orgname>
+          <address format="linespecific"><email>lucia.morado@unige.ch</email></address>
+        </affiliation>
+        <email>lucia.morado@unige.ch</email>
+      </othercredit>
+      <othercredit role="chair">
+        <firstname>Yoshito</firstname>
+        <surname>Umaoka</surname>
+        <affiliation>
+          <orgname>Individual</orgname>
+          <address format="linespecific"><email>y.umaoka@gmail.com</email></address>
+        </affiliation>
+        <email>y.umaoka@gmail.com</email>
+      </othercredit>
+      <othercredit role="secretary">
+        <firstname>Rodolfo M.</firstname>
+        <surname>Raya</surname>
+        <affiliation>
+          <orgname><ulink url="https://maxprograms.com">Maxprograms</ulink></orgname>
+          <address format="linespecific"><email>rmraya@maxprograms.com</email></address>
+        </affiliation>
+        <email>rmraya@maxprograms.com</email>
+      </othercredit>
+      <editor>
+        <firstname>Rodolfo M.</firstname>
+        <surname>Raya</surname>
+        <affiliation>
+          <orgname><ulink url="https://maxprograms.com">Maxprograms</ulink></orgname>
+          <address format="linespecific"><email>rmraya@maxprograms.com</email></address>
+        </affiliation>
+        <email>rmraya@maxprograms.com</email>
+      </editor>
+    </authorgroup>
+
+    <pubdate>&pubdate;</pubdate>
+
+    <copyright>
+      <year>&pubyear;</year>
+      <holder>OASIS Open, Inc. All Rights Reserved.</holder>
+    </copyright>
+
+    <legalnotice role="related">
+      <title>Related Work</title>
+
+      <para>This document replaces or supersedes:</para>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para>[ The full reference to the related document in IEEE reference format ]</para>
+        </listitem>
+      </itemizedlist>
+
+      <para>This document is related to:</para>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para><emphasis role="strong">[XLIFF-2.2-part2]</emphasis> XLIFF Version 2.2 Part 2:
+            Extended. Edited by Rodolfo M. Raya and Lucía Morado Vázquez 13 March 2025. OASIS
+            Committee Specification. <ulink
+              url="https://docs.oasis-open.org/xliff/xliff-core/v2.2/xliff-v2.2-part2-extended.html"
+              >https://docs.oasis-open.org/xliff/xliff-core/v2.2/xliff-v2.2-part2-extended.html</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para><emphasis role="strong">[TMX 1.4b]</emphasis> Translation Memory eXchange (TMX)
+            Version 1.4b. Edited by Yves Savourel. OSCAR Recommendation, 26 April 2005. <ulink
+              url="https://web.archive.org/web/20060528180452/http://www.lisa.org/standards/tmx/tmx.html"
+              >https://web.archive.org/web/20060528180452/http://www.lisa.org/standards/tmx/tmx.html</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </legalnotice>
+
+    <abstract>
+      <para>This Committee Note describes an XLIFF-native approach for the representation and
+        exchange of translation memory data, using plain XLIFF <code>&lt;file&gt;</code>,
+        <code>&lt;unit&gt;</code>, and <code>&lt;segment&gt;</code> elements as the translation
+        memory store itself, in place of the Translation Memory eXchange (TMX) format. The
+        approach preserves the structure and semantics of XLIFF content, including bilingual
+        text, inline elements, segmentation, and associated metadata, without the information
+        loss that results from converting content to and from TMX's inline tag model. It also
+        preserves the document order and structural relationship between translation units,
+        file, unit, and segment, that TMX's flat, unordered list of translation units does not
+        represent, and it allows richer metadata, such as provenance information, to be attached
+        directly using existing XLIFF modules.</para>
+
+      <para>This Committee Note also addresses the exchange of translation memory data for
+        multilingual use. Because XLIFF documents are fundamentally bilingual, the Note
+        recommends a packaging approach in which multiple related bilingual XLIFF files are
+        distributed together in a single ZIP package with a manifest that identifies the
+        relationships among them.</para>
+    </abstract>
+
+    <legalnotice role="citation">
+      <title>Citation format</title>
+      <para>When referencing this document, the following citation format should be used:</para>
+      <para>[ The full reference for this document in IEEE reference format ]</para>
+    </legalnotice>
+
+    <legalnotice role="notices">
+      <title>License, Document Status, and Notices</title>
+
+      <para>Copyright © OASIS Open &pubyear;. All Rights Reserved. For license and copyright
+        information, and complete status, please see Annex A which contains the License,
+        Document Status and Notices.</para>
+    </legalnotice>
+  </articleinfo>
+
+  <xi:include href="scope.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+  <xi:include href="definitions.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+  <xi:include href="conventions.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+  <xi:include href="introduction.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+  <xi:include href="tmFormat.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+  <xi:include href="exchange.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+  <xi:include href="safety.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+  <xi:include href="conformance.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  <!-- Annexes (normative, integral part of this document) -->
+  <xi:include href="annexA.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+  <xi:include href="annexB.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  <!-- Appendices (informational, not integral to this document) -->
+  <xi:include href="acknowledgements.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+  <xi:include href="changeTracking.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+</article>

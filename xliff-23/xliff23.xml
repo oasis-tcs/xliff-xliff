@@ -56,6 +56,24 @@
         </affiliation>
         <email>lucia.morado@unige.ch</email>
       </othercredit>
+      <othercredit role="chair">
+        <firstname>Yoshito</firstname>
+        <surname>Umaoka</surname>
+        <affiliation>
+          <orgname>Individual</orgname>
+          <address format="linespecific"><email>y.umaoka@gmail.com</email></address>
+        </affiliation>
+        <email>y.umaoka@gmail.com</email>
+      </othercredit>
+      <othercredit role="secretary">
+        <firstname>Rodolfo M.</firstname>
+        <surname>Raya</surname>
+        <affiliation>
+          <orgname><ulink url="https://maxprograms.com">Maxprograms</ulink></orgname>
+          <address format="linespecific"><email>rmraya@maxprograms.com</email></address>
+        </affiliation>
+        <email>rmraya@maxprograms.com</email>
+      </othercredit>
       <editor>
         <firstname>Rodolfo M.</firstname>
         <surname>Raya</surname>

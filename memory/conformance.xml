@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "docbook/docbookx.dtd"[
+
+<!ENTITY % xinclude SYSTEM "docbook/xinclude.mod">
+%xinclude;
+
+]>
+<section id="conformance">
+  <title>Conformance</title>
+
+  <section id="tmStoreConformance">
+    <title>Translation Memory Store</title>
+
+    <para>An XLIFF document <emphasis role="bold">conforms</emphasis> to this document as a
+      <emphasis>Translation Memory Store</emphasis> if:</para>
+
+    <orderedlist>
+      <listitem>
+        <para>It is a conformant [XLIFF-2.2-part2] (or later) document.</para>
+      </listitem>
+      <listitem>
+        <para>Every stored translation memory entry is represented as an XLIFF
+          <code>&lt;unit&gt;</code> containing one <code>&lt;segment&gt;</code> per entry, with
+          <code>&lt;source&gt;</code> and, where a translation is available,
+          <code>&lt;target&gt;</code> content, and no lossy conversion of inline content has
+          been applied to represent that entry.</para>
+      </listitem>
+      <listitem>
+        <para>Where provenance information is recorded for an entry, it is expressed using the
+          XLIFF 2.3 Provenance module rather than free-text notes or properties.</para>
+      </listitem>
+    </orderedlist>
+  </section>
+
+  <section id="tmPackageConformance">
+    <title>Translation Memory Exchange Package</title>
+
+    <para>A ZIP archive <emphasis role="bold">conforms</emphasis> to this document as a
+      <emphasis>Translation Memory Exchange Package</emphasis> if:</para>
+
+    <orderedlist>
+      <listitem>
+        <para>It contains a <code>manifest.xml</code> file at its root, as described in <olink
+            targetdoc="exchange.xml" targetptr="manifestFile">Manifest File</olink>.</para>
+      </listitem>
+      <listitem>
+        <para>Every XLIFF file listed in the manifest is present in the archive and conforms to
+          this document as a Translation Memory Store.</para>
+      </listitem>
+      <listitem>
+        <para>Every XLIFF file listed in the manifest declares a single <code>srcLang</code>
+          and a single <code>trgLang</code>, matching the language pair recorded for that file
+          in the manifest.</para>
+      </listitem>
+    </orderedlist>
+  </section>
+</section>
