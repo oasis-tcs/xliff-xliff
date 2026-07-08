@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.docbook.org/xml/4.5/docbookx.dtd" [
+    <!ENTITY % xinclude SYSTEM "../../docbook/xinclude.mod" >
+    %xinclude;
+    <!ENTITY % local.common.attrib "xml:base CDATA #IMPLIED" >
+]>
+<section id="change">
+    <title>change</title>
+    <para>Information associated with a specific modification or update.</para>
+    <para>
+        <emphasis>Contains:</emphasis>
+    </para>
+    <simplelist>
+        <member>- Zero or one <olink  targetdoc="usage.xml"
+          targetptr="usage"><code>&lt;usage&gt;</code></olink> element.</member>
+    </simplelist>
+    <para>
+        <emphasis>Attributes:</emphasis>
+    </para>
+    <simplelist>
+        <member>- agent, OPTIONAL</member>
+        <member>- appliesTo, REQUIRED</member>
+        <member>- timestamp, OPTIONAL</member>
+        <member>- intent, OPTIONAL</member>
+        <member>- organization, OPTIONAL</member>
+        <member>- person, OPTIONAL</member>
+        <member>- tool, OPTIONAL</member>
+    </simplelist>
+</section>

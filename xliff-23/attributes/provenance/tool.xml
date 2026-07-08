@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.docbook.org/xml/4.5/docbookx.dtd" [
+<!ENTITY % xinclude SYSTEM "../../docbook/xinclude.mod">
+%xinclude;
+<!ENTITY % local.common.attrib "xml:base CDATA #IMPLIED">
+]>
+<section id="tool">
+  <title>tool</title>
+
+  <para>Identifies the name of the localization tool used to create or modify the content
+    described by a <olink targetdoc="../../elements/provenance/change.xml" targetptr="change"
+      ><code>&lt;change&gt;</code></olink>.</para>
+
+  <para><emphasis>Value description:</emphasis> Text.</para>
+
+  <para><emphasis>Default value:</emphasis> undefined</para>
+
+  <para><emphasis>Used in:</emphasis> <olink targetdoc="../../elements/provenance/change.xml"
+      targetptr="change"><code>&lt;change&gt;</code></olink>.</para>
+
+  <para><emphasis>Example:</emphasis></para>
+
+  <programlisting>
+&lt;unit id="1"&gt;
+  &lt;pvn:provenance&gt;
+    &lt;pvn:change person="Anxela Loureiro" tool="Swordfish" appliesTo="target"/&gt;
+  &lt;/pvn:provenance&gt;
+  &lt;segment id="s1"&gt;
+    &lt;source&gt;Your annual tax certificate is now available for download.&lt;/source&gt;
+    &lt;target&gt;O seu certificado anual de impostos está dispoñible para descarga.&lt;/target&gt;
+  &lt;/segment&gt;
+&lt;/unit&gt;
+</programlisting>
+</section>

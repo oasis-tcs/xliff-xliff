@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.docbook.org/xml/4.5/docbookx.dtd" [
+<!ENTITY % xinclude SYSTEM "../../docbook/xinclude.mod">
+%xinclude;
+<!ENTITY % local.common.attrib "xml:base CDATA #IMPLIED">
+]>
+<section id="provenance_ref">
+  <title>ref</title>
+
+  <para>Reference - holds a reference to the element the enclosing <olink
+      targetdoc="../../elements/provenance/provenance.xml" targetptr="provenance_element"
+        ><code>&lt;provenance&gt;</code></olink> element applies to.</para>
+
+  <para><emphasis>Value description:</emphasis> A value of type anyURI. When used in a <olink
+      targetdoc="../../elements/provenance/provenance.xml" targetptr="provenance_element"
+        ><code>&lt;provenance&gt;</code></olink> element, the URI value refers to a specific <olink
+      targetdoc="../../elements/structural/unit.xml" targetptr="unit"
+        ><code>&lt;unit&gt;</code></olink> element.</para>
+
+  <para><emphasis>Default value:</emphasis> undefined</para>
+
+  <para><emphasis>Used in:</emphasis> <olink targetdoc="../../elements/provenance/provenance.xml"
+      targetptr="provenance_element"><code>&lt;provenance&gt;</code></olink>.</para>
+</section>

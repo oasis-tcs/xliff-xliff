@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.docbook.org/xml/4.5/docbookx.dtd" [
+<!ENTITY % xinclude SYSTEM "../../docbook/xinclude.mod">
+%xinclude;
+<!ENTITY % local.common.attrib "xml:base CDATA #IMPLIED">
+]>
+<section id="person">
+  <title>person</title>
+
+  <para>Identifies the human agent that performed a specific localization task recorded by a
+    <olink targetdoc="../../elements/provenance/change.xml" targetptr="change"
+      ><code>&lt;change&gt;</code></olink>. If the task was carried out using an automated system
+    (for example an MT engine), use <olink targetdoc="agent.xml" targetptr="agent"
+      ><code>agent</code></olink> instead.</para>
+
+  <para><emphasis>Value description:</emphasis> Text.</para>
+
+  <para><emphasis>Default value:</emphasis> undefined</para>
+
+  <para><emphasis>Used in:</emphasis> <olink targetdoc="../../elements/provenance/change.xml"
+      targetptr="change"><code>&lt;change&gt;</code></olink>.</para>
+
+  <para><emphasis>Example:</emphasis></para>
+
+  <programlisting>
+&lt;unit id="1"&gt;
+  &lt;pvn:provenance&gt;
+    &lt;pvn:change person="Anxela Loureiro" appliesTo="target"/&gt;
+  &lt;/pvn:provenance&gt;
+  &lt;segment&gt;
+    &lt;source&gt;Your annual tax certificate is now available for download.&lt;/source&gt;
+    &lt;target&gt;O seu certificado anual de impostos está dispoñible para descarga.&lt;/target&gt;
+  &lt;/segment&gt;
+&lt;/unit&gt;
+</programlisting>
+</section>

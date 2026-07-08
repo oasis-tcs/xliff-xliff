@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.docbook.org/xml/4.5/docbookx.dtd" [
+<!ENTITY % xinclude SYSTEM "../../docbook/xinclude.mod">
+%xinclude;
+<!ENTITY % local.common.attrib "xml:base CDATA #IMPLIED">
+]>
+<section id="appliesTo">
+  <title>appliesTo</title>
+
+  <para>Indicates the element or attribute to which the content of a <olink
+      targetdoc="../../elements/provenance/change.xml" targetptr="change"
+        ><code>&lt;change&gt;</code></olink> applies.</para>
+
+  <para><emphasis>Value description:</emphasis> Text. The name of an XLIFF Core element or
+    attribute (for example <code>target</code>), or the QName-qualified name of an attribute from
+    another namespace (for example <code>its:locQualityRatingScore</code>).</para>
+
+  <para><emphasis>Default value:</emphasis> undefined</para>
+
+  <para><emphasis>Used in:</emphasis> <olink targetdoc="../../elements/provenance/change.xml"
+      targetptr="change"><code>&lt;change&gt;</code></olink>. REQUIRED.</para>
+
+  <para><emphasis>Example:</emphasis></para>
+
+  <programlisting>
+&lt;unit id="1" its:locQualityRatingScore="0.968"&gt;
+  &lt;pvn:provenance&gt;
+    &lt;pvn:change agent="TAUS MTQE" appliesTo="its:locQualityRatingScore"/&gt;
+  &lt;/pvn:provenance&gt;
+  &lt;segment&gt;
+    &lt;source&gt;Your annual tax certificate is now available for download.&lt;/source&gt;
+    &lt;target&gt;O seu certificado anual de impostos está dispoñible para descarga.&lt;/target&gt;
+  &lt;/segment&gt;
+&lt;/unit&gt;
+</programlisting>
+</section>

@@ -9145,7 +9145,7 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
     </section>
     <section>
         <title>Module Specification</title>
-        <para>The Provenance module defines X elements and X attributes that enable the embedding of
+        <para>The Provenance module defines 4 elements and 9 attributes that enable the embedding of
             provenance metadata directly within XLIFF CORE elements. In the XLIFF context,
             provenance data is usually associated with two key aspects: the origin of the source
             content and the information about the localisation process applied to it. For example,
@@ -9154,8 +9154,9 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
     </section>
     <section>
         <title>Module Elements</title>
-        <para>The elements defined in the provenance module are &lt;change>, &lt;provenance>,
-            &lt;usage> and &lt;value></para>
+        <para>The elements defined in the provenance module are <link linkend="change"><code>&lt;change></code></link>, <link linkend="provenance_element"><code>&lt;provenance></code></link>,
+            <link linkend="usage"><code>&lt;usage></code></link> and 
+            <link linkend="value"><code>&lt;value></code></link></para>
     <section>
         <title>Tree Structure</title>
         <para>Legend:</para>
@@ -9167,77 +9168,85 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
         </simplelist>
         
         <programlisting format="linespecific">
-&lt;provenance>
+<link linkend="provenance_element">&lt;provenance></link>
         |
-        +---&lt;change>
-        |
-        ?---&lt;usage>
-        |
-        ?---&lt;value>
+        +---<link linkend="change">&lt;change></link>
+            |
+            *---<link linkend="usage">&lt;usage></link>
+                    |
+                    ?---<link linkend="value">&lt;value></link>
         </programlisting>
     </section>
-
-    </section>
-    <section>
-        <title>provenance</title>
-        <para>Generic container for storing provenance data.</para>
+        <section id="provenance_element">
+    <title>provenance</title>
+    <para>Generic container for storing provenance data.</para>
+    <para>
+        <emphasis>Contains:</emphasis>
+    </para>
+    <simplelist type="vert">
+        <member>- One or more <link linkend="change"><code>&lt;change></code></link> elements.</member>
+    </simplelist>
+    <para>
+        <emphasis>Attributes:</emphasis>
+    </para>
+    <simplelist type="vert">
+        <member>- ref         </member>
+    </simplelist>
+</section>
+        <section id="change">
+    <title>change</title>
+    <para>Information associated with a specific modification or update.</para>
+    <para>
+        <emphasis>Contains:</emphasis>
+    </para>
+    <simplelist type="vert">
+        <member>- Zero or one <link linkend="usage"><code>&lt;usage></code></link> element.</member>
+    </simplelist>
+    <para>
+        <emphasis>Attributes:</emphasis>
+    </para>
+    <simplelist type="vert">
+        <member>- agent, OPTIONAL</member>
+        <member>- appliesTo, REQUIRED</member>
+        <member>- timestamp, OPTIONAL</member>
+        <member>- intent, OPTIONAL</member>
+        <member>- organization, OPTIONAL</member>
+        <member>- person, OPTIONAL</member>
+        <member>- tool, OPTIONAL</member>
+    </simplelist>
+</section>
+        <section id="usage">
+    <title>usage</title>
+    <para>Data generated or used by the processor.</para>
+     <para>
+        <emphasis>Contains:</emphasis>
+    </para>
+    <simplelist type="vert">
+        <member>- Zero or one <link linkend="value"><code>&lt;value></code></link> element.</member>
+    </simplelist>
+    <para>
+        <emphasis>Attributes:</emphasis>
+    </para>
+    <simplelist type="vert">
+        <member>- usageUnit, REQUIRED</member>
+    </simplelist>
+</section>
+        <section id="provenance_value">
+    <title>value</title>
+        <para>Concrete data reflecting the actual modification cost.</para>
         <para>
-            <emphasis role="italic">Contains:</emphasis>
-        </para>
-        <para>-One or more &lt;change> elements.</para>
-        <para>
-            <emphasis role="italic">Attributes:</emphasis>
-        </para>
-        <para>
-            <emphasis role="italic">ref (see
-                https://docs.oasis-open.org/xliff/xliff-core/v2.2/xliff-extended-v2.2-part2.html#ref)</emphasis>
-        </para>
-    </section>
-    <section>
-        <title>change</title>
-        <para>Information associated with a specific modification or update</para>
-        <para>
-            <emphasis role="italic">Contains:</emphasis>
-        </para>
-        <para>-Zero or one &lt;usage> element.</para>
-        <para>-Zero or one &lt;value> element.</para>
-        <para>
-            <emphasis role="italic">Attributes:</emphasis>
-        </para>
-        <para>-agentName, OPTIONAL</para>
-        <para>-appliesTo, REQUIRED</para>
-        <para>-date, OPTIONAL</para>
-        <para>-intent, OPTIONAL</para>
-        <para>-orgName, OPTIONAL</para>
-        <para>-personName, OPTIONAL</para>
-        <para>-toolName, OPTIONAL</para>
-    </section>
-    <section>
-        <title>usage</title>
-        <para>Data generated or used by the processor.</para>
-        <para>
-            <emphasis role="italic">Contains:</emphasis>
-        </para>
-        <para>-TEXT</para>
-        <para>
-            <emphasis role="italic">Attributes:</emphasis>
-        </para>
-        <para>-reference, OPTIONAL</para>
-        <para>-unit, REQUIRED</para>
-    </section>
-    <section>
-        <title>value</title>
-        <para>Concrete data reflecting the actual modification .E.g. if this was a quality score
-            it’s the new score. If this was the entire target it’s the entire target</para>
-        <para>
-            <emphasis role="italic">Contains:</emphasis>
-        </para>
-        <para>-TEXT?</para>
-        <para>
-            <emphasis role="italic">Attributes:</emphasis>
-        </para>
-        <para>….</para>
-        <para>
+        <emphasis>Contains:</emphasis>
+    </para>
+    <simplelist type="vert">
+        <member>- TEXT</member>
+    </simplelist>
+    <para>
+        <emphasis>Attributes:</emphasis>
+    </para>
+    <simplelist type="vert">
+        <member>- usageUnit, REQUIRED</member>
+    </simplelist>
+    <para>
             <emphasis role="bold">Full example:</emphasis>
         </para>
         <programlisting format="linespecific">
@@ -9280,6 +9289,7 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
         &lt;/file>
         &lt;/xliff>
             </programlisting>
+</section>
     </section>
     <section>
         <title>Module Attributes</title>

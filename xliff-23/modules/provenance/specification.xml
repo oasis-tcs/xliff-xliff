@@ -30,7 +30,7 @@
     </section>
     <section>
         <title>Module Specification</title>
-        <para>The Provenance module defines X elements and X attributes that enable the embedding of
+        <para>The Provenance module defines 4 elements and 9 attributes that enable the embedding of
             provenance metadata directly within XLIFF CORE elements. In the XLIFF context,
             provenance data is usually associated with two key aspects: the origin of the source
             content and the information about the localisation process applied to it. For example,
@@ -39,8 +39,11 @@
     </section>
     <section>
         <title>Module Elements</title>
-        <para>The elements defined in the provenance module are &lt;change&gt;, &lt;provenance&gt;,
-            &lt;usage&gt; and &lt;value&gt;</para>
+        <para>The elements defined in the provenance module are <olink targetdoc="../elements/provenance/change.xml"
+                targetptr="change"><code>&lt;change&gt;</code></olink>, <olink targetdoc="../elements/provenance/provenance.xml"
+        targetptr="provenance_element"><code>&lt;provenance&gt;</code></olink>,
+            <olink targetdoc="../elements/provenance/usage.xml" targetptr="usage"><code>&lt;usage&gt;</code></olink> and 
+            <olink targetdoc="../elements/provenance/value.xml" targetptr="value"><code>&lt;value&gt;</code></olink></para>
     <section>
         <title>Tree Structure</title>
         <para>Legend:</para>
@@ -52,119 +55,23 @@
         </simplelist>
         
         <programlisting format="linespecific">
-&lt;provenance&gt;
+<olink targetdoc="../elements/provenance/provenance.xml"
+        targetptr="provenance_element">&lt;provenance&gt;</olink>
         |
-        +---&lt;change&gt;
-        |
-        ?---&lt;usage&gt;
-        |
-        ?---&lt;value&gt;
+        +---<olink targetdoc="../elements/provenance/change.xml"
+                targetptr="change">&lt;change&gt;</olink>
+            |
+            *---<olink targetdoc="../elements/provenance/usage.xml"
+                targetptr="usage">&lt;usage&gt;</olink>
+                    |
+                    ?---<olink targetdoc="../elements/provenance/value.xml"
+                targetptr="value">&lt;value&gt;</olink>
         </programlisting>
     </section>
-
-    </section>
-    <section>
-        <title>provenance</title>
-        <para>Generic container for storing provenance data.</para>
-        <para>
-            <emphasis role="italic">Contains:</emphasis>
-        </para>
-        <para>-One or more &lt;change&gt; elements.</para>
-        <para>
-            <emphasis role="italic">Attributes:</emphasis>
-        </para>
-        <para>
-            <emphasis role="italic">ref (see
-                https://docs.oasis-open.org/xliff/xliff-core/v2.2/xliff-extended-v2.2-part2.html#ref)</emphasis>
-        </para>
-    </section>
-    <section>
-        <title>change</title>
-        <para>Information associated with a specific modification or update</para>
-        <para>
-            <emphasis role="italic">Contains:</emphasis>
-        </para>
-        <para>-Zero or one &lt;usage&gt; element.</para>
-        <para>-Zero or one &lt;value&gt; element.</para>
-        <para>
-            <emphasis role="italic">Attributes:</emphasis>
-        </para>
-        <para>-agentName, OPTIONAL</para>
-        <para>-appliesTo, REQUIRED</para>
-        <para>-date, OPTIONAL</para>
-        <para>-intent, OPTIONAL</para>
-        <para>-orgName, OPTIONAL</para>
-        <para>-personName, OPTIONAL</para>
-        <para>-toolName, OPTIONAL</para>
-    </section>
-    <section>
-        <title>usage</title>
-        <para>Data generated or used by the processor.</para>
-        <para>
-            <emphasis role="italic">Contains:</emphasis>
-        </para>
-        <para>-TEXT</para>
-        <para>
-            <emphasis role="italic">Attributes:</emphasis>
-        </para>
-        <para>-reference, OPTIONAL</para>
-        <para>-unit, REQUIRED</para>
-    </section>
-    <section>
-        <title>value</title>
-        <para>Concrete data reflecting the actual modification .E.g. if this was a quality score
-            it’s the new score. If this was the entire target it’s the entire target</para>
-        <para>
-            <emphasis role="italic">Contains:</emphasis>
-        </para>
-        <para>-TEXT?</para>
-        <para>
-            <emphasis role="italic">Attributes:</emphasis>
-        </para>
-        <para>….</para>
-        <para>
-            <emphasis role="bold">Full example:</emphasis>
-        </para>
-        <programlisting>
-        &lt;xliff srcLang="en" trgLang="es" version="2.2"
-            xmlns:pvn="urn:oasis:names:tc:xliff:pvn:2.3"
-        xmlns:its="http://www.w3.org/2005/11/its"
-            xmlns="urn:oasis:names:tc:xliff:document:2.2"&gt;
-        &lt;file id="f1"&gt;
-        &lt;unit id="1" its:locQualityRatingScore="0.968"&gt;
-        &lt;pvn:provenance&gt;
-        &lt;pvn:change agentName="Google Translate" appliesTo="target"
-            date="2026-05-05T21:06:00Z"&gt;
-        &lt;pvn:usage unit="characters"&gt;66&lt;/pvn:usage&gt;
-        &lt;pvn:new&gt;O seu certificado anual de impostos está dispoñible para
-            descarga.&lt;/pvn:new&gt;
-        &lt;/pvn:change&gt;
-        &lt;pvn:change agentName="TAUS MTQE" appliesTo="its:locQualityRatingScore"
-        date="2026-05-05T21:07:00Z"&gt;
-        &lt;pvn:usage unit="characters"&gt;66&lt;/pvn:usage&gt;
-        &lt;pvn:new&gt;0.968&lt;/pvn:new&gt;
-        &lt;/pvn:change&gt;
-        &lt;pvn:change agentName="gpt-5.5" appliesTo="target"
-            date="2026-05-05T21:08:00Z"
-        intent="This version sounds slightly smoother and more idiomatic: 'para descargar' is
-            often preferred over 'para descarga' in everyday usage."&gt;
-        &lt;pvn:usage unit="tokens"&gt;45&lt;/pvn:usage&gt;
-        &lt;pvn:previous&gt;O seu certificado anual de impostos está dispoñible para
-            descarga.&lt;/pvn:previous&gt;
-        &lt;pvn:new&gt;O seu certificado anual de impostos xa está dispoñible para
-            descargar.&lt;/pvn:new&gt;
-        &lt;/pvn:change&gt;
-        &lt;/pvn:provenance&gt;
-        &lt;segment&gt;
-        &lt;source&gt;Your annual tax certificate is now available for
-            download.&lt;/source&gt;
-        &lt;target&gt;O seu certificado anual de impostos xa está dispoñible para
-            descargar.&lt;/target&gt;
-        &lt;/segment&gt;
-        &lt;/unit&gt;
-        &lt;/file&gt;
-        &lt;/xliff&gt;
-            </programlisting>
+        <xi:include href="../../elements/provenance/provenance.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="../../elements/provenance/change.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="../../elements/provenance/usage.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="../../elements/provenance/value.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     </section>
     <section>
         <title>Module Attributes</title>

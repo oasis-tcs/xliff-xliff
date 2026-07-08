@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.docbook.org/xml/4.5/docbookx.dtd" [
+<!ENTITY % xinclude SYSTEM "../../docbook/xinclude.mod">
+%xinclude;
+<!ENTITY % local.common.attrib "xml:base CDATA #IMPLIED">
+]>
+<section id="intent">
+  <title>intent</title>
+
+  <para>Rationale for a <olink targetdoc="../../elements/provenance/change.xml" targetptr="change"
+      ><code>&lt;change&gt;</code></olink>.</para>
+
+  <para><emphasis>Value description:</emphasis> Text.</para>
+
+  <para><emphasis>Default value:</emphasis> undefined</para>
+
+  <para><emphasis>Used in:</emphasis> <olink targetdoc="../../elements/provenance/change.xml"
+      targetptr="change"><code>&lt;change&gt;</code></olink>.</para>
+
+  <para><emphasis>Example:</emphasis></para>
+
+  <programlisting>
+&lt;unit id="1"&gt;
+  &lt;pvn:provenance&gt;
+    &lt;pvn:change agent="gpt-5.5" appliesTo="target"
+      intent="This version sounds slightly smoother and more idiomatic: 'para descargar' is
+        often preferred over 'para descarga' in everyday usage."/&gt;
+  &lt;/pvn:provenance&gt;
+  &lt;segment&gt;
+    &lt;source&gt;Your annual tax certificate is now available for download.&lt;/source&gt;
+    &lt;target&gt;O seu certificado anual de impostos xa está dispoñible para descargar.&lt;/target&gt;
+  &lt;/segment&gt;
+&lt;/unit&gt;
+</programlisting>
+</section>
