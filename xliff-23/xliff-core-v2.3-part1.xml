@@ -285,12 +285,29 @@
         </varlistentry>
 
         <varlistentry>
+          <term>Provenance</term>
+          <term>Provenance Information</term>
+
+          <listitem>
+            <para>information about the nature and origin of the localisation data or process. </para>
+          </listitem>
+          </varlistentry>
+
+        <varlistentry>
           <term>Translation</term>
           <term>Translate</term>
 
           <listitem>
             <para>a rendering of the meaning of the source text, expressed in the target
               language</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>Translatable text</term>
+
+          <listitem>
+            <para>Textual content subject to translation during the translation or localisation process.</para>
           </listitem>
         </varlistentry>
 

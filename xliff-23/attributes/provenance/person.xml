@@ -8,11 +8,9 @@
 <section id="person">
   <title>person</title>
 
-  <para>Identifies the human agent that performed a specific localization task recorded by a
+  <para>Identifies the person that performed a specific localization task recorded by a
     <olink targetdoc="../../elements/provenance/change.xml" targetptr="change"
-      ><code>&lt;change&gt;</code></olink>. If the task was carried out using an automated system
-    (for example an MT engine), use <olink targetdoc="agent.xml" targetptr="agent"
-      ><code>agent</code></olink> instead.</para>
+      ><code>&lt;change&gt;</code></olink>.</para>
 
   <para><emphasis>Value description:</emphasis> Text.</para>
 

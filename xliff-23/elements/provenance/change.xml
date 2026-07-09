@@ -11,19 +11,21 @@
         <emphasis>Contains:</emphasis>
     </para>
     <simplelist>
+        <member>- One or more<olink targetdoc="value.xml" targetptr="provenance_value"
+                    ><code>&lt;value&gt;</code></olink> element.</member>
         <member>- Zero or one <olink  targetdoc="usage.xml"
-          targetptr="usage"><code>&lt;usage&gt;</code></olink> element.</member>
+                targetptr="usage"><code>&lt;usage&gt;</code></olink> element.</member>
     </simplelist>
     <para>
         <emphasis>Attributes:</emphasis>
     </para>
     <simplelist>
-        <member>- agent, OPTIONAL</member>
-        <member>- appliesTo, REQUIRED</member>
-        <member>- timestamp, OPTIONAL</member>
-        <member>- intent, OPTIONAL</member>
-        <member>- organization, OPTIONAL</member>
-        <member>- person, OPTIONAL</member>
-        <member>- tool, OPTIONAL</member>
+        <member>- <olink targetdoc="../../attributes/provenance/agent.xml" targetptr="agent">agent</olink>, OPTIONAL</member>
+        <member>- <olink targetdoc="../../attributes/provenance/appliesTo.xml" targetptr="provenance_appliesTo">appliesTo</olink>, REQUIRED</member>
+        <member>- <olink targetdoc="../../attributes/provenance/intent.xml" targetptr="intent">intent</olink>, OPTIONAL</member>
+        <member>- <olink targetdoc="../../attributes/provenance/organization.xml" targetptr="organization">organization</olink>, OPTIONAL</member>
+        <member>- <olink targetdoc="../../attributes/provenance/person.xml" targetptr="person">person</olink>, OPTIONAL</member>
+        <member>- <olink targetdoc="../../attributes/provenance/timestamp.xml" targetptr="timestamp">timestamp</olink>, OPTIONAL</member>
+        <member>- <olink targetdoc="../../attributes/provenance/tool.xml" targetptr="tool">tool</olink>, OPTIONAL</member>
     </simplelist>
 </section>

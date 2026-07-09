@@ -8,15 +8,11 @@
 <section id="provenance_ref">
   <title>ref</title>
 
-  <para>Reference - holds a reference to the element the enclosing <olink
-      targetdoc="../../elements/provenance/provenance.xml" targetptr="provenance_element"
-        ><code>&lt;provenance&gt;</code></olink> element applies to.</para>
-
-  <para><emphasis>Value description:</emphasis> A value of type anyURI. When used in a <olink
-      targetdoc="../../elements/provenance/provenance.xml" targetptr="provenance_element"
-        ><code>&lt;provenance&gt;</code></olink> element, the URI value refers to a specific <olink
+  <para>Reference - holds a reference to the specific element the in the enclosing <olink
       targetdoc="../../elements/structural/unit.xml" targetptr="unit"
-        ><code>&lt;unit&gt;</code></olink> element.</para>
+      ><code>&lt;unit&gt;</code></olink> to which the provenance changes apply.</para>
+
+  <para><emphasis>Value description:</emphasis> A value of type <code>anyURI</code>.</para>
 
   <para><emphasis>Default value:</emphasis> undefined</para>
 

@@ -284,12 +284,29 @@
         </varlistentry>
 
         <varlistentry>
+          <term>Provenance</term>
+          <term>Provenance Information</term>
+
+          <listitem>
+            <para>information about the nature and origin of the localisation data or process. </para>
+          </listitem>
+          </varlistentry>
+
+        <varlistentry>
           <term>Translation</term>
           <term>Translate</term>
 
           <listitem>
             <para>a rendering of the meaning of the source text, expressed in the target
               language</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>Translatable text</term>
+
+          <listitem>
+            <para>Textual content subject to translation during the translation or localisation process.</para>
           </listitem>
         </varlistentry>
 
@@ -9106,12 +9123,14 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
     </section>
     <section>
         <title>Module Namespace and Validation Artifacts</title>
-        <para>The namespace for the Provenance module is: urn:oasis:names:tc:xliff:pvn:2.3</para>
+        <para>The namespace for the Provenance module is:
+                <code>urn:oasis:names:tc:xliff:pvn:2.3</code></para>
         <para>XML Schema is available at …</para>
     </section>
     <section>
         <title>Module Fragment Identification Prefix</title>
-        <para>The fragment identification prefix for the Provenance module is: pvn</para>
+        <para>The fragment identification prefix for the Provenance module is:
+            <code>pvn</code></para>
     </section>
     <section>
         <title>Module Specification</title>
@@ -9124,30 +9143,29 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
     </section>
     <section>
         <title>Module Elements</title>
-        <para>The elements defined in the provenance module are <link linkend="change"><code>&lt;change></code></link>, <link linkend="provenance_element"><code>&lt;provenance></code></link>,
-            <link linkend="usage"><code>&lt;usage></code></link> and 
-            <link linkend="value"><code>&lt;value></code></link></para>
-    <section>
-        <title>Tree Structure</title>
-        <para>Legend:</para>
-        <simplelist type="vert">
-            <member>1 = one</member>
-            <member>+ = one or more</member>
-            <member>? = zero or one</member>
-            <member>* = zero, one or more</member>
-        </simplelist>
-        
-        <programlisting format="linespecific">
+        <para>The elements defined in the provenance module are <link linkend="change"><code>&lt;change></code></link>, <link linkend="provenance_element"><code>&lt;provenance></code></link>, <link linkend="usage"><code>&lt;usage></code></link> and <link linkend="provenance_value"><code>&lt;value></code></link></para>
+        <section>
+            <title>Tree Structure</title>
+            <para>Legend:</para>
+            <simplelist type="vert">
+                <member>1 = one</member>
+                <member>+ = one or more</member>
+                <member>? = zero or one</member>
+                <member>* = zero, one or more</member>
+            </simplelist>
+
+            <programlisting format="linespecific">
+            
 <link linkend="provenance_element">&lt;provenance></link>
         |
         +---<link linkend="change">&lt;change></link>
             |
-            *---<link linkend="usage">&lt;usage></link>
-                    |
-                    ?---<link linkend="value">&lt;value></link>
+            +---<link linkend="provenance_value">&lt;value></link>
+            |
+            ?---<link linkend="usage">&lt;usage></link>
+            
         </programlisting>
-    </section>
-        <section id="provenance_element">
+            <section id="provenance_element">
     <title>provenance</title>
     <para>Generic container for storing provenance data.</para>
     <para>
@@ -9160,45 +9178,53 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
         <emphasis>Attributes:</emphasis>
     </para>
     <simplelist type="vert">
-        <member>- ref         </member>
+        <member>- <link linkend="provenance_ref">ref</link>, OPTIONAL</member>
     </simplelist>
 </section>
-        <section id="change">
+            <section id="change">
     <title>change</title>
     <para>Information associated with a specific modification or update.</para>
     <para>
         <emphasis>Contains:</emphasis>
     </para>
     <simplelist type="vert">
+        <member>- One or more<link linkend="provenance_value"><code>&lt;value></code></link> element.</member>
         <member>- Zero or one <link linkend="usage"><code>&lt;usage></code></link> element.</member>
     </simplelist>
     <para>
         <emphasis>Attributes:</emphasis>
     </para>
     <simplelist type="vert">
-        <member>- agent, OPTIONAL</member>
-        <member>- appliesTo, REQUIRED</member>
-        <member>- timestamp, OPTIONAL</member>
-        <member>- intent, OPTIONAL</member>
-        <member>- organization, OPTIONAL</member>
-        <member>- person, OPTIONAL</member>
-        <member>- tool, OPTIONAL</member>
+        <member>- <link linkend="agent">agent</link>, OPTIONAL</member>
+        <member>- <link linkend="provenance_appliesTo">appliesTo</link>, REQUIRED</member>
+        <member>- <link linkend="intent">intent</link>, OPTIONAL</member>
+        <member>- <link linkend="organization">organization</link>, OPTIONAL</member>
+        <member>- <link linkend="person">person</link>, OPTIONAL</member>
+        <member>- <link linkend="timestamp">timestamp</link>, OPTIONAL</member>
+        <member>- <link linkend="tool">tool</link>, OPTIONAL</member>
     </simplelist>
 </section>
-        <section id="usage">
+            <section id="usage">
     <title>usage</title>
-    <para>Data generated or used by the processor.</para>
-     <para>
+    <para>Cost of the data generated or used by the processor.</para>
+    <para>
         <emphasis>Contains:</emphasis>
     </para>
     <simplelist type="vert">
-        <member>- Zero or one <link linkend="value"><code>&lt;value></code></link> element.</member>
+        <member>- Text</member>
+    </simplelist>
+    <para>
+        <emphasis>Attributes:</emphasis>
+    </para>
+    <simplelist type="vert">
+        <member>- <link linkend="usageUnit">usageUnit</link>, REQUIRED</member>
     </simplelist>
 </section>
-        <section id="provenance_value">
+            <section id="provenance_value">
     <title>value</title>
-        <para>Concrete data reflecting the actual modification cost.</para>
-        <para>
+    <para>Concrete data reflecting the actual modification .E.g. if this was a quality score it’s
+        the new score. If this was the entire target it’s the entire target</para>
+    <para>
         <emphasis>Contains:</emphasis>
     </para>
     <simplelist type="vert">
@@ -9208,12 +9234,12 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
         <emphasis>Attributes:</emphasis>
     </para>
     <simplelist type="vert">
-        <member>- usageUnit, REQUIRED</member>
+        <member>- None</member>
     </simplelist>
     <para>
-            <emphasis role="bold">Full example:</emphasis>
-        </para>
-        <programlisting format="linespecific">
+        <emphasis role="bold">Full example:</emphasis>
+    </para>
+    <programlisting format="linespecific">
         &lt;xliff srcLang="en" trgLang="es" version="2.2"
             xmlns:pvn="urn:oasis:names:tc:xliff:pvn:2.3"
         xmlns:its="http://www.w3.org/2005/11/its"
@@ -9254,396 +9280,253 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
         &lt;/xliff>
             </programlisting>
 </section>
+        </section>
     </section>
+
     <section>
         <title>Module Attributes</title>
-        <para>The attributes defined in the Provenance module are: agentName, appliesTo, date,
-            intent, orgName, personName, toolName, reference, ref and unit.</para>
+        <para>The attributes defined in the Provenance module are: <link linkend="agent">agent</link>,
+                <link linkend="provenance_appliesTo">appliesTo</link>, <link linkend="intent">intent</link>, <link linkend="organization">organization</link>, <link linkend="person">person</link>, <link linkend="provenance_ref">ref</link>, <link linkend="timestamp">timestamp</link>, <link linkend="tool">tool</link>, and <link linkend="usageUnit">usageUnit</link></para>
+        <section id="agent">
+  <title>agent</title>
+
+  <para>Identifies the system agent that performed a specific localization task, for example an MT engine that
+    automatically translated the content of a given <link linkend="change"><code>&lt;change></code></link>.</para>
+
+  <para><emphasis>Value description:</emphasis> Text.</para>
+
+  <para><emphasis>Default value:</emphasis> undefined</para>
+
+  <para><emphasis>Used in:</emphasis> <link linkend="change"><code>&lt;change></code></link>.</para>
+
+  <para><emphasis>Example:</emphasis></para>
+
+  <programlisting format="linespecific">
+&lt;unit id="1">
+  &lt;pvn:provenance>
+    &lt;pvn:change agent="Google Translate" appliesTo="target"/>
+  &lt;/pvn:provenance>
+  &lt;segment>
+    &lt;source>Your annual tax certificate is now available for download.&lt;/source>
+    &lt;target>O seu certificado anual de impostos está dispoñible para descarga.&lt;/target>
+  &lt;/segment>
+&lt;/unit>
+</programlisting>
+</section>
+        <section id="provenance_appliesTo">
+  <title>appliesTo</title>
+
+  <para>Indicates the element or attribute to which the content of a <link linkend="change"><code>&lt;change></code></link> applies.</para>
+
+  <para><emphasis>Value description:</emphasis> Text. The name of an XLIFF Core element or
+    attribute (for example <code>target</code>), or the QName-qualified name of an attribute from
+    another namespace (for example <code>its:locQualityRatingScore</code>).</para>
+
+  <para><emphasis>Default value:</emphasis> undefined</para>
+
+  <para><emphasis>Used in:</emphasis> <link linkend="change"><code>&lt;change></code></link>. REQUIRED.</para>
+
+  <para><emphasis>Example:</emphasis></para>
+
+  <programlisting format="linespecific">
+&lt;unit id="1" its:locQualityRatingScore="0.968">
+  &lt;pvn:provenance>
+    &lt;pvn:change agent="TAUS MTQE" appliesTo="its:locQualityRatingScore"/>
+  &lt;/pvn:provenance>
+  &lt;segment>
+    &lt;source>Your annual tax certificate is now available for download.&lt;/source>
+    &lt;target>O seu certificado anual de impostos está dispoñible para descarga.&lt;/target>
+  &lt;/segment>
+&lt;/unit>
+</programlisting>
+</section>
+        <section id="intent">
+  <title>intent</title>
+
+  <para>Rationale for a <link linkend="change"><code>&lt;change></code></link>.</para>
+
+  <para><emphasis>Value description:</emphasis> Text.</para>
+
+  <para><emphasis>Default value:</emphasis> undefined</para>
+
+  <para><emphasis>Used in:</emphasis> <link linkend="change"><code>&lt;change></code></link>.</para>
+
+  <para><emphasis>Example:</emphasis></para>
+
+  <programlisting format="linespecific">
+&lt;unit id="1">
+  &lt;pvn:provenance>
+    &lt;pvn:change agent="gpt-5.5" appliesTo="target"
+      intent="This version sounds slightly smoother and more idiomatic: 'para descargar' is
+        often preferred over 'para descarga' in everyday usage."/>
+  &lt;/pvn:provenance>
+  &lt;segment>
+    &lt;source>Your annual tax certificate is now available for download.&lt;/source>
+    &lt;target>O seu certificado anual de impostos xa está dispoñible para descargar.&lt;/target>
+  &lt;/segment>
+&lt;/unit>
+</programlisting>
+</section>
+        <section id="organization">
+  <title>organization</title>
+
+  <para>Identifies the organization that has mandated or commissioned the localization task
+    recorded by a <link linkend="change"><code>&lt;change></code></link>.</para>
+
+  <para><emphasis>Value description:</emphasis> Text.</para>
+
+  <para><emphasis>Default value:</emphasis> undefined</para>
+
+  <para><emphasis>Used in:</emphasis> <link linkend="change"><code>&lt;change></code></link>.</para>
+
+  <para><emphasis>Example:</emphasis></para>
+
+  <programlisting format="linespecific">
+&lt;unit id="1">
+  &lt;pvn:provenance>
+    &lt;pvn:change agent="Google Translate" organization="OASIS"/>
+  &lt;/pvn:provenance>
+  &lt;segment>
+    &lt;source>Your annual tax certificate is now available for download.&lt;/source>
+    &lt;target>O seu certificado anual de impostos está dispoñible para descarga.&lt;/target>
+  &lt;/segment>
+&lt;/unit>
+</programlisting>
+</section>
+        <section id="person">
+  <title>person</title>
+
+  <para>Identifies the person that performed a specific localization task recorded by a
+    <link linkend="change"><code>&lt;change></code></link>.</para>
+
+  <para><emphasis>Value description:</emphasis> Text.</para>
+
+  <para><emphasis>Default value:</emphasis> undefined</para>
+
+  <para><emphasis>Used in:</emphasis> <link linkend="change"><code>&lt;change></code></link>.</para>
+
+  <para><emphasis>Example:</emphasis></para>
+
+  <programlisting format="linespecific">
+&lt;unit id="1">
+  &lt;pvn:provenance>
+    &lt;pvn:change person="Anxela Loureiro" appliesTo="target"/>
+  &lt;/pvn:provenance>
+  &lt;segment>
+    &lt;source>Your annual tax certificate is now available for download.&lt;/source>
+    &lt;target>O seu certificado anual de impostos está dispoñible para descarga.&lt;/target>
+  &lt;/segment>
+&lt;/unit>
+</programlisting>
+</section>
+        <section id="provenance_ref">
+  <title>ref</title>
+
+  <para>Reference - holds a reference to the specific element the in the enclosing <link linkend="unit"><code>&lt;unit></code></link> to which the provenance changes apply.</para>
+
+  <para><emphasis>Value description:</emphasis> A value of type <code>anyURI</code>.</para>
+
+  <para><emphasis>Default value:</emphasis> undefined</para>
+
+  <para><emphasis>Used in:</emphasis> <link linkend="provenance_element"><code>&lt;provenance></code></link>.</para>
+</section>
+        <section id="tool">
+  <title>tool</title>
+
+  <para>Identifies the name of the localization tool used to create or modify the content
+    described by a <link linkend="change"><code>&lt;change></code></link>.</para>
+
+  <para><emphasis>Value description:</emphasis> Text.</para>
+
+  <para><emphasis>Default value:</emphasis> undefined</para>
+
+  <para><emphasis>Used in:</emphasis> <link linkend="change"><code>&lt;change></code></link>.</para>
+
+  <para><emphasis>Example:</emphasis></para>
+
+  <programlisting format="linespecific">
+&lt;unit id="1">
+  &lt;pvn:provenance>
+    &lt;pvn:change person="Anxela Loureiro" tool="Swordfish" appliesTo="target"/>
+  &lt;/pvn:provenance>
+  &lt;segment id="s1">
+    &lt;source>Your annual tax certificate is now available for download.&lt;/source>
+    &lt;target>O seu certificado anual de impostos está dispoñible para descarga.&lt;/target>
+  &lt;/segment>
+&lt;/unit>
+</programlisting>
+</section>
+        <section id="timestamp">
+  <title>timestamp</title>
+
+  <para>Indicates when the modification recorded by a <link linkend="change"><code>&lt;change></code></link> was made.</para>
+
+  <para><emphasis>Value description:</emphasis> Date in <remark>[ISO 8601]</remark> format, including milliseconds. The recommended
+    pattern is <code>YYYY-MM-DDThh:mm:ss.sssZ</code>, where <code>YYYY</code> is the year (4
+    digits), <code>MM</code> is the month (2 digits), <code>DD</code> is the day (2 digits),
+    <code>hh</code> is the hours (2 digits), <code>mm</code> is the minutes (2 digits),
+    <code>ss</code> is the seconds (2 digits), <code>sss</code> is the milliseconds (3 digits), and
+    <code>Z</code> indicates the time is UTC. For example:
+    <code>timestamp="2026-01-25T21:06:00.000Z"</code>.</para>
+
+  <para><emphasis>Default value:</emphasis> undefined</para>
+
+  <para><emphasis>Used in:</emphasis> <link linkend="change"><code>&lt;change></code></link>.</para>
+
+  <para><emphasis>Example:</emphasis></para>
+
+  <programlisting format="linespecific">
+&lt;unit id="1">
+  &lt;pvn:provenance>
+    &lt;pvn:change agent="Google Translate" appliesTo="target"
+      timestamp="2026-01-01T21:06:00.000Z"/>
+  &lt;/pvn:provenance>
+  &lt;segment>
+    &lt;source>Your annual tax certificate is now available for download.&lt;/source>
+    &lt;target>O seu certificado anual de impostos está dispoñible para descarga.&lt;/target>
+  &lt;/segment>
+&lt;/unit>
+</programlisting>
+</section>
+        <section id="usageUnit">
+  <title>usageUnit</title>
+
+  <para>Describes the unit used to express the cost or size information recorded by a <link linkend="provenance_value"><code>&lt;value></code></link> element.</para>
+
+  <para><emphasis>Value description:</emphasis> One of the following values: <code>word</code>,
+    <code>character</code>, <code>token</code>, or a user-defined value composed of a prefix and a
+    sub-value separated by a character <code>:</code> (U+003A).</para>
+
+  <para>The prefix is a string uniquely identifying a collection of sub-values for a specific
+    authority. The sub-value is any string value defined by the authority. The prefix
+    <code>xlf</code> is reserved.</para>
+
+  <para><emphasis>Default value:</emphasis> undefined</para>
+
+  <para><emphasis>Used in:</emphasis> <link linkend="provenance_value"><code>&lt;value></code></link>. REQUIRED.</para>
+
+  <para><emphasis>Example:</emphasis></para>
+
+  <programlisting format="linespecific">
+&lt;unit id="1">
+  &lt;pvn:provenance>
+    &lt;pvn:change agent="gpt-5.5" appliesTo="target" timestamp="2026-05-05T21:08:00Z">
+      &lt;pvn:usage>
+        &lt;pvn:value usageUnit="tokens">45&lt;/pvn:value>
+      &lt;/pvn:usage>
+    &lt;/pvn:change>
+  &lt;/pvn:provenance>
+  &lt;segment>
+    &lt;source>Your annual tax certificate is now available for download.&lt;/source>
+    &lt;target>O seu certificado anual de impostos xa está dispoñible para descargar.&lt;/target>
+  &lt;/segment>
+&lt;/unit>
+</programlisting>
+</section>
     </section>
+
     <section>
-        <title>agentName</title>
-        <para>This attribute identifies the agent that has performed a specific localization task.
-            The agent in this context is the system that was used to perform a specific task in the
-            localization process, e.g. an MT engine that has automatically translated the content of
-            a given translation unit. If the task was carried out by a human, please use the
-            attribute personName instead.</para>
-        <para>// the first part was adapted from the definition of “contact-name” in the 1.2 spec.
-                <ulink url="https://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html#contact-name"><emphasis role="underline">https://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html#contact-name</emphasis></ulink>.
-            In ITS, there is the org attribute: “The text string is supposed to identify an
-            organizational translation agent as per <ulink url="https://www.w3.org/TR/its20/#provenanceDefs"><emphasis role="underline">Organizational provenance information</emphasis></ulink>.” <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.2/csd01/xliff-extended-v2.2-csd01-part2.html#itsm_org"><emphasis role="underline">https://docs.oasis-open.org/xliff/xliff-core/v2.2/csd01/xliff-extended-v2.2-csd01-part2.html#itsm_org</emphasis></ulink></para>
-        <para>There is also the “person” attribute defined as: “The text string is supposed to
-            identify a human translation agent as per <ulink url="https://www.w3.org/TR/its20/#provenanceDefs"><emphasis role="underline">Human
-                    provenance information</emphasis></ulink>.” <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.2/csd01/xliff-extended-v2.2-csd01-part2.html#itsm_person"><emphasis role="underline">https://docs.oasis-open.org/xliff/xliff-core/v2.2/csd01/xliff-extended-v2.2-csd01-part2.html#itsm_person</emphasis></ulink></para>
-        <para>//we could also just use “agent” and “person” instead of agentName and
-            personName.</para>
-        <para>//please note that we have a definition for agent in XLIFF 2.X: <emphasis role="italic">Agent</emphasis></para>
-        <para>
-            <emphasis role="italic">any application or tool that generates (creates), reads, edits,
-                writes, processes, stores, renders or otherwise handles XLIFF documents.</emphasis>
-        </para>
-        <para><emphasis role="italic">Agent is the most general application conformance target that
-                subsumes all other specialized user agents disregarding whether they are defined in
-                this specification or not</emphasis>.</para>
-        <para>//Another idea would be to use the generic “tool/toolName” instead of “agentName” for
-            this case as well.</para>
-        <para>
-            <emphasis role="bold">Value description:</emphasis>
-        </para>
-        <para>Text.</para>
-        <para>
-            <emphasis role="bold">Default value:</emphasis>
-        </para>
-        <para>Undefined.</para>
-        <para>
-            <emphasis role="bold">Used in:</emphasis>
-        </para>
-        <para>&lt;change></para>
-        <para>//In 1.2 “contact-name” was allowed in &lt;phase>.</para>
-        <para>
-            <emphasis role="bold">Example:</emphasis>
-        </para>
-        <programlisting format="linespecific">
-        &lt;unit id="1">
-        &lt;pvn:provenance>
-        &lt;pvn:change <emphasis role="bold">agentName=</emphasis>"<emphasis role="bold">Google Translate</emphasis>">
-        &lt;pvn:change>
-        &lt;/pvn:provenance>
-        &lt;segment>
-        &lt;source>Your annual tax certificate is now available for
-            download.&lt;/source>
-        &lt;target>O seu certificado anual de impostos está dispoñible para
-            descarga.&lt;/target>
-        &lt;/segment>
-        &lt;/unit
-            </programlisting>
-    </section>
-    <section>
-        <title>appliesTo</title>
-        <para>Indicates the element or attribute to which the content of the change applies.</para>
-        <para>
-            <emphasis role="bold">Value description:</emphasis>
-        </para>
-        <para>Text.</para>
-        <para>
-            <emphasis role="bold">Default value:</emphasis>
-        </para>
-        <para>Undefined.</para>
-        <para>
-            <emphasis role="bold">Used in:</emphasis>
-        </para>
-        <para>&lt;change></para>
-        <para>
-            <emphasis role="bold">Example:</emphasis>
-        </para>
-        <programlisting format="linespecific">
-        &lt;unit id="1">
-        &lt;pvn:provenance>
-        &lt;pvn:change agentName="Google Translate" <emphasis role="bold">appliesTo="target"</emphasis>>
-        &lt;/pvn:change>
-        &lt;/pvn:provenance>
-        &lt;segment>
-        &lt;source>Your annual tax certificate is now available for
-            download.&lt;/source>
-        &lt;target>O seu certificado anual de impostos está dispoñible para
-            descarga.&lt;/target>
-        &lt;/segment>
-        &lt;/unit
-            </programlisting>
-    </section>
-    <section>
-        <title>date</title>
-        <para>This attribute indicates when a given element was created or modified.</para>
-        <para>//original definition in 1.2 of “date”: “The date attribute indicates when a given
-            element was created or modified.” <ulink url="https://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html#date"><emphasis role="underline">https://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html#date</emphasis></ulink></para>
-        <para>
-            <emphasis role="bold">Value description:</emphasis>
-        </para>
-        <para>Pattern described in [ISO 8601]: CCYY-MM-DDThh:mm:ssZ. Where: CCYY is the year (4
-            digits), MM is the month (2 digits), DD is the day (2 digits), hh is the hours (2
-            digits), mm is the minutes (2 digits), ss is the second (2 digits), and Z indicates the
-            time is UTC time. For example: date="2026-01-25T21:06:00Z"</para>
-        <para>//taken from xliff 1.2</para>
-        <para>
-            <emphasis role="bold">Default value:</emphasis>
-        </para>
-        <para>Undefined.</para>
-        <para>
-            <emphasis role="bold">Used in:</emphasis>
-        </para>
-        <para>&lt;change></para>
-        <para>
-            <emphasis role="bold">Example:</emphasis>
-        </para>
-        <programlisting format="linespecific">
-        &lt;unit id="1">
-        &lt;pvn:provenance>
-        &lt;pvn:change agentName="Google Translate" appliesTo="target" <emphasis role="bold">date=</emphasis>"<emphasis role="bold">2026-01-01T21:06:00Z</emphasis>">
-        &lt;/pvn:change>
-        &lt;/pvn:provenance>
-        &lt;segment>
-        &lt;source>Your annual tax certificate is now available for
-            download.&lt;/source>
-        &lt;target>O seu certificado anual de impostos está disponible para
-            descarga.&lt;/target>
-        &lt;/segment>
-        &lt;/unit
-            </programlisting>
-    </section>
-    <section>
-        <title>intent</title>
-        <para>Rationale for the change.</para>
-        <para>
-            <emphasis role="bold">Value description:</emphasis>
-        </para>
-        <para>Text.</para>
-        <para>
-            <emphasis role="bold">Default value:</emphasis>
-        </para>
-        <para>Undefined.</para>
-        <para>
-            <emphasis role="bold">Used in:</emphasis>
-        </para>
-        <para>&lt;change></para>
-        <para>
-            <emphasis role="bold">Example:</emphasis>
-        </para>
-    </section>
-    <section>
-        <title>orgName</title>
-        <para>This attribute identifies the organization that has mandated or commissioned a
-            specific localization task.</para>
-        <para>
-            <emphasis role="bold">Value description:</emphasis>
-        </para>
-        <para>Text.</para>
-        <para>
-            <emphasis role="bold">Default value:</emphasis>
-        </para>
-        <para>Undefined.</para>
-        <para>
-            <emphasis role="bold">Used in:</emphasis>
-        </para>
-        <para>&lt;change></para>
-        <para>
-            <emphasis role="bold">Example:</emphasis>
-        </para>
-        <programlisting format="linespecific">
-        &lt;unit id="1">
-        &lt;pvn:provenance>
-        &lt;pvn:change agentName="Google Translate" <emphasis role="bold">orgName="OASIS"</emphasis>>
-        &lt;/pvn:change>
-        &lt;/pvn:provenance>
-        &lt;segment>
-        &lt;source>Your annual tax certificate is now available for
-            download.&lt;/source>
-        &lt;target>O seu certificado anual de impostos está dispoñible para
-            descarga.&lt;/target>
-        &lt;/segment>
-        &lt;/unit
-            </programlisting>
-    </section>
-    <section>
-        <title>personName</title>
-        <para>This attribute identifies the human agent that has performed a specific localization
-            task. The agent in this context is the person that was used to perform a specific task
-            in the localization. If the task was carried out using an automated system (e.g. an MT
-            engine), please use the attribute agentName instead.</para>
-        <para>// the first part was adapted from the definition of “contact-name” in the 1.2 spec.
-                <ulink url="https://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html#contact-name"><emphasis role="underline">https://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html#contact-name</emphasis></ulink>.
-            In ITS, there is the org attribute: “The text string is supposed to identify an
-            organizational translation agent as per <ulink url="https://www.w3.org/TR/its20/#provenanceDefs"><emphasis role="underline">Organizational provenance information</emphasis></ulink>.” <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.2/csd01/xliff-extended-v2.2-csd01-part2.html#itsm_org"><emphasis role="underline">https://docs.oasis-open.org/xliff/xliff-core/v2.2/csd01/xliff-extended-v2.2-csd01-part2.html#itsm_org</emphasis></ulink></para>
-        <para>there is also the “person” attribute defined as: “The text string is supposed to
-            identify a human translation agent as per <ulink url="https://www.w3.org/TR/its20/#provenanceDefs"><emphasis role="underline">Human
-                    provenance information</emphasis></ulink>.” <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.2/csd01/xliff-extended-v2.2-csd01-part2.html#itsm_person"><emphasis role="underline">https://docs.oasis-open.org/xliff/xliff-core/v2.2/csd01/xliff-extended-v2.2-csd01-part2.html#itsm_person</emphasis></ulink></para>
-        <para>//we could also just use “agent” and “person” instead of agentName and
-            personName.</para>
-        <para>
-            <emphasis role="bold">Value description:</emphasis>
-        </para>
-        <para>Text.</para>
-        <para>
-            <emphasis role="bold">Default value:</emphasis>
-        </para>
-        <para>Undefined.</para>
-        <para>
-            <emphasis role="bold">Used in:</emphasis>
-        </para>
-        <para>&lt;change></para>
-        <para>//In 1.2 “contact-name” was allowed in &lt;phase>.</para>
-        <para>
-            <emphasis role="bold">Example:</emphasis>
-        </para>
-        <programlisting format="linespecific">
-        &lt;unit id="1">
-        &lt;pvn:provenance>
-        &lt;pvn:change <emphasis role="bold">personName=</emphasis>"<emphasis role="bold">Anxela Loureiro</emphasis>">
-        &lt;pvn:change>
-        &lt;/pvn:provenance>
-        &lt;segment>
-        &lt;source>Your annual tax certificate is now available for
-            download.&lt;/source>
-        &lt;target>O seu certificado anual de impostos está dispoñible para
-            descarga.&lt;/target>
-        &lt;/segment>
-        &lt;/unit
-            </programlisting>
-    </section>
-    <section>
-        <title>toolName</title>
-        <para>This attribute identifies the name of the localization tool used to create or modify a
-            specific element.</para>
-        <para>//see tool, tool-id, tool-name and tool-version in 1.2 <ulink url="https://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html#tool"><emphasis role="underline">https://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html#tool</emphasis></ulink></para>
-        <para>In the ITS module, there is also the “tool” attribute defined as: “The text string is
-            supposed to identify a software tool translation agent as per <ulink url="https://www.w3.org/TR/its20/#provenanceDefs"><emphasis role="underline">Tool-related provenance information</emphasis></ulink>..” <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.2/csd01/xliff-extended-v2.2-csd01-part2.html#itsm_tool"><emphasis role="underline">https://docs.oasis-open.org/xliff/xliff-core/v2.2/csd01/xliff-extended-v2.2-csd01-part2.html#itsm_tool</emphasis></ulink></para>
-        <para>//we could also just use “tool” instead of toolName.</para>
-        <para>
-            <emphasis role="bold">Value description:</emphasis>
-        </para>
-        <para>Text.</para>
-        <para>
-            <emphasis role="bold">Default value:</emphasis>
-        </para>
-        <para>Undefined.</para>
-        <para>
-            <emphasis role="bold">Used in:</emphasis>
-        </para>
-        <para>&lt;change></para>
-        <para>
-            <emphasis role="bold">Example:</emphasis>
-        </para>
-        <programlisting format="linespecific">
-        &lt;unit id="1">
-        &lt;pvn:provenance>
-        &lt;pvn:change personName="Anxela Loureiro" <emphasis role="bold">toolName="Swordfish"</emphasis> ref=”#s=s1”>
-        &lt;pvn:change>
-        &lt;/pvn:provenance>
-        &lt;segment id=”s1”>
-        &lt;source>Your annual tax certificate is now available for
-            download.&lt;/source>
-        &lt;target>O seu certificado anual de impostos está dispoñible para
-            descarga.&lt;/target>
-        &lt;/segment>
-        &lt;/unit
-            </programlisting>
-    </section>
-    <section>
-        <title>reference</title>
-        <para>This attribute is used to identify the agent or model referred in the &lt;usage>
-            element.</para>
-        <para>
-            <emphasis role="bold">Value description:</emphasis>
-        </para>
-        <para>Text.</para>
-        <para>
-            <emphasis role="bold">Default value:</emphasis>
-        </para>
-        <para>Undefined.</para>
-        <para>
-            <emphasis role="bold">Used in:</emphasis>
-        </para>
-        <para>&lt;usage></para>
-        <para>
-            <emphasis role="bold">Example:</emphasis>
-        </para>
-    </section>
-    <section>
-        <title>ref</title>
-        <para>Reference. holds a reference for the associated element. (taken from:
-            https://docs.oasis-open.org/xliff/xliff-core/v2.2/xliff-extended-v2.2-part2.html#ref)</para>
-        <para>
-            <emphasis role="bold">Value description:</emphasis>
-        </para>
-        <para>When used in a <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.2/xliff-extended-v2.2-part2.html#note"/>&lt;provenance> element, the URI value is referring to a specific <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.2/xliff-extended-v2.2-part2.html#unit"><emphasis role="underline">&lt;unit></emphasis></ulink>.</para>
-        <para>
-            <emphasis role="bold">Default value:</emphasis>
-        </para>
-        <para>Undefined.</para>
-        <para>
-            <emphasis role="bold">Used in:</emphasis>
-        </para>
-        <para>&lt;provenance></para>
-        <para>
-            <emphasis role="bold">Example:</emphasis>
-        </para>
-    </section>
-    <section>
-        <title>unit</title>
-        <para>This attribute describes the unit used by the agent or model referred in the
-            &lt;usage> element.</para>
-        <para>
-            <emphasis role="bold">Value description:</emphasis>
-        </para>
-        <para>One of the following values: <emphasis role="bold">word</emphasis>, <emphasis role="bold">character</emphasis>, <emphasis role="bold">token</emphasis>, or a
-            user-defined value that is composed of a prefix and a sub-value separated by a character
-            : (U+003A).</para>
-        <para>The prefix is a string uniquely identifying a collection of sub-values for a specific
-            authority. The sub-value is any string value defined by the authority.The prefix xlf is
-            reserved.</para>
-        <para>
-            <emphasis role="bold">Default value:</emphasis>
-        </para>
-        <para>Undefined.</para>
-        <para>
-            <emphasis role="bold">Used in:</emphasis>
-        </para>
-        <para>&lt;usage></para>
-        <para>
-            <emphasis role="bold">Example:</emphasis>
-        </para>
-        <para>
-            <emphasis role="bold">//Proposal by Mathijs:</emphasis>
-        </para>
-        <para>&lt;provenance> <emphasis role="italic">// container element to store provenance
-                data in. Contains one or more change elements</emphasis></para>
-        <para>&lt;change> <emphasis role="italic">// element that holds all data pertaining to a
-                particular change. It can contain the elements &lt;usage> and &lt;value>.
-                Contains attributes appliesTo, date, agentName, personName, orgName, toolName,
-                intent</emphasis></para>
-        <para>&lt;usage> <emphasis role="italic">// element that holds processor data. Is a child
-                of change. Contains reference, unit. The text property contains a
-            number.</emphasis></para>
-        <para>&lt;value> <emphasis role="italic">// element that holds the actual change. Is a
-                child of change. E.g. if this was a quality score it’s the new score. If this was
-                the entire target it’s the entire target. Can thus have any child elements that are
-                of a valid XLIFF node subtype depending on the appliesTo
-            attribute.</emphasis></para>
-        <informaltable>
-            <tgroup cols="2">
-                <tbody>
-                    <row>
-                        <entry>Who</entry>
-                        <entry>agentName, personName, orgName, toolName</entry>
-                    </row>
-                    <row>
-                        <entry>What (part)</entry>
-                        <entry>appliesTo</entry>
-                    </row>
-                    <row>
-                        <entry>What (into what)</entry>
-                        <entry>value</entry>
-                    </row>
-                    <row>
-                        <entry>When</entry>
-                        <entry>date</entry>
-                    </row>
-                    <row>
-                        <entry>Why</entry>
-                        <entry>intent</entry>
-                    </row>
-                    <row>
-                        <entry>For how much?</entry>
-                        <entry>usage + reference</entry>
-                    </row>
-                </tbody>
-            </tgroup>
-        </informaltable>
-    </section>
-    <section>
-        <title>Module Attributes</title>
-        <para>The attributes defined in the Provenance module are: agentName, date, personName,
-            orgName, toolName, usageUnit, appliesTo, intent, reference</para>
-        <para><emphasis role="italic">Used in:</emphasis> &lt;change>, &lt;file>,
-            &lt;unit>, &lt;group> and &lt;note>.</para>
+        <title>Table XXX</title>
         <para>Table x below provides a summary of the provenance information supported by XLIFF 2.x
             Core and the Provenance module. For completeness, XLIFF 1.2 is also provided as a legacy
             reference.</para>
@@ -9796,296 +9679,6 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
                 </tbody>
             </tgroup>
         </informaltable>
-    </section>
-    <section>
-        <title>agentName</title>
-        <para>This attribute identifies the agent that has performed a specific localization task.
-            The agent in this context is the system that was used to perform a specific task in the
-            localization process, e.g. an MT engine that has automatically translated the content of
-            a given translation unit. If the task was carried out by a human, please use the
-            attribute personName instead.</para>
-        <para>// the first part was adapted from the definition of “contact-name” in the 1.2 spec.
-                <ulink url="https://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html#contact-name"><emphasis role="underline">https://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html#contact-name</emphasis></ulink>.
-            In ITS, there is the org attribute: “The text string is supposed to identify an
-            organizational translation agent as per <ulink url="https://www.w3.org/TR/its20/#provenanceDefs"><emphasis role="underline">Organizational provenance information</emphasis></ulink>.” <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.2/csd01/xliff-extended-v2.2-csd01-part2.html#itsm_org"><emphasis role="underline">https://docs.oasis-open.org/xliff/xliff-core/v2.2/csd01/xliff-extended-v2.2-csd01-part2.html#itsm_org</emphasis></ulink></para>
-        <para>There is also the “person” attribute defined as: “The text string is supposed to
-            identify a human translation agent as per <ulink url="https://www.w3.org/TR/its20/#provenanceDefs"><emphasis role="underline">Human
-                    provenance information</emphasis></ulink>.” <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.2/csd01/xliff-extended-v2.2-csd01-part2.html#itsm_person"><emphasis role="underline">https://docs.oasis-open.org/xliff/xliff-core/v2.2/csd01/xliff-extended-v2.2-csd01-part2.html#itsm_person</emphasis></ulink></para>
-        <para>//we could also just use “agent” and “person” instead of agentName and
-            personName.</para>
-        <para>//please note that we have a definition for agent in XLIFF 2.X: <emphasis role="italic">Agent</emphasis></para>
-        <para>
-            <emphasis role="italic">any application or tool that generates (creates), reads, edits,
-                writes, processes, stores, renders or otherwise handles XLIFF documents.</emphasis>
-        </para>
-        <para><emphasis role="italic">Agent is the most general application conformance target that
-                subsumes all other specialized user agents disregarding whether they are defined in
-                this specification or not</emphasis>.</para>
-        <para>//Another idea would be to use the generic “tool/toolName” instead of “agentName” for
-            this case as well.</para>
-        <para>
-            <emphasis role="bold">Value description:</emphasis>
-        </para>
-        <para>Text.</para>
-        <para>
-            <emphasis role="bold">Default value:</emphasis>
-        </para>
-        <para>Undefined.</para>
-        <para>
-            <emphasis role="bold">Used in:</emphasis>
-        </para>
-        <para>&lt;target></para>
-        <para>//In 1.2 “contact-name” was allowed in &lt;phase>.</para>
-        <para>
-            <emphasis role="bold">Example:</emphasis>
-        </para>
-        <programlisting format="linespecific">
-        &lt;unit id="1">
-         &lt;segment>
-         &lt;source>Your annual tax certificate is now available for
-            download.&lt;/source>
-         &lt;target <emphasis role="bold">pvn:agentName=”Google Translate”</emphasis>>O seu
-            certificado anual de impostos está dispoñible para descarga.&lt;/target>
-         &lt;/segment>
-         &lt;/unit>
-            </programlisting>
-    </section>
-    <section>
-        <title>datatype</title>
-        <para>The datatype attribute specifies the kind of text contained in the element. Depending
-            on that type, you may apply different processes to the data. For example:
-            datatype="winres" specifies that the content is Windows resources which would allow
-            using the Win32 API in rendering the content.</para>
-        <para>//original definition taken from 1.2, should we adapt it?, they had a list of
-            predefined values. <ulink url="https://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html#datatype"><emphasis role="underline">https://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html#datatype</emphasis></ulink></para>
-        <para>
-            <emphasis role="bold">Value description:</emphasis>
-        </para>
-        <para>Text. //should we have a predefined list of values as in 1.2?</para>
-        <para>
-            <emphasis role="bold">Default value:</emphasis>
-        </para>
-        <para>Undefined.</para>
-        <para>
-            <emphasis role="bold">Used in:</emphasis>
-        </para>
-        <para>&lt;file>, &lt;unit>.</para>
-        <para>//In 1.2 it was allowed in &lt;file>.</para>
-        <para>
-            <emphasis role="bold">Example:</emphasis>
-        </para>
-        <para>//add example</para>
-    </section>
-    <section>
-        <title>date</title>
-        <para>This attribute indicates when a given element was created or modified.</para>
-        <para>//original definition in 1.2 of “date”: “The date attribute indicates when a given
-            element was created or modified.” <ulink url="https://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html#date"><emphasis role="underline">https://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html#date</emphasis></ulink></para>
-        <para>
-            <emphasis role="bold">Value description:</emphasis>
-        </para>
-        <para>Date in [ISO 8601] Format. The recommended pattern to use is:
-            CCYY-MM-DDThh:mm:ssZ</para>
-        <para>Where: CCYY is the year (4 digits), MM is the month (2 digits), DD is the day (2
-            digits), hh is the hours (2 digits), mm is the minutes (2 digits), ss is the second (2
-            digits), and Z indicates the time is UTC time. For example:
-            date="2002-01-25T21:06:00Z"</para>
-        <para>//taken from xliff 1.2</para>
-        <para>
-            <emphasis role="bold">Default value:</emphasis>
-        </para>
-        <para>Undefined.</para>
-        <para>
-            <emphasis role="bold">Used in:</emphasis>
-        </para>
-        <para>&lt;file>, &lt;note>, &lt;unit>, &lt;source>, &lt;target></para>
-        <para>//In 1.2 it was allowed in &lt;file> and &lt;phase>.</para>
-        <para>
-            <emphasis role="bold">Example:</emphasis>
-        </para>
-        <para>&lt;unit id="1"></para>
-        <para> &lt;segment></para>
-        <para> &lt;source <emphasis role="bold">pvn:date=”2026-01-01T21:06:00Z”</emphasis>>Your
-            annual tax certificate is now available for download.&lt;/source></para>
-        <para> &lt;target <emphasis role="bold">pvn:date=”2026-01-20T21:06:00Z”</emphasis>>O seu
-            certificado anual de impostos está dispoñible para descarga.&lt;/target></para>
-        <para> &lt;/segment></para>
-        <para> &lt;/unit></para>
-    </section>
-    <section>
-        <title>domain</title>
-        <para>This attribute identifies the domain area of the content. For instance,
-            domain="finance" can be applied to content from a finance-related product.</para>
-        <para>//original definition in 1.2 of “category”: This provides information on the subject
-            of what is being translated. For example: category="medical" for files from a medical
-            related product. <ulink url="https://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html#category"><emphasis role="underline">https://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html#category</emphasis></ulink></para>
-        <para>
-            <emphasis role="bold">Value description:</emphasis>
-        </para>
-        <para>Text.</para>
-        <para>
-            <emphasis role="bold">Default value:</emphasis>
-        </para>
-        <para>Undefined.</para>
-        <para>
-            <emphasis role="bold">Used in:</emphasis>
-        </para>
-        <para>&lt;file>, &lt;unit>.</para>
-        <para>//In 1.2 it was allowed in &lt;file>.</para>
-        <para>
-            <emphasis role="bold">Example:</emphasis>
-        </para>
-        <programlisting format="linespecific">
-        &lt;unit id="1" <emphasis role="bold">pvn:domain="finance"</emphasis>>
-         &lt;segment>
-         &lt;source>Your annual tax certificate is now available for
-            download.&lt;/source>
-         &lt;target>O seu certificado anual de impostos está dispoñible para
-            descarga.&lt;/target>
-         &lt;/segment>
-         &lt;/unit>
-            </programlisting>
-    </section>
-    <section>
-        <title>orgName</title>
-        <para>//to be defined. Necessary? Would be enough to just have personName and agentName? See
-                <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.2/csd01/xliff-extended-v2.2-csd01-part2.html#itsm_org"><emphasis role="underline">https://docs.oasis-open.org/xliff/xliff-core/v2.2/csd01/xliff-extended-v2.2-csd01-part2.html#itsm_org</emphasis></ulink></para>
-        <para>See also company-name in xliff 1.2 <ulink url="https://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html#company-name"><emphasis role="underline">https://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html#company-name</emphasis></ulink></para>
-    </section>
-    <section>
-        <title>personName</title>
-        <para>This attribute identifies the human agent that has performed a specific localization
-            task. The agent in this context is the person that was used to perform a specific task
-            in the localization. If the task was carried using an automated system (e.g. an MT
-            engine), please use the attribute agentName instead.</para>
-        <para>// the first part was adapted from the definition of “contact-name” in the 1.2 spec.
-                <ulink url="https://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html#contact-name"><emphasis role="underline">https://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html#contact-name</emphasis></ulink>.
-            In ITS, there is the org attribute: “The text string is supposed to identify an
-            organizational translation agent as per <ulink url="https://www.w3.org/TR/its20/#provenanceDefs"><emphasis role="underline">Organizational provenance information</emphasis></ulink>.” <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.2/csd01/xliff-extended-v2.2-csd01-part2.html#itsm_org"><emphasis role="underline">https://docs.oasis-open.org/xliff/xliff-core/v2.2/csd01/xliff-extended-v2.2-csd01-part2.html#itsm_org</emphasis></ulink></para>
-        <para>there is also the “person” attribute defined as: “The text string is supposed to
-            identify a human translation agent as per <ulink url="https://www.w3.org/TR/its20/#provenanceDefs"><emphasis role="underline">Human
-                    provenance information</emphasis></ulink>.” <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.2/csd01/xliff-extended-v2.2-csd01-part2.html#itsm_person"><emphasis role="underline">https://docs.oasis-open.org/xliff/xliff-core/v2.2/csd01/xliff-extended-v2.2-csd01-part2.html#itsm_person</emphasis></ulink></para>
-        <para>//we could also just use “agent” and “person” instead of agentName and
-            personName.</para>
-        <para>
-            <emphasis role="bold">Value description:</emphasis>
-        </para>
-        <para>Text.</para>
-        <para>
-            <emphasis role="bold">Default value:</emphasis>
-        </para>
-        <para>Undefined.</para>
-        <para>
-            <emphasis role="bold">Used in:</emphasis>
-        </para>
-        <para>&lt;target></para>
-        <para>//In 1.2 “contact-name” was allowed in &lt;phase>.</para>
-        <para>
-            <emphasis role="bold">Example:</emphasis>
-        </para>
-        <programlisting format="linespecific">
-        &lt;unit id="1">
-         &lt;segment>
-         &lt;source>Your annual tax certificate is now available for
-            download.&lt;/source>
-         &lt;target <emphasis role="bold">pvn:personName=”Xurxo Loureiro”</emphasis>>O seu
-            certificado anual de impostos está dispoñible para descarga.&lt;/target>
-         &lt;/segment>
-         &lt;/unit>
-            </programlisting>
-    </section>
-    <section>
-        <title>toolName</title>
-        <para>This attribute identifies the name of the localization agent used to create or modify
-            a specific element.</para>
-        <para>//see tool, tool-id, tool-name and tool-version in 1.2 <ulink url="https://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html#tool"><emphasis role="underline">https://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html#tool</emphasis></ulink></para>
-        <para>In the ITS module, there is also the “tool” attribute defined as: “The text string is
-            supposed to identify a software tool translation agent as per <ulink url="https://www.w3.org/TR/its20/#provenanceDefs"><emphasis role="underline">Tool-related provenance information</emphasis></ulink>..” <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.2/csd01/xliff-extended-v2.2-csd01-part2.html#itsm_tool"><emphasis role="underline">https://docs.oasis-open.org/xliff/xliff-core/v2.2/csd01/xliff-extended-v2.2-csd01-part2.html#itsm_tool</emphasis></ulink></para>
-        <para>//we could also just use “tool” instead of toolName.</para>
-        <para>
-            <emphasis role="bold">Value description:</emphasis>
-        </para>
-        <para>Text.</para>
-        <para>
-            <emphasis role="bold">Default value:</emphasis>
-        </para>
-        <para>Undefined.</para>
-        <para>
-            <emphasis role="bold">Used in:</emphasis>
-        </para>
-        <para>&lt;file>, &lt;unit>, &lt;source> and &lt;target></para>
-        <para>//In 1.2 “tool” was allowed in &lt;file>, &lt;phase>, &lt;alt-trans>. Tool-id
-            was allowed in &lt;file>, &lt;phase>, &lt;alt-trans>, &lt;tool>. Tool-name
-            and tool-version were allowed in &lt;tool>.</para>
-        <para>
-            <emphasis role="bold">Example:</emphasis>
-        </para>
-        <programlisting format="linespecific">
-        &lt;unit id="1">
-         &lt;segment>
-         &lt;source <emphasis role="bold">pvn:toolName=”Swordfish”</emphasis>>Your annual
-            tax certificate is now available for download.&lt;/source>
-         &lt;target <emphasis role="bold">pvn:toolName=”OmegaT”</emphasis>>O seu
-            certificado anual de impostos está dispoñible para descarga.&lt;/target>
-         &lt;/segment>
-         &lt;/unit>
-            </programlisting>
-    </section>
-    <section>
-        <title>usage</title>
-        <para>This attribute contains information about how the processing cost of the translation
-            or review. This is common practice in (automated) translation or review tools where any
-            processing often has a cost associated with it.</para>
-        <para>
-            <emphasis role="bold">Value description:</emphasis>
-        </para>
-        <para>A positive integer.</para>
-        <para>
-            <emphasis role="bold">Default value:</emphasis>
-        </para>
-        <para>Undefined.</para>
-        <para>
-            <emphasis role="bold">Used in:</emphasis>
-        </para>
-        <para>&lt;target>.</para>
-        <para>
-            <emphasis role="bold">Example:</emphasis>
-        </para>
-        <para>//add example</para>
-    </section>
-    <section>
-        <title>usageUnit</title>
-        <para>This attribute indicates the unit of measurement referenced in the “usage” attribute.
-            For example, characters, words, tokens, seconds.</para>
-        <para>
-            <emphasis role="bold">Value description:</emphasis>
-        </para>
-        <para>Text. //add a predefined list of values?</para>
-        <para>
-            <emphasis role="bold">Default value:</emphasis>
-        </para>
-        <para>Undefined.</para>
-        <para>
-            <emphasis role="bold">Used in:</emphasis>
-        </para>
-        <para>&lt;target>.</para>
-        <para>
-            <emphasis role="bold">Example:</emphasis>
-        </para>
-        <para>//add example</para>
-    </section>
-    <section>
-        <title>Definitions [to be included in the section Definition of terms of the main
-            spec]</title>
-        <para><emphasis role="bold">Provenance information</emphasis> refers to information about
-            the nature and origin of the localisation data or process. For example, the attribute
-            srcLang allows you to define the language of the source content.</para>
-        <para><emphasis role="bold">Translatable text</emphasis>: Textual content subject to
-            translation during the translation or localisation process. It can derive from multiple
-            sources, for example, user interface strings in software products or the textual content
-            of <ulink url="http://websites.in"><emphasis role="underline">websites</emphasis></ulink>. In the context of XLIFF, textual content is usually
-            extracted from the original products and organised in translation units for its later
-            translation.</para>
     </section>
 </section>
     

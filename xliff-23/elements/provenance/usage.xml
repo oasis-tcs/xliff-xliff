@@ -6,12 +6,18 @@
 ]>
 <section id="usage">
     <title>usage</title>
-    <para>Data generated or used by the processor.</para>
-     <para>
+    <para>Cost of the data generated or used by the processor.</para>
+    <para>
         <emphasis>Contains:</emphasis>
     </para>
     <simplelist>
-        <member>- Zero or one <olink  targetdoc="value.xml"
-          targetptr="value"><code>&lt;value&gt;</code></olink> element.</member>
+        <member>- Text</member>
+    </simplelist>
+    <para>
+        <emphasis>Attributes:</emphasis>
+    </para>
+    <simplelist>
+        <member>- <olink targetdoc="../../attributes/provenance/usageUnit.xml" targetptr="usageUnit"
+                >usageUnit</olink>, REQUIRED</member>
     </simplelist>
 </section>

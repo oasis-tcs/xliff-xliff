@@ -7,8 +7,9 @@
                          ]>
 <section id="provenance_value">
     <title>value</title>
-        <para>Concrete data reflecting the actual modification cost.</para>
-        <para>
+    <para>Concrete data reflecting the actual modification .E.g. if this was a quality score it’s
+        the new score. If this was the entire target it’s the entire target</para>
+    <para>
         <emphasis>Contains:</emphasis>
     </para>
     <simplelist>
@@ -18,12 +19,12 @@
         <emphasis>Attributes:</emphasis>
     </para>
     <simplelist>
-        <member>- usageUnit, REQUIRED</member>
+        <member>- None</member>
     </simplelist>
     <para>
-            <emphasis role="bold">Full example:</emphasis>
-        </para>
-        <programlisting>
+        <emphasis role="bold">Full example:</emphasis>
+    </para>
+    <programlisting>
         &lt;xliff srcLang="en" trgLang="es" version="2.2"
             xmlns:pvn="urn:oasis:names:tc:xliff:pvn:2.3"
         xmlns:its="http://www.w3.org/2005/11/its"

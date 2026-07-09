@@ -18,6 +18,6 @@
         <emphasis>Attributes:</emphasis>
     </para>
     <simplelist>
-        <member>- ref         </member>
+        <member>- <olink targetdoc="../../attributes/provenance/ref.xml" targetptr="provenance_ref">ref</olink>, OPTIONAL</member>
     </simplelist>
 </section>

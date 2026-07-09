@@ -8,12 +8,10 @@
 <section id="agent">
   <title>agent</title>
 
-  <para>Identifies the agent that performed a specific localization task. The agent in this
-    context is the system that was used to perform the task, for example an MT engine that
+  <para>Identifies the system agent that performed a specific localization task, for example an MT engine that
     automatically translated the content of a given <olink
       targetdoc="../../elements/provenance/change.xml" targetptr="change"
-        ><code>&lt;change&gt;</code></olink>. If the task was carried out by a human, use <olink
-      targetdoc="person.xml" targetptr="person"><code>person</code></olink> instead.</para>
+        ><code>&lt;change&gt;</code></olink>.</para>
 
   <para><emphasis>Value description:</emphasis> Text.</para>
 
