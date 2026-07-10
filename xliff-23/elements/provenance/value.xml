@@ -21,47 +21,4 @@
     <simplelist>
         <member>- None</member>
     </simplelist>
-    <para>
-        <emphasis role="bold">Full example:</emphasis>
-    </para>
-    <programlisting>
-        &lt;xliff srcLang="en" trgLang="es" version="2.2"
-            xmlns:pvn="urn:oasis:names:tc:xliff:pvn:2.3"
-        xmlns:its="http://www.w3.org/2005/11/its"
-            xmlns="urn:oasis:names:tc:xliff:document:2.2"&gt;
-        &lt;file id="f1"&gt;
-        &lt;unit id="1" its:locQualityRatingScore="0.968"&gt;
-        &lt;pvn:provenance&gt;
-        &lt;pvn:change agentName="Google Translate" appliesTo="target"
-            date="2026-05-05T21:06:00Z"&gt;
-        &lt;pvn:usage unit="characters"&gt;66&lt;/pvn:usage&gt;
-        &lt;pvn:new&gt;O seu certificado anual de impostos está dispoñible para
-            descarga.&lt;/pvn:new&gt;
-        &lt;/pvn:change&gt;
-        &lt;pvn:change agentName="TAUS MTQE" appliesTo="its:locQualityRatingScore"
-        date="2026-05-05T21:07:00Z"&gt;
-        &lt;pvn:usage unit="characters"&gt;66&lt;/pvn:usage&gt;
-        &lt;pvn:new&gt;0.968&lt;/pvn:new&gt;
-        &lt;/pvn:change&gt;
-        &lt;pvn:change agentName="gpt-5.5" appliesTo="target"
-            date="2026-05-05T21:08:00Z"
-        intent="This version sounds slightly smoother and more idiomatic: 'para descargar' is
-            often preferred over 'para descarga' in everyday usage."&gt;
-        &lt;pvn:usage unit="tokens"&gt;45&lt;/pvn:usage&gt;
-        &lt;pvn:previous&gt;O seu certificado anual de impostos está dispoñible para
-            descarga.&lt;/pvn:previous&gt;
-        &lt;pvn:new&gt;O seu certificado anual de impostos xa está dispoñible para
-            descargar.&lt;/pvn:new&gt;
-        &lt;/pvn:change&gt;
-        &lt;/pvn:provenance&gt;
-        &lt;segment&gt;
-        &lt;source&gt;Your annual tax certificate is now available for
-            download.&lt;/source&gt;
-        &lt;target&gt;O seu certificado anual de impostos xa está dispoñible para
-            descargar.&lt;/target&gt;
-        &lt;/segment&gt;
-        &lt;/unit&gt;
-        &lt;/file&gt;
-        &lt;/xliff&gt;
-            </programlisting>
 </section>

@@ -589,7 +589,7 @@
     <title>Examples</title>
     <para>Given the following XLIFF document:</para>
     <programlisting format="linespecific">
-&lt;xliff xmlns="urn:oasis:names:tc:xliff:document:2.2" version="2.2"
+&lt;xliff xmlns="urn:oasis:names:tc:xliff:document:2.3" version="2.3"
     srcLang="en" trgLang="fr">
   &lt;file id="f1">
     &lt;notes>
@@ -852,8 +852,6 @@
                 <member>- Zero or one <link linkend="slr_data"><code>&lt;slr:data></code></link> elements</member>
                 <member>- Zero or one <link linkend="validation"><code>&lt;val:validation></code></link>
                     elements</member>
-                <member>- Zero, one, or more <remark><code>&lt;its:provenanceRecords></code></remark> elements</member>
-
             </simplelist>
         </listitem>
         <listitem>
@@ -948,7 +946,6 @@
                 <member>- Zero or one <link linkend="slr_data"><code>&lt;slr:data></code></link> elements</member>
                 <member>- Zero or one <link linkend="validation"><code>&lt;val:validation></code></link>
                     elements</member>
-                <member>- Zero, one, or more <remark><code>&lt;its:provenanceRecords></code></remark> elements</member>
 
             </simplelist>
         </listitem>
@@ -1019,9 +1016,6 @@
                     elements </member>
                 <member>- Zero or one <link linkend="slr_data"><code>&lt;slr:data></code></link> elements </member>
                 <member>- Zero or one <link linkend="validation"><code>&lt;val:validation></code></link> elements </member>
-                <member>- Zero, one, or more <remark><code>&lt;its:locQualityIssues></code></remark> elements</member>
-                <member>- Zero, one, or more <remark><code>&lt;its:provenanceRecords></code></remark> elements</member>
-
             </simplelist>
         </listitem>
         <listitem>
@@ -1876,11 +1870,6 @@
             <code>urn:oasis:names:tc:xliff:sizerestriction:2.0</code>, OPTIONAL, provided that the
           Constraints specified in the <link linkend="size_restriction_module">Size and Length Restriction Module</link> are
           met.</member>
-        <member>- attributes from the namespace <code>http://www.w3.org/2005/11/its</code>,
-          OPTIONAL, provided that the Constraints specified in the <remark>ITS Module</remark> are
-          met.</member>
-        <member>- attributes from the namespace <code>urn:oasis:names:tc:xliff:itsm:2.1</code>,
-          OPTIONAL, provided that the Constraints specified in the <remark>ITS            Module</remark> are met.</member>
       </simplelist>
     </listitem>
 
@@ -1943,11 +1932,6 @@
             <code>urn:oasis:names:tc:xliff:sizerestriction:2.0</code>, OPTIONAL, provided that the
           Constraints specified in the <link linkend="size_restriction_module">Size and Length Restriction Module</link> are
           met.</member>
-        <member>- attributes from the namespace <code>http://www.w3.org/2005/11/its</code>,
-          OPTIONAL, provided that the Constraints specified in the <remark>ITS Module</remark> are
-          met.</member>
-        <member>- attributes from the namespace <code>urn:oasis:names:tc:xliff:itsm:2.1</code>,
-          OPTIONAL, provided that the Constraints specified in the <remark>ITS            Module</remark> are met.</member>
       </simplelist>
     </listitem>
 
@@ -5670,17 +5654,6 @@ Palouse horses&lt;fn>A Palouse horse is the same as
                 to <code>yes</code>, the OPTIONAL <link linkend="xml_lang"><code>xml:lang</code></link> attribute's value is not
                 REQUIRED to be equal to the value of the <link linkend="trgLang"><code>trgLang</code></link> attribute of the enclosing <link linkend="xliff"><code>&lt;xliff></code></link> element.</para>
         </listitem>
-        <listitem>
-            <para>The following XLIFF Module attributes are explicitly allowed by the wildcard
-                    <code>other</code>:</para>
-            <simplelist type="vert">
-                <member>- attributes from the namespace <code>http://www.w3.org/2005/11/its</code>,
-                    OPTIONAL, provided that the Constraints specified in the <remark>ITS                        Module</remark> are met.</member>
-                <member>- attributes from the namespace
-                        <code>urn:oasis:names:tc:xliff:itsm:2.1</code>, OPTIONAL, provided that the
-                    Constraints specified in the <remark>ITS                        Module</remark> are met.</member>
-            </simplelist>
-        </listitem>
     </itemizedlist>
 </section>
     </section>
@@ -8619,8 +8592,6 @@ description. For example, 'Microsoft Translator Hub' or 'tm-client123-v456', or 
 
 </section>
     
-    
-    
     <section id="plural_gender_select_module">
   <title>Plural, Gender, and Select Module</title>
 
@@ -9235,49 +9206,6 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
     <simplelist type="vert">
         <member>- None</member>
     </simplelist>
-    <para>
-        <emphasis role="bold">Full example:</emphasis>
-    </para>
-    <programlisting format="linespecific">
-        &lt;xliff srcLang="en" trgLang="es" version="2.2"
-            xmlns:pvn="urn:oasis:names:tc:xliff:pvn:2.3"
-        xmlns:its="http://www.w3.org/2005/11/its"
-            xmlns="urn:oasis:names:tc:xliff:document:2.2">
-        &lt;file id="f1">
-        &lt;unit id="1" its:locQualityRatingScore="0.968">
-        &lt;pvn:provenance>
-        &lt;pvn:change agentName="Google Translate" appliesTo="target"
-            date="2026-05-05T21:06:00Z">
-        &lt;pvn:usage unit="characters">66&lt;/pvn:usage>
-        &lt;pvn:new>O seu certificado anual de impostos está dispoñible para
-            descarga.&lt;/pvn:new>
-        &lt;/pvn:change>
-        &lt;pvn:change agentName="TAUS MTQE" appliesTo="its:locQualityRatingScore"
-        date="2026-05-05T21:07:00Z">
-        &lt;pvn:usage unit="characters">66&lt;/pvn:usage>
-        &lt;pvn:new>0.968&lt;/pvn:new>
-        &lt;/pvn:change>
-        &lt;pvn:change agentName="gpt-5.5" appliesTo="target"
-            date="2026-05-05T21:08:00Z"
-        intent="This version sounds slightly smoother and more idiomatic: 'para descargar' is
-            often preferred over 'para descarga' in everyday usage.">
-        &lt;pvn:usage unit="tokens">45&lt;/pvn:usage>
-        &lt;pvn:previous>O seu certificado anual de impostos está dispoñible para
-            descarga.&lt;/pvn:previous>
-        &lt;pvn:new>O seu certificado anual de impostos xa está dispoñible para
-            descargar.&lt;/pvn:new>
-        &lt;/pvn:change>
-        &lt;/pvn:provenance>
-        &lt;segment>
-        &lt;source>Your annual tax certificate is now available for
-            download.&lt;/source>
-        &lt;target>O seu certificado anual de impostos xa está dispoñible para
-            descargar.&lt;/target>
-        &lt;/segment>
-        &lt;/unit>
-        &lt;/file>
-        &lt;/xliff>
-            </programlisting>
 </section>
         </section>
     </section>
@@ -9539,6 +9467,50 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
 &lt;/unit>
 </programlisting>
 </section>
+    </section>
+    
+    <section>
+        <title>Full Example</title>
+        <programlisting format="linespecific">
+&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;xliff srcLang="en" trgLang="es" version="2.3"
+    xmlns:pvn="urn:oasis:names:tc:xliff:pvn:2.3"
+    xmlns:its="http://www.w3.org/2005/11/its"
+    xmlns="urn:oasis:names:tc:xliff:document:2.3">
+    &lt;file id="f1">
+        &lt;unit id="1" its:locQualityRatingScore="0.968">
+            &lt;pvn:provenance>
+                &lt;pvn:change agent="Google Translate" appliesTo="target"
+                    timestamp="2026-05-05T21:06:00:00.000Z">
+                    &lt;pvn:usage usageUnit="characters">66&lt;/pvn:usage>
+                    &lt;pvn:value>O seu certificado anual de impostos está 
+                      dispoñible para descarga.&lt;/pvn:value>
+                &lt;/pvn:change>
+                &lt;pvn:change appliesTo="its:locQualityRatingScore"
+                    agent="TAUS MTQE" timestamp="2026-05-05T21:07:00:00.000Z">
+                    &lt;pvn:usage unit="characters">66&lt;/pvn:usage>
+                    &lt;pvn:value>0.968&lt;/pvn:value>
+                &lt;/pvn:change>
+                &lt;pvn:change agent="gpt-5.5" appliesTo="target"
+                    timestamp="2026-05-05T21:08:00:00.000Z"
+                    intent="This version sounds slightly smoother and more 
+                    idiomatic: 'para descargar' is often preferred over 
+                    'para descarga' in everyday usage.">
+                    &lt;pvn:usage unit="tokens">45&lt;/pvn:usage>
+                    &lt;pvn:value>O seu certificado anual de impostos xa está 
+                        dispoñible para descargar.&lt;/pvn:value>
+                &lt;/pvn:change>
+            &lt;/pvn:provenance>
+            &lt;segment>
+                &lt;source>Your annual tax certificate is now available for
+                    download.&lt;/source>
+                &lt;target>O seu certificado anual de impostos xa está 
+                    dispoñible para descargar.&lt;/target>
+            &lt;/segment>
+        &lt;/unit>
+    &lt;/file>
+&lt;/xliff>    
+</programlisting>
     </section>
 
     <section>

@@ -64,20 +64,5 @@
                     targetdoc="../../elements/structural/xliff.xml" targetptr="xliff"
                         ><code>&lt;xliff></code></olink> element.</para>
         </listitem>
-        <listitem>
-            <para>The following XLIFF Module attributes are explicitly allowed by the wildcard
-                    <code>other</code>:</para>
-            <simplelist>
-                <member>- attributes from the namespace <code>http://www.w3.org/2005/11/its</code>,
-                    OPTIONAL, provided that the Constraints specified in the <olink
-                        targetdoc="../../modules/itsm/specification.xml" targetptr="ITS-module">ITS
-                        Module</olink> are met.</member>
-                <member>- attributes from the namespace
-                        <code>urn:oasis:names:tc:xliff:itsm:2.1</code>, OPTIONAL, provided that the
-                    Constraints specified in the <olink
-                        targetdoc="../../modules/itsm/specification.xml" targetptr="ITS-module">ITS
-                        Module</olink> are met.</member>
-            </simplelist>
-        </listitem>
     </itemizedlist>
 </section>

@@ -590,7 +590,7 @@
     <title>Examples</title>
     <para>Given the following XLIFF document:</para>
     <programlisting format="linespecific">
-&lt;xliff xmlns="urn:oasis:names:tc:xliff:document:2.2" version="2.2"
+&lt;xliff xmlns="urn:oasis:names:tc:xliff:document:2.3" version="2.3"
     srcLang="en" trgLang="fr">
   &lt;file id="f1">
     &lt;notes>
@@ -853,8 +853,6 @@
                 <member>- Zero or one <remark><code>&lt;slr:data></code></remark> elements</member>
                 <member>- Zero or one <remark><code>&lt;val:validation></code></remark>
                     elements</member>
-                <member>- Zero, one, or more <remark><code>&lt;its:provenanceRecords></code></remark> elements</member>
-
             </simplelist>
         </listitem>
         <listitem>
@@ -949,7 +947,6 @@
                 <member>- Zero or one <remark><code>&lt;slr:data></code></remark> elements</member>
                 <member>- Zero or one <remark><code>&lt;val:validation></code></remark>
                     elements</member>
-                <member>- Zero, one, or more <remark><code>&lt;its:provenanceRecords></code></remark> elements</member>
 
             </simplelist>
         </listitem>
@@ -1020,9 +1017,6 @@
                     elements </member>
                 <member>- Zero or one <remark><code>&lt;slr:data></code></remark> elements </member>
                 <member>- Zero or one <remark><code>&lt;val:validation></code></remark> elements </member>
-                <member>- Zero, one, or more <remark><code>&lt;its:locQualityIssues></code></remark> elements</member>
-                <member>- Zero, one, or more <remark><code>&lt;its:provenanceRecords></code></remark> elements</member>
-
             </simplelist>
         </listitem>
         <listitem>
@@ -1877,11 +1871,6 @@
             <code>urn:oasis:names:tc:xliff:sizerestriction:2.0</code>, OPTIONAL, provided that the
           Constraints specified in the <remark>Size and Length Restriction Module</remark> are
           met.</member>
-        <member>- attributes from the namespace <code>http://www.w3.org/2005/11/its</code>,
-          OPTIONAL, provided that the Constraints specified in the <remark>ITS Module</remark> are
-          met.</member>
-        <member>- attributes from the namespace <code>urn:oasis:names:tc:xliff:itsm:2.1</code>,
-          OPTIONAL, provided that the Constraints specified in the <remark>ITS            Module</remark> are met.</member>
       </simplelist>
     </listitem>
 
@@ -1944,11 +1933,6 @@
             <code>urn:oasis:names:tc:xliff:sizerestriction:2.0</code>, OPTIONAL, provided that the
           Constraints specified in the <remark>Size and Length Restriction Module</remark> are
           met.</member>
-        <member>- attributes from the namespace <code>http://www.w3.org/2005/11/its</code>,
-          OPTIONAL, provided that the Constraints specified in the <remark>ITS Module</remark> are
-          met.</member>
-        <member>- attributes from the namespace <code>urn:oasis:names:tc:xliff:itsm:2.1</code>,
-          OPTIONAL, provided that the Constraints specified in the <remark>ITS            Module</remark> are met.</member>
       </simplelist>
     </listitem>
 

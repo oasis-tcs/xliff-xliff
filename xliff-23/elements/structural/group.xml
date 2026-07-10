@@ -62,9 +62,6 @@
                 <member>- Zero or one <olink targetdoc="../validation/validation.xml"
                         targetptr="validation"><code>&lt;val:validation></code></olink>
                     elements</member>
-                <member>- Zero, one, or more <olink targetdoc="../itsm/itsm_provenanceRecords.xml"
-                        targetptr="itsm_provenanceRecords"
-                        ><code>&lt;its:provenanceRecords></code></olink> elements</member>
 
             </simplelist>
         </listitem>
