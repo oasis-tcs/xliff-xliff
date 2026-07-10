@@ -164,7 +164,7 @@
 
     <section>
         <title>Provenance Information Mapping</title>
-        <para>Thet table below provides a summary of the provenance information supported by XLIFF
+        <para>The table below provides a summary of the provenance information supported by XLIFF
             2.x Core and the Provenance module. For completeness, XLIFF 1.2 is also provided as a
             legacy reference.</para>
         <informaltable>

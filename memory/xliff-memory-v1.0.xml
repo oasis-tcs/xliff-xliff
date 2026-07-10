@@ -317,7 +317,17 @@
       <code>&lt;segment></code> elements, and that hierarchy is preserved in document order.
       Two segments that are adjacent in an XLIFF file are known to be adjacent in the source
       content, which is valuable context for TM leveraging, concordance search, and quality
-      review that a flat TMX export cannot provide.</para>
+      review that a flat TMX export cannot provide. This is the same context that CAT tools rely
+      on to identify an in-context exact match (ICE), sometimes marketed as a "101% match": a
+      100% text match that also occurred in the same position, in the same source document, as
+      the segment currently being translated. Because TMX carries no structural relationship
+      between one <code>&lt;tu></code> and the next, tools that offer ICE matching against TMX
+      data have to reconstruct that adjacency after the fact, typically through vendor-specific
+      heuristics or ad hoc <code>&lt;prop></code> conventions. Because the XLIFF-native store
+      described in this document preserves both the enclosing <code>&lt;file></code> and
+      document order directly, as described in <link linkend="structuralOrder">Structural Order and Segment Context</link>, identifying an
+      in-context exact match is a native capability of the store rather than a heuristic
+      reconstruction.</para>
 
     <para>For these reasons, this document recommends that plain XLIFF documents be used
       directly as the storage and interchange format for translation memory data, rather than
@@ -369,8 +379,8 @@
         <para><emphasis role="bold">Extensibility through existing modules.</emphasis> Any
           XLIFF module that can annotate a <code>&lt;file></code>, <code>&lt;unit></code>,
           or <code>&lt;segment></code> in a normal XLIFF document, such as metadata, notes,
-          size and length restriction, or the Provenance module described in <link linkend="provenanceMetadata">Provenance Metadata for            Translation Memory Entries</link>, applies equally when that document is used as a
-          TM store. No parallel metadata model is required.</para>
+          size and length restriction, the Provenance module described in <link linkend="provenanceMetadata">Provenance Metadata for            Translation Memory Entries</link>, or the Glossary module described in <link linkend="glossaryTerminology">Glossary Terminology on            Harvested Units</link>, applies equally when that document is used as a TM store.
+          No parallel metadata model is required.</para>
       </listitem>
     </itemizedlist>
   </section>
@@ -497,6 +507,88 @@
       provenance metadata is expressed using XLIFF elements and attributes rather than
       free-text <code>&lt;prop></code> values, as TMX requires, it can be validated and
       queried using standard XML tooling.</para>
+
+    <para>A segment is frequently the product of more than one processing step, for example an
+      initial machine translation, one or more revisions, and a final human verification, and
+      <code>&lt;pvn:provenance></code> can hold that entire chain as successive
+      <code>&lt;pvn:change></code> elements, not only the most recent one. When an XLIFF
+      document is harvested into a TM store, as described in <link linkend="harvesting">Harvesting Translation Memory Entries</link>, the harvesting
+      agent SHOULD preserve the complete <code>&lt;pvn:provenance></code> element associated
+      with the harvested unit or segment, rather than collapsing it to a summary of the current
+      state. Preserving the full chain lets a TM consumer evaluate the lineage of a translation:
+      for example, a consumer can filter a search to entries whose chain includes a
+      <code>&lt;pvn:change></code> with a <code>person</code> attribute, to prefer or require
+      translations that received human review at some point, even if the most recent change in
+      the chain was machine-generated.</para>
+
+    <para>The following excerpt shows a segment that went through exactly such a chain: a first
+      pass by a machine translation agent, recorded together with the token cost of producing it
+      using the <code>&lt;pvn:usage></code> element, followed by a human revision recorded
+      with an explanatory <code>intent</code>:</para>
+
+    <programlisting format="linespecific">&lt;unit id="tm-0098" xmlns:pvn="urn:oasis:names:tc:xliff:pvn:2.3">
+  &lt;pvn:provenance>
+    &lt;pvn:change agent="Acme MT" appliesTo="target" timestamp="2026-07-10T10:00:00.000Z">
+      &lt;pvn:usage usageUnit="token">24&lt;/pvn:usage>
+      &lt;pvn:value>Su certificado anual de impuestos ya está listo para descargar.&lt;/pvn:value>
+    &lt;/pvn:change>
+    &lt;pvn:change person="Reviewer A" tool="Example CAT Tool" appliesTo="target"
+      timestamp="2026-07-10T10:15:00.000Z"
+      intent="Changed 'listo' to 'disponible' to match corporate terminology.">
+      &lt;pvn:value>Su certificado anual de impuestos ya está disponible para descargar.&lt;/pvn:value>
+    &lt;/pvn:change>
+  &lt;/pvn:provenance>
+  &lt;segment>
+    &lt;source>Your annual tax certificate is now available for download.&lt;/source>
+    &lt;target>Su certificado anual de impuestos ya está disponible para descargar.&lt;/target>
+  &lt;/segment>
+&lt;/unit></programlisting>
+
+    <para>A consumer that only inspects the current <code>&lt;target></code> sees a finished
+      translation with no indication of how it was produced. A consumer that reads the full
+      <code>&lt;pvn:provenance></code> chain can instead tell that the entry was
+      machine-translated and then human-reviewed, and could equally well have told the reverse,
+      or that no human ever touched it, had the chain been different.</para>
+  </section>
+
+  <section id="glossaryTerminology">
+    <title>Glossary Terminology on Harvested Units</title>
+
+    <para>XLIFF 2.x defines a Glossary module (<code>gls:</code>) that lets a
+      <code>&lt;unit></code> carry a <code>&lt;gls:glossary></code> element containing one
+      or more <code>&lt;gls:glossEntry></code> elements, each recording a source-language
+      <code>&lt;gls:term></code>, its approved target-language
+      <code>&lt;gls:translation></code>, and an optional <code>&lt;gls:definition></code>.
+      Because harvesting a unit into a TM store, as described in <link linkend="harvesting">Harvesting Translation Memory Entries</link>, copies its content
+      unchanged, any <code>&lt;gls:glossary></code> annotation already present on a source
+      unit is preserved automatically: no special handling is required to retain it, and none is
+      possible to accidentally lose, since harvesting a unit means copying the whole unit.</para>
+
+    <para>This turns a store built from terminology-annotated projects into more than a
+      collection of reusable translations: it is also a terminology reference. A TM consumer
+      that finds a match can inspect the matched unit's <code>&lt;gls:glossary></code>
+      element to see which terms that translation was required to use, and how they were
+      rendered, without maintaining a separate glossary system alongside the store. The same
+      content is also available to whichever retrieval mechanism is used, as described in <link linkend="implementation">Creating and Searching a        Translation Memory Store</link>: an XML-aware database can query on
+      <code>&lt;gls:term></code> text directly, and a vector database can index it alongside
+      the segment's source and target text.</para>
+
+    <programlisting format="linespecific">&lt;unit id="tm-0002">
+  &lt;gls:glossary xmlns:gls="urn:oasis:names:tc:xliff:glossary:2.0">
+    &lt;gls:glossEntry>
+      &lt;gls:term>fiscal year&lt;/gls:term>
+      &lt;gls:translation>año fiscal&lt;/gls:translation>
+    &lt;/gls:glossEntry>
+  &lt;/gls:glossary>
+  &lt;segment>
+    &lt;source>Download your certificate before the end of the fiscal year.&lt;/source>
+    &lt;target>Descargue su certificado antes de que finalice el año fiscal.&lt;/target>
+  &lt;/segment>
+&lt;/unit></programlisting>
+
+    <para>A future TM lookup that matches this unit's source text now also surfaces the approved
+      term mapping for "fiscal year," letting a consumer enforce the same terminology choice
+      instead of only reusing the sentence-level translation.</para>
   </section>
 
   <section id="tmFormatExample">
@@ -524,7 +616,9 @@
     &lt;/unit>
     &lt;unit id="tm-0002">
       &lt;pvn:provenance>
-        &lt;pvn:change agent="Acme MT" appliesTo="target" timestamp="2026-01-15T10:15:00.000Z"/>
+        &lt;pvn:change agent="Acme MT" appliesTo="target" timestamp="2026-01-15T10:15:00.000Z">
+          &lt;pvn:value>Descargue su certificado antes de que finalice el año fiscal.&lt;/pvn:value>
+        &lt;/pvn:change>
       &lt;/pvn:provenance>
       &lt;segment>
         &lt;source>Download your certificate before the end of the fiscal year.&lt;/source>
@@ -536,7 +630,9 @@
     &lt;unit id="tm-1001">
       &lt;pvn:provenance>
         &lt;pvn:change agent="TM Reuse" appliesTo="target" timestamp="2026-06-30T09:02:00.000Z"
-          intent="100% match reused from tm-0002 (manual/chapter3.html)."/>
+          intent="100% match reused from tm-0002 (manual/chapter3.html).">
+          &lt;pvn:value>Descargue su certificado antes de que finalice el año fiscal.&lt;/pvn:value>
+        &lt;/pvn:change>
       &lt;/pvn:provenance>
       &lt;segment>
         &lt;source>Download your certificate before the end of the fiscal year.&lt;/source>
@@ -602,8 +698,9 @@
           <code>srcLang</code>.</para>
       </listitem>
       <listitem>
-        <para>A single manifest file, described in <link linkend="manifestFile">Manifest File</link>, that lists the XLIFF files in the
-          package and the language pair each one represents.</para>
+        <para>A single manifest file, described in <link linkend="manifestFile">Manifest File</link>, that groups the XLIFF files in the
+          package into one or more aligned sets by shared source language and records the
+          language pair each file represents.</para>
       </listitem>
     </itemizedlist>
 
@@ -613,37 +710,91 @@
       gives that file's actual path within the package, so a consumer locates every file through
       the manifest rather than by assuming a particular layout.</para>
 
-    <para>Where two or more files in a package share the same <code>srcLang</code> and were
-      extracted from the same source content, corresponding translation units across those
-      files SHOULD use the same <code>&lt;unit></code> <code>id</code> value (and, where
-      segmented, the same <code>&lt;segment></code> <code>id</code> value), so that a
-      consumer can align entries for the same source content across target languages. This
-      mirrors, at the package level, the alignment that a multilingual <code>&lt;tu></code>
-      provides in a single TMX file for that case. This alignment applies only among files that
-      share a source: it does not extend across files with different <code>srcLang</code>
-      values, whose <code>&lt;unit></code> and <code>&lt;segment></code> <code>id</code>
-      values are independent of one another.</para>
+    <para>Every file listed in the manifest belongs to exactly one aligned set: a group of files
+      that share a common <code>srcLang</code> and were extracted from the same source content.
+      A file with no counterpart sharing its source is simply the only member of its own aligned
+      set. Corresponding translation units across the files in an aligned set MUST use the same
+      <code>&lt;unit></code> <code>id</code> value (and, where segmented, the same
+      <code>&lt;segment></code> <code>id</code> value). This is what lets a consumer treat
+      aligned-set membership as a guarantee rather than a hint: a match against a given
+      <code>&lt;unit></code> <code>id</code> in one file of the set is known to correspond to
+      the same source context in every other file of the set, which lets a tool synthesize a
+      multi-target match across every language in the set directly from a single-language
+      lookup, without re-querying each file separately. This mirrors, at the package level, the
+      alignment that a multilingual <code>&lt;tu></code> provides in a single TMX file, while
+      extending it to packages whose source language differs from one aligned set to the
+      next.</para>
+
+    <para>A tool that does not support this manifest format is not prevented from using the
+      package. Because every file it lists remains an independent, fully conformant XLIFF
+      document, such a tool MAY simply extract the archive, ignore <code>xliff-manifest.xml</code>,
+      and ingest each bilingual XLIFF file on its own, exactly as it would ingest any other XLIFF
+      file it was given individually. The manifest adds cross-file structure for tools that
+      understand it; it is not required to make the package's contents usable.</para>
+
+    <para>The same fallback applies if a ZIP archive of bilingual XLIFF files has no
+      <code>xliff-manifest.xml</code> at all: such an archive does not conform to this document
+      as a Translation Memory Exchange Package, but a tool MAY still treat it as an unlinked
+      collection of independent bilingual memories and ingest each file individually.</para>
   </section>
 
   <section id="manifestFile">
     <title>Manifest File</title>
 
-    <para>The manifest is an XML file, named <code>manifest.xml</code>, placed at the root of
-      the package. It lists each XLIFF file contained in the package, together with its source
-      and target language, using an <code>href</code> value that gives the file's path within
-      the package.</para>
+    <para>The manifest is an XML file, named <code>xliff-manifest.xml</code>, placed at the root of
+      the package. Its root <code>&lt;tmPackage></code> element MAY carry a
+      <code>packageId</code> attribute identifying the package and a <code>created</code>
+      attribute recording when it was assembled; both are informational and carry no processing
+      requirement. It groups the package's XLIFF files into one or more
+      <code>&lt;alignedSet></code> elements, each declaring the shared <code>srcLang</code> of
+      its members and MAY carry a <code>&lt;description></code> child element with a
+      human-readable summary of what the set represents. Within an aligned set, each file is
+      listed as a <code>&lt;file></code> element giving the <code>href</code> path to the file
+      within the package and the <code>trgLang</code> it represents, and MAY carry a
+      <code>hash</code> attribute so a consumer can verify the file was not corrupted or altered
+      in transit.</para>
 
-    <programlisting format="linespecific">&lt;tmPackage xmlns="urn:oasis:names:tc:xliff:tm-manifest:1.0" version="1.0">
-  &lt;file href="en-es.xlf" srcLang="en" trgLang="es"/>
-  &lt;file href="en-fr.xlf" srcLang="en" trgLang="fr"/>
-  &lt;file href="fr-de.xlf" srcLang="fr" trgLang="de"/>
+    <programlisting format="linespecific">&lt;tmPackage xmlns="urn:oasis:names:tc:xliff:tm-manifest:1.0" version="1.0"
+    packageId="pkg-2026-finance-tm" created="2026-07-10T13:43:00Z">
+  &lt;alignedSet id="set-01" srcLang="en">
+    &lt;description>Financial terminology memory extracted from Q2 2026 projects.&lt;/description>
+    &lt;file href="en-es.xlf" trgLang="es"
+      hash="sha256:3451e18e0aa54c65398509e1decd963e1ea1fafa4dee37fde6b1e2585c0f74ec"/>
+    &lt;file href="en-fr.xlf" trgLang="fr"
+      hash="sha256:ec076145e71a8c08b9e78253ceac02bc9a0f98a56577216987ab6dea15e7b457"/>
+  &lt;/alignedSet>
+  &lt;alignedSet id="set-02" srcLang="fr">
+    &lt;file href="fr-de.xlf" trgLang="de"
+      hash="sha256:6dc9abf3aace245aefb08f4220e8355dc237de9ef289c60c87abd734ed552986"/>
+  &lt;/alignedSet>
 &lt;/tmPackage></programlisting>
 
-    <para>A manifest is not required to declare the same <code>srcLang</code> for every file it
-      lists, as the third entry above illustrates: <code>en-es.xlf</code> and
-      <code>en-fr.xlf</code> both originate from English source content, while
-      <code>fr-de.xlf</code> is an unrelated bilingual file with French as its source
-      language.</para>
+    <para>A manifest is not required to declare the same <code>srcLang</code> for every aligned
+      set it contains, as the example above illustrates: <code>en-es.xlf</code> and
+      <code>en-fr.xlf</code> both originate from English source content and are grouped together
+      in <code>set-01</code>, while <code>fr-de.xlf</code> is an unrelated bilingual file with
+      French as its source language and forms the single-member <code>set-02</code> on its
+      own.</para>
+
+    <para>The <code>hash</code> attribute lets an exchanging tool make two decisions before it
+      opens or parses a potentially large XLIFF file. When synchronizing against a package it
+      has seen before, a tool can compare a file's <code>hash</code> value in the new manifest
+      against the hash of the copy it already holds, and skip reparsing entirely when they
+      match, rather than reparsing every file on every sync. After extracting a file from the
+      archive, a tool can also recompute its hash and compare it against the value recorded in
+      the manifest to detect truncation or corruption introduced during transport, before that
+      file's content is allowed to reach a TM store.</para>
+
+    <para>A <code>hash</code> value is expressed as <code>algorithm:digest</code>, where
+      <code>algorithm</code> identifies the hash function used (<code>sha256</code> is
+      RECOMMENDED) and <code>digest</code> is the lowercase hexadecimal digest it produces. Where
+      a <code>&lt;file></code> entry carries a <code>hash</code> value, an exchanging tool
+      SHOULD validate the extracted file's content against it before committing that content to
+      a TM store, and SHOULD treat a mismatch as a sign of a corrupted or incomplete transfer
+      rather than importing it. A matching hash only guards against accidental
+      corruption in transport: because both a file and its manifest entry are typically produced
+      by the same party, a hash alone does not protect against deliberate tampering by anyone
+      able to modify the package.</para>
 
     <para><emphasis>The manifest namespace, element and attribute names, and XML Schema shown
       above are provisional and subject to review by the OASIS XLIFF TC before this Note
@@ -658,7 +809,7 @@
       target was German, would be packaged as:</para>
 
     <programlisting format="linespecific">tm-package.zip
-├── manifest.xml
+├── xliff-manifest.xml
 ├── en-es.xlf
 ├── en-fr.xlf
 └── fr-de.xlf</programlisting>
@@ -666,18 +817,18 @@
     <para>Each of <code>en-es.xlf</code>, <code>en-fr.xlf</code>, and <code>fr-de.xlf</code> is
       an ordinary bilingual XLIFF document as described in <link linkend="tmFormat">XLIFF as a Translation Memory Format</link>, and each can be
       consumed independently by a tool that only needs one language pair, or together by a tool
-      that reads <code>manifest.xml</code> to reconstruct the full set. <code>en-es.xlf</code>
-      and <code>en-fr.xlf</code> share a common source language and MAY be aligned by
-      <code>&lt;unit></code> and <code>&lt;segment></code> <code>id</code> as described in
-      <link linkend="packageStructure">Package Structure</link>;
-      <code>fr-de.xlf</code> has no source language in common with the other two files and is
-      not part of that alignment.</para>
+      that reads <code>xliff-manifest.xml</code> to reconstruct the full set. <code>en-es.xlf</code>
+      and <code>en-fr.xlf</code> share a common source language and belong to the same aligned
+      set, so they MUST be aligned by <code>&lt;unit></code> and <code>&lt;segment></code>
+      <code>id</code> as described in <link linkend="packageStructure">Package Structure</link>; <code>fr-de.xlf</code> has no
+      source language in common with the other two files and forms its own aligned set, outside
+      that alignment.</para>
 
     <para>As described in <link linkend="packageStructure">Package        Structure</link>, the same three files MAY instead be organized into one folder per
       language pair:</para>
 
     <programlisting format="linespecific">tm-package.zip
-├── manifest.xml
+├── xliff-manifest.xml
 ├── en-es/
 │   └── en-es.xlf
 ├── en-fr/
@@ -687,10 +838,18 @@
 
     <para>with the manifest updated to match:</para>
 
-    <programlisting format="linespecific">&lt;tmPackage xmlns="urn:oasis:names:tc:xliff:tm-manifest:1.0" version="1.0">
-  &lt;file href="en-es/en-es.xlf" srcLang="en" trgLang="es"/>
-  &lt;file href="en-fr/en-fr.xlf" srcLang="en" trgLang="fr"/>
-  &lt;file href="fr-de/fr-de.xlf" srcLang="fr" trgLang="de"/>
+    <programlisting format="linespecific">&lt;tmPackage xmlns="urn:oasis:names:tc:xliff:tm-manifest:1.0" version="1.0"
+    packageId="pkg-2026-finance-tm" created="2026-07-10T13:43:00Z">
+  &lt;alignedSet id="set-01" srcLang="en">
+    &lt;file href="en-es/en-es.xlf" trgLang="es"
+      hash="sha256:3451e18e0aa54c65398509e1decd963e1ea1fafa4dee37fde6b1e2585c0f74ec"/>
+    &lt;file href="en-fr/en-fr.xlf" trgLang="fr"
+      hash="sha256:ec076145e71a8c08b9e78253ceac02bc9a0f98a56577216987ab6dea15e7b457"/>
+  &lt;/alignedSet>
+  &lt;alignedSet id="set-02" srcLang="fr">
+    &lt;file href="fr-de/fr-de.xlf" trgLang="de"
+      hash="sha256:6dc9abf3aace245aefb08f4220e8355dc237de9ef289c60c87abd734ed552986"/>
+  &lt;/alignedSet>
 &lt;/tmPackage></programlisting>
 
     <para>Both layouts are valid and equivalent: a conformant consumer resolves every file
@@ -842,14 +1001,28 @@ tm-1001  original=app/ui-strings.json   "Download your certificate before the en
       the search to vectors whose <code>original</code> metadata equals
       <code>manual/chapter3.html</code> narrows the result to <code>tm-0002</code> alone.</para>
 
-    <para>In practice, semantic similarity is often combined with a string-similarity ("fuzzy")
-      metric into a single blended score, rather than used alone. Embeddings alone can rank a
-      candidate that changes the meaning nearly as highly as one that only changes the wording; a
-      fuzzy string comparison of the same candidates penalizes that difference, while still
-      tolerating the minor spelling or punctuation variation that an exact-text query would
-      reject outright. Blending the two, for example by averaging a semantic similarity score
-      with a string-similarity score such as longest-common-subsequence, gives a single ranking
-      that neither method reliably produces on its own.</para>
+    <para>Semantic similarity alone has a known blind spot: embeddings can rank a candidate that
+      changes the meaning nearly as highly as one that only changes the wording. Combining
+      semantic similarity with a string-similarity ("fuzzy") metric into a single blended score,
+      rather than using either alone, addresses this: a fuzzy string comparison of the same
+      candidates penalizes that difference, while still tolerating the minor spelling or
+      punctuation variation that an exact-text query would reject outright. Blending the two, for
+      example by averaging a semantic similarity score with a string-similarity score such as
+      longest-common-subsequence, gives a single ranking that neither method reliably produces on
+      its own.</para>
+
+    <para>A vector database's own distance metric only measures how similar a candidate is to
+      the query; it has no notion of what that candidate cost to produce. Where a harvested
+      entry's <code>&lt;pvn:provenance></code> chain, described in <link linkend="provenanceMetadata">Provenance Metadata for        Translation Memory Entries</link>, includes a <code>&lt;pvn:usage></code> element,
+      implementers SHOULD map its text value alongside its <code>usageUnit</code> attribute as
+      additional metadata fields on the indexed vector. Because <code>&lt;pvn:usage></code>
+      records the computational cost of producing a change, for example the number of tokens a
+      machine translation agent consumed to generate a target, a similarity search can then
+      weight or filter candidates by that cost in addition to similarity score, for instance
+      preferring a historical match that required fewer tokens to produce over an equally
+      similar one that required more. This is particularly relevant when a TM lookup feeds a
+      retrieval-augmented generation (RAG) translation workflow, where token cost and latency are
+      part of what is being optimized.</para>
   </section>
 
   <para>Beyond translation-pair lookup, a concordance-style search, returning every stored entry
@@ -920,16 +1093,28 @@ tm-1001  original=app/ui-strings.json   "Download your certificate before the en
 
     <orderedlist continuation="restarts" inheritnum="ignore">
       <listitem>
-        <para>It contains a <code>manifest.xml</code> file at its root, as described in <link linkend="manifestFile">Manifest File</link>.</para>
+        <para>It contains an <code>xliff-manifest.xml</code> file at its root, as described in <link linkend="manifestFile">Manifest File</link>.</para>
       </listitem>
       <listitem>
         <para>Every XLIFF file listed in the manifest is present in the archive and conforms to
           this document as a Translation Memory Store.</para>
       </listitem>
       <listitem>
-        <para>Every XLIFF file listed in the manifest declares a single <code>srcLang</code>
-          and a single <code>trgLang</code>, matching the language pair recorded for that file
-          in the manifest.</para>
+        <para>Every XLIFF file listed in the manifest declares a single <code>srcLang</code>,
+          matching the <code>srcLang</code> of the aligned set that contains it, and a single
+          <code>trgLang</code>, matching the <code>trgLang</code> recorded for that file in the
+          manifest.</para>
+      </listitem>
+      <listitem>
+        <para>For every aligned set in the manifest with more than one member, corresponding
+          translation units across the member files use the same <code>&lt;unit></code>
+          <code>id</code> value (and, where segmented, the same <code>&lt;segment></code>
+          <code>id</code> value), as described in <link linkend="packageStructure">Package Structure</link>.</para>
+      </listitem>
+      <listitem>
+        <para>Where a <code>&lt;file></code> entry in the manifest carries a
+          <code>hash</code> attribute, the content of the file it references matches that
+          hash.</para>
       </listitem>
     </orderedlist>
   </section>

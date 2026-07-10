@@ -45,10 +45,12 @@
         <para><emphasis role="bold">Extensibility through existing modules.</emphasis> Any
           XLIFF module that can annotate a <code>&lt;file&gt;</code>, <code>&lt;unit&gt;</code>,
           or <code>&lt;segment&gt;</code> in a normal XLIFF document, such as metadata, notes,
-          size and length restriction, or the Provenance module described in <olink
+          size and length restriction, the Provenance module described in <olink
             targetdoc="tmFormat.xml" targetptr="provenanceMetadata">Provenance Metadata for
-            Translation Memory Entries</olink>, applies equally when that document is used as a
-          TM store. No parallel metadata model is required.</para>
+            Translation Memory Entries</olink>, or the Glossary module described in <olink
+            targetdoc="tmFormat.xml" targetptr="glossaryTerminology">Glossary Terminology on
+            Harvested Units</olink>, applies equally when that document is used as a TM store.
+          No parallel metadata model is required.</para>
       </listitem>
     </itemizedlist>
   </section>
@@ -179,6 +181,92 @@
       provenance metadata is expressed using XLIFF elements and attributes rather than
       free-text <code>&lt;prop&gt;</code> values, as TMX requires, it can be validated and
       queried using standard XML tooling.</para>
+
+    <para>A segment is frequently the product of more than one processing step, for example an
+      initial machine translation, one or more revisions, and a final human verification, and
+      <code>&lt;pvn:provenance&gt;</code> can hold that entire chain as successive
+      <code>&lt;pvn:change&gt;</code> elements, not only the most recent one. When an XLIFF
+      document is harvested into a TM store, as described in <olink targetdoc="tmFormat.xml"
+        targetptr="harvesting">Harvesting Translation Memory Entries</olink>, the harvesting
+      agent SHOULD preserve the complete <code>&lt;pvn:provenance&gt;</code> element associated
+      with the harvested unit or segment, rather than collapsing it to a summary of the current
+      state. Preserving the full chain lets a TM consumer evaluate the lineage of a translation:
+      for example, a consumer can filter a search to entries whose chain includes a
+      <code>&lt;pvn:change&gt;</code> with a <code>person</code> attribute, to prefer or require
+      translations that received human review at some point, even if the most recent change in
+      the chain was machine-generated.</para>
+
+    <para>The following excerpt shows a segment that went through exactly such a chain: a first
+      pass by a machine translation agent, recorded together with the token cost of producing it
+      using the <code>&lt;pvn:usage&gt;</code> element, followed by a human revision recorded
+      with an explanatory <code>intent</code>:</para>
+
+    <programlisting>&lt;unit id="tm-0098" xmlns:pvn="urn:oasis:names:tc:xliff:pvn:2.3"&gt;
+  &lt;pvn:provenance&gt;
+    &lt;pvn:change agent="Acme MT" appliesTo="target" timestamp="2026-07-10T10:00:00.000Z"&gt;
+      &lt;pvn:usage usageUnit="token"&gt;24&lt;/pvn:usage&gt;
+      &lt;pvn:value&gt;Su certificado anual de impuestos ya está listo para descargar.&lt;/pvn:value&gt;
+    &lt;/pvn:change&gt;
+    &lt;pvn:change person="Reviewer A" tool="Example CAT Tool" appliesTo="target"
+      timestamp="2026-07-10T10:15:00.000Z"
+      intent="Changed 'listo' to 'disponible' to match corporate terminology."&gt;
+      &lt;pvn:value&gt;Su certificado anual de impuestos ya está disponible para descargar.&lt;/pvn:value&gt;
+    &lt;/pvn:change&gt;
+  &lt;/pvn:provenance&gt;
+  &lt;segment&gt;
+    &lt;source&gt;Your annual tax certificate is now available for download.&lt;/source&gt;
+    &lt;target&gt;Su certificado anual de impuestos ya está disponible para descargar.&lt;/target&gt;
+  &lt;/segment&gt;
+&lt;/unit&gt;</programlisting>
+
+    <para>A consumer that only inspects the current <code>&lt;target&gt;</code> sees a finished
+      translation with no indication of how it was produced. A consumer that reads the full
+      <code>&lt;pvn:provenance&gt;</code> chain can instead tell that the entry was
+      machine-translated and then human-reviewed, and could equally well have told the reverse,
+      or that no human ever touched it, had the chain been different.</para>
+  </section>
+
+  <section id="glossaryTerminology">
+    <title>Glossary Terminology on Harvested Units</title>
+
+    <para>XLIFF 2.x defines a Glossary module (<code>gls:</code>) that lets a
+      <code>&lt;unit&gt;</code> carry a <code>&lt;gls:glossary&gt;</code> element containing one
+      or more <code>&lt;gls:glossEntry&gt;</code> elements, each recording a source-language
+      <code>&lt;gls:term&gt;</code>, its approved target-language
+      <code>&lt;gls:translation&gt;</code>, and an optional <code>&lt;gls:definition&gt;</code>.
+      Because harvesting a unit into a TM store, as described in <olink targetdoc="tmFormat.xml"
+        targetptr="harvesting">Harvesting Translation Memory Entries</olink>, copies its content
+      unchanged, any <code>&lt;gls:glossary&gt;</code> annotation already present on a source
+      unit is preserved automatically: no special handling is required to retain it, and none is
+      possible to accidentally lose, since harvesting a unit means copying the whole unit.</para>
+
+    <para>This turns a store built from terminology-annotated projects into more than a
+      collection of reusable translations: it is also a terminology reference. A TM consumer
+      that finds a match can inspect the matched unit's <code>&lt;gls:glossary&gt;</code>
+      element to see which terms that translation was required to use, and how they were
+      rendered, without maintaining a separate glossary system alongside the store. The same
+      content is also available to whichever retrieval mechanism is used, as described in <olink
+        targetdoc="implementation.xml" targetptr="implementation">Creating and Searching a
+        Translation Memory Store</olink>: an XML-aware database can query on
+      <code>&lt;gls:term&gt;</code> text directly, and a vector database can index it alongside
+      the segment's source and target text.</para>
+
+    <programlisting>&lt;unit id="tm-0002"&gt;
+  &lt;gls:glossary xmlns:gls="urn:oasis:names:tc:xliff:glossary:2.0"&gt;
+    &lt;gls:glossEntry&gt;
+      &lt;gls:term&gt;fiscal year&lt;/gls:term&gt;
+      &lt;gls:translation&gt;año fiscal&lt;/gls:translation&gt;
+    &lt;/gls:glossEntry&gt;
+  &lt;/gls:glossary&gt;
+  &lt;segment&gt;
+    &lt;source&gt;Download your certificate before the end of the fiscal year.&lt;/source&gt;
+    &lt;target&gt;Descargue su certificado antes de que finalice el año fiscal.&lt;/target&gt;
+  &lt;/segment&gt;
+&lt;/unit&gt;</programlisting>
+
+    <para>A future TM lookup that matches this unit's source text now also surfaces the approved
+      term mapping for "fiscal year," letting a consumer enforce the same terminology choice
+      instead of only reusing the sentence-level translation.</para>
   </section>
 
   <section id="tmFormatExample">
@@ -206,7 +294,9 @@
     &lt;/unit&gt;
     &lt;unit id="tm-0002"&gt;
       &lt;pvn:provenance&gt;
-        &lt;pvn:change agent="Acme MT" appliesTo="target" timestamp="2026-01-15T10:15:00.000Z"/&gt;
+        &lt;pvn:change agent="Acme MT" appliesTo="target" timestamp="2026-01-15T10:15:00.000Z"&gt;
+          &lt;pvn:value&gt;Descargue su certificado antes de que finalice el año fiscal.&lt;/pvn:value&gt;
+        &lt;/pvn:change&gt;
       &lt;/pvn:provenance&gt;
       &lt;segment&gt;
         &lt;source&gt;Download your certificate before the end of the fiscal year.&lt;/source&gt;
@@ -218,7 +308,9 @@
     &lt;unit id="tm-1001"&gt;
       &lt;pvn:provenance&gt;
         &lt;pvn:change agent="TM Reuse" appliesTo="target" timestamp="2026-06-30T09:02:00.000Z"
-          intent="100% match reused from tm-0002 (manual/chapter3.html)."/&gt;
+          intent="100% match reused from tm-0002 (manual/chapter3.html)."&gt;
+          &lt;pvn:value&gt;Descargue su certificado antes de que finalice el año fiscal.&lt;/pvn:value&gt;
+        &lt;/pvn:change&gt;
       &lt;/pvn:provenance&gt;
       &lt;segment&gt;
         &lt;source&gt;Download your certificate before the end of the fiscal year.&lt;/source&gt;

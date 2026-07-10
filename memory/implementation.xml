@@ -161,14 +161,30 @@ tm-1001  original=app/ui-strings.json   "Download your certificate before the en
       the search to vectors whose <code>original</code> metadata equals
       <code>manual/chapter3.html</code> narrows the result to <code>tm-0002</code> alone.</para>
 
-    <para>In practice, semantic similarity is often combined with a string-similarity ("fuzzy")
-      metric into a single blended score, rather than used alone. Embeddings alone can rank a
-      candidate that changes the meaning nearly as highly as one that only changes the wording; a
-      fuzzy string comparison of the same candidates penalizes that difference, while still
-      tolerating the minor spelling or punctuation variation that an exact-text query would
-      reject outright. Blending the two, for example by averaging a semantic similarity score
-      with a string-similarity score such as longest-common-subsequence, gives a single ranking
-      that neither method reliably produces on its own.</para>
+    <para>Semantic similarity alone has a known blind spot: embeddings can rank a candidate that
+      changes the meaning nearly as highly as one that only changes the wording. Combining
+      semantic similarity with a string-similarity ("fuzzy") metric into a single blended score,
+      rather than using either alone, addresses this: a fuzzy string comparison of the same
+      candidates penalizes that difference, while still tolerating the minor spelling or
+      punctuation variation that an exact-text query would reject outright. Blending the two, for
+      example by averaging a semantic similarity score with a string-similarity score such as
+      longest-common-subsequence, gives a single ranking that neither method reliably produces on
+      its own.</para>
+
+    <para>A vector database's own distance metric only measures how similar a candidate is to
+      the query; it has no notion of what that candidate cost to produce. Where a harvested
+      entry's <code>&lt;pvn:provenance&gt;</code> chain, described in <olink
+        targetdoc="tmFormat.xml" targetptr="provenanceMetadata">Provenance Metadata for
+        Translation Memory Entries</olink>, includes a <code>&lt;pvn:usage&gt;</code> element,
+      implementers SHOULD map its text value alongside its <code>usageUnit</code> attribute as
+      additional metadata fields on the indexed vector. Because <code>&lt;pvn:usage&gt;</code>
+      records the computational cost of producing a change, for example the number of tokens a
+      machine translation agent consumed to generate a target, a similarity search can then
+      weight or filter candidates by that cost in addition to similarity score, for instance
+      preferring a historical match that required fewer tokens to produce over an equally
+      similar one that required more. This is particularly relevant when a TM lookup feeds a
+      retrieval-augmented generation (RAG) translation workflow, where token cost and latency are
+      part of what is being optimized.</para>
   </section>
 
   <para>Beyond translation-pair lookup, a concordance-style search, returning every stored entry

@@ -40,7 +40,7 @@
 
     <orderedlist>
       <listitem>
-        <para>It contains a <code>manifest.xml</code> file at its root, as described in <olink
+        <para>It contains an <code>xliff-manifest.xml</code> file at its root, as described in <olink
             targetdoc="exchange.xml" targetptr="manifestFile">Manifest File</olink>.</para>
       </listitem>
       <listitem>
@@ -48,9 +48,22 @@
           this document as a Translation Memory Store.</para>
       </listitem>
       <listitem>
-        <para>Every XLIFF file listed in the manifest declares a single <code>srcLang</code>
-          and a single <code>trgLang</code>, matching the language pair recorded for that file
-          in the manifest.</para>
+        <para>Every XLIFF file listed in the manifest declares a single <code>srcLang</code>,
+          matching the <code>srcLang</code> of the aligned set that contains it, and a single
+          <code>trgLang</code>, matching the <code>trgLang</code> recorded for that file in the
+          manifest.</para>
+      </listitem>
+      <listitem>
+        <para>For every aligned set in the manifest with more than one member, corresponding
+          translation units across the member files use the same <code>&lt;unit&gt;</code>
+          <code>id</code> value (and, where segmented, the same <code>&lt;segment&gt;</code>
+          <code>id</code> value), as described in <olink targetdoc="exchange.xml"
+            targetptr="packageStructure">Package Structure</olink>.</para>
+      </listitem>
+      <listitem>
+        <para>Where a <code>&lt;file&gt;</code> entry in the manifest carries a
+          <code>hash</code> attribute, the content of the file it references matches that
+          hash.</para>
       </listitem>
     </orderedlist>
   </section>

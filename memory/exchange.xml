@@ -46,8 +46,9 @@
       </listitem>
       <listitem>
         <para>A single manifest file, described in <olink targetdoc="exchange.xml"
-            targetptr="manifestFile">Manifest File</olink>, that lists the XLIFF files in the
-          package and the language pair each one represents.</para>
+            targetptr="manifestFile">Manifest File</olink>, that groups the XLIFF files in the
+          package into one or more aligned sets by shared source language and records the
+          language pair each file represents.</para>
       </listitem>
     </itemizedlist>
 
@@ -57,37 +58,91 @@
       gives that file's actual path within the package, so a consumer locates every file through
       the manifest rather than by assuming a particular layout.</para>
 
-    <para>Where two or more files in a package share the same <code>srcLang</code> and were
-      extracted from the same source content, corresponding translation units across those
-      files SHOULD use the same <code>&lt;unit&gt;</code> <code>id</code> value (and, where
-      segmented, the same <code>&lt;segment&gt;</code> <code>id</code> value), so that a
-      consumer can align entries for the same source content across target languages. This
-      mirrors, at the package level, the alignment that a multilingual <code>&lt;tu&gt;</code>
-      provides in a single TMX file for that case. This alignment applies only among files that
-      share a source: it does not extend across files with different <code>srcLang</code>
-      values, whose <code>&lt;unit&gt;</code> and <code>&lt;segment&gt;</code> <code>id</code>
-      values are independent of one another.</para>
+    <para>Every file listed in the manifest belongs to exactly one aligned set: a group of files
+      that share a common <code>srcLang</code> and were extracted from the same source content.
+      A file with no counterpart sharing its source is simply the only member of its own aligned
+      set. Corresponding translation units across the files in an aligned set MUST use the same
+      <code>&lt;unit&gt;</code> <code>id</code> value (and, where segmented, the same
+      <code>&lt;segment&gt;</code> <code>id</code> value). This is what lets a consumer treat
+      aligned-set membership as a guarantee rather than a hint: a match against a given
+      <code>&lt;unit&gt;</code> <code>id</code> in one file of the set is known to correspond to
+      the same source context in every other file of the set, which lets a tool synthesize a
+      multi-target match across every language in the set directly from a single-language
+      lookup, without re-querying each file separately. This mirrors, at the package level, the
+      alignment that a multilingual <code>&lt;tu&gt;</code> provides in a single TMX file, while
+      extending it to packages whose source language differs from one aligned set to the
+      next.</para>
+
+    <para>A tool that does not support this manifest format is not prevented from using the
+      package. Because every file it lists remains an independent, fully conformant XLIFF
+      document, such a tool MAY simply extract the archive, ignore <code>xliff-manifest.xml</code>,
+      and ingest each bilingual XLIFF file on its own, exactly as it would ingest any other XLIFF
+      file it was given individually. The manifest adds cross-file structure for tools that
+      understand it; it is not required to make the package's contents usable.</para>
+
+    <para>The same fallback applies if a ZIP archive of bilingual XLIFF files has no
+      <code>xliff-manifest.xml</code> at all: such an archive does not conform to this document
+      as a Translation Memory Exchange Package, but a tool MAY still treat it as an unlinked
+      collection of independent bilingual memories and ingest each file individually.</para>
   </section>
 
   <section id="manifestFile">
     <title>Manifest File</title>
 
-    <para>The manifest is an XML file, named <code>manifest.xml</code>, placed at the root of
-      the package. It lists each XLIFF file contained in the package, together with its source
-      and target language, using an <code>href</code> value that gives the file's path within
-      the package.</para>
+    <para>The manifest is an XML file, named <code>xliff-manifest.xml</code>, placed at the root of
+      the package. Its root <code>&lt;tmPackage&gt;</code> element MAY carry a
+      <code>packageId</code> attribute identifying the package and a <code>created</code>
+      attribute recording when it was assembled; both are informational and carry no processing
+      requirement. It groups the package's XLIFF files into one or more
+      <code>&lt;alignedSet&gt;</code> elements, each declaring the shared <code>srcLang</code> of
+      its members and MAY carry a <code>&lt;description&gt;</code> child element with a
+      human-readable summary of what the set represents. Within an aligned set, each file is
+      listed as a <code>&lt;file&gt;</code> element giving the <code>href</code> path to the file
+      within the package and the <code>trgLang</code> it represents, and MAY carry a
+      <code>hash</code> attribute so a consumer can verify the file was not corrupted or altered
+      in transit.</para>
 
-    <programlisting>&lt;tmPackage xmlns="urn:oasis:names:tc:xliff:tm-manifest:1.0" version="1.0"&gt;
-  &lt;file href="en-es.xlf" srcLang="en" trgLang="es"/&gt;
-  &lt;file href="en-fr.xlf" srcLang="en" trgLang="fr"/&gt;
-  &lt;file href="fr-de.xlf" srcLang="fr" trgLang="de"/&gt;
+    <programlisting>&lt;tmPackage xmlns="urn:oasis:names:tc:xliff:tm-manifest:1.0" version="1.0"
+    packageId="pkg-2026-finance-tm" created="2026-07-10T13:43:00Z"&gt;
+  &lt;alignedSet id="set-01" srcLang="en"&gt;
+    &lt;description&gt;Financial terminology memory extracted from Q2 2026 projects.&lt;/description&gt;
+    &lt;file href="en-es.xlf" trgLang="es"
+      hash="sha256:3451e18e0aa54c65398509e1decd963e1ea1fafa4dee37fde6b1e2585c0f74ec"/&gt;
+    &lt;file href="en-fr.xlf" trgLang="fr"
+      hash="sha256:ec076145e71a8c08b9e78253ceac02bc9a0f98a56577216987ab6dea15e7b457"/&gt;
+  &lt;/alignedSet&gt;
+  &lt;alignedSet id="set-02" srcLang="fr"&gt;
+    &lt;file href="fr-de.xlf" trgLang="de"
+      hash="sha256:6dc9abf3aace245aefb08f4220e8355dc237de9ef289c60c87abd734ed552986"/&gt;
+  &lt;/alignedSet&gt;
 &lt;/tmPackage&gt;</programlisting>
 
-    <para>A manifest is not required to declare the same <code>srcLang</code> for every file it
-      lists, as the third entry above illustrates: <code>en-es.xlf</code> and
-      <code>en-fr.xlf</code> both originate from English source content, while
-      <code>fr-de.xlf</code> is an unrelated bilingual file with French as its source
-      language.</para>
+    <para>A manifest is not required to declare the same <code>srcLang</code> for every aligned
+      set it contains, as the example above illustrates: <code>en-es.xlf</code> and
+      <code>en-fr.xlf</code> both originate from English source content and are grouped together
+      in <code>set-01</code>, while <code>fr-de.xlf</code> is an unrelated bilingual file with
+      French as its source language and forms the single-member <code>set-02</code> on its
+      own.</para>
+
+    <para>The <code>hash</code> attribute lets an exchanging tool make two decisions before it
+      opens or parses a potentially large XLIFF file. When synchronizing against a package it
+      has seen before, a tool can compare a file's <code>hash</code> value in the new manifest
+      against the hash of the copy it already holds, and skip reparsing entirely when they
+      match, rather than reparsing every file on every sync. After extracting a file from the
+      archive, a tool can also recompute its hash and compare it against the value recorded in
+      the manifest to detect truncation or corruption introduced during transport, before that
+      file's content is allowed to reach a TM store.</para>
+
+    <para>A <code>hash</code> value is expressed as <code>algorithm:digest</code>, where
+      <code>algorithm</code> identifies the hash function used (<code>sha256</code> is
+      RECOMMENDED) and <code>digest</code> is the lowercase hexadecimal digest it produces. Where
+      a <code>&lt;file&gt;</code> entry carries a <code>hash</code> value, an exchanging tool
+      SHOULD validate the extracted file's content against it before committing that content to
+      a TM store, and SHOULD treat a mismatch as a sign of a corrupted or incomplete transfer
+      rather than importing it. A matching hash only guards against accidental
+      corruption in transport: because both a file and its manifest entry are typically produced
+      by the same party, a hash alone does not protect against deliberate tampering by anyone
+      able to modify the package.</para>
 
     <para><emphasis>The manifest namespace, element and attribute names, and XML Schema shown
       above are provisional and subject to review by the OASIS XLIFF TC before this Note
@@ -102,7 +157,7 @@
       target was German, would be packaged as:</para>
 
     <programlisting>tm-package.zip
-├── manifest.xml
+├── xliff-manifest.xml
 ├── en-es.xlf
 ├── en-fr.xlf
 └── fr-de.xlf</programlisting>
@@ -111,19 +166,20 @@
       an ordinary bilingual XLIFF document as described in <olink targetdoc="tmFormat.xml"
         targetptr="tmFormat">XLIFF as a Translation Memory Format</olink>, and each can be
       consumed independently by a tool that only needs one language pair, or together by a tool
-      that reads <code>manifest.xml</code> to reconstruct the full set. <code>en-es.xlf</code>
-      and <code>en-fr.xlf</code> share a common source language and MAY be aligned by
-      <code>&lt;unit&gt;</code> and <code>&lt;segment&gt;</code> <code>id</code> as described in
-      <olink targetdoc="exchange.xml" targetptr="packageStructure">Package Structure</olink>;
-      <code>fr-de.xlf</code> has no source language in common with the other two files and is
-      not part of that alignment.</para>
+      that reads <code>xliff-manifest.xml</code> to reconstruct the full set. <code>en-es.xlf</code>
+      and <code>en-fr.xlf</code> share a common source language and belong to the same aligned
+      set, so they MUST be aligned by <code>&lt;unit&gt;</code> and <code>&lt;segment&gt;</code>
+      <code>id</code> as described in <olink targetdoc="exchange.xml"
+        targetptr="packageStructure">Package Structure</olink>; <code>fr-de.xlf</code> has no
+      source language in common with the other two files and forms its own aligned set, outside
+      that alignment.</para>
 
     <para>As described in <olink targetdoc="exchange.xml" targetptr="packageStructure">Package
         Structure</olink>, the same three files MAY instead be organized into one folder per
       language pair:</para>
 
     <programlisting>tm-package.zip
-├── manifest.xml
+├── xliff-manifest.xml
 ├── en-es/
 │   └── en-es.xlf
 ├── en-fr/
@@ -133,10 +189,18 @@
 
     <para>with the manifest updated to match:</para>
 
-    <programlisting>&lt;tmPackage xmlns="urn:oasis:names:tc:xliff:tm-manifest:1.0" version="1.0"&gt;
-  &lt;file href="en-es/en-es.xlf" srcLang="en" trgLang="es"/&gt;
-  &lt;file href="en-fr/en-fr.xlf" srcLang="en" trgLang="fr"/&gt;
-  &lt;file href="fr-de/fr-de.xlf" srcLang="fr" trgLang="de"/&gt;
+    <programlisting>&lt;tmPackage xmlns="urn:oasis:names:tc:xliff:tm-manifest:1.0" version="1.0"
+    packageId="pkg-2026-finance-tm" created="2026-07-10T13:43:00Z"&gt;
+  &lt;alignedSet id="set-01" srcLang="en"&gt;
+    &lt;file href="en-es/en-es.xlf" trgLang="es"
+      hash="sha256:3451e18e0aa54c65398509e1decd963e1ea1fafa4dee37fde6b1e2585c0f74ec"/&gt;
+    &lt;file href="en-fr/en-fr.xlf" trgLang="fr"
+      hash="sha256:ec076145e71a8c08b9e78253ceac02bc9a0f98a56577216987ab6dea15e7b457"/&gt;
+  &lt;/alignedSet&gt;
+  &lt;alignedSet id="set-02" srcLang="fr"&gt;
+    &lt;file href="fr-de/fr-de.xlf" trgLang="de"
+      hash="sha256:6dc9abf3aace245aefb08f4220e8355dc237de9ef289c60c87abd734ed552986"/&gt;
+  &lt;/alignedSet&gt;
 &lt;/tmPackage&gt;</programlisting>
 
     <para>Both layouts are valid and equivalent: a conformant consumer resolves every file

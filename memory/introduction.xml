@@ -63,7 +63,18 @@
       <code>&lt;segment&gt;</code> elements, and that hierarchy is preserved in document order.
       Two segments that are adjacent in an XLIFF file are known to be adjacent in the source
       content, which is valuable context for TM leveraging, concordance search, and quality
-      review that a flat TMX export cannot provide.</para>
+      review that a flat TMX export cannot provide. This is the same context that CAT tools rely
+      on to identify an in-context exact match (ICE), sometimes marketed as a "101% match": a
+      100% text match that also occurred in the same position, in the same source document, as
+      the segment currently being translated. Because TMX carries no structural relationship
+      between one <code>&lt;tu&gt;</code> and the next, tools that offer ICE matching against TMX
+      data have to reconstruct that adjacency after the fact, typically through vendor-specific
+      heuristics or ad hoc <code>&lt;prop&gt;</code> conventions. Because the XLIFF-native store
+      described in this document preserves both the enclosing <code>&lt;file&gt;</code> and
+      document order directly, as described in <olink targetdoc="tmFormat.xml"
+        targetptr="structuralOrder">Structural Order and Segment Context</olink>, identifying an
+      in-context exact match is a native capability of the store rather than a heuristic
+      reconstruction.</para>
 
     <para>For these reasons, this document recommends that plain XLIFF documents be used
       directly as the storage and interchange format for translation memory data, rather than

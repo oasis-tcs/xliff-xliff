@@ -28,7 +28,7 @@
         distributed together in a single ZIP package with a manifest that identifies the
         relationships among them.</p></dd></dl></div><div><dl><dt><a name="d0e138"></a><span class="status-heading">Citation format:</span></dt><dd><p>When referencing this document, the following citation format should be used:</p><p>[ The full reference for this document in IEEE reference format ]</p></dd></dl></div><div><hr><h2 class="notices-heading">License, Document Status, and Notices</h2><p>Copyright &copy; OASIS Open 2026. All Rights Reserved. For license and copyright
         information, and complete status, please see Annex A which contains the License,
-        Document Status and Notices.</p></div></div><hr></div><div class="toc"><h2>Table of Contents</h2><dl><dt><span class="section"><a href="#scope">1 Scope</a></span></dt><dt><span class="section"><a href="#definitionsAndAcronyms">2 Definitions and Acronyms</a></span></dt><dd><dl><dt><span class="section"><a href="#definitions">2.1 Definitions</a></span></dt><dd><dl><dt><span class="section"><a href="#termsDefinedElsewhere">2.1.1 Terms Defined Elsewhere</a></span></dt><dt><span class="section"><a href="#termsDefinedInThisDocument">2.1.2 Terms Defined in this Document</a></span></dt></dl></dd><dt><span class="section"><a href="#abbreviationsAndAcronyms">2.2 Abbreviations and Acronyms</a></span></dt></dl></dd><dt><span class="section"><a href="#documentConventions">3 Document Conventions</a></span></dt><dd><dl><dt><span class="section"><a href="#keyWords">3.1 Key Words</a></span></dt><dt><span class="section"><a href="#typographicalConventions">3.2 Typographical Conventions</a></span></dt></dl></dd><dt><span class="section"><a href="#introduction">4 Introduction</a></span></dt><dd><dl><dt><span class="section"><a href="#tmxLimitations">4.1 Limitations of TMX-Based Exchange</a></span></dt><dt><span class="section"><a href="#changesFromPreviousVersion">4.2 Changes From the Previous Version</a></span></dt></dl></dd><dt><span class="section"><a href="#tmFormat">5 XLIFF as a Translation Memory Format</a></span></dt><dd><dl><dt><span class="section"><a href="#designPrinciples">5.1 Design Principles</a></span></dt><dt><span class="section"><a href="#harvesting">5.2 Harvesting Translation Memory Entries</a></span></dt><dt><span class="section"><a href="#structuralOrder">5.3 Structural Order and Segment Context</a></span></dt><dt><span class="section"><a href="#provenanceMetadata">5.4 Provenance Metadata for Translation Memory Entries</a></span></dt><dt><span class="section"><a href="#tmFormatExample">5.5 Example</a></span></dt></dl></dd><dt><span class="section"><a href="#exchange">6 Exchange of Multilingual Translation Memory Data</a></span></dt><dd><dl><dt><span class="section"><a href="#packageStructure">6.1 Package Structure</a></span></dt><dt><span class="section"><a href="#manifestFile">6.2 Manifest File</a></span></dt><dt><span class="section"><a href="#exchangeExample">6.3 Example</a></span></dt></dl></dd><dt><span class="section"><a href="#implementation">7 Creating and Searching a Translation Memory Store</a></span></dt><dd><dl><dt><span class="section"><a href="#xmlDatabaseApproach">7.1 XML-Aware Database and XPath Retrieval</a></span></dt><dt><span class="section"><a href="#vectorDatabaseApproach">7.2 Vector Database and Similarity Search</a></span></dt></dl></dd><dt><span class="section"><a href="#safetySecurity">8 Safety, Security, and Data Protection Considerations</a></span></dt><dt><span class="section"><a href="#conformance">9 Conformance</a></span></dt><dd><dl><dt><span class="section"><a href="#tmStoreConformance">9.1 Translation Memory Store</a></span></dt><dt><span class="section"><a href="#tmPackageConformance">9.2 Translation Memory Exchange Package</a></span></dt></dl></dd></dl><h3>Appendixes</h3><dl><dt><span class="appendix"><a href="#annexA">A License, Document Status and Notices (Normative)</a></span></dt><dd><dl><dt><span class="section"><a href="#documentStatus">A.1 Document Status</a></span></dt><dt><span class="section"><a href="#licenseAndNotices">A.2 License and Notices</a></span></dt></dl></dd><dt><span class="appendix"><a href="#annexB">B References</a></span></dt><dd><dl><dt><span class="section"><a href="#normativeReferences">B.1 Normative References</a></span></dt><dt><span class="section"><a href="#informativeReferences">B.2 Informative References</a></span></dt></dl></dd><dt><span class="appendix"><a href="#acknowledgements">C Acknowledgments (Informative)</a></span></dt><dd><dl><dt><span class="section"><a href="#ackLeadership">C.1 Leadership</a></span></dt><dt><span class="section"><a href="#ackSpecialThanks">C.2 Special Thanks</a></span></dt><dt><span class="section"><a href="#ackParticipants">C.3 Participants</a></span></dt></dl></dd><dt><span class="appendix"><a href="#changeTracking">D Changes From Previous Version (Informative)</a></span></dt><dd><dl><dt><span class="section"><a href="#revisionHistory">D.1 Revision History</a></span></dt></dl></dd></dl></div><hr><div class="section" lang="en-US"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="scope"></a>1 Scope</h2></div></div></div><p>This Committee Note describes an XLIFF-native approach for storing and exchanging
+        Document Status and Notices.</p></div></div><hr></div><div class="toc"><h2>Table of Contents</h2><dl><dt><span class="section"><a href="#scope">1 Scope</a></span></dt><dt><span class="section"><a href="#definitionsAndAcronyms">2 Definitions and Acronyms</a></span></dt><dd><dl><dt><span class="section"><a href="#definitions">2.1 Definitions</a></span></dt><dd><dl><dt><span class="section"><a href="#termsDefinedElsewhere">2.1.1 Terms Defined Elsewhere</a></span></dt><dt><span class="section"><a href="#termsDefinedInThisDocument">2.1.2 Terms Defined in this Document</a></span></dt></dl></dd><dt><span class="section"><a href="#abbreviationsAndAcronyms">2.2 Abbreviations and Acronyms</a></span></dt></dl></dd><dt><span class="section"><a href="#documentConventions">3 Document Conventions</a></span></dt><dd><dl><dt><span class="section"><a href="#keyWords">3.1 Key Words</a></span></dt><dt><span class="section"><a href="#typographicalConventions">3.2 Typographical Conventions</a></span></dt></dl></dd><dt><span class="section"><a href="#introduction">4 Introduction</a></span></dt><dd><dl><dt><span class="section"><a href="#tmxLimitations">4.1 Limitations of TMX-Based Exchange</a></span></dt><dt><span class="section"><a href="#changesFromPreviousVersion">4.2 Changes From the Previous Version</a></span></dt></dl></dd><dt><span class="section"><a href="#tmFormat">5 XLIFF as a Translation Memory Format</a></span></dt><dd><dl><dt><span class="section"><a href="#designPrinciples">5.1 Design Principles</a></span></dt><dt><span class="section"><a href="#harvesting">5.2 Harvesting Translation Memory Entries</a></span></dt><dt><span class="section"><a href="#structuralOrder">5.3 Structural Order and Segment Context</a></span></dt><dt><span class="section"><a href="#provenanceMetadata">5.4 Provenance Metadata for Translation Memory Entries</a></span></dt><dt><span class="section"><a href="#glossaryTerminology">5.5 Glossary Terminology on Harvested Units</a></span></dt><dt><span class="section"><a href="#tmFormatExample">5.6 Example</a></span></dt></dl></dd><dt><span class="section"><a href="#exchange">6 Exchange of Multilingual Translation Memory Data</a></span></dt><dd><dl><dt><span class="section"><a href="#packageStructure">6.1 Package Structure</a></span></dt><dt><span class="section"><a href="#manifestFile">6.2 Manifest File</a></span></dt><dt><span class="section"><a href="#exchangeExample">6.3 Example</a></span></dt></dl></dd><dt><span class="section"><a href="#implementation">7 Creating and Searching a Translation Memory Store</a></span></dt><dd><dl><dt><span class="section"><a href="#xmlDatabaseApproach">7.1 XML-Aware Database and XPath Retrieval</a></span></dt><dt><span class="section"><a href="#vectorDatabaseApproach">7.2 Vector Database and Similarity Search</a></span></dt></dl></dd><dt><span class="section"><a href="#safetySecurity">8 Safety, Security, and Data Protection Considerations</a></span></dt><dt><span class="section"><a href="#conformance">9 Conformance</a></span></dt><dd><dl><dt><span class="section"><a href="#tmStoreConformance">9.1 Translation Memory Store</a></span></dt><dt><span class="section"><a href="#tmPackageConformance">9.2 Translation Memory Exchange Package</a></span></dt></dl></dd></dl><h3>Appendixes</h3><dl><dt><span class="appendix"><a href="#annexA">A License, Document Status and Notices (Normative)</a></span></dt><dd><dl><dt><span class="section"><a href="#documentStatus">A.1 Document Status</a></span></dt><dt><span class="section"><a href="#licenseAndNotices">A.2 License and Notices</a></span></dt></dl></dd><dt><span class="appendix"><a href="#annexB">B References</a></span></dt><dd><dl><dt><span class="section"><a href="#normativeReferences">B.1 Normative References</a></span></dt><dt><span class="section"><a href="#informativeReferences">B.2 Informative References</a></span></dt></dl></dd><dt><span class="appendix"><a href="#acknowledgements">C Acknowledgments (Informative)</a></span></dt><dd><dl><dt><span class="section"><a href="#ackLeadership">C.1 Leadership</a></span></dt><dt><span class="section"><a href="#ackSpecialThanks">C.2 Special Thanks</a></span></dt><dt><span class="section"><a href="#ackParticipants">C.3 Participants</a></span></dt></dl></dd><dt><span class="appendix"><a href="#changeTracking">D Changes From Previous Version (Informative)</a></span></dt><dd><dl><dt><span class="section"><a href="#revisionHistory">D.1 Revision History</a></span></dt></dl></dd></dl></div><hr><div class="section" lang="en-US"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="scope"></a>1 Scope</h2></div></div></div><p>This Committee Note describes an XLIFF-native approach for storing and exchanging
     translation memory (TM) data, using plain XLIFF 2.x documents in place of the Translation
     Memory eXchange (TMX) format.</p><p>Rather than defining a new container or converting bilingual content into a separate
     TM-specific format, this document recommends that XLIFF <code class="code">&lt;file&gt;</code>,
@@ -101,7 +101,17 @@
       <code class="code">&lt;segment&gt;</code> elements, and that hierarchy is preserved in document order.
       Two segments that are adjacent in an XLIFF file are known to be adjacent in the source
       content, which is valuable context for TM leveraging, concordance search, and quality
-      review that a flat TMX export cannot provide.</p><p>For these reasons, this document recommends that plain XLIFF documents be used
+      review that a flat TMX export cannot provide. This is the same context that CAT tools rely
+      on to identify an in-context exact match (ICE), sometimes marketed as a "101% match": a
+      100% text match that also occurred in the same position, in the same source document, as
+      the segment currently being translated. Because TMX carries no structural relationship
+      between one <code class="code">&lt;tu&gt;</code> and the next, tools that offer ICE matching against TMX
+      data have to reconstruct that adjacency after the fact, typically through vendor-specific
+      heuristics or ad hoc <code class="code">&lt;prop&gt;</code> conventions. Because the XLIFF-native store
+      described in this document preserves both the enclosing <code class="code">&lt;file&gt;</code> and
+      document order directly, as described in <a href="#structuralOrder" title="5.3 Structural Order and Segment Context">Structural Order and Segment Context</a>, identifying an
+      in-context exact match is a native capability of the store rather than a heuristic
+      reconstruction.</p><p>For these reasons, this document recommends that plain XLIFF documents be used
       directly as the storage and interchange format for translation memory data, rather than
       converting content to and from TMX.</p></div><div class="section" lang="en-US"><div class="titlepage"><div><div><h3 class="title"><a name="changesFromPreviousVersion"></a>4.2 Changes From the Previous Version</h3></div></div></div><p>The list of changes from the previous version and any revision history can be found in
       Appendix 2.</p></div></div><div class="section" lang="en-US"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="tmFormat"></a>5 XLIFF as a Translation Memory Format</h2></div></div></div><p>This section describes the recommended approach for storing translation memory data as
@@ -123,8 +133,8 @@
           <code class="code">&lt;file&gt;</code> (and, where used, <code class="code">&lt;group&gt;</code>). See <a href="#structuralOrder" title="5.3 Structural Order and Segment Context">Structural Order and Segment            Context</a>.</p></li><li><p><span class="bold"><strong>Extensibility through existing modules.</strong></span> Any
           XLIFF module that can annotate a <code class="code">&lt;file&gt;</code>, <code class="code">&lt;unit&gt;</code>,
           or <code class="code">&lt;segment&gt;</code> in a normal XLIFF document, such as metadata, notes,
-          size and length restriction, or the Provenance module described in <a href="#provenanceMetadata" title="5.4 Provenance Metadata for Translation Memory Entries">Provenance Metadata for            Translation Memory Entries</a>, applies equally when that document is used as a
-          TM store. No parallel metadata model is required.</p></li></ul></div></div><div class="section" lang="en-US"><div class="titlepage"><div><div><h3 class="title"><a name="harvesting"></a>5.2 Harvesting Translation Memory Entries</h3></div></div></div><p>A translation memory store, as described in this document, is not authored directly.
+          size and length restriction, the Provenance module described in <a href="#provenanceMetadata" title="5.4 Provenance Metadata for Translation Memory Entries">Provenance Metadata for            Translation Memory Entries</a>, or the Glossary module described in <a href="#glossaryTerminology" title="5.5 Glossary Terminology on Harvested Units">Glossary Terminology on            Harvested Units</a>, applies equally when that document is used as a TM store.
+          No parallel metadata model is required.</p></li></ul></div></div><div class="section" lang="en-US"><div class="titlepage"><div><div><h3 class="title"><a name="harvesting"></a>5.2 Harvesting Translation Memory Entries</h3></div></div></div><p>A translation memory store, as described in this document, is not authored directly.
       It is populated by harvesting completed translation work out of ordinary XLIFF documents
       produced by an extraction, translation, and review process, and copying the resulting
       <code class="code">&lt;unit&gt;</code> and <code class="code">&lt;segment&gt;</code> elements, unchanged, into the
@@ -200,7 +210,69 @@
       reviewed by a person, or to filter by the date a translation was performed. Since
       provenance metadata is expressed using XLIFF elements and attributes rather than
       free-text <code class="code">&lt;prop&gt;</code> values, as TMX requires, it can be validated and
-      queried using standard XML tooling.</p></div><div class="section" lang="en-US"><div class="titlepage"><div><div><h3 class="title"><a name="tmFormatExample"></a>5.5 Example</h3></div></div></div><p>A single translated document only ever has one <code class="code">&lt;file&gt;</code>, so nothing
+      queried using standard XML tooling.</p><p>A segment is frequently the product of more than one processing step, for example an
+      initial machine translation, one or more revisions, and a final human verification, and
+      <code class="code">&lt;pvn:provenance&gt;</code> can hold that entire chain as successive
+      <code class="code">&lt;pvn:change&gt;</code> elements, not only the most recent one. When an XLIFF
+      document is harvested into a TM store, as described in <a href="#harvesting" title="5.2 Harvesting Translation Memory Entries">Harvesting Translation Memory Entries</a>, the harvesting
+      agent SHOULD preserve the complete <code class="code">&lt;pvn:provenance&gt;</code> element associated
+      with the harvested unit or segment, rather than collapsing it to a summary of the current
+      state. Preserving the full chain lets a TM consumer evaluate the lineage of a translation:
+      for example, a consumer can filter a search to entries whose chain includes a
+      <code class="code">&lt;pvn:change&gt;</code> with a <code class="code">person</code> attribute, to prefer or require
+      translations that received human review at some point, even if the most recent change in
+      the chain was machine-generated.</p><p>The following excerpt shows a segment that went through exactly such a chain: a first
+      pass by a machine translation agent, recorded together with the token cost of producing it
+      using the <code class="code">&lt;pvn:usage&gt;</code> element, followed by a human revision recorded
+      with an explanatory <code class="code">intent</code>:</p><pre class="programlisting">&lt;unit id="tm-0098" xmlns:pvn="urn:oasis:names:tc:xliff:pvn:2.3"&gt;
+  &lt;pvn:provenance&gt;
+    &lt;pvn:change agent="Acme MT" appliesTo="target" timestamp="2026-07-10T10:00:00.000Z"&gt;
+      &lt;pvn:usage usageUnit="token"&gt;24&lt;/pvn:usage&gt;
+      &lt;pvn:value&gt;Su certificado anual de impuestos ya est&aacute; listo para descargar.&lt;/pvn:value&gt;
+    &lt;/pvn:change&gt;
+    &lt;pvn:change person="Reviewer A" tool="Example CAT Tool" appliesTo="target"
+      timestamp="2026-07-10T10:15:00.000Z"
+      intent="Changed 'listo' to 'disponible' to match corporate terminology."&gt;
+      &lt;pvn:value&gt;Su certificado anual de impuestos ya est&aacute; disponible para descargar.&lt;/pvn:value&gt;
+    &lt;/pvn:change&gt;
+  &lt;/pvn:provenance&gt;
+  &lt;segment&gt;
+    &lt;source&gt;Your annual tax certificate is now available for download.&lt;/source&gt;
+    &lt;target&gt;Su certificado anual de impuestos ya est&aacute; disponible para descargar.&lt;/target&gt;
+  &lt;/segment&gt;
+&lt;/unit&gt;</pre><p>A consumer that only inspects the current <code class="code">&lt;target&gt;</code> sees a finished
+      translation with no indication of how it was produced. A consumer that reads the full
+      <code class="code">&lt;pvn:provenance&gt;</code> chain can instead tell that the entry was
+      machine-translated and then human-reviewed, and could equally well have told the reverse,
+      or that no human ever touched it, had the chain been different.</p></div><div class="section" lang="en-US"><div class="titlepage"><div><div><h3 class="title"><a name="glossaryTerminology"></a>5.5 Glossary Terminology on Harvested Units</h3></div></div></div><p>XLIFF 2.x defines a Glossary module (<code class="code">gls:</code>) that lets a
+      <code class="code">&lt;unit&gt;</code> carry a <code class="code">&lt;gls:glossary&gt;</code> element containing one
+      or more <code class="code">&lt;gls:glossEntry&gt;</code> elements, each recording a source-language
+      <code class="code">&lt;gls:term&gt;</code>, its approved target-language
+      <code class="code">&lt;gls:translation&gt;</code>, and an optional <code class="code">&lt;gls:definition&gt;</code>.
+      Because harvesting a unit into a TM store, as described in <a href="#harvesting" title="5.2 Harvesting Translation Memory Entries">Harvesting Translation Memory Entries</a>, copies its content
+      unchanged, any <code class="code">&lt;gls:glossary&gt;</code> annotation already present on a source
+      unit is preserved automatically: no special handling is required to retain it, and none is
+      possible to accidentally lose, since harvesting a unit means copying the whole unit.</p><p>This turns a store built from terminology-annotated projects into more than a
+      collection of reusable translations: it is also a terminology reference. A TM consumer
+      that finds a match can inspect the matched unit's <code class="code">&lt;gls:glossary&gt;</code>
+      element to see which terms that translation was required to use, and how they were
+      rendered, without maintaining a separate glossary system alongside the store. The same
+      content is also available to whichever retrieval mechanism is used, as described in <a href="#implementation" title="7 Creating and Searching a Translation Memory Store">Creating and Searching a        Translation Memory Store</a>: an XML-aware database can query on
+      <code class="code">&lt;gls:term&gt;</code> text directly, and a vector database can index it alongside
+      the segment's source and target text.</p><pre class="programlisting">&lt;unit id="tm-0002"&gt;
+  &lt;gls:glossary xmlns:gls="urn:oasis:names:tc:xliff:glossary:2.0"&gt;
+    &lt;gls:glossEntry&gt;
+      &lt;gls:term&gt;fiscal year&lt;/gls:term&gt;
+      &lt;gls:translation&gt;a&ntilde;o fiscal&lt;/gls:translation&gt;
+    &lt;/gls:glossEntry&gt;
+  &lt;/gls:glossary&gt;
+  &lt;segment&gt;
+    &lt;source&gt;Download your certificate before the end of the fiscal year.&lt;/source&gt;
+    &lt;target&gt;Descargue su certificado antes de que finalice el a&ntilde;o fiscal.&lt;/target&gt;
+  &lt;/segment&gt;
+&lt;/unit&gt;</pre><p>A future TM lookup that matches this unit's source text now also surfaces the approved
+      term mapping for "fiscal year," letting a consumer enforce the same terminology choice
+      instead of only reusing the sentence-level translation.</p></div><div class="section" lang="en-US"><div class="titlepage"><div><div><h3 class="title"><a name="tmFormatExample"></a>5.6 Example</h3></div></div></div><p>A single translated document only ever has one <code class="code">&lt;file&gt;</code>, so nothing
       about it shows translation memory <span class="emphasis"><em>reuse</em></span>. The following example
       instead shows a TM store: an XLIFF document aggregating entries extracted from two
       unrelated projects, translated five months apart. The second project reuses a sentence
@@ -220,7 +292,9 @@
     &lt;/unit&gt;
     &lt;unit id="tm-0002"&gt;
       &lt;pvn:provenance&gt;
-        &lt;pvn:change agent="Acme MT" appliesTo="target" timestamp="2026-01-15T10:15:00.000Z"/&gt;
+        &lt;pvn:change agent="Acme MT" appliesTo="target" timestamp="2026-01-15T10:15:00.000Z"&gt;
+          &lt;pvn:value&gt;Descargue su certificado antes de que finalice el a&ntilde;o fiscal.&lt;/pvn:value&gt;
+        &lt;/pvn:change&gt;
       &lt;/pvn:provenance&gt;
       &lt;segment&gt;
         &lt;source&gt;Download your certificate before the end of the fiscal year.&lt;/source&gt;
@@ -232,7 +306,9 @@
     &lt;unit id="tm-1001"&gt;
       &lt;pvn:provenance&gt;
         &lt;pvn:change agent="TM Reuse" appliesTo="target" timestamp="2026-06-30T09:02:00.000Z"
-          intent="100% match reused from tm-0002 (manual/chapter3.html)."/&gt;
+          intent="100% match reused from tm-0002 (manual/chapter3.html)."&gt;
+          &lt;pvn:value&gt;Descargue su certificado antes de que finalice el a&ntilde;o fiscal.&lt;/pvn:value&gt;
+        &lt;/pvn:change&gt;
       &lt;/pvn:provenance&gt;
       &lt;segment&gt;
         &lt;source&gt;Download your certificate before the end of the fiscal year.&lt;/source&gt;
@@ -274,59 +350,114 @@
       with the following content:</p><div class="itemizedlist"><ul type="disc"><li><p>One or more bilingual XLIFF files, each conforming to [XLIFF-2.3-part2] or later,
           each independently declaring its own <code class="code">srcLang</code> and <code class="code">trgLang</code>.
           Files in the same package are not required to share a common
-          <code class="code">srcLang</code>.</p></li><li><p>A single manifest file, described in <a href="#manifestFile" title="6.2 Manifest File">Manifest File</a>, that lists the XLIFF files in the
-          package and the language pair each one represents.</p></li></ul></div><p>The XLIFF files in a package are not required to sit at the root of the archive. They
+          <code class="code">srcLang</code>.</p></li><li><p>A single manifest file, described in <a href="#manifestFile" title="6.2 Manifest File">Manifest File</a>, that groups the XLIFF files in the
+          package into one or more aligned sets by shared source language and records the
+          language pair each file represents.</p></li></ul></div><p>The XLIFF files in a package are not required to sit at the root of the archive. They
       MAY instead be organized into any folder structure the package author finds convenient, for
       example one folder per language pair. The manifest's <code class="code">href</code> value for each file
       gives that file's actual path within the package, so a consumer locates every file through
-      the manifest rather than by assuming a particular layout.</p><p>Where two or more files in a package share the same <code class="code">srcLang</code> and were
-      extracted from the same source content, corresponding translation units across those
-      files SHOULD use the same <code class="code">&lt;unit&gt;</code> <code class="code">id</code> value (and, where
-      segmented, the same <code class="code">&lt;segment&gt;</code> <code class="code">id</code> value), so that a
-      consumer can align entries for the same source content across target languages. This
-      mirrors, at the package level, the alignment that a multilingual <code class="code">&lt;tu&gt;</code>
-      provides in a single TMX file for that case. This alignment applies only among files that
-      share a source: it does not extend across files with different <code class="code">srcLang</code>
-      values, whose <code class="code">&lt;unit&gt;</code> and <code class="code">&lt;segment&gt;</code> <code class="code">id</code>
-      values are independent of one another.</p></div><div class="section" lang="en-US"><div class="titlepage"><div><div><h3 class="title"><a name="manifestFile"></a>6.2 Manifest File</h3></div></div></div><p>The manifest is an XML file, named <code class="code">manifest.xml</code>, placed at the root of
-      the package. It lists each XLIFF file contained in the package, together with its source
-      and target language, using an <code class="code">href</code> value that gives the file's path within
-      the package.</p><pre class="programlisting">&lt;tmPackage xmlns="urn:oasis:names:tc:xliff:tm-manifest:1.0" version="1.0"&gt;
-  &lt;file href="en-es.xlf" srcLang="en" trgLang="es"/&gt;
-  &lt;file href="en-fr.xlf" srcLang="en" trgLang="fr"/&gt;
-  &lt;file href="fr-de.xlf" srcLang="fr" trgLang="de"/&gt;
-&lt;/tmPackage&gt;</pre><p>A manifest is not required to declare the same <code class="code">srcLang</code> for every file it
-      lists, as the third entry above illustrates: <code class="code">en-es.xlf</code> and
-      <code class="code">en-fr.xlf</code> both originate from English source content, while
-      <code class="code">fr-de.xlf</code> is an unrelated bilingual file with French as its source
-      language.</p><p><span class="emphasis"><em>The manifest namespace, element and attribute names, and XML Schema shown
+      the manifest rather than by assuming a particular layout.</p><p>Every file listed in the manifest belongs to exactly one aligned set: a group of files
+      that share a common <code class="code">srcLang</code> and were extracted from the same source content.
+      A file with no counterpart sharing its source is simply the only member of its own aligned
+      set. Corresponding translation units across the files in an aligned set MUST use the same
+      <code class="code">&lt;unit&gt;</code> <code class="code">id</code> value (and, where segmented, the same
+      <code class="code">&lt;segment&gt;</code> <code class="code">id</code> value). This is what lets a consumer treat
+      aligned-set membership as a guarantee rather than a hint: a match against a given
+      <code class="code">&lt;unit&gt;</code> <code class="code">id</code> in one file of the set is known to correspond to
+      the same source context in every other file of the set, which lets a tool synthesize a
+      multi-target match across every language in the set directly from a single-language
+      lookup, without re-querying each file separately. This mirrors, at the package level, the
+      alignment that a multilingual <code class="code">&lt;tu&gt;</code> provides in a single TMX file, while
+      extending it to packages whose source language differs from one aligned set to the
+      next.</p><p>A tool that does not support this manifest format is not prevented from using the
+      package. Because every file it lists remains an independent, fully conformant XLIFF
+      document, such a tool MAY simply extract the archive, ignore <code class="code">xliff-manifest.xml</code>,
+      and ingest each bilingual XLIFF file on its own, exactly as it would ingest any other XLIFF
+      file it was given individually. The manifest adds cross-file structure for tools that
+      understand it; it is not required to make the package's contents usable.</p><p>The same fallback applies if a ZIP archive of bilingual XLIFF files has no
+      <code class="code">xliff-manifest.xml</code> at all: such an archive does not conform to this document
+      as a Translation Memory Exchange Package, but a tool MAY still treat it as an unlinked
+      collection of independent bilingual memories and ingest each file individually.</p></div><div class="section" lang="en-US"><div class="titlepage"><div><div><h3 class="title"><a name="manifestFile"></a>6.2 Manifest File</h3></div></div></div><p>The manifest is an XML file, named <code class="code">xliff-manifest.xml</code>, placed at the root of
+      the package. Its root <code class="code">&lt;tmPackage&gt;</code> element MAY carry a
+      <code class="code">packageId</code> attribute identifying the package and a <code class="code">created</code>
+      attribute recording when it was assembled; both are informational and carry no processing
+      requirement. It groups the package's XLIFF files into one or more
+      <code class="code">&lt;alignedSet&gt;</code> elements, each declaring the shared <code class="code">srcLang</code> of
+      its members and MAY carry a <code class="code">&lt;description&gt;</code> child element with a
+      human-readable summary of what the set represents. Within an aligned set, each file is
+      listed as a <code class="code">&lt;file&gt;</code> element giving the <code class="code">href</code> path to the file
+      within the package and the <code class="code">trgLang</code> it represents, and MAY carry a
+      <code class="code">hash</code> attribute so a consumer can verify the file was not corrupted or altered
+      in transit.</p><pre class="programlisting">&lt;tmPackage xmlns="urn:oasis:names:tc:xliff:tm-manifest:1.0" version="1.0"
+    packageId="pkg-2026-finance-tm" created="2026-07-10T13:43:00Z"&gt;
+  &lt;alignedSet id="set-01" srcLang="en"&gt;
+    &lt;description&gt;Financial terminology memory extracted from Q2 2026 projects.&lt;/description&gt;
+    &lt;file href="en-es.xlf" trgLang="es"
+      hash="sha256:3451e18e0aa54c65398509e1decd963e1ea1fafa4dee37fde6b1e2585c0f74ec"/&gt;
+    &lt;file href="en-fr.xlf" trgLang="fr"
+      hash="sha256:ec076145e71a8c08b9e78253ceac02bc9a0f98a56577216987ab6dea15e7b457"/&gt;
+  &lt;/alignedSet&gt;
+  &lt;alignedSet id="set-02" srcLang="fr"&gt;
+    &lt;file href="fr-de.xlf" trgLang="de"
+      hash="sha256:6dc9abf3aace245aefb08f4220e8355dc237de9ef289c60c87abd734ed552986"/&gt;
+  &lt;/alignedSet&gt;
+&lt;/tmPackage&gt;</pre><p>A manifest is not required to declare the same <code class="code">srcLang</code> for every aligned
+      set it contains, as the example above illustrates: <code class="code">en-es.xlf</code> and
+      <code class="code">en-fr.xlf</code> both originate from English source content and are grouped together
+      in <code class="code">set-01</code>, while <code class="code">fr-de.xlf</code> is an unrelated bilingual file with
+      French as its source language and forms the single-member <code class="code">set-02</code> on its
+      own.</p><p>The <code class="code">hash</code> attribute lets an exchanging tool make two decisions before it
+      opens or parses a potentially large XLIFF file. When synchronizing against a package it
+      has seen before, a tool can compare a file's <code class="code">hash</code> value in the new manifest
+      against the hash of the copy it already holds, and skip reparsing entirely when they
+      match, rather than reparsing every file on every sync. After extracting a file from the
+      archive, a tool can also recompute its hash and compare it against the value recorded in
+      the manifest to detect truncation or corruption introduced during transport, before that
+      file's content is allowed to reach a TM store.</p><p>A <code class="code">hash</code> value is expressed as <code class="code">algorithm:digest</code>, where
+      <code class="code">algorithm</code> identifies the hash function used (<code class="code">sha256</code> is
+      RECOMMENDED) and <code class="code">digest</code> is the lowercase hexadecimal digest it produces. Where
+      a <code class="code">&lt;file&gt;</code> entry carries a <code class="code">hash</code> value, an exchanging tool
+      SHOULD validate the extracted file's content against it before committing that content to
+      a TM store, and SHOULD treat a mismatch as a sign of a corrupted or incomplete transfer
+      rather than importing it. A matching hash only guards against accidental
+      corruption in transport: because both a file and its manifest entry are typically produced
+      by the same party, a hash alone does not protect against deliberate tampering by anyone
+      able to modify the package.</p><p><span class="emphasis"><em>The manifest namespace, element and attribute names, and XML Schema shown
       above are provisional and subject to review by the OASIS XLIFF TC before this Note
       advances beyond Committee Note Draft.</em></span></p></div><div class="section" lang="en-US"><div class="titlepage"><div><div><h3 class="title"><a name="exchangeExample"></a>6.3 Example</h3></div></div></div><p>A translation memory accumulated from an English-source project translated into
       Spanish and French, together with an unrelated project whose source was French and whose
       target was German, would be packaged as:</p><pre class="programlisting">tm-package.zip
-&#9500;&#9472;&#9472; manifest.xml
+&#9500;&#9472;&#9472; xliff-manifest.xml
 &#9500;&#9472;&#9472; en-es.xlf
 &#9500;&#9472;&#9472; en-fr.xlf
 &#9492;&#9472;&#9472; fr-de.xlf</pre><p>Each of <code class="code">en-es.xlf</code>, <code class="code">en-fr.xlf</code>, and <code class="code">fr-de.xlf</code> is
       an ordinary bilingual XLIFF document as described in <a href="#tmFormat" title="5 XLIFF as a Translation Memory Format">XLIFF as a Translation Memory Format</a>, and each can be
       consumed independently by a tool that only needs one language pair, or together by a tool
-      that reads <code class="code">manifest.xml</code> to reconstruct the full set. <code class="code">en-es.xlf</code>
-      and <code class="code">en-fr.xlf</code> share a common source language and MAY be aligned by
-      <code class="code">&lt;unit&gt;</code> and <code class="code">&lt;segment&gt;</code> <code class="code">id</code> as described in
-      <a href="#packageStructure" title="6.1 Package Structure">Package Structure</a>;
-      <code class="code">fr-de.xlf</code> has no source language in common with the other two files and is
-      not part of that alignment.</p><p>As described in <a href="#packageStructure" title="6.1 Package Structure">Package        Structure</a>, the same three files MAY instead be organized into one folder per
+      that reads <code class="code">xliff-manifest.xml</code> to reconstruct the full set. <code class="code">en-es.xlf</code>
+      and <code class="code">en-fr.xlf</code> share a common source language and belong to the same aligned
+      set, so they MUST be aligned by <code class="code">&lt;unit&gt;</code> and <code class="code">&lt;segment&gt;</code>
+      <code class="code">id</code> as described in <a href="#packageStructure" title="6.1 Package Structure">Package Structure</a>; <code class="code">fr-de.xlf</code> has no
+      source language in common with the other two files and forms its own aligned set, outside
+      that alignment.</p><p>As described in <a href="#packageStructure" title="6.1 Package Structure">Package        Structure</a>, the same three files MAY instead be organized into one folder per
       language pair:</p><pre class="programlisting">tm-package.zip
-&#9500;&#9472;&#9472; manifest.xml
+&#9500;&#9472;&#9472; xliff-manifest.xml
 &#9500;&#9472;&#9472; en-es/
 &#9474;   &#9492;&#9472;&#9472; en-es.xlf
 &#9500;&#9472;&#9472; en-fr/
 &#9474;   &#9492;&#9472;&#9472; en-fr.xlf
 &#9492;&#9472;&#9472; fr-de/
-    &#9492;&#9472;&#9472; fr-de.xlf</pre><p>with the manifest updated to match:</p><pre class="programlisting">&lt;tmPackage xmlns="urn:oasis:names:tc:xliff:tm-manifest:1.0" version="1.0"&gt;
-  &lt;file href="en-es/en-es.xlf" srcLang="en" trgLang="es"/&gt;
-  &lt;file href="en-fr/en-fr.xlf" srcLang="en" trgLang="fr"/&gt;
-  &lt;file href="fr-de/fr-de.xlf" srcLang="fr" trgLang="de"/&gt;
+    &#9492;&#9472;&#9472; fr-de.xlf</pre><p>with the manifest updated to match:</p><pre class="programlisting">&lt;tmPackage xmlns="urn:oasis:names:tc:xliff:tm-manifest:1.0" version="1.0"
+    packageId="pkg-2026-finance-tm" created="2026-07-10T13:43:00Z"&gt;
+  &lt;alignedSet id="set-01" srcLang="en"&gt;
+    &lt;file href="en-es/en-es.xlf" trgLang="es"
+      hash="sha256:3451e18e0aa54c65398509e1decd963e1ea1fafa4dee37fde6b1e2585c0f74ec"/&gt;
+    &lt;file href="en-fr/en-fr.xlf" trgLang="fr"
+      hash="sha256:ec076145e71a8c08b9e78253ceac02bc9a0f98a56577216987ab6dea15e7b457"/&gt;
+  &lt;/alignedSet&gt;
+  &lt;alignedSet id="set-02" srcLang="fr"&gt;
+    &lt;file href="fr-de/fr-de.xlf" trgLang="de"
+      hash="sha256:6dc9abf3aace245aefb08f4220e8355dc237de9ef289c60c87abd734ed552986"/&gt;
+  &lt;/alignedSet&gt;
 &lt;/tmPackage&gt;</pre><p>Both layouts are valid and equivalent: a conformant consumer resolves every file
       through the <code class="code">href</code> value recorded in the manifest rather than by assuming
       either layout.</p></div></div><div class="section" lang="en-US"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="implementation"></a>7 Creating and Searching a Translation Memory Store</h2></div></div></div><p>This section is informative and does not define conformance requirements. It describes
@@ -372,7 +503,7 @@
       without limitation, BaseX, eXist-db, MarkLogic, and Oracle XML DB. Naming these products is
       illustrative only and does not constitute an endorsement or a requirement to use any of
       them.</p><p>For example, the following excerpt of a translation memory store, taken from the store
-      shown in <a href="#tmFormatExample" title="5.5 Example">Example</a>,
+      shown in <a href="#tmFormatExample" title="5.6 Example">Example</a>,
       contains two entries with identical source text, harvested from two different
       documents:</p><pre class="programlisting">&lt;file id="f1" original="manual/chapter3.html"&gt;
   &lt;unit id="tm-0002"&gt;
@@ -417,14 +548,26 @@ tm-1001  original=app/ui-strings.json   "Download your certificate before the en
       <code class="code">tm-0002</code> and <code class="code">tm-1001</code> ranked by similarity score (for example,
       0.93 for each), even though an XPath query for this exact string, as in <a href="#xmlDatabaseApproach" title="7.1 XML-Aware Database and XPath Retrieval">XML-Aware Database and        XPath Retrieval</a>, would return no results at all. As in that example, restricting
       the search to vectors whose <code class="code">original</code> metadata equals
-      <code class="code">manual/chapter3.html</code> narrows the result to <code class="code">tm-0002</code> alone.</p><p>In practice, semantic similarity is often combined with a string-similarity ("fuzzy")
-      metric into a single blended score, rather than used alone. Embeddings alone can rank a
-      candidate that changes the meaning nearly as highly as one that only changes the wording; a
-      fuzzy string comparison of the same candidates penalizes that difference, while still
-      tolerating the minor spelling or punctuation variation that an exact-text query would
-      reject outright. Blending the two, for example by averaging a semantic similarity score
-      with a string-similarity score such as longest-common-subsequence, gives a single ranking
-      that neither method reliably produces on its own.</p></div><p>Beyond translation-pair lookup, a concordance-style search, returning every stored entry
+      <code class="code">manual/chapter3.html</code> narrows the result to <code class="code">tm-0002</code> alone.</p><p>Semantic similarity alone has a known blind spot: embeddings can rank a candidate that
+      changes the meaning nearly as highly as one that only changes the wording. Combining
+      semantic similarity with a string-similarity ("fuzzy") metric into a single blended score,
+      rather than using either alone, addresses this: a fuzzy string comparison of the same
+      candidates penalizes that difference, while still tolerating the minor spelling or
+      punctuation variation that an exact-text query would reject outright. Blending the two, for
+      example by averaging a semantic similarity score with a string-similarity score such as
+      longest-common-subsequence, gives a single ranking that neither method reliably produces on
+      its own.</p><p>A vector database's own distance metric only measures how similar a candidate is to
+      the query; it has no notion of what that candidate cost to produce. Where a harvested
+      entry's <code class="code">&lt;pvn:provenance&gt;</code> chain, described in <a href="#provenanceMetadata" title="5.4 Provenance Metadata for Translation Memory Entries">Provenance Metadata for        Translation Memory Entries</a>, includes a <code class="code">&lt;pvn:usage&gt;</code> element,
+      implementers SHOULD map its text value alongside its <code class="code">usageUnit</code> attribute as
+      additional metadata fields on the indexed vector. Because <code class="code">&lt;pvn:usage&gt;</code>
+      records the computational cost of producing a change, for example the number of tokens a
+      machine translation agent consumed to generate a target, a similarity search can then
+      weight or filter candidates by that cost in addition to similarity score, for instance
+      preferring a historical match that required fewer tokens to produce over an equally
+      similar one that required more. This is particularly relevant when a TM lookup feeds a
+      retrieval-augmented generation (RAG) translation workflow, where token cost and latency are
+      part of what is being optimized.</p></div><p>Beyond translation-pair lookup, a concordance-style search, returning every stored entry
     whose <code class="code">&lt;source&gt;</code> or <code class="code">&lt;target&gt;</code> contains a given text
     fragment across every language present in the store, is a common complementary query mode.
     Either approach in this section can support it: an XPath <code class="code">contains()</code> predicate
@@ -453,10 +596,16 @@ tm-1001  original=app/ui-strings.json   "Download your certificate before the en
           <code class="code">&lt;target&gt;</code> content, and no lossy conversion of inline content has
           been applied to represent that entry.</p></li><li><p>Where provenance information is recorded for an entry, it is expressed using the
           XLIFF 2.3 Provenance module rather than free-text notes or properties.</p></li></ol></div></div><div class="section" lang="en-US"><div class="titlepage"><div><div><h3 class="title"><a name="tmPackageConformance"></a>9.2 Translation Memory Exchange Package</h3></div></div></div><p>A ZIP archive <span class="bold"><strong>conforms</strong></span> to this document as a
-      <span class="emphasis"><em>Translation Memory Exchange Package</em></span> if:</p><div class="orderedlist"><ol type="1"><li><p>It contains a <code class="code">manifest.xml</code> file at its root, as described in <a href="#manifestFile" title="6.2 Manifest File">Manifest File</a>.</p></li><li><p>Every XLIFF file listed in the manifest is present in the archive and conforms to
-          this document as a Translation Memory Store.</p></li><li><p>Every XLIFF file listed in the manifest declares a single <code class="code">srcLang</code>
-          and a single <code class="code">trgLang</code>, matching the language pair recorded for that file
-          in the manifest.</p></li></ol></div></div></div><div class="appendix" lang="en-US"><h2 class="title" style="clear: both"><a name="annexA"></a>Appendix A License, Document Status and Notices (Normative)</h2><div class="section" lang="en-US"><div class="titlepage"><div><div><h3 class="title"><a name="documentStatus"></a>A.1 Document Status</h3></div></div></div><p>This document was last revised or approved by the OASIS XLIFF TC on the above date.
+      <span class="emphasis"><em>Translation Memory Exchange Package</em></span> if:</p><div class="orderedlist"><ol type="1"><li><p>It contains an <code class="code">xliff-manifest.xml</code> file at its root, as described in <a href="#manifestFile" title="6.2 Manifest File">Manifest File</a>.</p></li><li><p>Every XLIFF file listed in the manifest is present in the archive and conforms to
+          this document as a Translation Memory Store.</p></li><li><p>Every XLIFF file listed in the manifest declares a single <code class="code">srcLang</code>,
+          matching the <code class="code">srcLang</code> of the aligned set that contains it, and a single
+          <code class="code">trgLang</code>, matching the <code class="code">trgLang</code> recorded for that file in the
+          manifest.</p></li><li><p>For every aligned set in the manifest with more than one member, corresponding
+          translation units across the member files use the same <code class="code">&lt;unit&gt;</code>
+          <code class="code">id</code> value (and, where segmented, the same <code class="code">&lt;segment&gt;</code>
+          <code class="code">id</code> value), as described in <a href="#packageStructure" title="6.1 Package Structure">Package Structure</a>.</p></li><li><p>Where a <code class="code">&lt;file&gt;</code> entry in the manifest carries a
+          <code class="code">hash</code> attribute, the content of the file it references matches that
+          hash.</p></li></ol></div></div></div><div class="appendix" lang="en-US"><h2 class="title" style="clear: both"><a name="annexA"></a>Appendix A License, Document Status and Notices (Normative)</h2><div class="section" lang="en-US"><div class="titlepage"><div><div><h3 class="title"><a name="documentStatus"></a>A.1 Document Status</h3></div></div></div><p>This document was last revised or approved by the OASIS XLIFF TC on the above date.
       The level of approval is also listed above. Check the "Latest version" location noted
       above for possible later revisions of this document. Any other numbered Versions and
       other technical work produced by the Technical Committee (TC) are listed at <a href="https://groups.oasis-open.org/communities/tc-community-home2?CommunityKey=3d0f1f56-8477-4b53-9b14-018dc7d3eecf#technical" target="_top">https://groups.oasis-open.org/communities/tc-community-home2?CommunityKey=3d0f1f56-8477-4b53-9b14-018dc7d3eecf#technical</a>.</p><p>TC members should send comments on this document to the TC's email list. Others
@@ -485,11 +634,11 @@ tm-1001  original=app/ui-strings.json   "Download your certificate before the en
     only the cited version applies. For non-specific references, the latest version of the
     reference document (including any amendments) applies. While any hyperlinks included in
     this section were valid at the time of publication, OASIS cannot guarantee their long term
-    validity.</p><div class="section" lang="en-US"><div class="titlepage"><div><div><h3 class="title"><a name="normativeReferences"></a>B.1 Normative References</h3></div></div></div><div class="bibliography"><div class="titlepage"><div><div><h3 class="title"><a name="d0e1295"></a></h3></div></div></div><div class="bibliomixed"><a name="xliff23part2"></a><p class="bibliomixed">[<b><span class="abbrev">XLIFF-2.3-part2</span></b>]  XLIFF Version 2.3 Part 2:
+    validity.</p><div class="section" lang="en-US"><div class="titlepage"><div><div><h3 class="title"><a name="normativeReferences"></a>B.1 Normative References</h3></div></div></div><div class="bibliography"><div class="titlepage"><div><div><h3 class="title"><a name="d0e1513"></a></h3></div></div></div><div class="bibliomixed"><a name="xliff23part2"></a><p class="bibliomixed">[<b><span class="abbrev">XLIFF-2.3-part2</span></b>]  XLIFF Version 2.3 Part 2:
         Extended. Edited by Rodolfo M. Raya and Luc&iacute;a Morado V&aacute;zquez. 8 July 2026. OASIS
         Committee Specification Draft 01. <span class="citetitle"><em class="citetitle"><a href="https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-v2.3-part2-extended.html" target="_top">https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-v2.3-part2-extended.html</a></em></span>.</p></div><div class="bibliomixed"><a name="rfc2119"></a><p class="bibliomixed">[<b><span class="abbrev">RFC2119</span></b>]  S. Bradner. <i>Key words for use
           in RFCs to Indicate Requirement Levels</i>. March 1997. <span class="citetitle"><em class="citetitle"><a href="https://www.rfc-editor.org/rfc/rfc2119" target="_top">https://www.rfc-editor.org/rfc/rfc2119</a></em></span>.</p></div><div class="bibliomixed"><a name="zipAppnote"></a><p class="bibliomixed">[<b><span class="abbrev">ZIP APPNOTE</span></b>]  PKWARE, Inc. <i>.ZIP File
-          Format Specification</i>. <span class="citetitle"><em class="citetitle"><a href="https://pkware.cachefly.net/webdocs/casestudies/APPNOTE.TXT" target="_top">https://pkware.cachefly.net/webdocs/casestudies/APPNOTE.TXT</a></em></span>.</p></div></div></div><div class="section" lang="en-US"><div class="titlepage"><div><div><h3 class="title"><a name="informativeReferences"></a>B.2 Informative References</h3></div></div></div><div class="bibliography"><div class="titlepage"><div><div><h3 class="title"><a name="d0e1332"></a></h3></div></div></div><div class="bibliomixed"><a name="tmx14b"></a><p class="bibliomixed">[<b><span class="abbrev">TMX 1.4b</span></b>]  Translation Memory eXchange (TMX)
+          Format Specification</i>. <span class="citetitle"><em class="citetitle"><a href="https://pkware.cachefly.net/webdocs/casestudies/APPNOTE.TXT" target="_top">https://pkware.cachefly.net/webdocs/casestudies/APPNOTE.TXT</a></em></span>.</p></div></div></div><div class="section" lang="en-US"><div class="titlepage"><div><div><h3 class="title"><a name="informativeReferences"></a>B.2 Informative References</h3></div></div></div><div class="bibliography"><div class="titlepage"><div><div><h3 class="title"><a name="d0e1550"></a></h3></div></div></div><div class="bibliomixed"><a name="tmx14b"></a><p class="bibliomixed">[<b><span class="abbrev">TMX 1.4b</span></b>]  Translation Memory eXchange (TMX)
         Version 1.4b. Edited by Yves Savourel. OSCAR Recommendation, 26 April 2005.
         <span class="citetitle"><em class="citetitle"><a href="https://web.archive.org/web/20060528180452/http://www.lisa.org/standards/tmx/tmx.html" target="_top">https://web.archive.org/web/20060528180452/http://www.lisa.org/standards/tmx/tmx.html</a></em></span>.</p></div><div class="bibliomixed"><a name="xliff23provenance"></a><p class="bibliomixed">[<b><span class="abbrev">XLIFF-2.3-provenance</span></b>]  XLIFF Version
         2.3 Provenance Module (Work in Progress). OASIS XLIFF Technical Committee. Not yet
