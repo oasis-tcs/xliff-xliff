@@ -24,7 +24,7 @@
 
                     <para>Conformant XLIFF documents MUST be valid instances of the official Core
                         XML Schema (<ulink url="&this-loc;/schemas/xliff_core_&version;.xsd"
-                            >&this-loc;/schemas/xliff_core_2.2.xsd</ulink>) that is a part of this
+                            >&this-loc;/schemas/xliff_core_2.3.xsd</ulink>) that is a part of this
                         multipart Work Product.</para>
                 </listitem>
                 <listitem>

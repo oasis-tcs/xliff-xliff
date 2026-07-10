@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    elementFormDefault="qualified"
+    xmlns:pvn="urn:oasis:names:tc:xliff:pvn:2.3"
+    xmlns:xlf="urn:oasis:names:tc:xliff:document:2.3"
+    targetNamespace="urn:oasis:names:tc:xliff:pvn:2.3">
+
+  <!-- Import -->
+
+  <xs:import namespace="urn:oasis:names:tc:xliff:document:2.3"
+      schemaLocation="xliff_core_2.3.xsd"/>
+
+  <!-- Attribute Types -->
+
+  <xs:simpleType name="usageUnitValues">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="word"/>
+      <xs:enumeration value="character"/>
+      <xs:enumeration value="token"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="usageUnit_type">
+    <xs:union memberTypes="pvn:usageUnitValues xlf:userDefinedValue"/>
+  </xs:simpleType>
+
+  <!-- Elements -->
+
+  <xs:element name="provenance">
+    <xs:complexType mixed="false">
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="unbounded" ref="pvn:change"/>
+      </xs:sequence>
+      <xs:attribute name="ref" use="optional" type="xs:anyURI"/>
+      <xs:anyAttribute namespace="##other" processContents="lax"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="change">
+    <xs:complexType mixed="false">
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="unbounded" ref="pvn:value"/>
+        <xs:element minOccurs="0" maxOccurs="1" ref="pvn:usage"/>
+      </xs:sequence>
+      <xs:attribute name="agent" use="optional"/>
+      <xs:attribute name="appliesTo" use="required"/>
+      <xs:attribute name="intent" use="optional"/>
+      <xs:attribute name="organization" use="optional"/>
+      <xs:attribute name="person" use="optional"/>
+      <xs:attribute name="timestamp" use="optional" type="xs:dateTime"/>
+      <xs:attribute name="tool" use="optional"/>
+      <xs:anyAttribute namespace="##other" processContents="lax"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="usage">
+    <xs:complexType mixed="false">
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute name="usageUnit" use="required" type="pvn:usageUnit_type"/>
+          <xs:anyAttribute namespace="##other" processContents="lax"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="value">
+    <xs:complexType mixed="false">
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:anyAttribute namespace="##other" processContents="lax"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

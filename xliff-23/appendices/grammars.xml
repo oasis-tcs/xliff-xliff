@@ -19,8 +19,8 @@
         <listitem id="CoreSchema">
             <para>XLIFF Core <olink targetdoc="../introduction/introduction.xml"
                     targetptr="XMLSchema">[XML Schema]</olink>,</para>
-            <para><ulink url="&this-loc;/schemas/xliff_core_2.2.xsd"
-                    >&this-loc;/schemas/xliff_core_2.2.xsd</ulink></para>
+            <para><ulink url="&this-loc;/schemas/xliff_core_2.3.xsd"
+                    >&this-loc;/schemas/xliff_core_2.3.xsd</ulink></para>
 
         </listitem>
         <listitem id="XLIFFCatalog">
@@ -41,7 +41,7 @@
         
         <programlisting>
     
-<ulink url="&this-loc;/schemas/xliff_core_2.2.xsd"><code>Core XML Schema</code></ulink>
+<ulink url="&this-loc;/schemas/xliff_core_2.3.xsd"><code>Core XML Schema</code></ulink>
     |
     +---<ulink url="&this-loc;/schemas/matches.xsd"><code>Candidates Module XML Schema</code></ulink>
     |
@@ -57,11 +57,9 @@
     |
     +---<ulink url="&this-loc;/schemas/validation.xsd"><code>Validation Module XML Schema</code></ulink>
     |
-    +---<ulink url="&this-loc;/schemas/its.xsd"><code>ITS Module XML Schema (W3C namespace subset)</code></ulink>
+    +---<ulink url="&this-loc;/schemas/plural_gender_select.xsd"><code>Plural, Gender, and Select Module XML Schema</code></ulink>
     |
-    +---<ulink url="&this-loc;/schemas/itsm.xsd"><code>ITS Module XML Schema (additional attributes)</code></ulink>
-    |
-    +---<ulink url="&this-loc;/schemas/plural_gender_select.xsd">Plural, Gender, and Select Module</ulink>
+    +---<ulink url="&this-loc;/schemas/provenance.xsd"><code>Provenance Module XML Schema</code></ulink>
   
  
 </programlisting>

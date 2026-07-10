@@ -26,11 +26,13 @@
   <programlisting>
 &lt;unit id="1" its:locQualityRatingScore="0.968"&gt;
   &lt;pvn:provenance&gt;
-    &lt;pvn:change agent="TAUS MTQE" appliesTo="its:locQualityRatingScore"/&gt;
+    &lt;pvn:change agent="TAUS MTQE" <emphasis role="bold">appliesTo="its:locQualityRatingScore"</emphasis>/&gt;
   &lt;/pvn:provenance&gt;
   &lt;segment&gt;
-    &lt;source&gt;Your annual tax certificate is now available for download.&lt;/source&gt;
-    &lt;target&gt;O seu certificado anual de impostos está dispoñible para descarga.&lt;/target&gt;
+    &lt;source&gt;Your annual tax certificate is now available for 
+      download.&lt;/source&gt;
+    &lt;target&gt;O seu certificado anual de impostos está dispoñible para 
+      descarga.&lt;/target&gt;
   &lt;/segment&gt;
 &lt;/unit&gt;
 </programlisting>

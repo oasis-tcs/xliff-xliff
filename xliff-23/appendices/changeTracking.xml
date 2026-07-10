@@ -10,21 +10,22 @@
 <appendix role="informative" id="specChangeTracking">
     <title>Changes From Previous Version</title>
 
-    <para>(This appendix does not form an integral part of this Specification and is
-        informational.)</para>
-
     <para>This is to facilitate human tracking of changes between XLIFF Versions &version; and
         &pversion;. </para>
-
-    <para><emphasis>&lt; Work in progress: XLIFF &version; is still under development by the
-        OASIS XLIFF TC. The list below reflects known changes so far and is not yet
-        final. &gt;</emphasis></para>
 
     <orderedlist>
         <!-- Add new change track items to the bottom of the list -->
         <listitem>
             <para>Added new <olink targetdoc="../modules/provenance/specification.xml"
                     targetptr="provenance_module">Provenance Module</olink>. </para>
+        </listitem>
+        <listitem>
+            <para>Removed ITS module and its XML Schema. ITS elements and attributes 
+                can still be used in an XLIFF file by declaring the ITS namespace.</para>
+        </listitem>
+        <listitem>
+            <para>Updated <olink targetdoc="../attributes/version.xml" targetptr="version">version</olink> 
+                attribute values to include 2.3. Kept 2.0, 2.1, and 2.2 for backward compatibility.</para>
         </listitem>
     </orderedlist>
     <para>In spite of the above mentioned changes, fixes, clarifications, and additions, the

@@ -24,12 +24,15 @@
 &lt;unit id="1"&gt;
   &lt;pvn:provenance&gt;
     &lt;pvn:change agent="gpt-5.5" appliesTo="target"
-      intent="This version sounds slightly smoother and more idiomatic: 'para descargar' is
-        often preferred over 'para descarga' in everyday usage."/&gt;
+      <emphasis role="bold">intent="This version sounds slightly smoother and more idiomatic: 
+      'para descargar' is often preferred over 'para descarga' in 
+      everyday usage."</emphasis>/&gt;
   &lt;/pvn:provenance&gt;
   &lt;segment&gt;
-    &lt;source&gt;Your annual tax certificate is now available for download.&lt;/source&gt;
-    &lt;target&gt;O seu certificado anual de impostos xa está dispoñible para descargar.&lt;/target&gt;
+    &lt;source&gt;Your annual tax certificate is now available for 
+      download.&lt;/source&gt;
+    &lt;target&gt;O seu certificado anual de impostos xa está dispoñible 
+      para descargar.&lt;/target&gt;
   &lt;/segment&gt;
 &lt;/unit&gt;
 </programlisting>

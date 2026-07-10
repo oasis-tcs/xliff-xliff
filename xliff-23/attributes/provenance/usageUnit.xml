@@ -9,8 +9,8 @@
   <title>usageUnit</title>
 
   <para>Describes the unit used to express the cost or size information recorded by a <olink
-      targetdoc="../../elements/provenance/value.xml" targetptr="provenance_value"
-        ><code>&lt;value&gt;</code></olink> element.</para>
+      targetdoc="../../elements/provenance/usage.xml" targetptr="usage"
+        ><code>&lt;usage&gt;</code></olink> element.</para>
 
   <para><emphasis>Value description:</emphasis> One of the following values: <code>word</code>,
     <code>character</code>, <code>token</code>, or a user-defined value composed of a prefix and a
@@ -22,23 +22,24 @@
 
   <para><emphasis>Default value:</emphasis> undefined</para>
 
-  <para><emphasis>Used in:</emphasis> <olink targetdoc="../../elements/provenance/value.xml"
-      targetptr="provenance_value"><code>&lt;value&gt;</code></olink>. REQUIRED.</para>
+  <para><emphasis>Used in:</emphasis> <olink targetdoc="../../elements/provenance/usage.xml"
+      targetptr="usage"><code>&lt;usage&gt;</code></olink>. REQUIRED.</para>
 
   <para><emphasis>Example:</emphasis></para>
 
   <programlisting>
 &lt;unit id="1"&gt;
   &lt;pvn:provenance&gt;
-    &lt;pvn:change agent="gpt-5.5" appliesTo="target" timestamp="2026-05-05T21:08:00Z"&gt;
-      &lt;pvn:usage&gt;
-        &lt;pvn:value usageUnit="tokens"&gt;45&lt;/pvn:value&gt;
-      &lt;/pvn:usage&gt;
+    &lt;pvn:change agent="gpt-5.5" appliesTo="target" 
+        timestamp="2026-05-05T21:08:00Z"&gt;
+      &lt;pvn:usage <emphasis role="bold">usageUnit="tokens"</emphasis>&gt;45&lt;/pvn:usage&gt;
     &lt;/pvn:change&gt;
   &lt;/pvn:provenance&gt;
   &lt;segment&gt;
-    &lt;source&gt;Your annual tax certificate is now available for download.&lt;/source&gt;
-    &lt;target&gt;O seu certificado anual de impostos xa está dispoñible para descargar.&lt;/target&gt;
+    &lt;source&gt;Your annual tax certificate is now available for 
+      download.&lt;/source&gt;
+    &lt;target&gt;O seu certificado anual de impostos xa está dispoñible 
+      para descargar.&lt;/target&gt;
   &lt;/segment&gt;
 &lt;/unit&gt;
 </programlisting>

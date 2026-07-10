@@ -8,7 +8,7 @@
 
     <productname class="trade">xliff-extended</productname>
 
-    <productnumber>cs</productnumber>
+    <productnumber>csd01</productnumber>
 
     <releaseinfo role="OASIS-specification-this-authoritative">https://docs.oasis-open.org/xliff/xliff-core/v2.3/cs01/xliff-extended-v2.3-cs01-part2.html</releaseinfo>
     <releaseinfo role="OASIS-specification-this">https://docs.oasis-open.org/xliff/xliff-core/v2.3/cs01/xliff-extended-v2.3-cs01-part2.pdf</releaseinfo>
@@ -3368,9 +3368,9 @@
 
     <para>XLIFF Version - is used to specify the version of the XLIFF Document. This corresponds to
         the version number of the XLIFF specification that the XLIFF document adheres to. For this
-        specification, the version is <emphasis>2.2</emphasis>.</para>
+        specification, the version is <emphasis>2.3</emphasis>.</para>
 
-    <para><emphasis>Value description:</emphasis> 2.0, 2.1 or 2.2</para>
+    <para><emphasis>Value description:</emphasis> 2.0, 2.1, 2.2 or 2.3</para>
 
     <para><emphasis>Used in:</emphasis>
         <link linkend="xliff"><code>&lt;xliff></code></link>.</para>
@@ -5487,7 +5487,7 @@ Palouse horses&lt;fn>A Palouse horse is the same as
         <title>Module Namespace and Validation Artifacts</title>
         <para>The namespace for the Translation Candidates module is:
                 <code>urn:oasis:names:tc:xliff:matches:2.0</code></para>
-        <para>XML Schema for this module is available at <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/cs/schemas/matches.xsd">https://docs.oasis-open.org/xliff/xliff-core/v2.3/cs/schemas/matches.xsd</ulink>.</para>
+        <para>XML Schema for this module is available at <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/csd01/schemas/matches.xsd">https://docs.oasis-open.org/xliff/xliff-core/v2.3/csd01/schemas/matches.xsd</ulink>.</para>
 
 
     </section>
@@ -5996,7 +5996,7 @@ description. For example, 'Microsoft Translator Hub' or 'tm-client123-v456', or 
     <title>Module Namespace and Validation Artifacts</title>
     <para>The namespace for the Glossary module is:
         <code>urn:oasis:names:tc:xliff:glossary:2.0</code></para>
-    <para>XML Schema for this module is available at <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/cs/schemas/glossary.xsd">https://docs.oasis-open.org/xliff/xliff-core/v2.3/cs/schemas/glossary.xsd</ulink>.</para>
+    <para>XML Schema for this module is available at <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/csd01/schemas/glossary.xsd">https://docs.oasis-open.org/xliff/xliff-core/v2.3/csd01/schemas/glossary.xsd</ulink>.</para>
   </section>
 
   <section>
@@ -6252,7 +6252,7 @@ description. For example, 'Microsoft Translator Hub' or 'tm-client123-v456', or 
         <title>Module Namespace and Validation Artifacts</title>
         <para>The namespace for the Format style module is:
                 <code>urn:oasis:names:tc:xliff:fs:2.0</code></para>
-        <para>XML Schema is available at <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/cs/schemas/fs.xsd">https://docs.oasis-open.org/xliff/xliff-core/v2.3/cs/schemas/fs.xsd</ulink> .</para>
+        <para>XML Schema is available at <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/csd01/schemas/fs.xsd">https://docs.oasis-open.org/xliff/xliff-core/v2.3/csd01/schemas/fs.xsd</ulink> .</para>
 
     </section>
     <section>
@@ -6739,7 +6739,7 @@ description. For example, 'Microsoft Translator Hub' or 'tm-client123-v456', or 
         <title>Module Namespace and Validation Artifacts</title>
         <para>The namespace for the Metadata module is:
                 <code>urn:oasis:names:tc:xliff:metadata:2.0</code></para>
-        <para>XML Schema for this module is available at <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/cs/schemas/metadata.xsd">https://docs.oasis-open.org/xliff/xliff-core/v2.3/cs/schemas/metadata.xsd</ulink>.</para>
+        <para>XML Schema for this module is available at <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/csd01/schemas/metadata.xsd">https://docs.oasis-open.org/xliff/xliff-core/v2.3/csd01/schemas/metadata.xsd</ulink>.</para>
     </section>
     <section>
         <title>Module Fragment Identification Prefix</title>
@@ -6972,7 +6972,7 @@ description. For example, 'Microsoft Translator Hub' or 'tm-client123-v456', or 
     <title>Module Namespace and Validation Artifacts</title>
     <para>The namespace for the Resource Data module is:
         <code>urn:oasis:names:tc:xliff:resourcedata:2.0</code></para>
-    <para>XML Schema for this module is available at <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/cs/schemas/resource_data.xsd">https://docs.oasis-open.org/xliff/xliff-core/v2.3/cs/schemas/resource_data.xsd</ulink>.</para>
+    <para>XML Schema for this module is available at <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/csd01/schemas/resource_data.xsd">https://docs.oasis-open.org/xliff/xliff-core/v2.3/csd01/schemas/resource_data.xsd</ulink>.</para>
   </section>
 
   <section>
@@ -7552,7 +7552,7 @@ description. For example, 'Microsoft Translator Hub' or 'tm-client123-v456', or 
         <title>Module Namespace and Validation Artifacts</title>
         <para>The namespace for the Size and Length restriction module is:
                 <code>urn:oasis:names:tc:xliff:sizerestriction:2.0</code></para>
-        <para>XML Schema for this module is available at <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/cs/schemas/size_restriction.xsd">https://docs.oasis-open.org/xliff/xliff-core/v2.3/cs/schemas/size_restriction.xsd</ulink>.</para>
+        <para>XML Schema for this module is available at <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/csd01/schemas/size_restriction.xsd">https://docs.oasis-open.org/xliff/xliff-core/v2.3/csd01/schemas/size_restriction.xsd</ulink>.</para>
     </section>
 
     <section>
@@ -8108,7 +8108,7 @@ description. For example, 'Microsoft Translator Hub' or 'tm-client123-v456', or 
     <title>Module Namespace and Validation Artifacts</title>
     <para>The namespace for the Validation module is:
         <code>urn:oasis:names:tc:xliff:validation:2.0</code></para>
-    <para>XML Schema for this module is available at <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/cs/schemas/validation.xsd">https://docs.oasis-open.org/xliff/xliff-core/v2.3/cs/schemas/validation.xsd</ulink>.</para>
+    <para>XML Schema for this module is available at <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/csd01/schemas/validation.xsd">https://docs.oasis-open.org/xliff/xliff-core/v2.3/csd01/schemas/validation.xsd</ulink>.</para>
   </section>
 
   <section>
@@ -8722,7 +8722,7 @@ else
     <para>The namespace for the Plural, Gender, and Select module is:
         <code>urn:oasis:names:tc:xliff:pgs:1.0</code>.</para>
 
-    <para>XML Schema for this module is available at <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/cs/schemas/plural_gender_select.xsd">https://docs.oasis-open.org/xliff/xliff-core/v2.3/cs/schemas/plural_gender_select.xsd</ulink>.</para>
+    <para>XML Schema for this module is available at <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/csd01/schemas/plural_gender_select.xsd">https://docs.oasis-open.org/xliff/xliff-core/v2.3/csd01/schemas/plural_gender_select.xsd</ulink>.</para>
   </section>
 
   <section>
@@ -9125,7 +9125,7 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
         <title>Module Namespace and Validation Artifacts</title>
         <para>The namespace for the Provenance module is:
                 <code>urn:oasis:names:tc:xliff:pvn:2.3</code></para>
-        <para>XML Schema is available at …</para>
+        <para>XML Schema is available at <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/csd01/schemas/provenance.xsd">https://docs.oasis-open.org/xliff/xliff-core/v2.3/csd01/schemas/provenance.xsd</ulink></para>
     </section>
     <section>
         <title>Module Fragment Identification Prefix</title>
@@ -9143,7 +9143,7 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
     </section>
     <section>
         <title>Module Elements</title>
-        <para>The elements defined in the provenance module are <link linkend="change"><code>&lt;change></code></link>, <link linkend="provenance_element"><code>&lt;provenance></code></link>, <link linkend="usage"><code>&lt;usage></code></link> and <link linkend="provenance_value"><code>&lt;value></code></link></para>
+        <para>The elements defined in the provenance module are <link linkend="change"><code>&lt;change></code></link>, <link linkend="provenance_element"><code>&lt;provenance></code></link>, <link linkend="usage"><code>&lt;usage></code></link> and <link linkend="provenance_value"><code>&lt;value></code></link>.</para>
         <section>
             <title>Tree Structure</title>
             <para>Legend:</para>
@@ -9155,7 +9155,6 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
             </simplelist>
 
             <programlisting format="linespecific">
-            
 <link linkend="provenance_element">&lt;provenance></link>
         |
         +---<link linkend="change">&lt;change></link>
@@ -9163,8 +9162,8 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
             +---<link linkend="provenance_value">&lt;value></link>
             |
             ?---<link linkend="usage">&lt;usage></link>
-            
         </programlisting>
+
             <section id="provenance_element">
     <title>provenance</title>
     <para>Generic container for storing provenance data.</para>
@@ -9286,7 +9285,7 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
     <section>
         <title>Module Attributes</title>
         <para>The attributes defined in the Provenance module are: <link linkend="agent">agent</link>,
-                <link linkend="provenance_appliesTo">appliesTo</link>, <link linkend="intent">intent</link>, <link linkend="organization">organization</link>, <link linkend="person">person</link>, <link linkend="provenance_ref">ref</link>, <link linkend="timestamp">timestamp</link>, <link linkend="tool">tool</link>, and <link linkend="usageUnit">usageUnit</link></para>
+                <link linkend="provenance_appliesTo">appliesTo</link>, <link linkend="intent">intent</link>, <link linkend="organization">organization</link>, <link linkend="person">person</link>, <link linkend="provenance_ref">ref</link>, <link linkend="timestamp">timestamp</link>, <link linkend="tool">tool</link>, and <link linkend="usageUnit">usageUnit</link>.</para>
         <section id="agent">
   <title>agent</title>
 
@@ -9304,11 +9303,13 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
   <programlisting format="linespecific">
 &lt;unit id="1">
   &lt;pvn:provenance>
-    &lt;pvn:change agent="Google Translate" appliesTo="target"/>
+    &lt;pvn:change <emphasis role="bold">agent="Google Translate"</emphasis> appliesTo="target"/>
   &lt;/pvn:provenance>
   &lt;segment>
-    &lt;source>Your annual tax certificate is now available for download.&lt;/source>
-    &lt;target>O seu certificado anual de impostos está dispoñible para descarga.&lt;/target>
+    &lt;source>Your annual tax certificate is now available for 
+      download.&lt;/source>
+    &lt;target>O seu certificado anual de impostos está dispoñible 
+      para descarga.&lt;/target>
   &lt;/segment>
 &lt;/unit>
 </programlisting>
@@ -9331,11 +9332,13 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
   <programlisting format="linespecific">
 &lt;unit id="1" its:locQualityRatingScore="0.968">
   &lt;pvn:provenance>
-    &lt;pvn:change agent="TAUS MTQE" appliesTo="its:locQualityRatingScore"/>
+    &lt;pvn:change agent="TAUS MTQE" <emphasis role="bold">appliesTo="its:locQualityRatingScore"</emphasis>/>
   &lt;/pvn:provenance>
   &lt;segment>
-    &lt;source>Your annual tax certificate is now available for download.&lt;/source>
-    &lt;target>O seu certificado anual de impostos está dispoñible para descarga.&lt;/target>
+    &lt;source>Your annual tax certificate is now available for 
+      download.&lt;/source>
+    &lt;target>O seu certificado anual de impostos está dispoñible para 
+      descarga.&lt;/target>
   &lt;/segment>
 &lt;/unit>
 </programlisting>
@@ -9357,12 +9360,15 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
 &lt;unit id="1">
   &lt;pvn:provenance>
     &lt;pvn:change agent="gpt-5.5" appliesTo="target"
-      intent="This version sounds slightly smoother and more idiomatic: 'para descargar' is
-        often preferred over 'para descarga' in everyday usage."/>
+      <emphasis role="bold">intent="This version sounds slightly smoother and more idiomatic: 
+      'para descargar' is often preferred over 'para descarga' in 
+      everyday usage."</emphasis>/>
   &lt;/pvn:provenance>
   &lt;segment>
-    &lt;source>Your annual tax certificate is now available for download.&lt;/source>
-    &lt;target>O seu certificado anual de impostos xa está dispoñible para descargar.&lt;/target>
+    &lt;source>Your annual tax certificate is now available for 
+      download.&lt;/source>
+    &lt;target>O seu certificado anual de impostos xa está dispoñible 
+      para descargar.&lt;/target>
   &lt;/segment>
 &lt;/unit>
 </programlisting>
@@ -9384,11 +9390,13 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
   <programlisting format="linespecific">
 &lt;unit id="1">
   &lt;pvn:provenance>
-    &lt;pvn:change agent="Google Translate" organization="OASIS"/>
+    &lt;pvn:change agent="Google Translate" <emphasis role="bold">organization="OASIS"</emphasis>/>
   &lt;/pvn:provenance>
   &lt;segment>
-    &lt;source>Your annual tax certificate is now available for download.&lt;/source>
-    &lt;target>O seu certificado anual de impostos está dispoñible para descarga.&lt;/target>
+    &lt;source>Your annual tax certificate is now available for 
+      download.&lt;/source>
+    &lt;target>O seu certificado anual de impostos está dispoñible 
+      para descarga.&lt;/target>
   &lt;/segment>
 &lt;/unit>
 </programlisting>
@@ -9410,11 +9418,13 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
   <programlisting format="linespecific">
 &lt;unit id="1">
   &lt;pvn:provenance>
-    &lt;pvn:change person="Anxela Loureiro" appliesTo="target"/>
+    &lt;pvn:change <emphasis role="bold">person="Anxela Loureiro"</emphasis> appliesTo="target"/>
   &lt;/pvn:provenance>
   &lt;segment>
-    &lt;source>Your annual tax certificate is now available for download.&lt;/source>
-    &lt;target>O seu certificado anual de impostos está dispoñible para descarga.&lt;/target>
+    &lt;source>Your annual tax certificate is now available for 
+      download.&lt;/source>
+    &lt;target>O seu certificado anual de impostos está dispoñible 
+      para descarga.&lt;/target>
   &lt;/segment>
 &lt;/unit>
 </programlisting>
@@ -9447,11 +9457,14 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
   <programlisting format="linespecific">
 &lt;unit id="1">
   &lt;pvn:provenance>
-    &lt;pvn:change person="Anxela Loureiro" tool="Swordfish" appliesTo="target"/>
+    &lt;pvn:change person="Anxela Loureiro" <emphasis role="bold">tool="Swordfish"</emphasis> 
+      appliesTo="target"/>
   &lt;/pvn:provenance>
   &lt;segment id="s1">
-    &lt;source>Your annual tax certificate is now available for download.&lt;/source>
-    &lt;target>O seu certificado anual de impostos está dispoñible para descarga.&lt;/target>
+    &lt;source>Your annual tax certificate is now available for 
+      download.&lt;/source>
+    &lt;target>O seu certificado anual de impostos está dispoñible 
+      para descarga.&lt;/target>
   &lt;/segment>
 &lt;/unit>
 </programlisting>
@@ -9479,11 +9492,13 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
 &lt;unit id="1">
   &lt;pvn:provenance>
     &lt;pvn:change agent="Google Translate" appliesTo="target"
-      timestamp="2026-01-01T21:06:00.000Z"/>
+      <emphasis role="bold">timestamp="2026-01-01T21:06:00.000Z"</emphasis>/>
   &lt;/pvn:provenance>
   &lt;segment>
-    &lt;source>Your annual tax certificate is now available for download.&lt;/source>
-    &lt;target>O seu certificado anual de impostos está dispoñible para descarga.&lt;/target>
+    &lt;source>Your annual tax certificate is now available for 
+      download.&lt;/source>
+    &lt;target>O seu certificado anual de impostos está dispoñible 
+      para descarga.&lt;/target>
   &lt;/segment>
 &lt;/unit>
 </programlisting>
@@ -9491,7 +9506,7 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
         <section id="usageUnit">
   <title>usageUnit</title>
 
-  <para>Describes the unit used to express the cost or size information recorded by a <link linkend="provenance_value"><code>&lt;value></code></link> element.</para>
+  <para>Describes the unit used to express the cost or size information recorded by a <link linkend="usage"><code>&lt;usage></code></link> element.</para>
 
   <para><emphasis>Value description:</emphasis> One of the following values: <code>word</code>,
     <code>character</code>, <code>token</code>, or a user-defined value composed of a prefix and a
@@ -9503,22 +9518,23 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
 
   <para><emphasis>Default value:</emphasis> undefined</para>
 
-  <para><emphasis>Used in:</emphasis> <link linkend="provenance_value"><code>&lt;value></code></link>. REQUIRED.</para>
+  <para><emphasis>Used in:</emphasis> <link linkend="usage"><code>&lt;usage></code></link>. REQUIRED.</para>
 
   <para><emphasis>Example:</emphasis></para>
 
   <programlisting format="linespecific">
 &lt;unit id="1">
   &lt;pvn:provenance>
-    &lt;pvn:change agent="gpt-5.5" appliesTo="target" timestamp="2026-05-05T21:08:00Z">
-      &lt;pvn:usage>
-        &lt;pvn:value usageUnit="tokens">45&lt;/pvn:value>
-      &lt;/pvn:usage>
+    &lt;pvn:change agent="gpt-5.5" appliesTo="target" 
+        timestamp="2026-05-05T21:08:00Z">
+      &lt;pvn:usage <emphasis role="bold">usageUnit="tokens"</emphasis>>45&lt;/pvn:usage>
     &lt;/pvn:change>
   &lt;/pvn:provenance>
   &lt;segment>
-    &lt;source>Your annual tax certificate is now available for download.&lt;/source>
-    &lt;target>O seu certificado anual de impostos xa está dispoñible para descargar.&lt;/target>
+    &lt;source>Your annual tax certificate is now available for 
+      download.&lt;/source>
+    &lt;target>O seu certificado anual de impostos xa está dispoñible 
+      para descargar.&lt;/target>
   &lt;/segment>
 &lt;/unit>
 </programlisting>
@@ -9526,10 +9542,10 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
     </section>
 
     <section>
-        <title>Table XXX</title>
-        <para>Table x below provides a summary of the provenance information supported by XLIFF 2.x
-            Core and the Provenance module. For completeness, XLIFF 1.2 is also provided as a legacy
-            reference.</para>
+        <title>Provenance Information Mapping</title>
+        <para>Thet table below provides a summary of the provenance information supported by XLIFF
+            2.x Core and the Provenance module. For completeness, XLIFF 1.2 is also provided as a
+            legacy reference.</para>
         <informaltable>
             <tgroup cols="5">
                 <colspec colname="col1" colnum="1"/>
@@ -9560,41 +9576,40 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
                             <para>is being translated/localised?</para>
                             <para>does it do?</para>
                         </entry>
-                        <entry>original</entry>
-                        <entry>original</entry>
+                        <entry><ulink url="https://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html#original">original</ulink></entry>
+                        <entry><link linkend="original">original</link></entry>
                         <entry/>
                     </row>
                     <row>
-                        <entry>source-language</entry>
-                        <entry>srcLang</entry>
+                        <entry><ulink url="https://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html#source-language">source-language</ulink></entry>
+                        <entry><link linkend="srcLang">srcLang</link></entry>
                         <entry/>
                     </row>
                     <row>
-                        <entry>target-language</entry>
-                        <entry>trgLang</entry>
+                        <entry><ulink url="https://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html#target-language">target-language</ulink></entry>
+                        <entry><link linkend="trgLang">trgLang</link></entry>
                         <entry/>
                     </row>
                     <row>
-                        <entry>category</entry>
-                        <entry>(please note that the "category" attribute in 2.2 is used with a
-                            different purpose and in a different element (note instead of
-                            file))</entry>
-                        <entry>domain</entry>
-                    </row>
-                    <row>
-                        <entry>version</entry>
-                        <entry>version</entry>
+                        <entry><ulink url="https://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html#category">category</ulink></entry>
+                        <entry>the <link linkend="category">category</link> attribute in 2.x is used with
+                            a different purpose and in a different element (<link linkend="note"><code>&lt;note></code></link> instead of <link linkend="file"><code>&lt;file></code></link>)</entry>
                         <entry/>
                     </row>
                     <row>
-                        <entry>datatype</entry>
+                        <entry><ulink url="https://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html#version">version</ulink></entry>
+                        <entry><link linkend="version">version</link></entry>
+                        <entry/>
+                    </row>
+                    <row>
+                        <entry><ulink url="https://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html#datatype">datatype</ulink></entry>
                         <entry>
-                            <para>type (indicates the type of the element, e.g. image, user
-                                interface element, etc.)</para>
-                            <para>name (resource name, for example, the ID of a string in a Window
-                                string table)</para>
+                            <para><link linkend="type">type</link> (indicates the type of the element, e.g. image,
+                                user interface element, etc.)</para>
+                            <para><link linkend="name">name</link> (resource name, for example, the ID of a string in
+                                a Window string table)</para>
                         </entry>
-                        <entry>datatype</entry>
+                        <entry/>
                     </row>
                     <row>
                         <entry>
@@ -9602,13 +9617,11 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
                         </entry>
                         <entry>is localising/ translating?</entry>
                         <entry>
-                            <para>contact-name</para>
-                            <para>contact-email</para>
+                            <para><ulink url="https://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html#contact-name">contact-name</ulink>, <ulink url="https://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html#contact-email">contact-email</ulink></para>
                         </entry>
                         <entry/>
                         <entry>
-                            <para>agentName,</para>
-                            <para>personName,</para>
+                            <para><link linkend="agent">agent</link>, <link linkend="person">person</link></para>
                         </entry>
                     </row>
                     <row>
@@ -9617,12 +9630,10 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
                         </entry>
                         <entry>is it localised [company/country]?</entry>
                         <entry>
-                            <para>company-name</para>
-                            <para>target-language</para>
-                            <para>contact-phone</para>
+                            <para><ulink url="https://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html#company-name">company-name</ulink>, <ulink url="https://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html#target-language">target-language</ulink>, <ulink url="https://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html#contact-phone">contact-phone</ulink></para>
                         </entry>
-                        <entry>trgLang</entry>
-                        <entry>orgID, orgName</entry>
+                        <entry><link linkend="trgLang">trgLang</link></entry>
+                        <entry><link linkend="organization">organization</link></entry>
                     </row>
                     <row>
                         <entry>
@@ -9633,16 +9644,16 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
                             <para>was the content extracted?</para>
                             <para>was the translation made?</para>
                         </entry>
-                        <entry>date</entry>
+                        <entry><ulink url="https://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html#date">date</ulink></entry>
                         <entry/>
-                        <entry>date</entry>
+                        <entry><link linkend="timestamp">timestamp</link></entry>
                     </row>
                     <row>
                         <entry>
                             <emphasis role="bold">Why (motivation)?</emphasis>
                         </entry>
                         <entry>Is it being localised?</entry>
-                        <entry>job-id</entry>
+                        <entry><ulink url="https://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html#job-id">job-id</ulink></entry>
                         <entry/>
                         <entry/>
                     </row>
@@ -9652,28 +9663,25 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
                         </entry>
                         <entry>Is it localised [tool, process, auxiliary material]?</entry>
                         <entry>
-                            <para>tool-id</para>
-                            <para>tool-name</para>
+                            <para><ulink url="https://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html#tool-id">tool-id</ulink>, <ulink url="https://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html#tool-name">tool-name</ulink></para>
                         </entry>
                         <entry/>
-                        <entry>toolName</entry>
+                        <entry><link linkend="tool">tool</link></entry>
                     </row>
                     <row>
                         <entry>Is it being localised?</entry>
                         <entry>
-                            <para>state</para>
-                            <para>state-qualifier</para>
+                            <para><ulink url="https://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html#state">state</ulink>, <ulink url="https://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html#state-qualifier">state-qualifier</ulink></para>
                         </entry>
-                        <entry>state, subSate</entry>
+                        <entry><link linkend="state">state</link>, <link linkend="substate">subState</link></entry>
                         <entry/>
                     </row>
                     <row>
-                        <entry>much has it cost?</entry>
+                        <entry>how much has it cost?</entry>
                         <entry/>
                         <entry/>
                         <entry>
-                            <para>usage</para>
-                            <para>usageUnit</para>
+                            <para><link linkend="usage"><code>&lt;usage></code></link>, <link linkend="usageUnit">usageUnit</link></para>
                         </entry>
                     </row>
                 </tbody>
@@ -9709,7 +9717,7 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
                 <listitem>
 
                     <para>Conformant XLIFF documents MUST be valid instances of the official Core
-                        XML Schema (<ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/cs/schemas/xliff_core_2.3.xsd">https://docs.oasis-open.org/xliff/xliff-core/v2.3/cs/schemas/xliff_core_2.2.xsd</ulink>) that is a part of this
+                        XML Schema (<ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/csd01/schemas/xliff_core_2.3.xsd">https://docs.oasis-open.org/xliff/xliff-core/v2.3/csd01/schemas/xliff_core_2.3.xsd</ulink>) that is a part of this
                         multipart Work Product.</para>
                 </listitem>
                 <listitem>
@@ -9795,10 +9803,8 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
 </section>
 
   
-  <appendix id="annexA">
+  <appendix id="annexA" role="normative">
     <title>License, Document Status and Notices</title>
-
-    <para>(This annex forms an integral part of this Specification.)</para>
 
     <section id="documentStatus">
         <title>Document Status</title>
@@ -9897,8 +9903,6 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
   <appendix id="references">
     <title>References</title>
 
-    <para>(This annex forms an integral part of this Specification.)</para>
-
     <para>This appendix contains the normative and informative references that are used in this
         document. While any hyperlinks included in this appendix were valid at the time of
         publication, OASIS cannot guarantee their long-term validity. </para>
@@ -9977,7 +9981,7 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
                 </citetitle> (Fifth Edition) W3C Recommendation 26 November 2008.</bibliomixed>
             <bibliomixed id="xml_namespace"><abbrev>XML namespace</abbrev> W3C, <title>Schema
                     document for namespace http://www.w3.org/XML/1998/namespace</title>
-                <citetitle><ulink url="http://www.w3.org/2001/xml.xsd">http://www.w3.org/2001/xml.xsd</ulink></citetitle> [<edition><ulink url="http://www.w3.org/2009/01/xml.xsd">http://www.w3.org/2009/01/xml.xsd</ulink>]</edition>. at <edition><ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/cs/schemas/informativeCopiesOf3rdPartySchemas/w3c/xml.xsd">https://docs.oasis-open.org/xliff/xliff-core/v2.3/cs/schemas/informativeCopiesOf3rdPartySchemas/w3c/xml.xsd</ulink></edition>
+                <citetitle><ulink url="http://www.w3.org/2001/xml.xsd">http://www.w3.org/2001/xml.xsd</ulink></citetitle> [<edition><ulink url="http://www.w3.org/2009/01/xml.xsd">http://www.w3.org/2009/01/xml.xsd</ulink>]</edition>. at <edition><ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/csd01/schemas/informativeCopiesOf3rdPartySchemas/w3c/xml.xsd">https://docs.oasis-open.org/xliff/xliff-core/v2.3/csd01/schemas/informativeCopiesOf3rdPartySchemas/w3c/xml.xsd</ulink></edition>
                 in this distribution</bibliomixed>
 
             <bibliomixed id="XMLCatalogs"><abbrev>XML Catalogs</abbrev> Norman Walsh, <title>XML
@@ -10116,12 +10120,12 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
     <orderedlist continuation="restarts" inheritnum="ignore">
         <listitem id="CoreSchema">
             <para>XLIFF Core <link linkend="XMLSchema">[XML Schema]</link>,</para>
-            <para><ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/cs/schemas/xliff_core_2.2.xsd">https://docs.oasis-open.org/xliff/xliff-core/v2.3/cs/schemas/xliff_core_2.2.xsd</ulink></para>
+            <para><ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/csd01/schemas/xliff_core_2.3.xsd">https://docs.oasis-open.org/xliff/xliff-core/v2.3/csd01/schemas/xliff_core_2.3.xsd</ulink></para>
 
         </listitem>
         <listitem id="XLIFFCatalog">
             <para><link linkend="XMLCatalogs">[XML                    Catalog]</link> of XLIFF Defined XML Schemas,</para>
-            <para><ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/cs/schemas/catalog.xml">https://docs.oasis-open.org/xliff/xliff-core/v2.3/cs/schemas/catalog.xml</ulink></para>
+            <para><ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/csd01/schemas/catalog.xml">https://docs.oasis-open.org/xliff/xliff-core/v2.3/csd01/schemas/catalog.xml</ulink></para>
         </listitem>
 
         <listitem>
@@ -10135,27 +10139,25 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
         
         <programlisting format="linespecific">
     
-<ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/cs/schemas/xliff_core_2.2.xsd"><code>Core XML Schema</code></ulink>
+<ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/csd01/schemas/xliff_core_2.3.xsd"><code>Core XML Schema</code></ulink>
     |
-    +---<ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/cs/schemas/matches.xsd"><code>Candidates Module XML Schema</code></ulink>
+    +---<ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/csd01/schemas/matches.xsd"><code>Candidates Module XML Schema</code></ulink>
     |
-    +---<ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/cs/schemas/glossary.xsd"><code>Glossary Module XML Schema</code></ulink>
+    +---<ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/csd01/schemas/glossary.xsd"><code>Glossary Module XML Schema</code></ulink>
     |
-    +---<ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/cs/schemas/fs.xsd"><code>Format Style Module XML Schema</code></ulink>
+    +---<ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/csd01/schemas/fs.xsd"><code>Format Style Module XML Schema</code></ulink>
     |
-    +---<ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/cs/schemas/metadata.xsd"><code>Metadata Module XML Schema</code></ulink>
+    +---<ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/csd01/schemas/metadata.xsd"><code>Metadata Module XML Schema</code></ulink>
     |
-    +---<ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/cs/schemas/resource_data.xsd"><code>Resource Data Module XML Schema</code></ulink>
+    +---<ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/csd01/schemas/resource_data.xsd"><code>Resource Data Module XML Schema</code></ulink>
     |
-    +---<ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/cs/schemas/size_restriction.xsd"><code>Size and Length Restriction Module XML Schema</code></ulink>
+    +---<ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/csd01/schemas/size_restriction.xsd"><code>Size and Length Restriction Module XML Schema</code></ulink>
     |
-    +---<ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/cs/schemas/validation.xsd"><code>Validation Module XML Schema</code></ulink>
+    +---<ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/csd01/schemas/validation.xsd"><code>Validation Module XML Schema</code></ulink>
     |
-    +---<ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/cs/schemas/its.xsd"><code>ITS Module XML Schema (W3C namespace subset)</code></ulink>
+    +---<ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/csd01/schemas/plural_gender_select.xsd"><code>Plural, Gender, and Select Module XML Schema</code></ulink>
     |
-    +---<ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/cs/schemas/itsm.xsd"><code>ITS Module XML Schema (additional attributes)</code></ulink>
-    |
-    +---<ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/cs/schemas/plural_gender_select.xsd">Plural, Gender, and Select Module</ulink>
+    +---<ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/csd01/schemas/provenance.xsd"><code>Provenance Module XML Schema</code></ulink>
   
  
 </programlisting>
@@ -10165,11 +10167,8 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
 </appendix>
 
   
-  <appendix id="acknowledgements">
+  <appendix id="acknowledgements" role="informative">
     <title>Acknowledgments</title>
-
-    <para>(This appendix does not form an integral part of this Specification and is
-        informational.)</para>
 
     <section id="ackLeadership">
         <title>Leadership</title>
@@ -10185,6 +10184,9 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
                     <listitem>
                         <para>Dr. Lucía Morado Vázquez, University of Geneva</para>
                     </listitem>
+                    <listitem>
+                        <para>Umaoka, Yoshito - Individual </para>
+                    </listitem>
                 </itemizedlist>
             </listitem>
             <listitem>
@@ -10195,9 +10197,6 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
                     </listitem>
                     <listitem>
                         <para>Dr. Lucía Morado Vázquez, University of Geneva</para>
-                    </listitem>
-                    <listitem>
-                        <para>Umaoka, Yoshito - Individual </para>
                     </listitem>
                 </itemizedlist>
             </listitem>
@@ -10226,20 +10225,21 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
   <appendix id="specChangeTracking" role="informative">
     <title>Changes From Previous Version</title>
 
-    <para>(This appendix does not form an integral part of this Specification and is
-        informational.)</para>
-
     <para>This is to facilitate human tracking of changes between XLIFF Versions 2.3 and
         2.2. </para>
-
-    <para><emphasis>&lt; Work in progress: XLIFF 2.3 is still under development by the
-        OASIS XLIFF TC. The list below reflects known changes so far and is not yet
-        final. ></emphasis></para>
 
     <orderedlist continuation="restarts" inheritnum="ignore">
         
         <listitem>
             <para>Added new <link linkend="provenance_module">Provenance Module</link>. </para>
+        </listitem>
+        <listitem>
+            <para>Removed ITS module and its XML Schema. ITS elements and attributes 
+                can still be used in an XLIFF file by declaring the ITS namespace.</para>
+        </listitem>
+        <listitem>
+            <para>Updated <link linkend="version">version</link> 
+                attribute values to include 2.3. Kept 2.0, 2.1, and 2.2 for backward compatibility.</para>
         </listitem>
     </orderedlist>
     <para>In spite of the above mentioned changes, fixes, clarifications, and additions, the

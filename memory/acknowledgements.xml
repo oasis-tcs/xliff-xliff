@@ -5,11 +5,8 @@
 %xinclude;
 
 ]>
-<appendix id="acknowledgements">
+<appendix role="informative" id="acknowledgements">
   <title>Acknowledgments</title>
-
-  <para>(This appendix does not form an integral part of this document and is
-    informational.)</para>
 
   <section id="ackLeadership">
     <title>Leadership</title>

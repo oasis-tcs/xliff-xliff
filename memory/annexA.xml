@@ -5,10 +5,8 @@
 %xinclude;
 
 ]>
-<appendix id="annexA">
+<appendix role="normative" id="annexA">
   <title>License, Document Status and Notices</title>
-
-  <para>(This annex forms an integral part of this document.)</para>
 
   <section id="documentStatus">
     <title>Document Status</title>

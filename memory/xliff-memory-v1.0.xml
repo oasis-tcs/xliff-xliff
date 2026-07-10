@@ -621,10 +621,8 @@
 </section>
 
   
-  <appendix id="annexA">
+  <appendix id="annexA" role="normative">
   <title>License, Document Status and Notices</title>
-
-  <para>(This annex forms an integral part of this document.)</para>
 
   <section id="documentStatus">
     <title>Document Status</title>
@@ -678,9 +676,7 @@
   <appendix id="annexB">
   <title>References</title>
 
-  <para>(This annex forms an integral part of this document.)</para>
-
-  <para>This section contains the informative references that are used in this document.</para>
+  <para>This section contains the normative and informative references that are used in this document.</para>
 
   <para>Informative references are either specific or non-specific. For specific references,
     only the cited version applies. For non-specific references, the latest version of the
@@ -726,11 +722,8 @@
 </appendix>
 
   
-  <appendix id="acknowledgements">
+  <appendix id="acknowledgements" role="informative">
   <title>Acknowledgments</title>
-
-  <para>(This appendix does not form an integral part of this document and is
-    informational.)</para>
 
   <section id="ackLeadership">
     <title>Leadership</title>
@@ -798,11 +791,8 @@
       XLIFF TC during the creation of this document. ></emphasis></para>
   </section>
 </appendix>
-  <appendix id="changeTracking">
+  <appendix id="changeTracking" role="informative">
   <title>Changes From Previous Version</title>
-
-  <para>(This appendix does not form an integral part of this document and is
-    informational.)</para>
 
   <para>None. This is the first published draft of this document.</para>
 

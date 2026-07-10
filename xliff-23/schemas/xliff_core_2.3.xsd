@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
     elementFormDefault="qualified"
-    xmlns:xlf="urn:oasis:names:tc:xliff:document:2.2"
+    xmlns:xlf="urn:oasis:names:tc:xliff:document:2.3"
     xmlns:mda="urn:oasis:names:tc:xliff:metadata:2.0"
     xmlns:pgs="urn:oasis:names:tc:xliff:pgs:1.0"
-    targetNamespace="urn:oasis:names:tc:xliff:document:2.2">
+    targetNamespace="urn:oasis:names:tc:xliff:document:2.3">
 
   <!-- Import -->
 
@@ -107,12 +107,13 @@
 
   <xs:simpleType name="versionValues">
     <xs:annotation>
-      <xs:documentation>Version values: 2.0 and 2.1 are allowed for backward compatibility.</xs:documentation>
+      <xs:documentation>Version values: 2.0, 2.1 and 2.2 are allowed for backward compatibility.</xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
       <xs:enumeration value="2.0"/>
       <xs:enumeration value="2.1"/>
       <xs:enumeration value="2.2"/>
+      <xs:enumeration value="2.3"/>
     </xs:restriction>
   </xs:simpleType>
   

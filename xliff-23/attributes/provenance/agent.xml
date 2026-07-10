@@ -25,11 +25,13 @@
   <programlisting>
 &lt;unit id="1"&gt;
   &lt;pvn:provenance&gt;
-    &lt;pvn:change agent="Google Translate" appliesTo="target"/&gt;
+    &lt;pvn:change <emphasis role="bold">agent="Google Translate"</emphasis> appliesTo="target"/&gt;
   &lt;/pvn:provenance&gt;
   &lt;segment&gt;
-    &lt;source&gt;Your annual tax certificate is now available for download.&lt;/source&gt;
-    &lt;target&gt;O seu certificado anual de impostos está dispoñible para descarga.&lt;/target&gt;
+    &lt;source&gt;Your annual tax certificate is now available for 
+      download.&lt;/source&gt;
+    &lt;target&gt;O seu certificado anual de impostos está dispoñible 
+      para descarga.&lt;/target&gt;
   &lt;/segment&gt;
 &lt;/unit&gt;
 </programlisting>

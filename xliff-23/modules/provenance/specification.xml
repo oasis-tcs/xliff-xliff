@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.docbook.org/xml/4.5/docbookx.dtd" [
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.docbook.org/xml/4.5/docbookx.dtd"[
 <!ENTITY % base SYSTEM "../../docbook/dbgenent.mod">
 %base;
 <!ENTITY % xinclude SYSTEM "../../docbook/xinclude.mod">
@@ -23,7 +22,8 @@
         <title>Module Namespace and Validation Artifacts</title>
         <para>The namespace for the Provenance module is:
                 <code>urn:oasis:names:tc:xliff:pvn:2.3</code></para>
-        <para>XML Schema is available at …</para>
+        <para>XML Schema is available at <ulink url="&this-loc;/schemas/provenance.xsd"
+                >&this-loc;/schemas/provenance.xsd</ulink></para>
     </section>
     <section>
         <title>Module Fragment Identification Prefix</title>
@@ -49,7 +49,7 @@
                 targetdoc="../elements/provenance/usage.xml" targetptr="usage"
                     ><code>&lt;usage&gt;</code></olink> and <olink
                 targetdoc="../elements/provenance/value.xml" targetptr="provenance_value"
-                    ><code>&lt;value&gt;</code></olink></para>
+                    ><code>&lt;value&gt;</code></olink>.</para>
         <section>
             <title>Tree Structure</title>
             <para>Legend:</para>
@@ -61,7 +61,6 @@
             </simplelist>
 
             <programlisting format="linespecific">
-            
 <olink targetdoc="../elements/provenance/provenance.xml" targetptr="provenance_element">&lt;provenance&gt;</olink>
         |
         +---<olink targetdoc="../elements/provenance/change.xml" targetptr="change">&lt;change&gt;</olink>
@@ -69,8 +68,8 @@
             +---<olink targetdoc="../elements/provenance/value.xml" targetptr="provenance_value">&lt;value&gt;</olink>
             |
             ?---<olink targetdoc="../elements/provenance/usage.xml" targetptr="usage">&lt;usage&gt;</olink>
-            
         </programlisting>
+
             <xi:include href="../../elements/provenance/provenance.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"/>
             <xi:include href="../../elements/provenance/change.xml"
@@ -98,7 +97,7 @@
                 >timestamp</olink>, <olink targetdoc="../../attributes/provenance/tool.xml"
                 targetptr="tool">tool</olink>, and <olink
                 targetdoc="../../attributes/provenance/usageUnit.xml" targetptr="usageUnit"
-                >usageUnit</olink></para>
+                >usageUnit</olink>.</para>
         <xi:include href="../../attributes/provenance/agent.xml"
             xmlns:xi="http://www.w3.org/2001/XInclude"/>
         <xi:include href="../../attributes/provenance/appliesTo.xml"
@@ -120,10 +119,10 @@
     </section>
 
     <section>
-        <title>Table XXX</title>
-        <para>Table x below provides a summary of the provenance information supported by XLIFF 2.x
-            Core and the Provenance module. For completeness, XLIFF 1.2 is also provided as a legacy
-            reference.</para>
+        <title>Provenance Information Mapping</title>
+        <para>Thet table below provides a summary of the provenance information supported by XLIFF
+            2.x Core and the Provenance module. For completeness, XLIFF 1.2 is also provided as a
+            legacy reference.</para>
         <informaltable>
             <tgroup cols="5">
                 <colspec colnum="1" colname="col1"/>
@@ -154,41 +153,63 @@
                             <para>is being translated/localised?</para>
                             <para>does it do?</para>
                         </entry>
-                        <entry>original</entry>
-                        <entry>original</entry>
+                        <entry><ulink
+                                url="https://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html#original"
+                                >original</ulink></entry>
+                        <entry><olink targetdoc="../../attributes/original.xml" targetptr="original"
+                                >original</olink></entry>
                         <entry/>
                     </row>
                     <row>
-                        <entry>source-language</entry>
-                        <entry>srcLang</entry>
+                        <entry><ulink
+                                url="https://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html#source-language"
+                                >source-language</ulink></entry>
+                        <entry><olink targetdoc="../../attributes/srcLang.xml" targetptr="srcLang"
+                                >srcLang</olink></entry>
                         <entry/>
                     </row>
                     <row>
-                        <entry>target-language</entry>
-                        <entry>trgLang</entry>
+                        <entry><ulink
+                                url="https://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html#target-language"
+                                >target-language</ulink></entry>
+                        <entry><olink targetdoc="../../attributes/trgLang.xml" targetptr="trgLang"
+                                >trgLang</olink></entry>
                         <entry/>
                     </row>
                     <row>
-                        <entry>category</entry>
-                        <entry>(please note that the "category" attribute in 2.2 is used with a
-                            different purpose and in a different element (note instead of
-                            file))</entry>
-                        <entry>domain</entry>
-                    </row>
-                    <row>
-                        <entry>version</entry>
-                        <entry>version</entry>
+                        <entry><ulink
+                                url="https://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html#category"
+                                >category</ulink></entry>
+                        <entry>the <olink targetdoc="../../attributes/category.xml"
+                                targetptr="category">category</olink> attribute in 2.x is used with
+                            a different purpose and in a different element (<olink
+                                targetdoc="../../elements/note.xml" targetptr="note"
+                                    ><code>&lt;note&gt;</code></olink> instead of <olink
+                                targetdoc="../../elements/file.xml" targetptr="file"
+                                    ><code>&lt;file&gt;</code></olink>)</entry>
                         <entry/>
                     </row>
                     <row>
-                        <entry>datatype</entry>
+                        <entry><ulink
+                                url="https://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html#version"
+                                >version</ulink></entry>
+                        <entry><olink targetdoc="../../attributes/version.xml" targetptr="version"
+                                >version</olink></entry>
+                        <entry/>
+                    </row>
+                    <row>
+                        <entry><ulink
+                                url="https://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html#datatype"
+                                >datatype</ulink></entry>
                         <entry>
-                            <para>type (indicates the type of the element, e.g. image, user
-                                interface element, etc.)</para>
-                            <para>name (resource name, for example, the ID of a string in a Window
-                                string table)</para>
+                            <para><olink targetdoc="../../attributes/type.xml" targetptr="type"
+                                    >type</olink> (indicates the type of the element, e.g. image,
+                                user interface element, etc.)</para>
+                            <para><olink targetdoc="../../attributes/name.xml" targetptr="name"
+                                    >name</olink> (resource name, for example, the ID of a string in
+                                a Window string table)</para>
                         </entry>
-                        <entry>datatype</entry>
+                        <entry/>
                     </row>
                     <row>
                         <entry>
@@ -196,13 +217,18 @@
                         </entry>
                         <entry>is localising/ translating?</entry>
                         <entry>
-                            <para>contact-name</para>
-                            <para>contact-email</para>
+                            <para><ulink
+                                    url="https://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html#contact-name"
+                                    >contact-name</ulink>, <ulink
+                                    url="https://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html#contact-email"
+                                    >contact-email</ulink></para>
                         </entry>
                         <entry/>
                         <entry>
-                            <para>agentName,</para>
-                            <para>personName,</para>
+                            <para><olink targetdoc="../../attributes/provenance/agent.xml"
+                                    targetptr="agent">agent</olink>, <olink
+                                    targetdoc="../../attributes/provenance/person.xml"
+                                    targetptr="person">person</olink></para>
                         </entry>
                     </row>
                     <row>
@@ -211,12 +237,18 @@
                         </entry>
                         <entry>is it localised [company/country]?</entry>
                         <entry>
-                            <para>company-name</para>
-                            <para>target-language</para>
-                            <para>contact-phone</para>
+                            <para><ulink
+                                    url="https://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html#company-name"
+                                    >company-name</ulink>, <ulink
+                                    url="https://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html#target-language"
+                                    >target-language</ulink>, <ulink
+                                    url="https://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html#contact-phone"
+                                    >contact-phone</ulink></para>
                         </entry>
-                        <entry>trgLang</entry>
-                        <entry>orgID, orgName</entry>
+                        <entry><olink targetdoc="../../attributes/trgLang.xml" targetptr="trgLang"
+                                >trgLang</olink></entry>
+                        <entry><olink targetdoc="../../attributes/provenance/organization.xml"
+                                targetptr="organization">organization</olink></entry>
                     </row>
                     <row>
                         <entry>
@@ -227,16 +259,21 @@
                             <para>was the content extracted?</para>
                             <para>was the translation made?</para>
                         </entry>
-                        <entry>date</entry>
+                        <entry><ulink
+                                url="https://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html#date"
+                                >date</ulink></entry>
                         <entry/>
-                        <entry>date</entry>
+                        <entry><olink targetdoc="../../attributes/provenance/timestamp.xml"
+                                targetptr="timestamp">timestamp</olink></entry>
                     </row>
                     <row>
                         <entry>
                             <emphasis role="bold">Why (motivation)?</emphasis>
                         </entry>
                         <entry>Is it being localised?</entry>
-                        <entry>job-id</entry>
+                        <entry><ulink
+                                url="https://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html#job-id"
+                                >job-id</ulink></entry>
                         <entry/>
                         <entry/>
                     </row>
@@ -246,28 +283,39 @@
                         </entry>
                         <entry>Is it localised [tool, process, auxiliary material]?</entry>
                         <entry>
-                            <para>tool-id</para>
-                            <para>tool-name</para>
+                            <para><ulink
+                                    url="https://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html#tool-id"
+                                    >tool-id</ulink>, <ulink
+                                    url="https://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html#tool-name"
+                                    >tool-name</ulink></para>
                         </entry>
                         <entry/>
-                        <entry>toolName</entry>
+                        <entry><olink targetdoc="../../attributes/provenance/tool.xml"
+                                targetptr="tool">tool</olink></entry>
                     </row>
                     <row>
                         <entry>Is it being localised?</entry>
                         <entry>
-                            <para>state</para>
-                            <para>state-qualifier</para>
+                            <para><ulink
+                                    url="https://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html#state"
+                                    >state</ulink>, <ulink
+                                    url="https://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html#state-qualifier"
+                                    >state-qualifier</ulink></para>
                         </entry>
-                        <entry>state, subSate</entry>
+                        <entry><olink targetdoc="../../attributes/state.xml" targetptr="state"
+                                >state</olink>, <olink targetdoc="../../attributes/subState.xml"
+                                targetptr="substate">subState</olink></entry>
                         <entry/>
                     </row>
                     <row>
-                        <entry>much has it cost?</entry>
+                        <entry>how much has it cost?</entry>
                         <entry/>
                         <entry/>
                         <entry>
-                            <para>usage</para>
-                            <para>usageUnit</para>
+                            <para><olink targetdoc="../../elements/usage.xml" targetptr="usage"
+                                        ><code>&lt;usage></code></olink>, <olink
+                                    targetdoc="../../attributes/provenance/usageUnit.xml"
+                                    targetptr="usageUnit">usageUnit</olink></para>
                         </entry>
                     </row>
                 </tbody>
