@@ -21,11 +21,11 @@
 
     <bibliography>
       <title/>
-      <bibliomixed id="xliff22part2"><abbrev>XLIFF-2.2-part2</abbrev> XLIFF Version 2.2 Part 2:
-        Extended. Edited by Rodolfo M. Raya and Lucía Morado Vázquez. 13 March 2025. OASIS
-        Committee Specification. <citetitle><ulink
-            url="https://docs.oasis-open.org/xliff/xliff-core/v2.2/xliff-v2.2-part2-extended.html"
-            >https://docs.oasis-open.org/xliff/xliff-core/v2.2/xliff-v2.2-part2-extended.html</ulink></citetitle>.</bibliomixed>
+      <bibliomixed id="xliff23part2"><abbrev>XLIFF-2.3-part2</abbrev> XLIFF Version 2.3 Part 2:
+        Extended. Edited by Rodolfo M. Raya and Lucía Morado Vázquez. 8 July 2026. OASIS
+        Committee Specification Draft 01. <citetitle><ulink
+            url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-v2.3-part2-extended.html"
+            >https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-v2.3-part2-extended.html</ulink></citetitle>.</bibliomixed>
 
       <bibliomixed id="rfc2119"><abbrev>RFC2119</abbrev> S. Bradner. <title>Key words for use
           in RFCs to Indicate Requirement Levels</title>. March 1997. <citetitle><ulink

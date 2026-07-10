@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "docbook/docbookx.dtd"[
+
+<!ENTITY % xinclude SYSTEM "docbook/xinclude.mod">
+%xinclude;
+
+]>
+<section id="implementation">
+  <title>Creating and Searching a Translation Memory Store</title>
+
+  <para>This section is informative and does not define conformance requirements. It describes
+    practical, non-mandatory approaches for creating and querying a translation memory store as
+    described in <olink targetdoc="tmFormat.xml" targetptr="tmFormat">XLIFF as a Translation
+    Memory Format</olink>. Implementers MAY use either of these approaches, a combination of
+    them, or an approach not described here; this document does not mandate a particular storage
+    or retrieval technology.</para>
+
+  <para>The packaging convention described in <olink targetdoc="exchange.xml"
+      targetptr="exchange">Exchange of Multilingual Translation Memory Data</olink> is intended
+    for exchanging translation memory data between parties and tools, not as an implementation
+    architecture. An implementation is not expected to query a ZIP package directly: it typically
+    loads the bilingual XLIFF files it receives, or the ones it produces by harvesting as
+    described in <olink targetdoc="tmFormat.xml" targetptr="harvesting">Harvesting Translation
+      Memory Entries</olink>, into whichever storage and retrieval mechanism it uses internally,
+    of which the following are two examples.</para>
+
+  <note>
+    <title>Fuzzy Search Versus Semantic Search</title>
+
+    <para>The two approaches described in this section answer different questions. Fuzzy
+      search, as provided by an XML-aware database (through XPath/XQuery string functions or a
+      similarity extension) or by a SQL database (through trigram indexes, edit-distance
+      functions, or full-text search), measures how similar two strings are as sequences of
+      characters. It reliably finds near-duplicates that differ by a word, a typo, or a small
+      edit, but has no notion of meaning: it can rank a sentence whose negation flips its meaning
+      as a close match to the original, and it will not find a paraphrase that shares no wording
+      at all.</para>
+
+    <para>Semantic search, as provided by a vector database over text embeddings, measures how
+      similar two passages are in meaning, independent of wording. It finds paraphrases that a
+      fuzzy search misses, but is not guaranteed to penalize a small, meaning-changing edit as
+      heavily as a fuzzy search would, since embeddings can place semantically related but
+      contradictory statements close together in vector space. This complementary blind spot is
+      why <olink targetdoc="implementation.xml" targetptr="vectorDatabaseApproach">Vector
+        Database and Similarity Search</olink> recommends blending a semantic score with a fuzzy
+      score rather than relying on either alone.</para>
+  </note>
+
+  <para>Organizations with an existing SQL-based translation memory engine, many of which
+    already parse a source/target pair out of a TMX <code>&lt;tu&gt;</code>/<code>&lt;tuv&gt;</code>
+    and store it in relational tables, do not need to replace that engine to work with a store
+    described in this document: the same import step can instead read
+    <code>&lt;source&gt;</code>/<code>&lt;target&gt;</code> content directly out of XLIFF
+    <code>&lt;segment&gt;</code> elements. This is a low-effort migration path that reuses
+    existing search and scoring logic, but on its own it does not bring the context-aware
+    retrieval described in <olink targetdoc="implementation.xml"
+      targetptr="xmlDatabaseApproach">XML-Aware Database and XPath Retrieval</olink> or the
+    paraphrase-level retrieval described in <olink targetdoc="implementation.xml"
+      targetptr="vectorDatabaseApproach">Vector Database and Similarity Search</olink>: a
+    relational schema built around a flat source/target pair typically discards the same
+    document order, <code>&lt;file&gt;</code> origin, and grouping that a flat TMX export
+    discards, unless the importer is extended to capture them as additional columns.</para>
+
+  <section id="xmlDatabaseApproach">
+    <title>XML-Aware Database and XPath Retrieval</title>
+
+    <para>Because a translation memory store described in this document is plain, well-formed
+      XLIFF, it can be loaded directly into an XML-aware database and queried with XPath or
+      XQuery, without any transformation of its content. A query can match on
+      <code>&lt;source&gt;</code> text, restrict candidates to a particular
+      <code>&lt;file&gt;</code> <code>original</code> value or Provenance attribute as described
+      in <olink targetdoc="tmFormat.xml" targetptr="provenanceMetadata">Provenance Metadata for
+        Translation Memory Entries</olink>, or exploit the preserved document order described in
+      <olink targetdoc="tmFormat.xml" targetptr="structuralOrder">Structural Order and Segment
+        Context</olink> to retrieve a match together with its neighboring segments.</para>
+
+    <para>Examples of XML-aware databases that support this style of storage and query include,
+      without limitation, BaseX, eXist-db, MarkLogic, and Oracle XML DB. Naming these products is
+      illustrative only and does not constitute an endorsement or a requirement to use any of
+      them.</para>
+
+    <para>For example, the following excerpt of a translation memory store, taken from the store
+      shown in <olink targetdoc="tmFormat.xml" targetptr="tmFormatExample">Example</olink>,
+      contains two entries with identical source text, harvested from two different
+      documents:</para>
+
+    <programlisting>&lt;file id="f1" original="manual/chapter3.html"&gt;
+  &lt;unit id="tm-0002"&gt;
+    &lt;segment&gt;
+      &lt;source&gt;Download your certificate before the end of the fiscal year.&lt;/source&gt;
+      &lt;target&gt;Descargue su certificado antes de que finalice el año fiscal.&lt;/target&gt;
+    &lt;/segment&gt;
+  &lt;/unit&gt;
+&lt;/file&gt;
+&lt;file id="f2" original="app/ui-strings.json"&gt;
+  &lt;unit id="tm-1001"&gt;
+    &lt;segment&gt;
+      &lt;source&gt;Download your certificate before the end of the fiscal year.&lt;/source&gt;
+      &lt;target&gt;Descargue su certificado antes de que finalice el año fiscal.&lt;/target&gt;
+    &lt;/segment&gt;
+  &lt;/unit&gt;
+&lt;/file&gt;</programlisting>
+
+    <para>An XPath query that matches on source text alone:</para>
+
+    <programlisting>//unit[segment/source = 'Download your certificate before the end of the fiscal year.']</programlisting>
+
+    <para>returns both <code>tm-0002</code> and <code>tm-1001</code>, since both segments share
+      the same exact source text. If the unit currently being translated originated from
+      <code>manual/chapter3.html</code>, the query can be narrowed to prefer an in-context exact
+      match, as described in <olink targetdoc="tmFormat.xml" targetptr="structuralOrder">Structural
+        Order and Segment Context</olink>, by also constraining the enclosing
+      <code>&lt;file&gt;</code> element's <code>original</code> attribute:</para>
+
+    <programlisting>//file[@original = 'manual/chapter3.html']
+    /unit[segment/source = 'Download your certificate before the end of the fiscal year.']</programlisting>
+
+    <para>which returns only <code>tm-0002</code>, the entry harvested from the same document as
+      the unit being translated.</para>
+  </section>
+
+  <section id="vectorDatabaseApproach">
+    <title>Vector Database and Similarity Search</title>
+
+    <para>Alternatively, the <code>&lt;source&gt;</code> (and, where useful,
+      <code>&lt;target&gt;</code>) text of each harvested <code>&lt;segment&gt;</code> can be
+      converted to a numeric embedding by a text embedding model and indexed in a vector
+      database, with each vector referencing the <code>&lt;unit&gt;</code> and
+      <code>&lt;file&gt;</code> it was derived from. Retrieval is then performed as a similarity
+      search over embeddings rather than an exact or XPath-based text match, which can surface
+      fuzzy matches that share meaning but not exact wording. As with the XML-database approach,
+      the enclosing <code>&lt;file&gt;</code> <code>original</code> attribute and Provenance
+      metadata remain available as filters that can be applied alongside, or after, the
+      similarity search to narrow candidates.</para>
+
+    <para>Examples of vector databases that support this style of retrieval include, without
+      limitation, LanceDB, Milvus, Weaviate, Qdrant, and pgvector, a vector extension for
+      PostgreSQL. Naming these products is illustrative only and does not constitute an
+      endorsement or a requirement to use any of them.</para>
+
+    <para>Continuing the example from <olink targetdoc="implementation.xml"
+        targetptr="xmlDatabaseApproach">XML-Aware Database and XPath Retrieval</olink>, the same
+      two entries could instead be indexed as vectors, each referencing the
+      <code>&lt;unit&gt;</code> and originating <code>&lt;file&gt;</code> it was derived from
+      (embedding values abbreviated for illustration):</para>
+
+    <programlisting>tm-0002  original=manual/chapter3.html  "Download your certificate before the end of the fiscal year."  [0.114, -0.028, 0.301, ...]
+tm-1001  original=app/ui-strings.json   "Download your certificate before the end of the fiscal year."  [0.109, -0.031, 0.298, ...]</programlisting>
+
+    <para>Unlike an XPath query, a similarity search is not limited to exact text. A query using
+      a paraphrase of the same request, which shares no exact wording with either stored
+      segment:</para>
+
+    <programlisting>"Please download your tax certificate before the fiscal year ends."</programlisting>
+
+    <para>is converted to an embedding and compared against the indexed vectors, returning both
+      <code>tm-0002</code> and <code>tm-1001</code> ranked by similarity score (for example,
+      0.93 for each), even though an XPath query for this exact string, as in <olink
+        targetdoc="implementation.xml" targetptr="xmlDatabaseApproach">XML-Aware Database and
+        XPath Retrieval</olink>, would return no results at all. As in that example, restricting
+      the search to vectors whose <code>original</code> metadata equals
+      <code>manual/chapter3.html</code> narrows the result to <code>tm-0002</code> alone.</para>
+
+    <para>In practice, semantic similarity is often combined with a string-similarity ("fuzzy")
+      metric into a single blended score, rather than used alone. Embeddings alone can rank a
+      candidate that changes the meaning nearly as highly as one that only changes the wording; a
+      fuzzy string comparison of the same candidates penalizes that difference, while still
+      tolerating the minor spelling or punctuation variation that an exact-text query would
+      reject outright. Blending the two, for example by averaging a semantic similarity score
+      with a string-similarity score such as longest-common-subsequence, gives a single ranking
+      that neither method reliably produces on its own.</para>
+  </section>
+
+  <para>Beyond translation-pair lookup, a concordance-style search, returning every stored entry
+    whose <code>&lt;source&gt;</code> or <code>&lt;target&gt;</code> contains a given text
+    fragment across every language present in the store, is a common complementary query mode.
+    Either approach in this section can support it: an XPath <code>contains()</code> predicate
+    for an XML-aware database, or a plain substring or full-text index alongside the vector index
+    for a vector database. It is particularly useful for terminology review and quality checks
+    that are not aimed at finding a reusable translation.</para>
+</section>

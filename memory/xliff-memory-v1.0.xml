@@ -57,10 +57,10 @@
       </editor>
     </authorgroup>
 
-    <pubdate>8 July 2025</pubdate>
+    <pubdate>8 July 2026</pubdate>
 
     <copyright>
-      <year>2025</year>
+      <year>2026</year>
       <holder>OASIS Open, Inc. All Rights Reserved.</holder>
     </copyright>
 
@@ -79,9 +79,9 @@
 
       <itemizedlist spacing="compact">
         <listitem>
-          <para><emphasis role="strong">[XLIFF-2.2-part2]</emphasis> XLIFF Version 2.2 Part 2:
-            Extended. Edited by Rodolfo M. Raya and Lucía Morado Vázquez 13 March 2025. OASIS
-            Committee Specification. <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.2/xliff-v2.2-part2-extended.html">https://docs.oasis-open.org/xliff/xliff-core/v2.2/xliff-v2.2-part2-extended.html</ulink>.</para>
+          <para><emphasis role="strong">[XLIFF-2.3-part2]</emphasis> XLIFF Version 2.3 Part 2:
+            Extended. Edited by Rodolfo M. Raya and Lucía Morado Vázquez 8 July 2026. OASIS
+            Committee Specification Draft 01. <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-v2.3-part2-extended.html">https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-v2.3-part2-extended.html</ulink>.</para>
         </listitem>
         <listitem>
           <para><emphasis role="strong">[TMX 1.4b]</emphasis> Translation Memory eXchange (TMX)
@@ -119,7 +119,7 @@
     <legalnotice role="notices">
       <title>License, Document Status, and Notices</title>
 
-      <para>Copyright © OASIS Open 2025. All Rights Reserved. For license and copyright
+      <para>Copyright © OASIS Open 2026. All Rights Reserved. For license and copyright
         information, and complete status, please see Annex A which contains the License,
         Document Status and Notices.</para>
     </legalnotice>
@@ -162,14 +162,14 @@
 
       <variablelist>
         <varlistentry>
-          <term>Unit [XLIFF-2.2-part2]</term>
+          <term>Unit [XLIFF-2.3-part2]</term>
           <listitem>
             <para>"A <code>&lt;unit></code> MAY contain both source and target content,
               allowing bilingual data to be stored."</para>
           </listitem>
         </varlistentry>
         <varlistentry>
-          <term>Segment [XLIFF-2.2-part2]</term>
+          <term>Segment [XLIFF-2.3-part2]</term>
           <listitem>
             <para>The <code>&lt;segment></code> element, used to represent the smallest unit
               of translatable content addressed for translation, review, or other
@@ -254,7 +254,7 @@
       <code>&lt;unit></code>. XML attribute names are shown in fixed-width type without
       brackets, for example <code>id</code>. XML namespace prefixes used in examples
       (<code>xlf:</code>, <code>mtc:</code>, <code>pvn:</code>) follow the conventions
-      established in [XLIFF-2.2-part2] and the XLIFF 2.3 Provenance module. Example XML is shown
+      established in [XLIFF-2.3-part2] and the XLIFF 2.3 Provenance module. Example XML is shown
       in fenced code blocks and is illustrative; it is not necessarily complete or
       schema-valid.</para>
   </section>
@@ -303,7 +303,7 @@
       only be related to each other through external conversion, never through direct inclusion.
       This also means TMX content cannot participate in XLIFF's own extension and modularization
       mechanisms, such as the Translation Candidates module (<code>mtc:matches</code>, see
-      [XLIFF-2.2-part2]), which is designed to hold XLIFF-native
+      [XLIFF-2.3-part2]), which is designed to hold XLIFF-native
       <code>&lt;source></code>/<code>&lt;target></code> pairs as leveraging matches inside
       a unit.</para>
 
@@ -375,6 +375,42 @@
     </itemizedlist>
   </section>
 
+  <section id="harvesting">
+    <title>Harvesting Translation Memory Entries</title>
+
+    <para>A translation memory store, as described in this document, is not authored directly.
+      It is populated by harvesting completed translation work out of ordinary XLIFF documents
+      produced by an extraction, translation, and review process, and copying the resulting
+      <code>&lt;unit></code> and <code>&lt;segment></code> elements, unchanged, into the
+      store.</para>
+
+    <para>Only <code>&lt;segment></code> elements whose <code>state</code> attribute [XLIFF-2.3-part2]
+      is set to <code>final</code> SHOULD be harvested into a translation memory store by
+      default. The <code>initial</code>, <code>translated</code>, and <code>reviewed</code>
+      values of <code>state</code> represent work still in progress; storing a segment in one of
+      those states as reusable translation memory risks propagating unreviewed or incomplete
+      translations into unrelated future projects. A segment that carries no <code>state</code>
+      attribute, which defaults to <code>initial</code>, is likewise not eligible for
+      harvesting. An implementation MAY instead apply a configurable minimum state threshold, for
+      example accepting both <code>reviewed</code> and <code>final</code> segments, provided the
+      threshold it used is disclosed to whoever queries the resulting store.</para>
+
+    <para>Because the same project file may be harvested more than once, for example after a
+      partial re-export, an implementation SHOULD derive a stable identifier for each harvested
+      entry from values that do not change between harvests, such as the enclosing
+      <code>&lt;file></code> <code>id</code> (or <code>original</code> attribute), the
+      <code>&lt;unit></code> <code>id</code>, and the segment's position within the unit.
+      Deriving entry identifiers this way keeps harvesting idempotent: re-harvesting an unchanged
+      file does not create duplicate entries in the store.</para>
+
+    <para>Because harvesting is a filter rather than a transformation, it does not conflict with
+      the "No conversion" design principle in <link linkend="designPrinciples">Design Principles</link>: a harvested entry keeps exactly
+      the source, target, and inline content it had in the file it was extracted from. Metadata
+      recording where and how an entry was harvested, such as the originating project or job and
+      the date of harvest, is expressed using the Provenance module, described in <link linkend="provenanceMetadata">Provenance Metadata for        Translation Memory Entries</link>, rather than by any new attribute defined by this
+      document.</para>
+  </section>
+
   <section id="structuralOrder">
     <title>Structural Order and Segment Context</title>
 
@@ -409,6 +445,16 @@
       </listitem>
     </itemizedlist>
 
+    <para>Combining the last two properties lets a TM consumer recover an <emphasis>in-context
+      exact match</emphasis>: a 100% text match whose neighboring segments and originating
+      document, identified by the enclosing <code>&lt;file></code> element's
+      <code>original</code> attribute, also match the segment currently being translated. Tools
+      commonly treat such a match as more reliable than an exact match recovered from an
+      unrelated document or context, and can apply it without requiring human review. A flat TMX
+      export, lacking both an equivalent to <code>original</code> and any notion of adjacency,
+      cannot make this distinction without falling back to ad hoc <code>&lt;prop></code>
+      conventions.</para>
+
     <para>A translation memory consumer that only needs unordered TU-style lookup can still
       treat every <code>&lt;segment></code> in every <code>&lt;unit></code> of every
       <code>&lt;file></code> as an independent entry, exactly as it would treat entries in a
@@ -436,6 +482,14 @@
       ordinary XLIFF <code>&lt;unit></code>, it can carry <code>&lt;pvn:provenance></code>
       metadata exactly as any other XLIFF unit can.</para>
 
+    <para>Provenance is particularly important for entries populated through the harvesting
+      process described in <link linkend="harvesting">Harvesting        Translation Memory Entries</link>. Because a store accumulates entries across many
+      separate harvest events, drawn from unrelated projects and completed at different times,
+      the <code>&lt;pvn:provenance></code> and <code>&lt;pvn:change></code> elements are
+      the mechanism by which a stored entry remains traceable back to the project, job, or
+      process that produced it and the date it was harvested, once it is no longer possible to
+      infer that origin from the entry's position in the store alone.</para>
+
     <para>This gives a translation memory consumer the ability to query stored entries by their
       provenance, for example to prefer entries produced by a specific translator or reviewed
       by a specific organization, to exclude machine-translated entries that were never
@@ -458,7 +512,45 @@
       project) it came from, in the order it was added to the store, which a flat TMX
       <code>&lt;tu></code> list cannot represent.</para>
 
-    <programlisting format="linespecific"></programlisting>
+    <programlisting format="linespecific">&lt;xliff version="2.3" srcLang="en" trgLang="es"
+       xmlns="urn:oasis:names:tc:xliff:document:2.3"
+       xmlns:pvn="urn:oasis:names:tc:xliff:pvn:2.3">
+  &lt;file id="f1" original="manual/chapter3.html">
+    &lt;unit id="tm-0001">
+      &lt;segment>
+        &lt;source>Your annual tax certificate is now available for download.&lt;/source>
+        &lt;target>Su certificado fiscal anual ya está disponible para descarga.&lt;/target>
+      &lt;/segment>
+    &lt;/unit>
+    &lt;unit id="tm-0002">
+      &lt;pvn:provenance>
+        &lt;pvn:change agent="Acme MT" appliesTo="target" timestamp="2026-01-15T10:15:00.000Z"/>
+      &lt;/pvn:provenance>
+      &lt;segment>
+        &lt;source>Download your certificate before the end of the fiscal year.&lt;/source>
+        &lt;target>Descargue su certificado antes de que finalice el año fiscal.&lt;/target>
+      &lt;/segment>
+    &lt;/unit>
+  &lt;/file>
+  &lt;file id="f2" original="app/ui-strings.json">
+    &lt;unit id="tm-1001">
+      &lt;pvn:provenance>
+        &lt;pvn:change agent="TM Reuse" appliesTo="target" timestamp="2026-06-30T09:02:00.000Z"
+          intent="100% match reused from tm-0002 (manual/chapter3.html)."/>
+      &lt;/pvn:provenance>
+      &lt;segment>
+        &lt;source>Download your certificate before the end of the fiscal year.&lt;/source>
+        &lt;target>Descargue su certificado antes de que finalice el año fiscal.&lt;/target>
+      &lt;/segment>
+    &lt;/unit>
+    &lt;unit id="tm-1002">
+      &lt;segment>
+        &lt;source>Your session will expire in five minutes.&lt;/source>
+        &lt;target>Su sesión caducará en cinco minutos.&lt;/target>
+      &lt;/segment>
+    &lt;/unit>
+  &lt;/file>
+&lt;/xliff></programlisting>
 
     <para>Because <code>tm-1001</code> and <code>tm-0002</code> share the same
       <code>&lt;source></code> text, a TM consumer can find the reuse with a plain text
@@ -487,6 +579,15 @@
     while still allowing a translation memory covering many languages to be exchanged as a
     single unit.</para>
 
+  <para>A multilingual translation memory is rarely built from a single source language: it
+    typically accumulates from projects extracted from whatever source language each originating
+    document happened to use. Accordingly, the files in a package are not required to share a
+    common <code>srcLang</code>. A single package MAY combine bilingual files representing any
+    number of independent source/target language pairs, for example an
+    <code>en-es.xlf</code> file alongside an unrelated <code>fr-de.xlf</code> file, with the
+    manifest simply recording the <code>srcLang</code> and <code>trgLang</code> that each file
+    declares.</para>
+
   <section id="packageStructure">
     <title>Package Structure</title>
 
@@ -495,9 +596,10 @@
 
     <itemizedlist>
       <listitem>
-        <para>One or more bilingual XLIFF files, each conforming to [XLIFF-2.2-part2] or later,
-          sharing a common <code>srcLang</code> and each declaring its own
-          <code>trgLang</code>.</para>
+        <para>One or more bilingual XLIFF files, each conforming to [XLIFF-2.3-part2] or later,
+          each independently declaring its own <code>srcLang</code> and <code>trgLang</code>.
+          Files in the same package are not required to share a common
+          <code>srcLang</code>.</para>
       </listitem>
       <listitem>
         <para>A single manifest file, described in <link linkend="manifestFile">Manifest File</link>, that lists the XLIFF files in the
@@ -505,22 +607,43 @@
       </listitem>
     </itemizedlist>
 
-    <para>Corresponding translation units across the language-pair files in a package SHOULD
-      use the same <code>&lt;unit></code> <code>id</code> value (and, where segmented, the
-      same <code>&lt;segment></code> <code>id</code> value) so that a consumer can align
-      entries for the same source content across target languages. This mirrors, at the
-      package level, the alignment that a multilingual <code>&lt;tu></code> provides in a
-      single TMX file.</para>
+    <para>The XLIFF files in a package are not required to sit at the root of the archive. They
+      MAY instead be organized into any folder structure the package author finds convenient, for
+      example one folder per language pair. The manifest's <code>href</code> value for each file
+      gives that file's actual path within the package, so a consumer locates every file through
+      the manifest rather than by assuming a particular layout.</para>
+
+    <para>Where two or more files in a package share the same <code>srcLang</code> and were
+      extracted from the same source content, corresponding translation units across those
+      files SHOULD use the same <code>&lt;unit></code> <code>id</code> value (and, where
+      segmented, the same <code>&lt;segment></code> <code>id</code> value), so that a
+      consumer can align entries for the same source content across target languages. This
+      mirrors, at the package level, the alignment that a multilingual <code>&lt;tu></code>
+      provides in a single TMX file for that case. This alignment applies only among files that
+      share a source: it does not extend across files with different <code>srcLang</code>
+      values, whose <code>&lt;unit></code> and <code>&lt;segment></code> <code>id</code>
+      values are independent of one another.</para>
   </section>
 
   <section id="manifestFile">
     <title>Manifest File</title>
 
     <para>The manifest is an XML file, named <code>manifest.xml</code>, placed at the root of
-      the package. It lists each XLIFF file contained in the package together with its source
-      and target language.</para>
+      the package. It lists each XLIFF file contained in the package, together with its source
+      and target language, using an <code>href</code> value that gives the file's path within
+      the package.</para>
 
-    <programlisting format="linespecific"></programlisting>
+    <programlisting format="linespecific">&lt;tmPackage xmlns="urn:oasis:names:tc:xliff:tm-manifest:1.0" version="1.0">
+  &lt;file href="en-es.xlf" srcLang="en" trgLang="es"/>
+  &lt;file href="en-fr.xlf" srcLang="en" trgLang="fr"/>
+  &lt;file href="fr-de.xlf" srcLang="fr" trgLang="de"/>
+&lt;/tmPackage></programlisting>
+
+    <para>A manifest is not required to declare the same <code>srcLang</code> for every file it
+      lists, as the third entry above illustrates: <code>en-es.xlf</code> and
+      <code>en-fr.xlf</code> both originate from English source content, while
+      <code>fr-de.xlf</code> is an unrelated bilingual file with French as its source
+      language.</para>
 
     <para><emphasis>The manifest namespace, element and attribute names, and XML Schema shown
       above are provisional and subject to review by the OASIS XLIFF TC before this Note
@@ -530,20 +653,212 @@
   <section id="exchangeExample">
     <title>Example</title>
 
-    <para>A translation memory covering English source content with Spanish, French, and
-      German target content would be packaged as:</para>
+    <para>A translation memory accumulated from an English-source project translated into
+      Spanish and French, together with an unrelated project whose source was French and whose
+      target was German, would be packaged as:</para>
 
     <programlisting format="linespecific">tm-package.zip
 ├── manifest.xml
 ├── en-es.xlf
 ├── en-fr.xlf
-└── en-de.xlf</programlisting>
+└── fr-de.xlf</programlisting>
 
-    <para>Each of <code>en-es.xlf</code>, <code>en-fr.xlf</code>, and <code>en-de.xlf</code> is
+    <para>Each of <code>en-es.xlf</code>, <code>en-fr.xlf</code>, and <code>fr-de.xlf</code> is
       an ordinary bilingual XLIFF document as described in <link linkend="tmFormat">XLIFF as a Translation Memory Format</link>, and each can be
       consumed independently by a tool that only needs one language pair, or together by a tool
-      that reads <code>manifest.xml</code> to reconstruct the full multilingual set.</para>
+      that reads <code>manifest.xml</code> to reconstruct the full set. <code>en-es.xlf</code>
+      and <code>en-fr.xlf</code> share a common source language and MAY be aligned by
+      <code>&lt;unit></code> and <code>&lt;segment></code> <code>id</code> as described in
+      <link linkend="packageStructure">Package Structure</link>;
+      <code>fr-de.xlf</code> has no source language in common with the other two files and is
+      not part of that alignment.</para>
+
+    <para>As described in <link linkend="packageStructure">Package        Structure</link>, the same three files MAY instead be organized into one folder per
+      language pair:</para>
+
+    <programlisting format="linespecific">tm-package.zip
+├── manifest.xml
+├── en-es/
+│   └── en-es.xlf
+├── en-fr/
+│   └── en-fr.xlf
+└── fr-de/
+    └── fr-de.xlf</programlisting>
+
+    <para>with the manifest updated to match:</para>
+
+    <programlisting format="linespecific">&lt;tmPackage xmlns="urn:oasis:names:tc:xliff:tm-manifest:1.0" version="1.0">
+  &lt;file href="en-es/en-es.xlf" srcLang="en" trgLang="es"/>
+  &lt;file href="en-fr/en-fr.xlf" srcLang="en" trgLang="fr"/>
+  &lt;file href="fr-de/fr-de.xlf" srcLang="fr" trgLang="de"/>
+&lt;/tmPackage></programlisting>
+
+    <para>Both layouts are valid and equivalent: a conformant consumer resolves every file
+      through the <code>href</code> value recorded in the manifest rather than by assuming
+      either layout.</para>
   </section>
+</section>
+  <section id="implementation">
+  <title>Creating and Searching a Translation Memory Store</title>
+
+  <para>This section is informative and does not define conformance requirements. It describes
+    practical, non-mandatory approaches for creating and querying a translation memory store as
+    described in <link linkend="tmFormat">XLIFF as a Translation    Memory Format</link>. Implementers MAY use either of these approaches, a combination of
+    them, or an approach not described here; this document does not mandate a particular storage
+    or retrieval technology.</para>
+
+  <para>The packaging convention described in <link linkend="exchange">Exchange of Multilingual Translation Memory Data</link> is intended
+    for exchanging translation memory data between parties and tools, not as an implementation
+    architecture. An implementation is not expected to query a ZIP package directly: it typically
+    loads the bilingual XLIFF files it receives, or the ones it produces by harvesting as
+    described in <link linkend="harvesting">Harvesting Translation      Memory Entries</link>, into whichever storage and retrieval mechanism it uses internally,
+    of which the following are two examples.</para>
+
+  <note>
+    <title>Fuzzy Search Versus Semantic Search</title>
+
+    <para>The two approaches described in this section answer different questions. Fuzzy
+      search, as provided by an XML-aware database (through XPath/XQuery string functions or a
+      similarity extension) or by a SQL database (through trigram indexes, edit-distance
+      functions, or full-text search), measures how similar two strings are as sequences of
+      characters. It reliably finds near-duplicates that differ by a word, a typo, or a small
+      edit, but has no notion of meaning: it can rank a sentence whose negation flips its meaning
+      as a close match to the original, and it will not find a paraphrase that shares no wording
+      at all.</para>
+
+    <para>Semantic search, as provided by a vector database over text embeddings, measures how
+      similar two passages are in meaning, independent of wording. It finds paraphrases that a
+      fuzzy search misses, but is not guaranteed to penalize a small, meaning-changing edit as
+      heavily as a fuzzy search would, since embeddings can place semantically related but
+      contradictory statements close together in vector space. This complementary blind spot is
+      why <link linkend="vectorDatabaseApproach">Vector        Database and Similarity Search</link> recommends blending a semantic score with a fuzzy
+      score rather than relying on either alone.</para>
+  </note>
+
+  <para>Organizations with an existing SQL-based translation memory engine, many of which
+    already parse a source/target pair out of a TMX <code>&lt;tu></code>/<code>&lt;tuv></code>
+    and store it in relational tables, do not need to replace that engine to work with a store
+    described in this document: the same import step can instead read
+    <code>&lt;source></code>/<code>&lt;target></code> content directly out of XLIFF
+    <code>&lt;segment></code> elements. This is a low-effort migration path that reuses
+    existing search and scoring logic, but on its own it does not bring the context-aware
+    retrieval described in <link linkend="xmlDatabaseApproach">XML-Aware Database and XPath Retrieval</link> or the
+    paraphrase-level retrieval described in <link linkend="vectorDatabaseApproach">Vector Database and Similarity Search</link>: a
+    relational schema built around a flat source/target pair typically discards the same
+    document order, <code>&lt;file></code> origin, and grouping that a flat TMX export
+    discards, unless the importer is extended to capture them as additional columns.</para>
+
+  <section id="xmlDatabaseApproach">
+    <title>XML-Aware Database and XPath Retrieval</title>
+
+    <para>Because a translation memory store described in this document is plain, well-formed
+      XLIFF, it can be loaded directly into an XML-aware database and queried with XPath or
+      XQuery, without any transformation of its content. A query can match on
+      <code>&lt;source></code> text, restrict candidates to a particular
+      <code>&lt;file></code> <code>original</code> value or Provenance attribute as described
+      in <link linkend="provenanceMetadata">Provenance Metadata for        Translation Memory Entries</link>, or exploit the preserved document order described in
+      <link linkend="structuralOrder">Structural Order and Segment        Context</link> to retrieve a match together with its neighboring segments.</para>
+
+    <para>Examples of XML-aware databases that support this style of storage and query include,
+      without limitation, BaseX, eXist-db, MarkLogic, and Oracle XML DB. Naming these products is
+      illustrative only and does not constitute an endorsement or a requirement to use any of
+      them.</para>
+
+    <para>For example, the following excerpt of a translation memory store, taken from the store
+      shown in <link linkend="tmFormatExample">Example</link>,
+      contains two entries with identical source text, harvested from two different
+      documents:</para>
+
+    <programlisting format="linespecific">&lt;file id="f1" original="manual/chapter3.html">
+  &lt;unit id="tm-0002">
+    &lt;segment>
+      &lt;source>Download your certificate before the end of the fiscal year.&lt;/source>
+      &lt;target>Descargue su certificado antes de que finalice el año fiscal.&lt;/target>
+    &lt;/segment>
+  &lt;/unit>
+&lt;/file>
+&lt;file id="f2" original="app/ui-strings.json">
+  &lt;unit id="tm-1001">
+    &lt;segment>
+      &lt;source>Download your certificate before the end of the fiscal year.&lt;/source>
+      &lt;target>Descargue su certificado antes de que finalice el año fiscal.&lt;/target>
+    &lt;/segment>
+  &lt;/unit>
+&lt;/file></programlisting>
+
+    <para>An XPath query that matches on source text alone:</para>
+
+    <programlisting format="linespecific">//unit[segment/source = 'Download your certificate before the end of the fiscal year.']</programlisting>
+
+    <para>returns both <code>tm-0002</code> and <code>tm-1001</code>, since both segments share
+      the same exact source text. If the unit currently being translated originated from
+      <code>manual/chapter3.html</code>, the query can be narrowed to prefer an in-context exact
+      match, as described in <link linkend="structuralOrder">Structural        Order and Segment Context</link>, by also constraining the enclosing
+      <code>&lt;file></code> element's <code>original</code> attribute:</para>
+
+    <programlisting format="linespecific">//file[@original = 'manual/chapter3.html']
+    /unit[segment/source = 'Download your certificate before the end of the fiscal year.']</programlisting>
+
+    <para>which returns only <code>tm-0002</code>, the entry harvested from the same document as
+      the unit being translated.</para>
+  </section>
+
+  <section id="vectorDatabaseApproach">
+    <title>Vector Database and Similarity Search</title>
+
+    <para>Alternatively, the <code>&lt;source></code> (and, where useful,
+      <code>&lt;target></code>) text of each harvested <code>&lt;segment></code> can be
+      converted to a numeric embedding by a text embedding model and indexed in a vector
+      database, with each vector referencing the <code>&lt;unit></code> and
+      <code>&lt;file></code> it was derived from. Retrieval is then performed as a similarity
+      search over embeddings rather than an exact or XPath-based text match, which can surface
+      fuzzy matches that share meaning but not exact wording. As with the XML-database approach,
+      the enclosing <code>&lt;file></code> <code>original</code> attribute and Provenance
+      metadata remain available as filters that can be applied alongside, or after, the
+      similarity search to narrow candidates.</para>
+
+    <para>Examples of vector databases that support this style of retrieval include, without
+      limitation, LanceDB, Milvus, Weaviate, Qdrant, and pgvector, a vector extension for
+      PostgreSQL. Naming these products is illustrative only and does not constitute an
+      endorsement or a requirement to use any of them.</para>
+
+    <para>Continuing the example from <link linkend="xmlDatabaseApproach">XML-Aware Database and XPath Retrieval</link>, the same
+      two entries could instead be indexed as vectors, each referencing the
+      <code>&lt;unit></code> and originating <code>&lt;file></code> it was derived from
+      (embedding values abbreviated for illustration):</para>
+
+    <programlisting format="linespecific">tm-0002  original=manual/chapter3.html  "Download your certificate before the end of the fiscal year."  [0.114, -0.028, 0.301, ...]
+tm-1001  original=app/ui-strings.json   "Download your certificate before the end of the fiscal year."  [0.109, -0.031, 0.298, ...]</programlisting>
+
+    <para>Unlike an XPath query, a similarity search is not limited to exact text. A query using
+      a paraphrase of the same request, which shares no exact wording with either stored
+      segment:</para>
+
+    <programlisting format="linespecific">"Please download your tax certificate before the fiscal year ends."</programlisting>
+
+    <para>is converted to an embedding and compared against the indexed vectors, returning both
+      <code>tm-0002</code> and <code>tm-1001</code> ranked by similarity score (for example,
+      0.93 for each), even though an XPath query for this exact string, as in <link linkend="xmlDatabaseApproach">XML-Aware Database and        XPath Retrieval</link>, would return no results at all. As in that example, restricting
+      the search to vectors whose <code>original</code> metadata equals
+      <code>manual/chapter3.html</code> narrows the result to <code>tm-0002</code> alone.</para>
+
+    <para>In practice, semantic similarity is often combined with a string-similarity ("fuzzy")
+      metric into a single blended score, rather than used alone. Embeddings alone can rank a
+      candidate that changes the meaning nearly as highly as one that only changes the wording; a
+      fuzzy string comparison of the same candidates penalizes that difference, while still
+      tolerating the minor spelling or punctuation variation that an exact-text query would
+      reject outright. Blending the two, for example by averaging a semantic similarity score
+      with a string-similarity score such as longest-common-subsequence, gives a single ranking
+      that neither method reliably produces on its own.</para>
+  </section>
+
+  <para>Beyond translation-pair lookup, a concordance-style search, returning every stored entry
+    whose <code>&lt;source></code> or <code>&lt;target></code> contains a given text
+    fragment across every language present in the store, is a common complementary query mode.
+    Either approach in this section can support it: an XPath <code>contains()</code> predicate
+    for an XML-aware database, or a plain substring or full-text index alongside the vector index
+    for a vector database. It is particularly useful for terminology review and quality checks
+    that are not aimed at finding a reusable translation.</para>
 </section>
   <section id="safetySecurity">
   <title>Safety, Security, and Data Protection Considerations</title>
@@ -581,7 +896,7 @@
 
     <orderedlist continuation="restarts" inheritnum="ignore">
       <listitem>
-        <para>It is a conformant [XLIFF-2.2-part2] (or later) document.</para>
+        <para>It is a conformant [XLIFF-2.3-part2] (or later) document.</para>
       </listitem>
       <listitem>
         <para>Every stored translation memory entry is represented as an XLIFF
@@ -689,9 +1004,9 @@
 
     <bibliography>
       <title/>
-      <bibliomixed id="xliff22part2"><abbrev>XLIFF-2.2-part2</abbrev> XLIFF Version 2.2 Part 2:
-        Extended. Edited by Rodolfo M. Raya and Lucía Morado Vázquez. 13 March 2025. OASIS
-        Committee Specification. <citetitle><ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.2/xliff-v2.2-part2-extended.html">https://docs.oasis-open.org/xliff/xliff-core/v2.2/xliff-v2.2-part2-extended.html</ulink></citetitle>.</bibliomixed>
+      <bibliomixed id="xliff23part2"><abbrev>XLIFF-2.3-part2</abbrev> XLIFF Version 2.3 Part 2:
+        Extended. Edited by Rodolfo M. Raya and Lucía Morado Vázquez. 8 July 2026. OASIS
+        Committee Specification Draft 01. <citetitle><ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-v2.3-part2-extended.html">https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-v2.3-part2-extended.html</ulink></citetitle>.</bibliomixed>
 
       <bibliomixed id="rfc2119"><abbrev>RFC2119</abbrev> S. Bradner. <title>Key words for use
           in RFCs to Indicate Requirement Levels</title>. March 1997. <citetitle><ulink url="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</ulink></citetitle>.</bibliomixed>

@@ -22,6 +22,15 @@
     while still allowing a translation memory covering many languages to be exchanged as a
     single unit.</para>
 
+  <para>A multilingual translation memory is rarely built from a single source language: it
+    typically accumulates from projects extracted from whatever source language each originating
+    document happened to use. Accordingly, the files in a package are not required to share a
+    common <code>srcLang</code>. A single package MAY combine bilingual files representing any
+    number of independent source/target language pairs, for example an
+    <code>en-es.xlf</code> file alongside an unrelated <code>fr-de.xlf</code> file, with the
+    manifest simply recording the <code>srcLang</code> and <code>trgLang</code> that each file
+    declares.</para>
+
   <section id="packageStructure">
     <title>Package Structure</title>
 
@@ -30,9 +39,10 @@
 
     <itemizedlist>
       <listitem>
-        <para>One or more bilingual XLIFF files, each conforming to [XLIFF-2.2-part2] or later,
-          sharing a common <code>srcLang</code> and each declaring its own
-          <code>trgLang</code>.</para>
+        <para>One or more bilingual XLIFF files, each conforming to [XLIFF-2.3-part2] or later,
+          each independently declaring its own <code>srcLang</code> and <code>trgLang</code>.
+          Files in the same package are not required to share a common
+          <code>srcLang</code>.</para>
       </listitem>
       <listitem>
         <para>A single manifest file, described in <olink targetdoc="exchange.xml"
@@ -41,26 +51,43 @@
       </listitem>
     </itemizedlist>
 
-    <para>Corresponding translation units across the language-pair files in a package SHOULD
-      use the same <code>&lt;unit&gt;</code> <code>id</code> value (and, where segmented, the
-      same <code>&lt;segment&gt;</code> <code>id</code> value) so that a consumer can align
-      entries for the same source content across target languages. This mirrors, at the
-      package level, the alignment that a multilingual <code>&lt;tu&gt;</code> provides in a
-      single TMX file.</para>
+    <para>The XLIFF files in a package are not required to sit at the root of the archive. They
+      MAY instead be organized into any folder structure the package author finds convenient, for
+      example one folder per language pair. The manifest's <code>href</code> value for each file
+      gives that file's actual path within the package, so a consumer locates every file through
+      the manifest rather than by assuming a particular layout.</para>
+
+    <para>Where two or more files in a package share the same <code>srcLang</code> and were
+      extracted from the same source content, corresponding translation units across those
+      files SHOULD use the same <code>&lt;unit&gt;</code> <code>id</code> value (and, where
+      segmented, the same <code>&lt;segment&gt;</code> <code>id</code> value), so that a
+      consumer can align entries for the same source content across target languages. This
+      mirrors, at the package level, the alignment that a multilingual <code>&lt;tu&gt;</code>
+      provides in a single TMX file for that case. This alignment applies only among files that
+      share a source: it does not extend across files with different <code>srcLang</code>
+      values, whose <code>&lt;unit&gt;</code> and <code>&lt;segment&gt;</code> <code>id</code>
+      values are independent of one another.</para>
   </section>
 
   <section id="manifestFile">
     <title>Manifest File</title>
 
     <para>The manifest is an XML file, named <code>manifest.xml</code>, placed at the root of
-      the package. It lists each XLIFF file contained in the package together with its source
-      and target language.</para>
+      the package. It lists each XLIFF file contained in the package, together with its source
+      and target language, using an <code>href</code> value that gives the file's path within
+      the package.</para>
 
-    <programlisting><![CDATA[<tmPackage xmlns="urn:oasis:names:tc:xliff:tm-manifest:1.0" version="1.0">
-  <file href="en-es.xlf" srcLang="en" trgLang="es"/>
-  <file href="en-fr.xlf" srcLang="en" trgLang="fr"/>
-  <file href="en-de.xlf" srcLang="en" trgLang="de"/>
-</tmPackage>]]></programlisting>
+    <programlisting>&lt;tmPackage xmlns="urn:oasis:names:tc:xliff:tm-manifest:1.0" version="1.0"&gt;
+  &lt;file href="en-es.xlf" srcLang="en" trgLang="es"/&gt;
+  &lt;file href="en-fr.xlf" srcLang="en" trgLang="fr"/&gt;
+  &lt;file href="fr-de.xlf" srcLang="fr" trgLang="de"/&gt;
+&lt;/tmPackage&gt;</programlisting>
+
+    <para>A manifest is not required to declare the same <code>srcLang</code> for every file it
+      lists, as the third entry above illustrates: <code>en-es.xlf</code> and
+      <code>en-fr.xlf</code> both originate from English source content, while
+      <code>fr-de.xlf</code> is an unrelated bilingual file with French as its source
+      language.</para>
 
     <para><emphasis>The manifest namespace, element and attribute names, and XML Schema shown
       above are provisional and subject to review by the OASIS XLIFF TC before this Note
@@ -70,19 +97,50 @@
   <section id="exchangeExample">
     <title>Example</title>
 
-    <para>A translation memory covering English source content with Spanish, French, and
-      German target content would be packaged as:</para>
+    <para>A translation memory accumulated from an English-source project translated into
+      Spanish and French, together with an unrelated project whose source was French and whose
+      target was German, would be packaged as:</para>
 
     <programlisting>tm-package.zip
 ├── manifest.xml
 ├── en-es.xlf
 ├── en-fr.xlf
-└── en-de.xlf</programlisting>
+└── fr-de.xlf</programlisting>
 
-    <para>Each of <code>en-es.xlf</code>, <code>en-fr.xlf</code>, and <code>en-de.xlf</code> is
+    <para>Each of <code>en-es.xlf</code>, <code>en-fr.xlf</code>, and <code>fr-de.xlf</code> is
       an ordinary bilingual XLIFF document as described in <olink targetdoc="tmFormat.xml"
         targetptr="tmFormat">XLIFF as a Translation Memory Format</olink>, and each can be
       consumed independently by a tool that only needs one language pair, or together by a tool
-      that reads <code>manifest.xml</code> to reconstruct the full multilingual set.</para>
+      that reads <code>manifest.xml</code> to reconstruct the full set. <code>en-es.xlf</code>
+      and <code>en-fr.xlf</code> share a common source language and MAY be aligned by
+      <code>&lt;unit&gt;</code> and <code>&lt;segment&gt;</code> <code>id</code> as described in
+      <olink targetdoc="exchange.xml" targetptr="packageStructure">Package Structure</olink>;
+      <code>fr-de.xlf</code> has no source language in common with the other two files and is
+      not part of that alignment.</para>
+
+    <para>As described in <olink targetdoc="exchange.xml" targetptr="packageStructure">Package
+        Structure</olink>, the same three files MAY instead be organized into one folder per
+      language pair:</para>
+
+    <programlisting>tm-package.zip
+├── manifest.xml
+├── en-es/
+│   └── en-es.xlf
+├── en-fr/
+│   └── en-fr.xlf
+└── fr-de/
+    └── fr-de.xlf</programlisting>
+
+    <para>with the manifest updated to match:</para>
+
+    <programlisting>&lt;tmPackage xmlns="urn:oasis:names:tc:xliff:tm-manifest:1.0" version="1.0"&gt;
+  &lt;file href="en-es/en-es.xlf" srcLang="en" trgLang="es"/&gt;
+  &lt;file href="en-fr/en-fr.xlf" srcLang="en" trgLang="fr"/&gt;
+  &lt;file href="fr-de/fr-de.xlf" srcLang="fr" trgLang="de"/&gt;
+&lt;/tmPackage&gt;</programlisting>
+
+    <para>Both layouts are valid and equivalent: a conformant consumer resolves every file
+      through the <code>href</code> value recorded in the manifest rather than by assuming
+      either layout.</para>
   </section>
 </section>

@@ -16,7 +16,7 @@
 
     <orderedlist>
       <listitem>
-        <para>It is a conformant [XLIFF-2.2-part2] (or later) document.</para>
+        <para>It is a conformant [XLIFF-2.3-part2] (or later) document.</para>
       </listitem>
       <listitem>
         <para>Every stored translation memory entry is represented as an XLIFF

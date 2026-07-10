@@ -9,8 +9,8 @@
 <!ENTITY name "xliff-tm">
 <!ENTITY stage "cnd01">
 <!ENTITY standard "Committee Note Draft 01">
-<!ENTITY pubdate "8 July 2025">
-<!ENTITY pubyear "2025">
+<!ENTITY pubdate "8 July 2026">
+<!ENTITY pubyear "2026">
 
 ]>
 
@@ -96,11 +96,11 @@
 
       <itemizedlist spacing="compact">
         <listitem>
-          <para><emphasis role="strong">[XLIFF-2.2-part2]</emphasis> XLIFF Version 2.2 Part 2:
-            Extended. Edited by Rodolfo M. Raya and Lucía Morado Vázquez 13 March 2025. OASIS
-            Committee Specification. <ulink
-              url="https://docs.oasis-open.org/xliff/xliff-core/v2.2/xliff-v2.2-part2-extended.html"
-              >https://docs.oasis-open.org/xliff/xliff-core/v2.2/xliff-v2.2-part2-extended.html</ulink>.</para>
+          <para><emphasis role="strong">[XLIFF-2.3-part2]</emphasis> XLIFF Version 2.3 Part 2:
+            Extended. Edited by Rodolfo M. Raya and Lucía Morado Vázquez 8 July 2026. OASIS
+            Committee Specification Draft 01. <ulink
+              url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-v2.3-part2-extended.html"
+              >https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-v2.3-part2-extended.html</ulink>.</para>
         </listitem>
         <listitem>
           <para><emphasis role="strong">[TMX 1.4b]</emphasis> Translation Memory eXchange (TMX)
@@ -152,6 +152,7 @@
   <xi:include href="introduction.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
   <xi:include href="tmFormat.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
   <xi:include href="exchange.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+  <xi:include href="implementation.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
   <xi:include href="safety.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
   <xi:include href="conformance.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
 

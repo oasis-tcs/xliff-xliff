@@ -49,7 +49,7 @@
       only be related to each other through external conversion, never through direct inclusion.
       This also means TMX content cannot participate in XLIFF's own extension and modularization
       mechanisms, such as the Translation Candidates module (<code>mtc:matches</code>, see
-      [XLIFF-2.2-part2]), which is designed to hold XLIFF-native
+      [XLIFF-2.3-part2]), which is designed to hold XLIFF-native
       <code>&lt;source&gt;</code>/<code>&lt;target&gt;</code> pairs as leveraging matches inside
       a unit.</para>
 

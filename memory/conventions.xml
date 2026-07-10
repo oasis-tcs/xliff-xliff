@@ -23,7 +23,7 @@
       <code>&lt;unit&gt;</code>. XML attribute names are shown in fixed-width type without
       brackets, for example <code>id</code>. XML namespace prefixes used in examples
       (<code>xlf:</code>, <code>mtc:</code>, <code>pvn:</code>) follow the conventions
-      established in [XLIFF-2.2-part2] and the XLIFF 2.3 Provenance module. Example XML is shown
+      established in [XLIFF-2.3-part2] and the XLIFF 2.3 Provenance module. Example XML is shown
       in fenced code blocks and is illustrative; it is not necessarily complete or
       schema-valid.</para>
   </section>

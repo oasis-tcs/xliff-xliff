@@ -18,14 +18,14 @@
 
       <variablelist>
         <varlistentry>
-          <term>Unit [XLIFF-2.2-part2]</term>
+          <term>Unit [XLIFF-2.3-part2]</term>
           <listitem>
             <para>"A <code>&lt;unit&gt;</code> MAY contain both source and target content,
               allowing bilingual data to be stored."</para>
           </listitem>
         </varlistentry>
         <varlistentry>
-          <term>Segment [XLIFF-2.2-part2]</term>
+          <term>Segment [XLIFF-2.3-part2]</term>
           <listitem>
             <para>The <code>&lt;segment&gt;</code> element, used to represent the smallest unit
               of translatable content addressed for translation, review, or other
