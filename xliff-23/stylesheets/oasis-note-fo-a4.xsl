@@ -668,7 +668,14 @@
 </xsl:template>
 
 <xsl:template match="appendix" mode="object.title.template">
-  <xsl:text>Appendix </xsl:text>
+  <xsl:choose>
+    <xsl:when test="@role='informative'">
+      <xsl:text>Appendix </xsl:text>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:text>Annex </xsl:text>
+    </xsl:otherwise>
+  </xsl:choose>
   <xsl:apply-imports/>
 </xsl:template>
 

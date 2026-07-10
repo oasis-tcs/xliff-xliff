@@ -5,8 +5,11 @@
 %xinclude;
 
 ]>
-<appendix role="informative" id="changeTracking">
+<appendix role="informative" label="2" id="changeTracking">
   <title>Changes From Previous Version</title>
+
+  <para>(This appendix does not form an integral part of this document and is
+    informational.)</para>
 
   <para>None. This is the first published draft of this document.</para>
 

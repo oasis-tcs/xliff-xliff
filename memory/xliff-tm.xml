@@ -154,7 +154,6 @@
   <xi:include href="exchange.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
   <xi:include href="implementation.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
   <xi:include href="safety.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
-  <xi:include href="conformance.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
 
   <!-- Annexes (normative, integral part of this document) -->
   <xi:include href="annexA.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>

@@ -11,7 +11,7 @@
   <para>Translation memory content frequently originates from source documents that were never
     intended for public redistribution, and may contain personal data or confidential business
     information carried over from the original text. Storing that content as plain XLIFF,
-    rather than as an opaque TM database, does not change its sensitivity; implementers SHOULD
+    rather than as an opaque TM database, does not change its sensitivity; implementers should
     apply the same access controls, storage protections, and redistribution policies to
     XLIFF-based TM files and packages as they would to any other document containing the same
     source content.</para>
@@ -19,15 +19,15 @@
   <para>The Provenance module attributes described in <olink targetdoc="tmFormat.xml"
       targetptr="provenanceMetadata">Provenance Metadata for Translation Memory Entries</olink>,
     in particular <code>person</code>, can themselves constitute personal data about the
-    translators and reviewers who worked on the content. Implementers SHOULD consider
+    translators and reviewers who worked on the content. Implementers should consider
     applicable data protection requirements (such as consent and retention limits) before
     populating, storing, or exchanging <code>person</code> values in translation memory data,
-    and MAY omit <code>person</code> in favor of <code>agent</code>, <code>organization</code>,
+    and may omit <code>person</code> in favor of <code>agent</code>, <code>organization</code>,
     or <code>tool</code> where individual identification is not required.</para>
 
   <para>Translation memory exchange packages, as described in <olink targetdoc="exchange.xml"
       targetptr="exchange">Exchange of Multilingual Translation Memory Data</olink>, are
-    ordinary ZIP archives. Implementations that unpack them SHOULD apply the same precautions
+    ordinary ZIP archives. Implementations that unpack them should apply the same precautions
     recommended for processing any untrusted ZIP archive, including validating that archive
     entries do not escape the intended extraction directory (path traversal) and guarding
     against archives crafted to consume excessive disk space or memory when decompressed.</para>

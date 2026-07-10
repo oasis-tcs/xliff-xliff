@@ -539,7 +539,7 @@
         </xsl:if>
 
         <xsl:if test="$apps">
-          <h3>Appendixes</h3>
+          <h3>Annexes and Appendixes</h3>
 
           <xsl:element name="{$toc.list.type}">
             <xsl:apply-templates select="$apps" mode="toc"/>
@@ -552,7 +552,14 @@
 </xsl:template>
 
 <xsl:template match="appendix" mode="object.title.template">
-  <xsl:text>Appendix </xsl:text>
+  <xsl:choose>
+    <xsl:when test="@role='informative'">
+      <xsl:text>Appendix </xsl:text>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:text>Annex </xsl:text>
+    </xsl:otherwise>
+  </xsl:choose>
   <xsl:apply-imports/>
 </xsl:template>
 

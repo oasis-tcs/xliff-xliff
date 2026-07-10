@@ -55,6 +55,75 @@
     </itemizedlist>
   </section>
 
+  <section id="entryGranularity">
+    <title>Entry Granularity and Segment Integrity</title>
+
+    <para>The reusable translation memory entry is the <code>&lt;unit&gt;</code>. A unit's
+      reusable content is its complete source and its complete target, and it is the unit, not
+      any individual segment, that a consumer stores, matches against, and reuses. A single
+      <code>&lt;unit&gt;</code> may be divided into more than one <code>&lt;segment&gt;</code>,
+      but that division is a subdivision of the entry for translation and display, not a set of
+      independent entries. The enclosing <code>&lt;group&gt;</code> and <code>&lt;file&gt;</code>
+      are retained as context and as carriers of metadata and provenance, as described in <olink
+        targetdoc="tmFormat.xml" targetptr="structuralOrder">Structural Order and Segment
+        Context</olink> and <olink targetdoc="tmFormat.xml"
+        targetptr="provenanceMetadata">Provenance Metadata for Translation Memory
+        Entries</olink>.</para>
+
+    <para>To obtain the source and target content of a unit, a consumer reassembles the unit's
+      <code>&lt;segment&gt;</code> and <code>&lt;ignorable&gt;</code> children: the source is the
+      concatenation of their <code>&lt;source&gt;</code> content in document order, and the
+      target is the concatenation of their <code>&lt;target&gt;</code> content in the order
+      defined below. Within each <code>&lt;segment&gt;</code>, the <code>&lt;target&gt;</code> is
+      the translation of that same segment's <code>&lt;source&gt;</code>; this per-segment
+      pairing is established by their common parent <code>&lt;segment&gt;</code> element, and a
+      tool preserves it when reassembling a unit rather than pairing source and target
+      content by position.</para>
+
+    <para>XLIFF Core defines an <code>order</code> attribute on <code>&lt;target&gt;</code>
+      that gives the position of a segment's target when the targets of a unit are composed into
+      the unit's complete target content [XLIFF-2.3-part2]. When <code>order</code> is absent, a
+      target composes in the position of its sibling <code>&lt;source&gt;</code>; when it is
+      present, the target is placed elsewhere in the composed output, which lets a translator
+      reorder content that the target language requires in a different sequence than the source.
+      A harvester preserves the <code>order</code> attribute on any unit it stores, and a
+      consumer that composes a unit's target content honors it, taking the source in document
+      order and the target in <code>order</code> order. The <code>order</code> attribute governs
+      composition only: it is not used to pair a source with a different segment's
+      target.</para>
+
+    <programlisting>&lt;unit id="tm-0501"&gt;
+  &lt;segment&gt;
+    &lt;source&gt;Insert the card.&lt;/source&gt;
+    &lt;target order="2"&gt;Introduzca su PIN.&lt;/target&gt;
+  &lt;/segment&gt;
+  &lt;segment&gt;
+    &lt;source&gt;Then enter your PIN.&lt;/source&gt;
+    &lt;target order="1"&gt;Primero, inserte la tarjeta.&lt;/target&gt;
+  &lt;/segment&gt;
+&lt;/unit&gt;</programlisting>
+
+    <para>In this illustrative unit the translator has reversed the two sentences: the unit's
+      composed target reads "Primero, inserte la tarjeta. Introduzca su PIN." even though its
+      composed source reads "Insert the card. Then enter your PIN." The per-segment pairing is
+      still intact: the first segment's target, "Introduzca su PIN.", is the translation of its
+      own source, "Insert the card." A tool that reassembled the unit by pairing source and
+      target content positionally would produce a corrupted entry; a tool that respects
+      <code>&lt;segment&gt;</code> membership and honors <code>order</code> reconstructs the unit
+      correctly.</para>
+
+    <para>Segmentation itself is not a fixed property of stored content. The
+      <code>canResegment</code> attribute defaults to <code>yes</code>, and a unit's
+      <code>&lt;segment&gt;</code> and <code>&lt;ignorable&gt;</code> children reassemble, as
+      described above, into the complete source and target content of the unit. The way a unit is
+      divided into segments is therefore a reversible view over stable unit content rather than a
+      characteristic a consumer must be told about in advance: a consumer can reassemble a unit
+      and re-segment it under its own rules to normalize before matching, and two stores that
+      segmented the same content differently can be reconciled without loss. This is an advantage
+      over an exchange format that fixes a single segmentation granularity at export time and
+      cannot recover any other.</para>
+  </section>
+
   <section id="harvesting">
     <title>Harvesting Translation Memory Entries</title>
 
@@ -64,24 +133,28 @@
       <code>&lt;unit&gt;</code> and <code>&lt;segment&gt;</code> elements, unchanged, into the
       store.</para>
 
-    <para>Only <code>&lt;segment&gt;</code> elements whose <code>state</code> attribute [XLIFF-2.3-part2]
-      is set to <code>final</code> SHOULD be harvested into a translation memory store by
-      default. The <code>initial</code>, <code>translated</code>, and <code>reviewed</code>
-      values of <code>state</code> represent work still in progress; storing a segment in one of
-      those states as reusable translation memory risks propagating unreviewed or incomplete
-      translations into unrelated future projects. A segment that carries no <code>state</code>
-      attribute, which defaults to <code>initial</code>, is likewise not eligible for
-      harvesting. An implementation MAY instead apply a configurable minimum state threshold, for
-      example accepting both <code>reviewed</code> and <code>final</code> segments, provided the
+    <para>Because the reusable entry is the <code>&lt;unit&gt;</code>, as described in <olink
+        targetdoc="tmFormat.xml" targetptr="entryGranularity">Entry Granularity and Segment
+        Integrity</olink>, harvesting operates on whole units. By default, a
+      <code>&lt;unit&gt;</code> is harvested into a translation memory store only when
+      every one of its <code>&lt;segment&gt;</code> elements carries a <code>state</code>
+      attribute [XLIFF-2.3-part2] set to <code>final</code>. The <code>initial</code>,
+      <code>translated</code>, and <code>reviewed</code> values of <code>state</code> represent
+      work still in progress; storing a unit in which any segment is in one of those states as
+      reusable translation memory risks propagating unreviewed or incomplete translations into
+      unrelated future projects. A segment that carries no <code>state</code> attribute, which
+      defaults to <code>initial</code>, likewise disqualifies its unit from harvesting. An
+      implementation can instead apply a configurable minimum state threshold, for example
+      accepting a unit whose segments are all at least <code>reviewed</code>, provided the
       threshold it used is disclosed to whoever queries the resulting store.</para>
 
     <para>Because the same project file may be harvested more than once, for example after a
-      partial re-export, an implementation SHOULD derive a stable identifier for each harvested
+      partial re-export, an implementation typically derives a stable identifier for each harvested
       entry from values that do not change between harvests, such as the enclosing
-      <code>&lt;file&gt;</code> <code>id</code> (or <code>original</code> attribute), the
-      <code>&lt;unit&gt;</code> <code>id</code>, and the segment's position within the unit.
-      Deriving entry identifiers this way keeps harvesting idempotent: re-harvesting an unchanged
-      file does not create duplicate entries in the store.</para>
+      <code>&lt;file&gt;</code> <code>id</code> (or <code>original</code> attribute) and the
+      <code>&lt;unit&gt;</code> <code>id</code>. Deriving entry identifiers this way keeps
+      harvesting idempotent: re-harvesting an unchanged file does not create duplicate entries in
+      the store.</para>
 
     <para>Because harvesting is a filter rather than a transformation, it does not conflict with
       the "No conversion" design principle in <olink targetdoc="tmFormat.xml"
@@ -188,7 +261,7 @@
       <code>&lt;pvn:change&gt;</code> elements, not only the most recent one. When an XLIFF
       document is harvested into a TM store, as described in <olink targetdoc="tmFormat.xml"
         targetptr="harvesting">Harvesting Translation Memory Entries</olink>, the harvesting
-      agent SHOULD preserve the complete <code>&lt;pvn:provenance&gt;</code> element associated
+      agent preserves the complete <code>&lt;pvn:provenance&gt;</code> element associated
       with the harvested unit or segment, rather than collapsing it to a summary of the current
       state. Preserving the full chain lets a TM consumer evaluate the lineage of a translation:
       for example, a consumer can filter a search to entries whose chain includes a

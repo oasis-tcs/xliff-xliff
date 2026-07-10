@@ -11,7 +11,7 @@
   <para>This section is informative and does not define conformance requirements. It describes
     practical, non-mandatory approaches for creating and querying a translation memory store as
     described in <olink targetdoc="tmFormat.xml" targetptr="tmFormat">XLIFF as a Translation
-    Memory Format</olink>. Implementers MAY use either of these approaches, a combination of
+    Memory Format</olink>. Implementers may use either of these approaches, a combination of
     them, or an approach not described here; this document does not mandate a particular storage
     or retrieval technology.</para>
 
@@ -176,7 +176,7 @@ tm-1001  original=app/ui-strings.json   "Download your certificate before the en
       entry's <code>&lt;pvn:provenance&gt;</code> chain, described in <olink
         targetdoc="tmFormat.xml" targetptr="provenanceMetadata">Provenance Metadata for
         Translation Memory Entries</olink>, includes a <code>&lt;pvn:usage&gt;</code> element,
-      implementers SHOULD map its text value alongside its <code>usageUnit</code> attribute as
+      implementers should map its text value alongside its <code>usageUnit</code> attribute as
       additional metadata fields on the indexed vector. Because <code>&lt;pvn:usage&gt;</code>
       records the computational cost of producing a change, for example the number of tokens a
       machine translation agent consumed to generate a target, a similarity search can then

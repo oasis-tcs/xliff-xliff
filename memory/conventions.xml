@@ -8,14 +8,6 @@
 <section id="documentConventions">
   <title>Document Conventions</title>
 
-  <section id="keyWords">
-    <title>Key Words</title>
-
-    <para>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD
-      NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as
-      described in <olink targetdoc="annexB.xml" targetptr="rfc2119">[RFC2119]</olink>.</para>
-  </section>
-
   <section id="typographicalConventions">
     <title>Typographical Conventions</title>
 

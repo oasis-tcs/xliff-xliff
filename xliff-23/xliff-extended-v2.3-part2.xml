@@ -9481,13 +9481,13 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
             &lt;pvn:provenance>
                 &lt;pvn:change agent="Google Translate" appliesTo="target"
                     timestamp="2026-05-05T21:06:00.000Z">
-                    &lt;pvn:usage usageUnit="characters">66&lt;/pvn:usage>
+                    &lt;pvn:usage usageUnit="character">66&lt;/pvn:usage>
                     &lt;pvn:value>O seu certificado anual de impostos está 
                       dispoñible para descarga.&lt;/pvn:value>
                 &lt;/pvn:change>
                 &lt;pvn:change appliesTo="its:locQualityRatingScore"
                     agent="TAUS MTQE" timestamp="2026-05-05T21:07:00.000Z">
-                    &lt;pvn:usage usageUnit="characters">66&lt;/pvn:usage>
+                    &lt;pvn:usage usageUnit="character">66&lt;/pvn:usage>
                     &lt;pvn:value>0.968&lt;/pvn:value>
                 &lt;/pvn:change>
                 &lt;pvn:change agent="gpt-5.5" appliesTo="target"
@@ -9514,7 +9514,7 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
 
     <section>
         <title>Provenance Information Mapping</title>
-        <para>Thet table below provides a summary of the provenance information supported by XLIFF
+        <para>The table below provides a summary of the provenance information supported by XLIFF
             2.x Core and the Provenance module. For completeness, XLIFF 1.2 is also provided as a
             legacy reference.</para>
         <informaltable>
