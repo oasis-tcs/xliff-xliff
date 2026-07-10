@@ -24,7 +24,7 @@
   <programlisting>
 &lt;unit id="1"&gt;
   &lt;pvn:provenance&gt;
-    &lt;pvn:change agent="Google Translate" <emphasis role="bold">organization="OASIS"</emphasis>/&gt;
+    &lt;pvn:change agent="Google Translate" <emphasis role="bold">organization="OASIS"</emphasis> appliesTo="target"/&gt;
   &lt;/pvn:provenance&gt;
   &lt;segment&gt;
     &lt;source&gt;Your annual tax certificate is now available for 

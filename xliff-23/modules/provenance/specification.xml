@@ -130,22 +130,22 @@
         &lt;unit id="1" its:locQualityRatingScore="0.968"&gt;
             &lt;pvn:provenance&gt;
                 &lt;pvn:change agent="Google Translate" appliesTo="target"
-                    timestamp="2026-05-05T21:06:00:00.000Z"&gt;
+                    timestamp="2026-05-05T21:06:00.000Z"&gt;
                     &lt;pvn:usage usageUnit="characters"&gt;66&lt;/pvn:usage&gt;
                     &lt;pvn:value&gt;O seu certificado anual de impostos está 
                       dispoñible para descarga.&lt;/pvn:value&gt;
                 &lt;/pvn:change&gt;
                 &lt;pvn:change appliesTo="its:locQualityRatingScore"
-                    agent="TAUS MTQE" timestamp="2026-05-05T21:07:00:00.000Z"&gt;
-                    &lt;pvn:usage unit="characters"&gt;66&lt;/pvn:usage&gt;
+                    agent="TAUS MTQE" timestamp="2026-05-05T21:07:00.000Z"&gt;
+                    &lt;pvn:usage usageUnit="characters"&gt;66&lt;/pvn:usage&gt;
                     &lt;pvn:value&gt;0.968&lt;/pvn:value&gt;
                 &lt;/pvn:change&gt;
                 &lt;pvn:change agent="gpt-5.5" appliesTo="target"
-                    timestamp="2026-05-05T21:08:00:00.000Z"
+                    timestamp="2026-05-05T21:08:00.000Z"
                     intent="This version sounds slightly smoother and more 
                     idiomatic: 'para descargar' is often preferred over 
                     'para descarga' in everyday usage."&gt;
-                    &lt;pvn:usage unit="tokens"&gt;45&lt;/pvn:usage&gt;
+                    &lt;pvn:usage usageUnit="token"&gt;45&lt;/pvn:usage&gt;
                     &lt;pvn:value&gt;O seu certificado anual de impostos xa está 
                         dispoñible para descargar.&lt;/pvn:value&gt;
                 &lt;/pvn:change&gt;

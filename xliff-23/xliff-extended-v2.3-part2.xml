@@ -10,9 +10,9 @@
 
     <productnumber>csd01</productnumber>
 
-    <releaseinfo role="OASIS-specification-this-authoritative">https://docs.oasis-open.org/xliff/xliff-core/v2.3/cs01/xliff-extended-v2.3-cs01-part2.html</releaseinfo>
-    <releaseinfo role="OASIS-specification-this">https://docs.oasis-open.org/xliff/xliff-core/v2.3/cs01/xliff-extended-v2.3-cs01-part2.pdf</releaseinfo>
-    <releaseinfo role="OASIS-specification-this">https://docs.oasis-open.org/xliff/xliff-core/v2.3/cs01/xliff-extended-v2.3-cs01-part2.xml</releaseinfo>
+    <releaseinfo role="OASIS-specification-this-authoritative">https://docs.oasis-open.org/xliff/xliff-core/v2.3/csd01/xliff-extended-v2.3-cs01-part2.html</releaseinfo>
+    <releaseinfo role="OASIS-specification-this">https://docs.oasis-open.org/xliff/xliff-core/v2.3/csd01/xliff-extended-v2.3-cs01-part2.pdf</releaseinfo>
+    <releaseinfo role="OASIS-specification-this">https://docs.oasis-open.org/xliff/xliff-core/v2.3/csd01/xliff-extended-v2.3-cs01-part2.xml</releaseinfo>
 
     <releaseinfo role="OASIS-specification-previous-authoritative">https://docs.oasis-open.org/xliff/xliff-core/v2.2/xliff-extended-v2.2-part2.html</releaseinfo>
     <releaseinfo role="OASIS-specification-previous">https://docs.oasis-open.org/xliff/xliff-core/v2.2/xliff-extended-v2.2-part2.pdf</releaseinfo>
@@ -699,9 +699,9 @@
 |
 +---<link linkend="metadata"><code>&lt;mda:metadata></code></link> ?
 | |
-| +---<link linkend="metagroup"><code>&lt;mda:metagroup></code></link> +
+| +---<link linkend="metagroup"><code>&lt;mda:metaGroup></code></link> +
 |   |
-|   +---At least one of (<link linkend="metagroup"><code>&lt;mda:metagroup></code></link> OR <link linkend="meta"><code>&lt;mda:meta></code></link>) 
+|   +---At least one of (<link linkend="metagroup"><code>&lt;mda:metaGroup></code></link> OR <link linkend="meta"><code>&lt;mda:meta></code></link>) 
 |
 +---<link linkend="file"><code>&lt;file></code></link> +
   |
@@ -1409,8 +1409,7 @@
   <note>
     <para>It is possible although not advised to use <link linkend="ph">&lt;ph></link> to mask non
       translatable inline content. The preferred way of protecting portions of inline content from
-      translation is the Core <link linkend="translateAnnotation">Translate Annotation</link>.
-      See also discussion in the <remark>ITS Module section on        representing translatability inline</remark>. </para>
+      translation is the Core <link linkend="translateAnnotation">Translate Annotation</link>.</para>
   </note>
 </section>
 
@@ -9318,7 +9317,7 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
   <programlisting format="linespecific">
 &lt;unit id="1">
   &lt;pvn:provenance>
-    &lt;pvn:change agent="Google Translate" <emphasis role="bold">organization="OASIS"</emphasis>/>
+    &lt;pvn:change agent="Google Translate" <emphasis role="bold">organization="OASIS"</emphasis> appliesTo="target"/>
   &lt;/pvn:provenance>
   &lt;segment>
     &lt;source>Your annual tax certificate is now available for 
@@ -9454,8 +9453,8 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
 &lt;unit id="1">
   &lt;pvn:provenance>
     &lt;pvn:change agent="gpt-5.5" appliesTo="target" 
-        timestamp="2026-05-05T21:08:00Z">
-      &lt;pvn:usage <emphasis role="bold">usageUnit="tokens"</emphasis>>45&lt;/pvn:usage>
+        timestamp="2026-05-05T21:08:00.000Z">
+      &lt;pvn:usage <emphasis role="bold">usageUnit="token"</emphasis>>45&lt;/pvn:usage>
     &lt;/pvn:change>
   &lt;/pvn:provenance>
   &lt;segment>
@@ -9481,22 +9480,22 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
         &lt;unit id="1" its:locQualityRatingScore="0.968">
             &lt;pvn:provenance>
                 &lt;pvn:change agent="Google Translate" appliesTo="target"
-                    timestamp="2026-05-05T21:06:00:00.000Z">
+                    timestamp="2026-05-05T21:06:00.000Z">
                     &lt;pvn:usage usageUnit="characters">66&lt;/pvn:usage>
                     &lt;pvn:value>O seu certificado anual de impostos está 
                       dispoñible para descarga.&lt;/pvn:value>
                 &lt;/pvn:change>
                 &lt;pvn:change appliesTo="its:locQualityRatingScore"
-                    agent="TAUS MTQE" timestamp="2026-05-05T21:07:00:00.000Z">
-                    &lt;pvn:usage unit="characters">66&lt;/pvn:usage>
+                    agent="TAUS MTQE" timestamp="2026-05-05T21:07:00.000Z">
+                    &lt;pvn:usage usageUnit="characters">66&lt;/pvn:usage>
                     &lt;pvn:value>0.968&lt;/pvn:value>
                 &lt;/pvn:change>
                 &lt;pvn:change agent="gpt-5.5" appliesTo="target"
-                    timestamp="2026-05-05T21:08:00:00.000Z"
+                    timestamp="2026-05-05T21:08:00.000Z"
                     intent="This version sounds slightly smoother and more 
                     idiomatic: 'para descargar' is often preferred over 
                     'para descarga' in everyday usage.">
-                    &lt;pvn:usage unit="tokens">45&lt;/pvn:usage>
+                    &lt;pvn:usage usageUnit="token">45&lt;/pvn:usage>
                     &lt;pvn:value>O seu certificado anual de impostos xa está 
                         dispoñible para descargar.&lt;/pvn:value>
                 &lt;/pvn:change>

@@ -22,11 +22,11 @@
     <productnumber>&stage;</productnumber>
 
     <releaseinfo role="OASIS-specification-this-authoritative"
-      >https://docs.oasis-open.org/xliff/xliff-core/v&version;/cs01/xliff-core-v&version;-cs01-part1.html</releaseinfo>
+      >https://docs.oasis-open.org/xliff/xliff-core/v&version;/&stage;/xliff-core-v&version;-part1.html</releaseinfo>
     <releaseinfo role="OASIS-specification-this"
-      >https://docs.oasis-open.org/xliff/xliff-core/v&version;/cs01/xliff-core-v&version;-cs01-part1.pdf</releaseinfo>
+      >https://docs.oasis-open.org/xliff/xliff-core/v&version;/&stage;/xliff-core-v&version;-part1.pdf</releaseinfo>
     <releaseinfo role="OASIS-specification-this"
-      >https://docs.oasis-open.org/xliff/xliff-core/v&version;/cs01/xliff-core-v&version;-cs01-part1.xml</releaseinfo>
+      >https://docs.oasis-open.org/xliff/xliff-core/v&version;/&stage;/xliff-core-v&version;-part1.xml</releaseinfo>
 
     <releaseinfo role="OASIS-specification-previous-authoritative"
       >https://docs.oasis-open.org/xliff/xliff-core/v&pversion;/xliff-core-v&pversion;-part1.html</releaseinfo>

@@ -10,9 +10,9 @@
 
     <productnumber>csd01</productnumber>
 
-    <releaseinfo role="OASIS-specification-this-authoritative">https://docs.oasis-open.org/xliff/xliff-core/v2.3/cs01/xliff-core-v2.3-cs01-part1.html</releaseinfo>
-    <releaseinfo role="OASIS-specification-this">https://docs.oasis-open.org/xliff/xliff-core/v2.3/cs01/xliff-core-v2.3-cs01-part1.pdf</releaseinfo>
-    <releaseinfo role="OASIS-specification-this">https://docs.oasis-open.org/xliff/xliff-core/v2.3/cs01/xliff-core-v2.3-cs01-part1.xml</releaseinfo>
+    <releaseinfo role="OASIS-specification-this-authoritative">https://docs.oasis-open.org/xliff/xliff-core/v2.3/csd01/xliff-core-v2.3-part1.html</releaseinfo>
+    <releaseinfo role="OASIS-specification-this">https://docs.oasis-open.org/xliff/xliff-core/v2.3/csd01/xliff-core-v2.3-part1.pdf</releaseinfo>
+    <releaseinfo role="OASIS-specification-this">https://docs.oasis-open.org/xliff/xliff-core/v2.3/csd01/xliff-core-v2.3-part1.xml</releaseinfo>
 
     <releaseinfo role="OASIS-specification-previous-authoritative">https://docs.oasis-open.org/xliff/xliff-core/v2.2/xliff-core-v2.2-part1.html</releaseinfo>
     <releaseinfo role="OASIS-specification-previous">https://docs.oasis-open.org/xliff/xliff-core/v2.2/xliff-core-v2.2-part1.pdf</releaseinfo>
@@ -700,9 +700,9 @@
 |
 +---<remark><code>&lt;mda:metadata></code></remark> ?
 | |
-| +---<remark><code>&lt;mda:metagroup></code></remark> +
+| +---<remark><code>&lt;mda:metaGroup></code></remark> +
 |   |
-|   +---At least one of (<remark><code>&lt;mda:metagroup></code></remark> OR <remark><code>&lt;mda:meta></code></remark>) 
+|   +---At least one of (<remark><code>&lt;mda:metaGroup></code></remark> OR <remark><code>&lt;mda:meta></code></remark>) 
 |
 +---<link linkend="file"><code>&lt;file></code></link> +
   |
@@ -1410,8 +1410,7 @@
   <note>
     <para>It is possible although not advised to use <link linkend="ph">&lt;ph></link> to mask non
       translatable inline content. The preferred way of protecting portions of inline content from
-      translation is the Core <link linkend="translateAnnotation">Translate Annotation</link>.
-      See also discussion in the <remark>ITS Module section on        representing translatability inline</remark>. </para>
+      translation is the Core <link linkend="translateAnnotation">Translate Annotation</link>.</para>
   </note>
 </section>
 

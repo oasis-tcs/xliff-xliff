@@ -31,8 +31,8 @@
 &lt;unit id="1"&gt;
   &lt;pvn:provenance&gt;
     &lt;pvn:change agent="gpt-5.5" appliesTo="target" 
-        timestamp="2026-05-05T21:08:00Z"&gt;
-      &lt;pvn:usage <emphasis role="bold">usageUnit="tokens"</emphasis>&gt;45&lt;/pvn:usage&gt;
+        timestamp="2026-05-05T21:08:00.000Z"&gt;
+      &lt;pvn:usage <emphasis role="bold">usageUnit="token"</emphasis>&gt;45&lt;/pvn:usage&gt;
     &lt;/pvn:change&gt;
   &lt;/pvn:provenance&gt;
   &lt;segment&gt;

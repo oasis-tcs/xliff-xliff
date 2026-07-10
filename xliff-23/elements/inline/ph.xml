@@ -123,8 +123,6 @@
   <note>
     <para>It is possible although not advised to use <link linkend="ph">&lt;ph></link> to mask non
       translatable inline content. The preferred way of protecting portions of inline content from
-      translation is the Core <olink targetptr="translateAnnotation">Translate Annotation</olink>.
-      See also discussion in the <olink targetptr="Translate_Inline">ITS Module section on
-        representing translatability inline</olink>. </para>
+      translation is the Core <olink targetptr="translateAnnotation">Translate Annotation</olink>.</para>
   </note>
 </section>
