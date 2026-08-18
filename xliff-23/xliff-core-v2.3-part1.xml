@@ -75,7 +75,7 @@
       </editor>
     </authorgroup>
 
-    <pubdate>9 August 2026</pubdate>
+    <pubdate>18 August 2026</pubdate>
 
     <copyright>
       <year>2026</year>
@@ -108,7 +108,7 @@
       <para>When referencing this document, the following citation format should be used:</para>
       <para><emphasis role="strong">[XLIFF-2.3-part1]</emphasis></para>
       <para>XLIFF Version 2.3 Part 1:Core. Edited by Rodolfo M. Raya and Lucía Morado Vázquez
-        9 August 2026. OASIS Committee Specification Draft 01. <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-v2.3-part1-core.html">https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-v2.3-part1-core.html</ulink>.
+        18 August 2026. OASIS Committee Specification Draft 01. <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-v2.3-part1-core.html">https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-v2.3-part1-core.html</ulink>.
         Latest stage <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-v2.3-part1-core.html">https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-v2.3-part1-core.html</ulink>.
       </para>
     </legalnotice>
@@ -126,7 +126,7 @@
   <section id="scope">
   <title>Scope</title>
 
-  <para>XLIFF is the <emphasis>XML Localization Interchange File Format</emphasis> designed by a
+  <para>XLIFF is the <emphasis>XML Localisation Interchange File Format</emphasis> designed by a
     group of multilingual content publishers, software providers, localization service providers,
     localization tools providers, and researchers. It is intended to give any multilingual content
     owner a single interchange file format that can be understood by any localization provider,

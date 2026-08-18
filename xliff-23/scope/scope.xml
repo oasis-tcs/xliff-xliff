@@ -11,7 +11,7 @@
 <section id="scope">
   <title>Scope</title>
 
-  <para>XLIFF is the <emphasis>XML Localization Interchange File Format</emphasis> designed by a
+  <para>XLIFF is the <emphasis>XML Localisation Interchange File Format</emphasis> designed by a
     group of multilingual content publishers, software providers, localization service providers,
     localization tools providers, and researchers. It is intended to give any multilingual content
     owner a single interchange file format that can be understood by any localization provider,

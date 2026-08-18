@@ -33,7 +33,7 @@
     <section>
         <title>Module Specification</title>
         <para>The Provenance module defines 4 elements and 9 attributes that enable the embedding of
-            provenance metadata directly within XLIFF CORE elements. In the XLIFF context,
+            provenance metadata directly within XLIFF Core elements. In the XLIFF context,
             provenance data is usually associated with two key aspects: the origin of the source
             content and the information about the localisation process applied to it. For example,
             it will allow you to include information about when the original content was extracted,
@@ -42,14 +42,14 @@
     <section>
         <title>Module Elements</title>
         <para>The elements defined in the provenance module are <olink
-                targetdoc="../elements/provenance/change.xml" targetptr="change"
-                    ><code>&lt;change&gt;</code></olink>, <olink
                 targetdoc="../elements/provenance/provenance.xml" targetptr="provenance_element"
                     ><code>&lt;provenance&gt;</code></olink>, <olink
-                targetdoc="../elements/provenance/usage.xml" targetptr="usage"
-                    ><code>&lt;usage&gt;</code></olink> and <olink
+                targetdoc="../elements/provenance/change.xml" targetptr="change"
+                    ><code>&lt;change&gt;</code></olink>, <olink
                 targetdoc="../elements/provenance/value.xml" targetptr="provenance_value"
-                    ><code>&lt;value&gt;</code></olink>.</para>
+                    ><code>&lt;value&gt;</code></olink> and <olink
+                targetdoc="../elements/provenance/usage.xml" targetptr="usage"
+                    ><code>&lt;usage&gt;</code></olink>.</para>
         <section>
             <title>Tree Structure</title>
             <para>Legend:</para>
@@ -117,7 +117,7 @@
         <xi:include href="../../attributes/provenance/usageUnit.xml"
             xmlns:xi="http://www.w3.org/2001/XInclude"/>
     </section>
-    
+
     <section>
         <title>Full Example</title>
         <programlisting>

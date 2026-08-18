@@ -75,7 +75,7 @@
       </editor>
     </authorgroup>
 
-    <pubdate>9 August 2026</pubdate>
+    <pubdate>18 August 2026</pubdate>
 
     <copyright>
       <year>2026</year>
@@ -108,7 +108,7 @@
       <para>When referencing this document, the following citation format should be used:</para>
       <para><emphasis role="strong">[XLIFF-2.3-part2]</emphasis></para>
       <para>XLIFF Version 2.3 Part 2: Extended. Edited by Rodolfo M. Raya and Lucía Morado
-        Vázquez 9 August 2026. OASIS Committee Specification Draft 01. <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-v2.3-part2-extended.html">https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-v2.3-part2-extended.html</ulink>.
+        Vázquez 18 August 2026. OASIS Committee Specification Draft 01. <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-v2.3-part2-extended.html">https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-v2.3-part2-extended.html</ulink>.
         Latest stage <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-v2.3-part2-extended.html">https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-v2.3-part2-extended.html</ulink>.
       </para>
     </legalnotice>
@@ -125,7 +125,7 @@
   <section id="scope">
   <title>Scope</title>
 
-  <para>XLIFF is the <emphasis>XML Localization Interchange File Format</emphasis> designed by a
+  <para>XLIFF is the <emphasis>XML Localisation Interchange File Format</emphasis> designed by a
     group of multilingual content publishers, software providers, localization service providers,
     localization tools providers, and researchers. It is intended to give any multilingual content
     owner a single interchange file format that can be understood by any localization provider,
@@ -9113,7 +9113,7 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
     <section>
         <title>Module Specification</title>
         <para>The Provenance module defines 4 elements and 9 attributes that enable the embedding of
-            provenance metadata directly within XLIFF CORE elements. In the XLIFF context,
+            provenance metadata directly within XLIFF Core elements. In the XLIFF context,
             provenance data is usually associated with two key aspects: the origin of the source
             content and the information about the localisation process applied to it. For example,
             it will allow you to include information about when the original content was extracted,
@@ -9121,7 +9121,7 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
     </section>
     <section>
         <title>Module Elements</title>
-        <para>The elements defined in the provenance module are <link linkend="change"><code>&lt;change></code></link>, <link linkend="provenance_element"><code>&lt;provenance></code></link>, <link linkend="usage"><code>&lt;usage></code></link> and <link linkend="provenance_value"><code>&lt;value></code></link>.</para>
+        <para>The elements defined in the provenance module are <link linkend="provenance_element"><code>&lt;provenance></code></link>, <link linkend="change"><code>&lt;change></code></link>, <link linkend="provenance_value"><code>&lt;value></code></link> and <link linkend="usage"><code>&lt;usage></code></link>.</para>
         <section>
             <title>Tree Structure</title>
             <para>Legend:</para>
@@ -9225,21 +9225,26 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
         <section id="agent">
   <title>agent</title>
 
-  <para>Identifies the system agent that performed a specific localization task, for example an MT engine that
-    automatically translated the content of a given <link linkend="change"><code>&lt;change></code></link>.</para>
+  <para>Identifies the system agent that performed a specific localization task, for example an MT
+    engine that automatically translated the content of a given <link linkend="change">          </link>.</para>
 
   <para><emphasis>Value description:</emphasis> Text.</para>
 
   <para><emphasis>Default value:</emphasis> undefined</para>
 
-  <para><emphasis>Used in:</emphasis> <link linkend="change"><code>&lt;change></code></link>.</para>
+  <para><emphasis>Used in:</emphasis> <link linkend="change">          </link>.</para>
 
-  <para><emphasis>Example:</emphasis></para>
+  <para>
+    <emphasis>Example:</emphasis>
+  </para>
 
   <programlisting format="linespecific">
 &lt;unit id="1">
   &lt;pvn:provenance>
-    &lt;pvn:change <emphasis role="bold">agent="Google Translate"</emphasis> appliesTo="target"/>
+    &lt;pvn:change <emphasis role="bold">agent="Google Translate"</emphasis> appliesTo="target">
+       &lt;pvn:value>O seu certificado anual de impostos está 
+                      dispoñible para descarga.&lt;/pvn:value>
+    &lt;/pvn:change>
   &lt;/pvn:provenance>
   &lt;segment>
     &lt;source>Your annual tax certificate is now available for 
@@ -9253,22 +9258,26 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
         <section id="provenance_appliesTo">
   <title>appliesTo</title>
 
-  <para>Indicates the element or attribute to which the content of a <link linkend="change"><code>&lt;change></code></link> applies.</para>
+  <para>Indicates the element or attribute to which the content of a <link linkend="change">          </link> applies.</para>
 
-  <para><emphasis>Value description:</emphasis> Text. The name of an XLIFF Core element or
-    attribute (for example <code>target</code>), or the QName-qualified name of an attribute from
-    another namespace (for example <code>its:locQualityRatingScore</code>).</para>
+  <para><emphasis>Value description:</emphasis> Text. The name of an XLIFF Core element or attribute
+    (for example <code>target</code>), or the QName-qualified name of an attribute from another
+    namespace (for example <code>its:locQualityRatingScore</code>).</para>
 
   <para><emphasis>Default value:</emphasis> undefined</para>
 
-  <para><emphasis>Used in:</emphasis> <link linkend="change"><code>&lt;change></code></link>. REQUIRED.</para>
+  <para><emphasis>Used in:</emphasis> <link linkend="change">          </link>. REQUIRED.</para>
 
-  <para><emphasis>Example:</emphasis></para>
+  <para>
+    <emphasis>Example:</emphasis>
+  </para>
 
   <programlisting format="linespecific">
 &lt;unit id="1" its:locQualityRatingScore="0.968">
   &lt;pvn:provenance>
-    &lt;pvn:change agent="TAUS MTQE" <emphasis role="bold">appliesTo="its:locQualityRatingScore"</emphasis>/>
+    &lt;pvn:change agent="TAUS MTQE" <emphasis role="bold">appliesTo="its:locQualityRatingScore"</emphasis>>
+      &lt;pvn:value>0.968&lt;/pvn:value>
+    &lt;/pvn:change>
   &lt;/pvn:provenance>
   &lt;segment>
     &lt;source>Your annual tax certificate is now available for 
@@ -9282,15 +9291,17 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
         <section id="intent">
   <title>intent</title>
 
-  <para>Rationale for a <link linkend="change"><code>&lt;change></code></link>.</para>
+  <para>Rationale for a <link linkend="change">          </link>.</para>
 
   <para><emphasis>Value description:</emphasis> Text.</para>
 
   <para><emphasis>Default value:</emphasis> undefined</para>
 
-  <para><emphasis>Used in:</emphasis> <link linkend="change"><code>&lt;change></code></link>.</para>
+  <para><emphasis>Used in:</emphasis> <link linkend="change">          </link>.</para>
 
-  <para><emphasis>Example:</emphasis></para>
+  <para>
+    <emphasis>Example:</emphasis>
+  </para>
 
   <programlisting format="linespecific">
 &lt;unit id="1">
@@ -9298,7 +9309,10 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
     &lt;pvn:change agent="gpt-5.5" appliesTo="target"
       <emphasis role="bold">intent="This version sounds slightly smoother and more idiomatic: 
       'para descargar' is often preferred over 'para descarga' in 
-      everyday usage."</emphasis>/>
+      everyday usage."</emphasis>>
+         &lt;pvn:value>O seu certificado anual de impostos está 
+                      dispoñible para descarga.&lt;/pvn:value>
+    &lt;/pvn:change>
   &lt;/pvn:provenance>
   &lt;segment>
     &lt;source>Your annual tax certificate is now available for 
@@ -9312,21 +9326,26 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
         <section id="organization">
   <title>organization</title>
 
-  <para>Identifies the organization that has mandated or commissioned the localization task
-    recorded by a <link linkend="change"><code>&lt;change></code></link>.</para>
+  <para>Identifies the organization that has mandated or commissioned the localization task recorded
+    by a <link linkend="change">          </link>.</para>
 
   <para><emphasis>Value description:</emphasis> Text.</para>
 
   <para><emphasis>Default value:</emphasis> undefined</para>
 
-  <para><emphasis>Used in:</emphasis> <link linkend="change"><code>&lt;change></code></link>.</para>
+  <para><emphasis>Used in:</emphasis> <link linkend="change">          </link>.</para>
 
-  <para><emphasis>Example:</emphasis></para>
+  <para>
+    <emphasis>Example:</emphasis>
+  </para>
 
   <programlisting format="linespecific">
 &lt;unit id="1">
   &lt;pvn:provenance>
-    &lt;pvn:change agent="Google Translate" <emphasis role="bold">organization="OASIS"</emphasis> appliesTo="target"/>
+    &lt;pvn:change agent="Google Translate" <emphasis role="bold">organization="OASIS"</emphasis> appliesTo="target">
+      &lt;pvn:value>O seu certificado anual de impostos está 
+                      dispoñible para descarga.&lt;/pvn:value>
+    &lt;/pvn:change>
   &lt;/pvn:provenance>
   &lt;segment>
     &lt;source>Your annual tax certificate is now available for 
@@ -9340,21 +9359,25 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
         <section id="person">
   <title>person</title>
 
-  <para>Identifies the person that performed a specific localization task recorded by a
-    <link linkend="change"><code>&lt;change></code></link>.</para>
+  <para>Identifies the person that performed a specific localization task recorded by a <link linkend="change">          </link>.</para>
 
   <para><emphasis>Value description:</emphasis> Text.</para>
 
   <para><emphasis>Default value:</emphasis> undefined</para>
 
-  <para><emphasis>Used in:</emphasis> <link linkend="change"><code>&lt;change></code></link>.</para>
+  <para><emphasis>Used in:</emphasis> <link linkend="change">          </link>.</para>
 
-  <para><emphasis>Example:</emphasis></para>
+  <para>
+    <emphasis>Example:</emphasis>
+  </para>
 
   <programlisting format="linespecific">
 &lt;unit id="1">
   &lt;pvn:provenance>
-    &lt;pvn:change <emphasis role="bold">person="Anxela Loureiro"</emphasis> appliesTo="target"/>
+    &lt;pvn:change <emphasis role="bold">person="Anxela Loureiro"</emphasis> appliesTo="target">
+      &lt;pvn:value>O seu certificado anual de impostos está 
+                      dispoñible para descarga.&lt;/pvn:value>
+    &lt;/pvn:change>
   &lt;/pvn:provenance>
   &lt;segment>
     &lt;source>Your annual tax certificate is now available for 
@@ -9379,22 +9402,27 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
         <section id="tool">
   <title>tool</title>
 
-  <para>Identifies the name of the localization tool used to create or modify the content
-    described by a <link linkend="change"><code>&lt;change></code></link>.</para>
+  <para>Identifies the name of the localization tool used to create or modify the content described
+    by a <link linkend="change">          </link>.</para>
 
   <para><emphasis>Value description:</emphasis> Text.</para>
 
   <para><emphasis>Default value:</emphasis> undefined</para>
 
-  <para><emphasis>Used in:</emphasis> <link linkend="change"><code>&lt;change></code></link>.</para>
+  <para><emphasis>Used in:</emphasis> <link linkend="change">          </link>.</para>
 
-  <para><emphasis>Example:</emphasis></para>
+  <para>
+    <emphasis>Example:</emphasis>
+  </para>
 
   <programlisting format="linespecific">
 &lt;unit id="1">
   &lt;pvn:provenance>
     &lt;pvn:change person="Anxela Loureiro" <emphasis role="bold">tool="Swordfish"</emphasis> 
-      appliesTo="target"/>
+      appliesTo="target">
+      &lt;pvn:value>O seu certificado anual de impostos está 
+                      dispoñible para descarga.&lt;/pvn:value>
+    &lt;/pvn:change>
   &lt;/pvn:provenance>
   &lt;segment id="s1">
     &lt;source>Your annual tax certificate is now available for 
@@ -9408,27 +9436,31 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
         <section id="timestamp">
   <title>timestamp</title>
 
-  <para>Indicates when the modification recorded by a <link linkend="change"><code>&lt;change></code></link> was made.</para>
+  <para>Indicates when the modification recorded by a <link linkend="change">          </link> was made.</para>
 
-  <para><emphasis>Value description:</emphasis> Date in <remark>[ISO 8601]</remark> format, including milliseconds. The recommended
-    pattern is <code>YYYY-MM-DDThh:mm:ss.sssZ</code>, where <code>YYYY</code> is the year (4
-    digits), <code>MM</code> is the month (2 digits), <code>DD</code> is the day (2 digits),
-    <code>hh</code> is the hours (2 digits), <code>mm</code> is the minutes (2 digits),
-    <code>ss</code> is the seconds (2 digits), <code>sss</code> is the milliseconds (3 digits), and
-    <code>Z</code> indicates the time is UTC. For example:
-    <code>timestamp="2026-01-25T21:06:00.000Z"</code>.</para>
+  <para><emphasis>Value description:</emphasis> Date in <remark>[ISO 8601]</remark> format, including milliseconds. The recommended pattern
+    is <code>YYYY-MM-DDThh:mm:ss.sssZ</code>, where <code>YYYY</code> is the year (4 digits), <code>
+    MM</code> is the month (2 digits), <code>DD</code> is the day (2 digits), <code>hh</code> is the
+    hours (2 digits), <code>mm</code> is the minutes (2 digits), <code>ss</code> is the seconds (2
+    digits), <code>sss</code> is the milliseconds (3 digits), and <code>Z</code> indicates the time
+    is UTC. For example: <code>timestamp="2026-01-25T21:06:00.000Z"</code>.</para>
 
   <para><emphasis>Default value:</emphasis> undefined</para>
 
-  <para><emphasis>Used in:</emphasis> <link linkend="change"><code>&lt;change></code></link>.</para>
+  <para><emphasis>Used in:</emphasis> <link linkend="change">          </link>.</para>
 
-  <para><emphasis>Example:</emphasis></para>
+  <para>
+    <emphasis>Example:</emphasis>
+  </para>
 
   <programlisting format="linespecific">
 &lt;unit id="1">
   &lt;pvn:provenance>
     &lt;pvn:change agent="Google Translate" appliesTo="target"
-      <emphasis role="bold">timestamp="2026-01-01T21:06:00.000Z"</emphasis>/>
+      <emphasis role="bold">timestamp="2026-01-01T21:06:00.000Z"</emphasis>>
+      &lt;pvn:value>O seu certificado anual de impostos está 
+                      dispoñible para descarga.&lt;/pvn:value>
+    &lt;/pvn:change>
   &lt;/pvn:provenance>
   &lt;segment>
     &lt;source>Your annual tax certificate is now available for 
@@ -9442,27 +9474,31 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
         <section id="usageUnit">
   <title>usageUnit</title>
 
-  <para>Describes the unit used to express the cost or size information recorded by a <link linkend="usage"><code>&lt;usage></code></link> element.</para>
+  <para>Describes the unit used to express the cost or size information recorded by a <link linkend="usage">          </link> element.</para>
 
-  <para><emphasis>Value description:</emphasis> One of the following values: <code>word</code>,
-    <code>character</code>, <code>token</code>, or a user-defined value composed of a prefix and a
+  <para><emphasis>Value description:</emphasis> One of the following values: <code>word</code>, <code>
+    character</code>, <code>token</code>, or a user-defined value composed of a prefix and a
     sub-value separated by a character <code>:</code> (U+003A).</para>
 
   <para>The prefix is a string uniquely identifying a collection of sub-values for a specific
-    authority. The sub-value is any string value defined by the authority. The prefix
-    <code>xlf</code> is reserved.</para>
+    authority. The sub-value is any string value defined by the authority. The prefix <code>xlf</code>
+    is reserved.</para>
 
   <para><emphasis>Default value:</emphasis> undefined</para>
 
-  <para><emphasis>Used in:</emphasis> <link linkend="usage"><code>&lt;usage></code></link>. REQUIRED.</para>
+  <para><emphasis>Used in:</emphasis> <link linkend="usage">          </link>. REQUIRED.</para>
 
-  <para><emphasis>Example:</emphasis></para>
+  <para>
+    <emphasis>Example:</emphasis>
+  </para>
 
   <programlisting format="linespecific">
 &lt;unit id="1">
   &lt;pvn:provenance>
     &lt;pvn:change agent="gpt-5.5" appliesTo="target" 
         timestamp="2026-05-05T21:08:00.000Z">
+      &lt;pvn:value>O seu certificado anual de impostos está 
+                      dispoñible para descarga.&lt;/pvn:value>
       &lt;pvn:usage <emphasis role="bold">usageUnit="token"</emphasis>>45&lt;/pvn:usage>
     &lt;/pvn:change>
   &lt;/pvn:provenance>
@@ -9476,7 +9512,7 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
 </programlisting>
 </section>
     </section>
-    
+
     <section>
         <title>Full Example</title>
         <programlisting format="linespecific">
