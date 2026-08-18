@@ -1,31 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.docbook.org/xml/4.5/docbookx.dtd" [
-<!ENTITY % xinclude SYSTEM "../../docbook/xinclude.mod">
-%xinclude;
-<!ENTITY % local.common.attrib "xml:base CDATA #IMPLIED">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.docbook.org/xml/4.5/docbookx.dtd" [
+  <!ENTITY % xinclude SYSTEM "../../docbook/xinclude.mod">
+  %xinclude;
+  <!ENTITY % local.common.attrib "xml:base CDATA #IMPLIED">
 ]>
 <section id="agent">
   <title>agent</title>
 
-  <para>Identifies the system agent that performed a specific localization task, for example an MT engine that
-    automatically translated the content of a given <olink
+  <para>Identifies the system agent that performed a specific localization task, for example an MT
+    engine that automatically translated the content of a given <olink
       targetdoc="../../elements/provenance/change.xml" targetptr="change"
-        ><code>&lt;change&gt;</code></olink>.</para>
+    >
+      <code>&lt;change&gt;</code>
+    </olink>.</para>
 
   <para><emphasis>Value description:</emphasis> Text.</para>
 
   <para><emphasis>Default value:</emphasis> undefined</para>
 
   <para><emphasis>Used in:</emphasis> <olink targetdoc="../../elements/provenance/change.xml"
-      targetptr="change"><code>&lt;change&gt;</code></olink>.</para>
+      targetptr="change">
+      <code>&lt;change&gt;</code>
+    </olink>.</para>
 
-  <para><emphasis>Example:</emphasis></para>
+  <para>
+    <emphasis>Example:</emphasis>
+  </para>
 
   <programlisting>
 &lt;unit id="1"&gt;
   &lt;pvn:provenance&gt;
-    &lt;pvn:change <emphasis role="bold">agent="Google Translate"</emphasis> appliesTo="target"/&gt;
+    &lt;pvn:change <emphasis role="bold">agent="Google Translate"</emphasis> appliesTo="target"&gt;
+       &lt;pvn:value&gt;O seu certificado anual de impostos está 
+                      dispoñible para descarga.&lt;/pvn:value&gt;
+    &lt;/pvn:change&gt;
   &lt;/pvn:provenance&gt;
   &lt;segment&gt;
     &lt;source&gt;Your annual tax certificate is now available for 

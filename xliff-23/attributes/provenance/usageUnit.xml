@@ -1,37 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.docbook.org/xml/4.5/docbookx.dtd" [
-<!ENTITY % xinclude SYSTEM "../../docbook/xinclude.mod">
-%xinclude;
-<!ENTITY % local.common.attrib "xml:base CDATA #IMPLIED">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.docbook.org/xml/4.5/docbookx.dtd" [
+  <!ENTITY % xinclude SYSTEM "../../docbook/xinclude.mod">
+  %xinclude;
+  <!ENTITY % local.common.attrib "xml:base CDATA #IMPLIED">
 ]>
 <section id="usageUnit">
   <title>usageUnit</title>
 
   <para>Describes the unit used to express the cost or size information recorded by a <olink
       targetdoc="../../elements/provenance/usage.xml" targetptr="usage"
-        ><code>&lt;usage&gt;</code></olink> element.</para>
+    >
+      <code>&lt;usage&gt;</code>
+    </olink> element.</para>
 
-  <para><emphasis>Value description:</emphasis> One of the following values: <code>word</code>,
-    <code>character</code>, <code>token</code>, or a user-defined value composed of a prefix and a
+  <para><emphasis>Value description:</emphasis> One of the following values: <code>word</code>, <code>
+    character</code>, <code>token</code>, or a user-defined value composed of a prefix and a
     sub-value separated by a character <code>:</code> (U+003A).</para>
 
   <para>The prefix is a string uniquely identifying a collection of sub-values for a specific
-    authority. The sub-value is any string value defined by the authority. The prefix
-    <code>xlf</code> is reserved.</para>
+    authority. The sub-value is any string value defined by the authority. The prefix <code>xlf</code>
+    is reserved.</para>
 
   <para><emphasis>Default value:</emphasis> undefined</para>
 
   <para><emphasis>Used in:</emphasis> <olink targetdoc="../../elements/provenance/usage.xml"
-      targetptr="usage"><code>&lt;usage&gt;</code></olink>. REQUIRED.</para>
+      targetptr="usage">
+      <code>&lt;usage&gt;</code>
+    </olink>. REQUIRED.</para>
 
-  <para><emphasis>Example:</emphasis></para>
+  <para>
+    <emphasis>Example:</emphasis>
+  </para>
 
   <programlisting>
 &lt;unit id="1"&gt;
   &lt;pvn:provenance&gt;
     &lt;pvn:change agent="gpt-5.5" appliesTo="target" 
         timestamp="2026-05-05T21:08:00.000Z"&gt;
+      &lt;pvn:value&gt;O seu certificado anual de impostos está 
+                      dispoñible para descarga.&lt;/pvn:value&gt;
       &lt;pvn:usage <emphasis role="bold">usageUnit="token"</emphasis>&gt;45&lt;/pvn:usage&gt;
     &lt;/pvn:change&gt;
   &lt;/pvn:provenance&gt;
