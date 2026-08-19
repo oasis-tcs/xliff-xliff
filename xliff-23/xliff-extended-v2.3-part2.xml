@@ -75,7 +75,7 @@
       </editor>
     </authorgroup>
 
-    <pubdate>18 August 2026</pubdate>
+    <pubdate>19 August 2026</pubdate>
 
     <copyright>
       <year>2026</year>
@@ -108,7 +108,7 @@
       <para>When referencing this document, the following citation format should be used:</para>
       <para><emphasis role="strong">[XLIFF-2.3-part2]</emphasis></para>
       <para>XLIFF Version 2.3 Part 2: Extended. Edited by Rodolfo M. Raya and Lucía Morado
-        Vázquez 18 August 2026. OASIS Committee Specification Draft 01. <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-v2.3-part2-extended.html">https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-v2.3-part2-extended.html</ulink>.
+        Vázquez 19 August 2026. OASIS Committee Specification Draft 01. <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-v2.3-part2-extended.html">https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-v2.3-part2-extended.html</ulink>.
         Latest stage <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-v2.3-part2-extended.html">https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-v2.3-part2-extended.html</ulink>.
       </para>
     </legalnotice>
@@ -1019,7 +1019,8 @@
                 <member>- Zero or one <link linkend="glossary"><code>&lt;gls:glossary></code></link>
                     elements</member>
                 <member>- Zero or one <link linkend="metadata"><code>&lt;mda:metadata></code></link>
-                    elements</member>
+                    elements</member> 
+                <member>- Zero or one <link linkend="provenance_element"><code>&lt;pvn:provenance></code></link> elements </member>
                 <member>- Zero or one <link linkend="res_resourceData"><code>&lt;res:resourceData></code></link>
                     elements </member>
                 <member>- Zero or one <link linkend="slr_data"><code>&lt;slr:data></code></link> elements </member>

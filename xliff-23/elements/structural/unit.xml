@@ -72,7 +72,9 @@
                     elements</member>
                 <member>- Zero or one <olink targetdoc="../metadata/metadata.xml"
                         targetptr="metadata"><code>&lt;mda:metadata></code></olink>
-                    elements</member>
+                    elements</member> 
+                <member>- Zero or one <olink targetdoc="../provenance/validation.xml"
+                        targetptr="provenance_element"><code>&lt;pvn:provenance></code></olink> elements </member>
                 <member>- Zero or one <olink targetdoc="../resourceData/resourceData.xml"
                         targetptr="res_resourceData"><code>&lt;res:resourceData></code></olink>
                     elements </member>

@@ -75,7 +75,7 @@
       </editor>
     </authorgroup>
 
-    <pubdate>18 August 2026</pubdate>
+    <pubdate>19 August 2026</pubdate>
 
     <copyright>
       <year>2026</year>
@@ -108,7 +108,7 @@
       <para>When referencing this document, the following citation format should be used:</para>
       <para><emphasis role="strong">[XLIFF-2.3-part1]</emphasis></para>
       <para>XLIFF Version 2.3 Part 1:Core. Edited by Rodolfo M. Raya and Lucía Morado Vázquez
-        18 August 2026. OASIS Committee Specification Draft 01. <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-v2.3-part1-core.html">https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-v2.3-part1-core.html</ulink>.
+        19 August 2026. OASIS Committee Specification Draft 01. <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-v2.3-part1-core.html">https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-v2.3-part1-core.html</ulink>.
         Latest stage <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-v2.3-part1-core.html">https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-v2.3-part1-core.html</ulink>.
       </para>
     </legalnotice>
@@ -1020,7 +1020,8 @@
                 <member>- Zero or one <remark><code>&lt;gls:glossary></code></remark>
                     elements</member>
                 <member>- Zero or one <remark><code>&lt;mda:metadata></code></remark>
-                    elements</member>
+                    elements</member> 
+                <member>- Zero or one <remark><code>&lt;pvn:provenance></code></remark> elements </member>
                 <member>- Zero or one <remark><code>&lt;res:resourceData></code></remark>
                     elements </member>
                 <member>- Zero or one <remark><code>&lt;slr:data></code></remark> elements </member>
