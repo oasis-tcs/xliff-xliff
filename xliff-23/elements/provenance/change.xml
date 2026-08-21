@@ -11,7 +11,7 @@
         <emphasis>Contains:</emphasis>
     </para>
     <simplelist>
-        <member>- One or more<olink targetdoc="value.xml" targetptr="provenance_value"
+        <member>- One or more <olink targetdoc="value.xml" targetptr="provenance_value"
                     ><code>&lt;value&gt;</code></olink> element.</member>
         <member>- Zero or one <olink  targetdoc="usage.xml"
                 targetptr="usage"><code>&lt;usage&gt;</code></olink> element.</member>
