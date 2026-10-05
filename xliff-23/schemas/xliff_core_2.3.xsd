@@ -13,6 +13,9 @@
   <xs:import namespace="urn:oasis:names:tc:xliff:metadata:2.0" 
       schemaLocation="metadata.xsd"/>
 
+  <xs:import namespace="urn:oasis:names:tc:xliff:pgs:1.0" 
+      schemaLocation="pgs.xsd"/>
+
   <!-- Element Group -->
 
   <xs:group name="inline">
@@ -231,6 +234,7 @@
       <xs:attribute name="canResegment" use="optional" type="xlf:yesNo"/>
       <xs:attribute name="state" use="optional" type="xlf:stateType" default="initial"/>
       <xs:attribute name="subState" use="optional"/>
+      <xs:attribute ref="pgs:case" use="optional"/>
     </xs:complexType>
   </xs:element>
 
