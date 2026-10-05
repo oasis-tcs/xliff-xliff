@@ -6024,8 +6024,15 @@ Palouse horses&lt;fn>A Palouse horse is the same as
                 used in an XLIFF file by declaring the [<link linkend="ITS20">ITS</link>] namespace.</para>
         </listitem>
         <listitem>
-            <para>Updated <link linkend="version">version</link> 
-                attribute values to include 2.3. Kept 2.0, 2.1, and 2.2 for backward compatibility.</para>
+            <para>Updated <link linkend="version">version</link> attribute values to include 2.3. Kept 2.0, 2.1, and 2.2 for
+                backward compatibility.</para>
+        </listitem>
+        <listitem>
+            <para>Added new <link linkend="qualityScore">qualityScore</link> attribute to <link linkend="segment">&lt;segment></link>
+                and <link linkend="unit">                    &lt;unit></link>. </para>
+        </listitem>
+        <listitem>
+            <para>Addded missing support for <remark>pgs:case</remark> attribute in <link linkend="segment">&lt;segment></link>.</para>
         </listitem>
     </orderedlist>
     <para>In spite of the above mentioned changes, fixes, clarifications, and additions, the
