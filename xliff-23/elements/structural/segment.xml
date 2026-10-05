@@ -35,6 +35,8 @@
         ><code>state</code></olink>, OPTIONAL</member>
     <member>- <olink targetdoc="../../attributes/subState.xml" targetptr="substate"
           ><code>subState</code></olink>, OPTIONAL</member>
+    <member>- <olink targetdoc="../../attributes/qualityScore.xml" targetptr="qualityScore"
+          ><code>qualityScore</code></olink>, OPTIONAL</member>
 
     <member>- attributes from the namespace <code>urn:oasis:names:tc:xliff:pgs:1.0</code>, OPTIONAL,
       provided that the Constraints specified in the <olink

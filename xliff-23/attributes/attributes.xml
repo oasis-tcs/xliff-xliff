@@ -71,6 +71,8 @@
         ><code>original</code></olink>,
       <olink targetdoc="priority.xml" targetptr="priority"
           ><code>priority</code></olink>,
+      <olink targetdoc="qualityScore.xml" targetptr="qualityScore"
+          ><code>qualityScore</code></olink>,
       <olink targetdoc="ref.xml" targetptr="ref"
           ><code>ref</code></olink>,
 
@@ -177,6 +179,8 @@
     <xi:include href="original.xml" xmlns:xi="http://www.w3.org/2001/XInclude"></xi:include>
 
     <xi:include href="priority.xml" xmlns:xi="http://www.w3.org/2001/XInclude"></xi:include>
+
+    <xi:include href="qualityScore.xml" xmlns:xi="http://www.w3.org/2001/XInclude"></xi:include>
 
     <xi:include href="ref.xml" xmlns:xi="http://www.w3.org/2001/XInclude"></xi:include>
 

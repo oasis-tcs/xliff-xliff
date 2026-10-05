@@ -89,6 +89,13 @@
     <xs:union memberTypes="xlf:typeForMrkValues xlf:userDefinedValue"/>
   </xs:simpleType>
 
+  <xs:simpleType name="qualityScore">
+    <xs:restriction base="xs:decimal">
+      <xs:minInclusive value="0.0"/>
+      <xs:maxInclusive value="100.0"/>
+    </xs:restriction>
+  </xs:simpleType>
+
   <xs:simpleType name="priorityValue">
     <xs:restriction base="xs:positiveInteger">
       <xs:minInclusive value="1"/>
@@ -251,6 +258,7 @@
       <xs:attribute name="appliesTo" use="optional" type="xlf:appliesTo"/>
       <xs:attribute name="category" use="optional"/>
       <xs:attribute name="priority" use="optional" type="xlf:priorityValue" default="1"/>
+      <xs:attribute name="qualityScore" use="optional" type="xlf:qualityScore"/>
       <xs:attribute name="ref" use="optional" type="xs:anyURI"/>
       <xs:anyAttribute namespace="##other" processContents="lax"/>
     </xs:complexType>

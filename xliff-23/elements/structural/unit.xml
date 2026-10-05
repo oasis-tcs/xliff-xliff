@@ -45,6 +45,8 @@
                     ><code>trgDir</code></olink>, OPTIONAL</member>
         <member>- <olink targetdoc="../../attributes/xml_space.xml" targetptr="xml_space"
                     ><code>xml:space</code></olink>, OPTIONAL</member>
+        <member>- <olink targetdoc="../../attributes/qualityScore.xml" targetptr="qualityScore"
+          ><code>qualityScore</code></olink>, OPTIONAL</member>
 
         <member>- <olink targetdoc="../../attributes/type.xml" targetptr="type"
                 ><code>type</code></olink>, OPTIONAL</member>

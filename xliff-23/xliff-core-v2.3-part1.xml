@@ -75,7 +75,7 @@
       </editor>
     </authorgroup>
 
-    <pubdate>19 August 2026</pubdate>
+    <pubdate>5 October 2026</pubdate>
 
     <copyright>
       <year>2026</year>
@@ -108,7 +108,7 @@
       <para>When referencing this document, the following citation format should be used:</para>
       <para><emphasis role="strong">[XLIFF-2.3-part1]</emphasis></para>
       <para>XLIFF Version 2.3 Part 1:Core. Edited by Rodolfo M. Raya and Lucía Morado Vázquez
-        19 August 2026. OASIS Committee Specification Draft 01. <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-v2.3-part1-core.html">https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-v2.3-part1-core.html</ulink>.
+        5 October 2026. OASIS Committee Specification Draft 01. <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-v2.3-part1-core.html">https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-v2.3-part1-core.html</ulink>.
         Latest stage <ulink url="https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-v2.3-part1-core.html">https://docs.oasis-open.org/xliff/xliff-core/v2.3/xliff-v2.3-part1-core.html</ulink>.
       </para>
     </legalnotice>
@@ -998,6 +998,7 @@
         <member>- <link linkend="srcdir"><code>srcDir</code></link>, OPTIONAL</member>
         <member>- <link linkend="trgdir"><code>trgDir</code></link>, OPTIONAL</member>
         <member>- <link linkend="xml_space"><code>xml:space</code></link>, OPTIONAL</member>
+        <member>- <link linkend="qualityScore"><code>qualityScore</code></link>, OPTIONAL</member>
 
         <member>- <link linkend="type"><code>type</code></link>, OPTIONAL</member>
 
@@ -1061,6 +1062,7 @@
     <member>- <link linkend="canResegment"><code>canResegment</code></link>, OPTIONAL</member>
     <member>- <link linkend="state"><code>state</code></link>, OPTIONAL</member>
     <member>- <link linkend="substate"><code>subState</code></link>, OPTIONAL</member>
+    <member>- <link linkend="qualityScore"><code>qualityScore</code></link>, OPTIONAL</member>
 
     <member>- attributes from the namespace <code>urn:oasis:names:tc:xliff:pgs:1.0</code>, OPTIONAL,
       provided that the Constraints specified in the <remark>Plural, Gender, and Select Module</remark> are
@@ -2014,6 +2016,7 @@
       <link linkend="order"><code>order</code></link>,
       <link linkend="original"><code>original</code></link>,
       <link linkend="priority"><code>priority</code></link>,
+      <link linkend="qualityScore"><code>qualityScore</code></link>,
       <link linkend="ref"><code>ref</code></link>,
 
 
@@ -2834,6 +2837,23 @@
             the type alert. The best practice is to use only one alert per an annotated element, and
             the full scale of 2-10 can be used for prioritizing notes of lesser importance than the
             alert.</para></note>
+</section>
+
+    <section id="qualityScore">
+    <title>qualityScore</title>
+
+    <para>qualityScore - indicates the quality score of the translation.</para>
+
+    <para><emphasis>Value description:</emphasis> A decimal number between 0.0 and 100.0.</para>
+
+    <para><emphasis>Default value:</emphasis> undefined</para>
+   
+
+    <para><emphasis>Used in:</emphasis>
+        <link linkend="unit"><code>&lt;unit></code></link>,
+        <link linkend="segment"><code>&lt;segment></code></link>,
+    </para>
+
 </section>
 
     <section id="ref">
