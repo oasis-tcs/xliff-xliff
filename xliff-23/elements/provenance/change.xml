@@ -26,7 +26,7 @@
         <member>- <olink targetdoc="../../attributes/provenance/organization.xml" targetptr="organization">organization</olink>, OPTIONAL</member>
         <member>- <olink targetdoc="../../attributes/provenance/person.xml" targetptr="person">person</olink>, OPTIONAL</member>
         <member>- <olink targetdoc="../../attributes/provenance/ref.xml" targetptr="provenance_ref">ref</olink>, OPTIONAL</member>
-        <member>- <olink targetdoc="../../attributes/provenance/timestamp.xml" targetptr="timestamp">timestamp</olink>, OPTIONAL</member>
+        <member>- <olink targetdoc="../../attributes/provenance/timestamp.xml" targetptr="timestamp">timestamp</olink>, REQUIRED</member>
         <member>- <olink targetdoc="../../attributes/provenance/tool.xml" targetptr="tool">tool</olink>, OPTIONAL</member>
     </simplelist>
 </section>

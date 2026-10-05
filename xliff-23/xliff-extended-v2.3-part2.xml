@@ -9199,7 +9199,7 @@ unit <emphasis role="bold">#g_msgid_plural_gender</emphasis> <emphasis>@switch(p
         <member>- <link linkend="organization">organization</link>, OPTIONAL</member>
         <member>- <link linkend="person">person</link>, OPTIONAL</member>
         <member>- <link linkend="provenance_ref">ref</link>, OPTIONAL</member>
-        <member>- <link linkend="timestamp">timestamp</link>, OPTIONAL</member>
+        <member>- <link linkend="timestamp">timestamp</link>, REQUIRED</member>
         <member>- <link linkend="tool">tool</link>, OPTIONAL</member>
     </simplelist>
 </section>

@@ -47,7 +47,7 @@
       <xs:attribute name="organization" use="optional"/>
       <xs:attribute name="person" use="optional"/>
       <xs:attribute name="ref" use="optional" type="xs:anyURI"/>
-      <xs:attribute name="timestamp" use="optional" type="xs:dateTime"/>
+      <xs:attribute name="timestamp" use="required" type="xs:dateTime"/>
       <xs:attribute name="tool" use="optional"/>
       <xs:anyAttribute namespace="##other" processContents="lax"/>
     </xs:complexType>
